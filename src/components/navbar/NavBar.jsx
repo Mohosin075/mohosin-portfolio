@@ -5,9 +5,9 @@ const NavBar = () => {
   const [show, setShow] = useState(false);
   return (
     <>
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-base-200">
         <div className="flex-1">
-          <a className="btn btn-ghost normal-case text-xl">mohosin</a>
+          <span className="text-3xl">mohosin</span>
         </div>
         <div className={`flex-none hidden md:block`}>
           {
@@ -17,6 +17,9 @@ const NavBar = () => {
               </li>
               <li>
                 <Link to="/about">About me</Link>
+              </li>
+              <li>
+                <Link to="/projects">Projects</Link>
               </li>
               <li>
                 <Link to="/contact">Contact me</Link>
@@ -37,9 +40,9 @@ const NavBar = () => {
         </div>
       </div>
       {show && (
-        <div className="absolute top-0 left-0 bg-gray-700 text-white right-0 bottom-0 ">
-          <div className="flex justify-between items-center">
-            <a className="btn btn-ghost normal-case text-xl">mohosin</a>
+        <div className="absolute top-0 left-0 bg-gray-700 text-white right-0 bottom-0 transition-all duration-100 ease-in-out">
+          <div className="flex justify-between items-center ml-4">
+            <span className="text-3xl">mohosin</span>
             <div className="my-6 mx-6">
               <FaWindowClose onClick={() => setShow(!show)} />
             </div>
@@ -51,6 +54,9 @@ const NavBar = () => {
               </li>
               <li onClick={() => setShow(!show)}>
                 <Link to="/about">About me</Link>
+              </li>
+              <li onClick={() => setShow(!show)}>
+              <Link to="/projects">Projects</Link>
               </li>
               <li onClick={() => setShow(!show)}>
                 <Link to="/contact">Contact me</Link>
