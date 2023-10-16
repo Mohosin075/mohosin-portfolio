@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import { TypeAnimation } from "react-type-animation";
 import { FaArrowRight} from "react-icons/fa";
+import Projects from "../projects/Projects";
+import Contact from "../contact/Contact";
 const Home = () => {
   return (
-    <div className="w-10/12 mx-auto ">
+    <div>
+      <div className="w-10/12 mx-auto ">
         <div className="text-center mt-5 md:mt-10">
         <a href="https://drive.google.com/file/d/1dXv08KxpYKvmkNj8yNvIVvQi1ujzn4kP/view?usp=sharing"><button className="btn mb-5 hover:translate-y-1 transition-all">Download Resume</button></a>
         </div>
@@ -36,12 +39,17 @@ const Home = () => {
       </div>
       <div className="md:w-1/3">
         <img className="rounded-full"
-          src="https://i.ibb.co/4pMfKnp/Whats-App-Image-2023-07-04-at-20-55-01.jpg"
+          src="https://scontent.fdac24-3.fna.fbcdn.net/v/t39.30808-6/361644734_814889220343418_9103034117218873356_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeFW6prJO9otsEXFqm7Ol-IweJBQtlJvY9t4kFC2Um9j2zmXzU7gGMJuB71y-lTJre2sZiTH-e-v5AcRIheVMFt7&_nc_ohc=dcHZQMcJbX0AX_xZp_z&_nc_ht=scontent.fdac24-3.fna&oh=00_AfDhgGYY1xca2BHrvfBLh5OSmJag3XVWs3sRsuOgryGS5Q&oe=6532015E"
           alt=""
         />
       </div>
     </div>
     <Link to="/about" className="hover:underline hover:translate-x-4 transition-all flex my-5 items-center">See more about me <span className="ml-3"><FaArrowRight /></span></Link>
+    </div>
+    <div className="mt-20">
+    <Projects></Projects>
+    </div>
+    <Contact></Contact>
     </div>
   );
 };

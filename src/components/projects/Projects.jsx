@@ -9,7 +9,7 @@ const Projects = () => {
     },[])
     return (
         <div className="md:w-10/12 mx-auto mt-5 md:mt-10">
-            <h2 className="text-3xl font-bold mb-10 ml-8">My Projects</h2>
+            <h2 className="text-3xl font-bold">My Projects</h2>
             <div className="space-y-16">
             {
                 projects.map(project=><div key={project.id} className="card md:card-side bg-base-100 shadow-xl">
