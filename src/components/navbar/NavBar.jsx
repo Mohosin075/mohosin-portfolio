@@ -5,7 +5,7 @@ const NavBar = () => {
   const [show, setShow] = useState(false);
   return (
     <>
-      <div className="navbar bg-base-200">
+      <div className="navbar">
         <div className="flex-1">
           <span className="text-3xl"><Link><img className="w-16 cursor-pointer rounded-lg" src="https://i.ibb.co/0GLTPyR/logo-pdf.jpg" alt="" /></Link></span>
         </div>
@@ -29,27 +29,27 @@ const NavBar = () => {
         </div>
         <div className={`flex-none block md:hidden`}>
           {
-            <ul className="menu px-1">
+            <ul className="menu px-1 cursor-pointer">
               {show ? (
                 <FaWindowClose onClick={() => setShow(!show)} />
               ) : (
-                <FaBars className="text-2xl" onClick={() => setShow(!show)} />
+                <FaBars className="text-2xl cursor-pointer" onClick={() => setShow(!show)} />
               )}
             </ul>
           }
         </div>
       </div>
       {show && (
-        <div className="absolute top-0 left-0 bg-gray-700 z-50 text-white right-0 bottom-0 transition-all duration-100 ease-in-out">
+        <div className="absolute top-0 left-0 bg-gray-100 z-50 text-white right-0 bottom-0 transition-all duration-100 ease-in-out">
           <div className="flex justify-between items-center ml-4">
             <span className="text-3xl"><Link><img className="w-16 cursor-pointer rounded-lg" src="https://i.ibb.co/0GLTPyR/logo-pdf.jpg" alt="" /></Link></span>
-            <div className="my-6 mx-6">
+            <div className="my-6 mx-6 cursor-pointer text-black">
               <FaWindowClose className="text-3xl" onClick={() => setShow(!show)} />
             </div>
           </div>
           <hr className="w-11/12 mx-auto border-gray-400"/>
           {
-            <ul className="menu px-1">
+            <ul className="menu px-1 text-black">
               <li onClick={() => setShow(!show)}>
                 <Link to="/">Home</Link>
               </li>
