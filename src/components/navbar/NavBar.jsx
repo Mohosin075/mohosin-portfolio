@@ -1,76 +1,40 @@
-import { useState } from "react";
-import { FaBars, FaWindowClose } from "react-icons/fa";
-import { Link } from "react-router-dom";
-const NavBar = () => {
-  const [show, setShow] = useState(false);
+import Logo from "./Logo";
+import { NavLink } from "react-router-dom";
+import { ListItem } from "../../utils/constant";
+import Profile from "./Profile";
+
+const Navbar = () => {
+  const pathname = "home";
   return (
-    <>
-      <div className="navbar">
-        <div className="flex-1">
-          <span className="text-3xl"><Link><img className="w-16 cursor-pointer rounded-lg" src="https://i.ibb.co/0GLTPyR/logo-pdf.jpg" alt="" /></Link></span>
-        </div>
-        <div className={`flex-none hidden md:block`}>
-          {
-            <ul className="menu menu-horizontal px-1">
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/about">About me</Link>
-              </li>
-              <li>
-                <Link to="/projects">Projects</Link>
-              </li>
-              <li>
-                <Link to="/contact">Contact me</Link>
-              </li>
-            </ul>
-          }
-        </div>
-        <div className={`flex-none block md:hidden`}>
-          {
-            <ul className="menu px-1 cursor-pointer">
-              {show ? (
-                <FaWindowClose onClick={() => setShow(!show)} />
-              ) : (
-                <FaBars className="text-2xl cursor-pointer" onClick={() => setShow(!show)} />
-              )}
-            </ul>
-          }
-        </div>
+    <div className="CContainer drop-shadow-lg flex justify-between items-center py-3">
+      <div className="bgShadow inset-y-20 inset-x-0"></div>
+      {/* Navbar Left */}
+      <Logo />
+      <div className="flex items-center md:gap-8 lg:gap-14">
+        <ul className="min-h-full hidden lg:flex items-center gap-2">
+          {ListItem.map((list, i) => (
+            <li
+              key={i}
+              className={`rounded bg-gradient-to-r hover:from-[#2B59FF] hover:to-[#BB2BFF]  hover:text-white ${
+                pathname === `/${list?.location}`
+                  ? "from-[#2B59FF] to-[#BB2BFF] text-white"
+                  : ""
+              }`}
+            >
+              <NavLink
+                to={`/${list?.location}`}
+                className="flex items-center px-4 py-2 text-sm md:text-lg capitalize"
+              >
+                {list?.Label}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
       </div>
-      {show && (
-        <div className="absolute top-0 left-0 bg-gray-100 z-50 text-white right-0 bottom-0 transition-all duration-100 ease-in-out">
-          <div className="flex justify-between items-center ml-4">
-            <span className="text-3xl"><Link><img className="w-16 cursor-pointer rounded-lg" src="https://i.ibb.co/0GLTPyR/logo-pdf.jpg" alt="" /></Link></span>
-            <div className="my-6 mx-6 cursor-pointer text-black">
-              <FaWindowClose className="text-3xl" onClick={() => setShow(!show)} />
-            </div>
-          </div>
-          <hr className="w-11/12 mx-auto border-gray-400"/>
-          {
-            <ul className="menu px-1 text-black">
-              <li onClick={() => setShow(!show)}>
-                <Link to="/">Home</Link>
-              </li>
-                <hr className="w-3/12 ml-4 border-gray-400"/>
-              <li onClick={() => setShow(!show)}>
-                <Link to="/about">About me</Link>
-              </li>
-              <hr className="w-2/12 ml-4 border-gray-400"/>
-              <li onClick={() => setShow(!show)}>
-              <Link to="/projects">Projects</Link>
-              </li>
-              <hr className="w-3/12 ml-4 border-gray-400"/>
-              <li onClick={() => setShow(!show)}>
-                <Link to="/contact">Contact me</Link>
-              </li>
-            </ul>
-          }
-        </div>
-      )}
-    </>
+      {/* Navbar right */}
+      <Profile />
+    </div>
   );
 };
 
-export default NavBar;
+export default Navbar;
