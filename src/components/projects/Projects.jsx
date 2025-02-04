@@ -10,7 +10,8 @@ const Projects = () => {
       });
   }, []);
   return (
-    <div className="md:w-10/12 mx-auto mt-5 md:mt-10">
+    <div className="md:w-10/12 mx-auto mt-5 md:mt-10 relative">
+      <div className="bgShadow inset-y-20 inset-x-0"></div>
       <h2 className="text-3xl font-bold">My Projects</h2>
       <div className="space-y-16">
         {projects.map((project) => (
@@ -18,6 +19,7 @@ const Projects = () => {
             key={project.id}
             className="card md:card-side bg-base-100 shadow-xl"
           >
+            <div className="bgShadow inset-y-20 inset-x-0"></div>
             <figure className=" md:w-1/2">
               <img className="" src={project?.image} alt="Movie" />
             </figure>
@@ -61,14 +63,14 @@ const Projects = () => {
                 )}
               </div>
               <h4 className="font-semibold text-lg">GitHub Link </h4>
-              <div className="flex">
+              <div className="flex gap-3">
                 {project?.githubClient && (
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
                     href={project?.githubClient}
                   >
-                    <button className="btn btn-link btn-sm">Client site</button>
+                    <button className="btn btn-sm">Client site</button>
                   </a>
                 )}
                 {project?.githubServer && (
@@ -77,7 +79,7 @@ const Projects = () => {
                     rel="noopener noreferrer"
                     href={project?.githubServer}
                   >
-                    <button className="btn btn-link btn-sm">Server site</button>
+                    <button className="btn  btn-sm">Server site</button>
                   </a>
                 )}
               </div>
@@ -87,7 +89,7 @@ const Projects = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <button className="btn ml-4">Live Demo</button>
+                  <button className="CBtnBG ml-4">Live Demo</button>
                 </a>
               </div>
             </div>
