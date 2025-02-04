@@ -6,6 +6,7 @@ import Contact from "../contact/Contact";
 const Home = () => {
   return (
     <div>
+      
       <div className="w-10/12 mx-auto ">
         <div className="text-center mt-5 md:mt-10">
           <a href="https://docs.google.com/document/d/1Clw7f8NIPr9-dFk80Pgc6CWagqFUSKCM7JejuTTDrew/edit?usp=sharing">
@@ -41,11 +42,11 @@ const Home = () => {
             </p>
           </div>
           <div className="md:w-1/3">
-            <img
+            {/* <img
               className="rounded-full"
               src="https://i.ibb.co/FKHwG3N/mohosin.jpg"
               alt=""
-            />
+            /> */}
           </div>
         </div>
         <Link
