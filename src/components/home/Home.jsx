@@ -50,7 +50,7 @@ const Home = () => {
           <div className="md:w-1/3">
             <img
               className="rounded-full"
-              src="https://i.ibb.co/FKHwG3N/mohosin.jpg"
+              src="https://i.ibb.co/YFg33PYB/IMG-20250505-200142-1-1.jpg"
               alt=""
             />
           </div>
