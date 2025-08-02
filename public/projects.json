@@ -34,18 +34,7 @@
       "demo": "https://summer-camp-ass12.web.app/",
       "githubServer": "https://github.com/Mohosin075/summer-camp-server",
       "githubClient": "https://github.com/Mohosin075/summer-camp-client"
-    },
-    {
-      "id": 2,
-      "title": "animal toy marketplace",
-      "description": "This is an animal toy marketplace. Here you can post any kind of animal toy. You can see the toys of all users from alt toys. From my my toys you can see the ones you have added and sort by prize. React, mondodb, tailwind, express.js are used to build the website. You must be logged in to post toys.",
-      "forntEnd" : ["HTML", "CSS", "TAILWIND", "daisy ui", "JavaScript", "react"],
-      "backEnd" : ["express", "mongoDb Database"],
-      "tools" : ["git", "gitHub", "firebase"],
-      "image": "https://i.ibb.co/yg96Ty1/toy1.png",
-      "demo": "https://toy-marketplace-fe263.web.app/",
-      "githubServer": "https://github.com/Mohosin075/toy-marketplace-server",
-      "githubClient": "https://github.com/Mohosin075/toy-marketplace-client"
     }
+
 
   ]
