@@ -16,15 +16,7 @@ const Navbar = () => {
               <NavLink
                 to={`/${list?.location}`}
                 className={({ isActive }) =>
-                  `flex items-center px-4 py-2 text-sm md:text-lg capitalize rounded-md transition-all ${
-                    isActive
-                      ? "bg-gradient-to-r from-[" +
-                        "--accent-from" +
-                        "] to-[" +
-                        "--accent-to" +
-                        "] text-white"
-                      : "text-muted hover:text-white hover:bg-white/3"
-                  }`
+                  `flex items-center px-4 py-2 text-sm md:text-lg capitalize rounded-md transition-all ${isActive ? "bg-gradient-to-r from-[var(--accent-from)] to-[var(--accent-to)] text-white" : "text-muted hover:text-white hover:bg-white/3"}`
                 }
               >
                 {list?.Label}

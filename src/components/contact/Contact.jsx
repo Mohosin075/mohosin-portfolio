@@ -28,7 +28,7 @@ const Contact = () => {
             Name
           </label>
           <input
-            className="appearance-none w-full py-2 px-3 rounded-md bg-transparent border border-white/5 focus:border-[#2B59FF] focus:ring-2 focus:ring-[#2B59FF]/30 transition"
+            className="appearance-none w-full py-2 px-3 rounded-md bg-transparent border border-white/5 focus:border-[var(--accent-from)] focus:ring-2 focus:ring-[var(--accent-from)]/30 transition"
             id="name"
             type="text"
             placeholder="Your Name"
@@ -40,7 +40,7 @@ const Contact = () => {
             Email
           </label>
           <input
-            className="appearance-none w-full py-2 px-3 rounded-md bg-transparent border border-white/5 focus:border-[#2B59FF] focus:ring-2 focus:ring-[#2B59FF]/30 transition"
+            className="appearance-none w-full py-2 px-3 rounded-md bg-transparent border border-white/5 focus:border-[var(--accent-from)] focus:ring-2 focus:ring-[var(--accent-from)]/30 transition"
             id="email"
             type="email"
             placeholder="example@example.com"
@@ -52,7 +52,7 @@ const Contact = () => {
             Message
           </label>
           <textarea
-            className="appearance-none w-full py-2 px-3 rounded-md bg-transparent border border-white/5 focus:border-[#2B59FF] focus:ring-2 focus:ring-[#2B59FF]/30 transition"
+            className="appearance-none w-full py-2 px-3 rounded-md bg-transparent border border-white/5 focus:border-[var(--accent-from)] focus:ring-2 focus:ring-[var(--accent-from)]/30 transition"
             id="message"
             rows="4"
             placeholder="Your Message"

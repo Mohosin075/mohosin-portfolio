@@ -5,12 +5,14 @@
 :root {
   --bg: #0f1724;
   --card: #0b1220;
-  --muted: #94a3b8;
-  --accent-from: #2b59ff;
-  --accent-to: #bb2bff;
+  --muted: #9aa7b2;
+  --accent-from: #06b6d4; /* teal */
+  --accent-to: #8b5cf6; /* violet */
+  --accent-contrast: #ffffff;
 }
 
 * {
+  box-sizing: border-box;
   font-family:
     "Inter",
     ui-sans-serif,
@@ -27,22 +29,31 @@
 }
 
 .CBtn {
-  @apply py-[7px] px-2 md:px-4 rounded-md text-xs md:text-lg border hover:border-[#BB2BFF];
+  @apply py-[7px] px-2 md:px-4 rounded-md text-xs md:text-lg border;
+  transition:
+    border-color 0.15s ease,
+    color 0.15s ease;
 }
+
 .CBtnBG {
-  @apply py-2 px-2 md:px-4 rounded-md text-xs md:text-lg text-white 
-      bg-gradient-to-r from-[#2B59FF] to-[#BB2BFF] 
-      hover:from-[#5C7FFF] hover:to-[#CB5CFF] 
-      active:from-[#0035F5] active:to-[#A600F5] 
-      border-0;
+  @apply py-2 px-2 md:px-4 rounded-md text-xs md:text-lg text-white border-0;
+  background-image: linear-gradient(
+    90deg,
+    var(--accent-from),
+    var(--accent-to)
+  );
 }
+
 .bgGradient {
-  @apply bg-gradient-to-r from-[#2B59FF] to-[#BB2BFF] 
-      hover:from-[#5C7FFF] hover:to-[#CB5CFF];
+  background-image: linear-gradient(
+    90deg,
+    var(--accent-from),
+    var(--accent-to)
+  );
 }
 
 .bgShadow {
-  @apply absolute  w-36 h-36 blur-3xl opacity-25 rounded-full rotate-45 bg-gradient-to-b from-pink-600 to-purple-600  mx-auto;
+  @apply absolute w-36 h-36 blur-3xl opacity-25 rounded-full rotate-45 bg-gradient-to-b from-pink-600 to-purple-600 mx-auto;
 }
 
 .glass {
@@ -55,20 +66,32 @@
 }
 
 h1 {
-  @apply text-3xl md:text-4xl lg:text-6xl text-primary-light filter  font-thin font-outfit;
+  @apply text-3xl md:text-4xl lg:text-6xl text-primary-light filter font-thin font-outfit;
 }
+
 h2 {
   @apply text-2xl md:text-[42px] text-primary-light filter leading-tight font-semibold font-outfit;
 }
+
 h3 {
-  @apply text-xl md:text-2xl  text-primary-light filter  font-semibold font-outfit;
+  @apply text-xl md:text-2xl text-primary-light filter font-semibold font-outfit;
 }
+
 h4 {
-  @apply text-sm md:text-lg  text-primary-light filter  font-semibold font-inter;
+  @apply text-sm md:text-lg text-primary-light filter font-semibold font-inter;
 }
+
 h5 {
-  @apply text-[16px]  text-primary-light filter  font-semibold font-inter;
+  @apply text-[16px] text-primary-light filter font-semibold font-inter;
 }
+
 p {
-  @apply text-sm md:text-[16px]  text-primary-lightGray filter font-inter;
+  @apply text-sm md:text-[16px] text-primary-lightGray filter font-inter;
+}
+
+.text-muted {
+  color: var(--muted);
+}
+.bg-card {
+  background-color: var(--card);
 }
