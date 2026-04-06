@@ -19,7 +19,7 @@ const Navbar = () => {
               <NavLink
                 to={`/${list?.location}`}
                 className={({ isActive }) =>
-                  `flex items-center px-4 py-2 text-sm md:text-lg capitalize rounded-md transition-all ${isActive ? "bg-gradient-to-r from-[var(--accent-from)] to-[var(--accent-to)] text-white" : "text-muted hover:text-white hover:bg-white/3"}`
+                  `flex items-center px-4 py-2 text-sm md:text-lg capitalize rounded-md transition-all ${isActive ? "bg-gradient-to-r from-[var(--accent-from)] to-[var(--accent-to)] text-white" : "text-muted hover:text-white hover:bg-white/10"}`
                 }
               >
                 {list?.Label}
@@ -32,19 +32,19 @@ const Navbar = () => {
       <div className="flex items-center gap-3">
         <a
           href="https://github.com/Mohosin075"
-          className="p-2 rounded-full bg-white/3 hover:bg-gradient-to-br from-[var(--accent-from)] to-[var(--accent-to)] hover:scale-105 transition text-xl"
+          className="p-2 rounded-full bg-white/10 hover:bg-gradient-to-br from-[var(--accent-from)] to-[var(--accent-to)] hover:scale-105 transition text-xl"
         >
           <FaGithub />
         </a>
         <a
           href="https://www.linkedin.com/in/md-mohosin-5b34a0278/"
-          className="p-2 rounded-full bg-white/3 hover:bg-gradient-to-br from-[var(--accent-from)] to-[var(--accent-to)] hover:scale-105 transition text-xl"
+          className="p-2 rounded-full bg-white/10 hover:bg-gradient-to-br from-[var(--accent-from)] to-[var(--accent-to)] hover:scale-105 transition text-xl"
         >
           <FaLinkedin />
         </a>
         <a
           href="https://www.facebook.com/profile.php?id=100054670421189"
-          className="p-2 rounded-full bg-white/3 hover:bg-gradient-to-br from-[var(--accent-from)] to-[var(--accent-to)] hover:scale-105 transition text-xl"
+          className="p-2 rounded-full bg-white/10 hover:bg-gradient-to-br from-[var(--accent-from)] to-[var(--accent-to)] hover:scale-105 transition text-xl"
         >
           <FaFacebook />
         </a>

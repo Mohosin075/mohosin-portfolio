@@ -6,19 +6,19 @@ const Footer = () => {
       <div className="w-10/12 mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-4 text-xl">
           <a
-            className="p-2 rounded-md bg-white/3 hover:bg-gradient-to-r from-[var(--accent-from)] to-[var(--accent-to)] transition"
+            className="p-2 rounded-md bg-white/10 hover:bg-gradient-to-r from-[var(--accent-from)] to-[var(--accent-to)] transition"
             href="https://github.com/Mohosin075"
           >
             <FaGithub />
           </a>
           <a
-            className="p-2 rounded-md bg-white/3 hover:bg-gradient-to-r from-[var(--accent-from)] to-[var(--accent-to)] transition"
+            className="p-2 rounded-md bg-white/10 hover:bg-gradient-to-r from-[var(--accent-from)] to-[var(--accent-to)] transition"
             href="https://www.linkedin.com/in/md-mohosin-5b34a0278/"
           >
             <FaLinkedin />
           </a>
           <a
-            className="p-2 rounded-md bg-white/3 hover:bg-gradient-to-r from-[var(--accent-from)] to-[var(--accent-to)] transition"
+            className="p-2 rounded-md bg-white/10 hover:bg-gradient-to-r from-[var(--accent-from)] to-[var(--accent-to)] transition"
             href="https://www.facebook.com/profile.php?id=100054670421189"
           >
             <FaFacebook />

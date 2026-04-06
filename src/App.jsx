@@ -3,6 +3,7 @@ import Footer from "./components/footer/Footer";
 import Navbar from "./components/navbar/Navbar";
 import Sidebar from "./components/navbar/Sidebar";
 import BackToTop from "./components/ui/BackToTop";
+import PageTransition from "./components/ui/PageTransition";
 
 const App = () => {
   return (
@@ -13,7 +14,7 @@ const App = () => {
           <div className="drawer-content min-h-screen">
             {/* Page content here */}
             <Navbar />
-            <Outlet />
+            <PageTransition />
             <Footer />
             <BackToTop />
           </div>
