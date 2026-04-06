@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import Footer from "./components/footer/Footer";
 import Navbar from "./components/navbar/Navbar";
 import Sidebar from "./components/navbar/Sidebar";
+import BackToTop from "./components/ui/BackToTop";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
             <Navbar />
             <Outlet />
             <Footer />
+            <BackToTop />
           </div>
           <div className="drawer-side">
             <label

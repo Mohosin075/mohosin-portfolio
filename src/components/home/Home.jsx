@@ -8,7 +8,7 @@ import Contact from "../contact/Contact";
 const Home = () => {
   return (
     <div>
-      <div className="mx-auto">
+      <div className="mx-auto" data-animate="reveal">
         <section className="grid md:grid-cols-2 gap-8 items-center md:min-h-[70vh]">
           <div className="space-y-6">
             <div className="text-3xl md:text-4xl font-bold">
@@ -45,12 +45,14 @@ const Home = () => {
               </NavLink>
             </div>
           </div>
-          <div className="flex justify-center">
-            <img
-              className="w-56 h-56 md:w-72 md:h-72 rounded-full object-cover shadow-lg"
-              src="https://i.ibb.co/nM8b7ngD/IMG-20250505-200142-1.jpg"
-              alt="Mohosin"
-            />
+          <div className="flex justify-center" data-animate="reveal">
+            <div className="rounded-full p-1 bg-gradient-to-br from-[var(--accent-from)] to-[var(--accent-to)] animate-float">
+              <img
+                className="w-56 h-56 md:w-72 md:h-72 rounded-full object-cover shadow-2xl ring-4 ring-[var(--accent-from)]/12"
+                src="https://i.ibb.co/nM8b7ngD/IMG-20250505-200142-1.jpg"
+                alt="Mohosin"
+              />
+            </div>
           </div>
         </section>
         <div className="mt-6">

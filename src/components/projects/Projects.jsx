@@ -11,14 +11,17 @@ const Projects = () => {
       });
   }, []);
   return (
-    <div className="md:w-10/12 mx-auto mt-5 md:mt-10 relative">
+    <div
+      className="md:w-10/12 mx-auto mt-5 md:mt-10 relative"
+      data-animate="reveal"
+    >
       <div className="bgShadow inset-y-20 inset-x-0"></div>
       <h2 className="text-3xl font-bold mb-6">My Projects</h2>
       <div className="grid md:grid-cols-2 gap-8">
         {projects.map((project) => (
           <article
             key={project.id}
-            className="rounded-lg overflow-hidden shadow-lg bg-card"
+            className="rounded-lg overflow-hidden shadow-lg bg-card transform transition hover:-translate-y-1 hover:shadow-2xl border border-white/3"
           >
             <div className="relative">
               <img
@@ -74,7 +77,9 @@ const Projects = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Button>Live Demo</Button>
+                  <Button className="bg-gradient-to-r from-[var(--accent-from)] to-[var(--accent-to)]">
+                    Live Demo
+                  </Button>
                 </a>
               </div>
             </div>

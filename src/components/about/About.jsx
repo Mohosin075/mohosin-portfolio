@@ -1,9 +1,12 @@
 const About = () => {
   return (
-    <div className="w-10/12 mx-auto mt-5 md:mt-10 glass rounded-lg p-6">
+    <div
+      className="w-10/12 mx-auto mt-5 md:mt-10 glass rounded-lg p-6 bg-card/70 border border-white/3"
+      data-animate="reveal"
+    >
       <div className="w-32 md:w-48 mb-6 mx-auto">
         <img
-          className="rounded-full shadow-lg border-2 border-white/5"
+          className="rounded-full shadow-2xl border-2 border-[rgba(255,255,255,0.03)]"
           src="https://i.ibb.co/nM8b7ngD/IMG-20250505-200142-1.jpg"
           alt=""
         />

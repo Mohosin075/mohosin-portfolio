@@ -5,7 +5,10 @@ import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Navbar = () => {
   return (
-    <div className="CContainer drop-shadow-lg flex justify-between items-center py-3 sticky top-4 z-40 glass rounded-lg border border-white/5">
+    <div
+      data-animate="reveal"
+      className="CContainer drop-shadow-lg flex justify-between items-center py-3 sticky top-4 z-40 glass rounded-lg border border-white/5 bg-gradient-to-r from-[var(--accent-from)]/5 to-[var(--accent-to)]/5 backdrop-blur-sm"
+    >
       {/* <div className="bgShadow inset-y-20 inset-x-0"></div> */}
       {/* Navbar Left */}
       <Logo />
@@ -26,22 +29,22 @@ const Navbar = () => {
         </ul>
       </div>
       {/* Navbar right */}
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-3">
         <a
           href="https://github.com/Mohosin075"
-          className="text-xl hover:text-white/80"
+          className="p-2 rounded-full bg-white/3 hover:bg-gradient-to-br from-[var(--accent-from)] to-[var(--accent-to)] hover:scale-105 transition text-xl"
         >
           <FaGithub />
         </a>
         <a
           href="https://www.linkedin.com/in/md-mohosin-5b34a0278/"
-          className="text-xl hover:text-white/80"
+          className="p-2 rounded-full bg-white/3 hover:bg-gradient-to-br from-[var(--accent-from)] to-[var(--accent-to)] hover:scale-105 transition text-xl"
         >
           <FaLinkedin />
         </a>
         <a
           href="https://www.facebook.com/profile.php?id=100054670421189"
-          className="text-xl hover:text-white/80"
+          className="p-2 rounded-full bg-white/3 hover:bg-gradient-to-br from-[var(--accent-from)] to-[var(--accent-to)] hover:scale-105 transition text-xl"
         >
           <FaFacebook />
         </a>

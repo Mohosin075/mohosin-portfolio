@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
+import initReveal from "./utils/animate";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import About from "./components/about/About.jsx";
 import Contact from "./components/contact/Contact.jsx";
@@ -12,24 +13,24 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
-    children : [
+    children: [
       {
-        path : '/',
-        element : <Home></Home>
+        path: "/",
+        element: <Home></Home>,
       },
       {
-        path : '/about',
-        element : <About></About>
+        path: "/about",
+        element: <About></About>,
       },
       {
-        path : '/contact',
-        element : <Contact></Contact>
+        path: "/contact",
+        element: <Contact></Contact>,
       },
       {
-        path : '/projects',
-        element : <Projects></Projects>
+        path: "/projects",
+        element: <Projects></Projects>,
       },
-    ]
+    ],
   },
 ]);
 
@@ -38,5 +39,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <div className="mx-auto container">
       <RouterProvider router={router} />
     </div>
-  </React.StrictMode>
+  </React.StrictMode>,
 );
+
+// kickoff reveal animations after initial paint
+if (typeof window !== "undefined") {
+  // small timeout to allow initial layout
+  setTimeout(() => initReveal(), 120);
+}
