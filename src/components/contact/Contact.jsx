@@ -20,7 +20,7 @@ const Contact = () => {
       <div className="bgShadow inset-y-20 inset-x-0"></div>
       <h2 className="text-3xl font-bold mb-8  text-center">Contact Me</h2>
       <form
-        className="max-w-md border-2 mx-auto  shadow-md rounded px-4 md:px-8 pt-6 pb-8 mb-4"
+        className="max-w-md mx-auto shadow-lg rounded-lg px-6 md:px-10 py-6 glass border border-white/5"
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="mb-4">
@@ -28,7 +28,7 @@ const Contact = () => {
             Name
           </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline"
+            className="appearance-none w-full py-2 px-3 rounded-md bg-transparent border border-white/5 focus:border-[#2B59FF] focus:ring-2 focus:ring-[#2B59FF]/30 transition"
             id="name"
             type="text"
             placeholder="Your Name"
@@ -40,7 +40,7 @@ const Contact = () => {
             Email
           </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline"
+            className="appearance-none w-full py-2 px-3 rounded-md bg-transparent border border-white/5 focus:border-[#2B59FF] focus:ring-2 focus:ring-[#2B59FF]/30 transition"
             id="email"
             type="email"
             placeholder="example@example.com"
@@ -52,7 +52,7 @@ const Contact = () => {
             Message
           </label>
           <textarea
-            className="shadow appearance-none border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline"
+            className="appearance-none w-full py-2 px-3 rounded-md bg-transparent border border-white/5 focus:border-[#2B59FF] focus:ring-2 focus:ring-[#2B59FF]/30 transition"
             id="message"
             rows="4"
             placeholder="Your Message"
@@ -63,7 +63,7 @@ const Contact = () => {
           <input
             type="submit"
             className="CBtnBG cursor-pointer"
-            value="submit"
+            value="Send message"
           />
         </div>
       </form>

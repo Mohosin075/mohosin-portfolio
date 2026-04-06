@@ -12,88 +12,72 @@ const Projects = () => {
   return (
     <div className="md:w-10/12 mx-auto mt-5 md:mt-10 relative">
       <div className="bgShadow inset-y-20 inset-x-0"></div>
-      <h2 className="text-3xl font-bold">My Projects</h2>
-      <div className="space-y-16">
+      <h2 className="text-3xl font-bold mb-6">My Projects</h2>
+      <div className="grid md:grid-cols-2 gap-8">
         {projects.map((project) => (
-          <div
+          <article
             key={project.id}
-            className="card md:card-side bg-base-100 shadow-xl"
+            className="rounded-lg overflow-hidden shadow-lg bg-card"
           >
-            <div className="bgShadow inset-y-20 inset-x-0"></div>
-            <figure className=" md:w-1/2">
-              <img className="" src={project?.image} alt="Movie" />
-            </figure>
-            <div className="card-body md:w-1/2">
-              <h2 className="card-title uppercase font-bold text-lg md:text-xl">
-                {project?.title}
-              </h2>
-              <p className="text-sm">
-                {project?.description.slice(0, 200)}{" "}
-                <span className="text-blue-600 underline cursor-pointer">
-                  {" "}
-                  see more...
-                </span>
+            <div className="relative">
+              <img
+                className="w-full h-56 object-cover"
+                src={project?.image}
+                alt={project?.title}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+            </div>
+            <div className="p-5">
+              <h3 className="font-bold text-lg mb-2">{project?.title}</h3>
+              <p className="text-sm text-muted">
+                {project?.description.slice(0, 180)}
+                {project?.description.length > 180 ? "..." : ""}
               </p>
-              <h4 className="font-semibold text-lg">Technology </h4>
-              <hr />
-              <div className="text-sm space-y-2">
-                {project?.forntEnd && (
-                  <p>
-                    <span className="font-semibold">Front End</span> :{" "}
-                    {project?.forntEnd.map((pro) => (
-                      <span key={pro.id}>{pro}, </span>
-                    ))}
-                  </p>
-                )}
-                {project?.backEnd && (
-                  <p>
-                    <span className="font-semibold">Back End</span> :{" "}
-                    {project?.backEnd.map((pro) => (
-                      <span key={pro.id}>{pro}, </span>
-                    ))}
-                  </p>
-                )}
-                {project?.tools && (
-                  <p>
-                    <span className="font-semibold">Tools</span> :{" "}
-                    {project?.tools.map((pro) => (
-                      <span key={pro.id}>{pro}, </span>
-                    ))}
-                  </p>
-                )}
+              <div className="mt-4 flex flex-wrap gap-2 text-sm text-muted">
+                {project?.forntEnd?.map((t, i) => (
+                  <span key={i} className="px-2 py-1 bg-white/5 rounded">
+                    {t}
+                  </span>
+                ))}
+                {project?.backEnd?.map((t, i) => (
+                  <span key={"b" + i} className="px-2 py-1 bg-white/5 rounded">
+                    {t}
+                  </span>
+                ))}
               </div>
-              <h4 className="font-semibold text-lg">GitHub Link </h4>
-              <div className="flex gap-3">
-                {project?.githubClient && (
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href={project?.githubClient}
-                  >
-                    <button className="btn btn-sm">Client site</button>
-                  </a>
-                )}
-                {project?.githubServer && (
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href={project?.githubServer}
-                  >
-                    <button className="btn  btn-sm">Server site</button>
-                  </a>
-                )}
-              </div>
-              <div className="card-actions justify-end">
+              <div className="mt-4 flex items-center justify-between">
+                <div className="flex gap-2">
+                  {project?.githubClient && (
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href={project?.githubClient}
+                      className="text-sm text-muted underline"
+                    >
+                      Client
+                    </a>
+                  )}
+                  {project?.githubServer && (
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href={project?.githubServer}
+                      className="text-sm text-muted underline"
+                    >
+                      Server
+                    </a>
+                  )}
+                </div>
                 <a
                   href={project?.demo}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <button className="CBtnBG ml-4">Live Demo</button>
+                  <button className="CBtnBG">Live Demo</button>
                 </a>
               </div>
             </div>
-          </div>
+          </article>
         ))}
       </div>
     </div>
