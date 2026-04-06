@@ -1,8 +1,10 @@
 import { NavLink } from "react-router-dom";
 import { TypeAnimation } from "react-type-animation";
 import { FaArrowRight } from "react-icons/fa";
+import Button from "../ui/Button";
 import Projects from "../projects/Projects";
 import Contact from "../contact/Contact";
+
 const Home = () => {
   return (
     <div>
@@ -36,7 +38,7 @@ const Home = () => {
                 rel="noreferrer"
                 href="https://docs.google.com/document/d/1mGw-bCWSsJmKqaa6fie0V_nAhk86dg5hZ79hFQDOTVo/edit?usp=sharingg"
               >
-                <button className="CBtnBG">View resume</button>
+                <Button>View resume</Button>
               </a>
               <NavLink to="/projects" className="CBtn px-4">
                 My Projects
@@ -65,9 +67,9 @@ const Home = () => {
         </div>
       </div>
       <div className="mt-20">
-        <Projects></Projects>
+        <Projects />
       </div>
-      <Contact></Contact>
+      <Contact />
     </div>
   );
 };

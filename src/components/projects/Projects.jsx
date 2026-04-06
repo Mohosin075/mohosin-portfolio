@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Button from "../ui/Button";
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
@@ -73,7 +74,7 @@ const Projects = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <button className="CBtnBG">Live Demo</button>
+                  <Button>Live Demo</Button>
                 </a>
               </div>
             </div>

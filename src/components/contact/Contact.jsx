@@ -1,6 +1,8 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import Button from "../ui/Button";
+
 const Contact = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
@@ -60,11 +62,7 @@ const Contact = () => {
           ></textarea>
         </div>
         <div className="flex items-center justify-between">
-          <input
-            type="submit"
-            className="CBtnBG cursor-pointer"
-            value="Send message"
-          />
+          <Button type="submit">Send message</Button>
         </div>
       </form>
     </div>
