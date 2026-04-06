@@ -79,12 +79,12 @@ const Contact = () => {
                 <div className="font-medium">{CONTACT_EMAIL}</div>
               </div>
               <div className="flex items-center gap-2">
-                <button onClick={copyEmail} className="CBtn px-3">
+                <Button variant="outline" size="sm" onClick={copyEmail}>
                   {copied ? "Copied" : "Copy"}
-                </button>
-                {/* <button onClick={downloadVCard} className="CBtn px-3">
+                </Button>
+                {/* <Button variant="outline" size="sm" onClick={downloadVCard}>
                   vCard
-                </button> */}
+                </Button> */}
               </div>
             </div>
 

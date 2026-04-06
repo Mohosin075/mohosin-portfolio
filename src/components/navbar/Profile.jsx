@@ -6,12 +6,14 @@ const Profile = () => {
   return (
     <div className="flex items-center gap-3 md:gap-5">
       <NavLink to="/sign-in">
-        <button className="py-[7px]  px-2 md:px-4 rounded-md text-xs md:text-lg border  text-primary-light hover:border-[var(--accent-to)] bg-gradient-to-r from-[#FC6739] to-[#FFC947] bg-clip-text hover:text-transparent transition-all duration-100 flex items-center gap-2">
+        <Button variant="outline" size="md">
           Sign in
-        </button>
+        </Button>
       </NavLink>
       <NavLink to="/sign-in">
-        <Button>Get Started Free</Button>
+        <Button variant="primary" size="md">
+          Get Started Free
+        </Button>
       </NavLink>
 
       <label
