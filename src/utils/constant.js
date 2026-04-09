@@ -8,11 +8,11 @@ export const ListItem = [
     location: "about",
   },
   {
-    Label: "projects",
+    Label: "Projects",
     location: "projects",
   },
   {
-    Label: "contact",
+    Label: "Contact",
     location: "contact",
   },
 ];

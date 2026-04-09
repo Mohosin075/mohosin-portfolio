@@ -1,82 +1,197 @@
 import { NavLink } from "react-router-dom";
 import { TypeAnimation } from "react-type-animation";
-import { FaArrowRight } from "react-icons/fa";
+import { ArrowRight, Download, Mail } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import Projects from "../projects/Projects";
 import Contact from "../contact/Contact";
+import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+
 const Home = () => {
+  const containerRef = useRef(null);
+  const imageRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.to(imageRef.current, {
+        y: 20,
+        duration: 2,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut"
+      });
+    }, containerRef);
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <div>
-      <div className="mx-auto ">
-        <div className="flex md:max-h-screen md:h-[70vh] flex-col-reverse md:flex-row justify-between gap-10 items-center">
-          <div className="md:w-2/3">
-            <div className="text-center md:text-xl font-bold">
+    <div ref={containerRef} className="overflow-hidden">
+      <section className="CContainer min-h-[90vh] flex flex-col justify-center relative py-20">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-accent-purple text-sm font-medium mb-6"
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-purple opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-accent-purple"></span>
+              </span>
+              Available for new opportunities
+            </motion.div>
+
+            <h1 className="mb-6 leading-tight">
+              Designing <span className="text-gradient">Scalable</span> <br />
+              Backend Systems
+            </h1>
+
+            <div className="text-xl md:text-2xl font-medium text-gray-300 mb-8 h-20">
               <TypeAnimation
                 sequence={[
-                  "Hey there! 👋",
-                  1000,
-                  "I'm Md Mohosin Ali",
-                  1000,
-                  "Backend Developer @SparkTech Agency",
-                  1000,
-                  "Skilled in Node, Express, MongoDB",
-                  1000,
-                  "Working with Mongoose, and REST APIs",
-                  1000,
-                  "Building real-time apps with Socket.io",
-                  1000,
-                  "Deploying with Docker, AWS, and CI/CD",
-                  1000,
-                  "Also comfy with React, and TypeScript",
-                  1000,
-                  "Let's build something awesome together",
-                  1000,
+                  "Hi, I'm Md Mohosin Ali",
+                  2000,
+                  "I build Robust Backend APIs",
+                  2000,
+                  "I specialize in Node.js & Express",
+                  2000,
+                  "I scale with Docker & AWS",
+                  2000,
                 ]}
                 wrapper="span"
                 speed={50}
-                style={{ fontSize: "2em", display: "inline-block" }}
                 repeat={Infinity}
               />
             </div>
-            <p className="mt-5 text-center text-xs md:text-sm w-10/12 mx-auto">
-              Hey, I’m Md Mohosin Ali — Backend Developer <a className="text-blue-500" href="https://www.linkedin.com/company/sparktechagency/about/">@SparkTech Agency</a>. I
-              build scalable, secure, and efficient backend systems using
-              Node.js, Express, MongoDB, and Prisma. Passionate about real-time
-              apps, Docker, AWS, and clean, maintainable code.
+
+            <p className="text-gray-400 text-lg mb-10 max-w-xl">
+              Backend Developer <a className="text-accent-blue hover:underline" href="https://www.linkedin.com/company/sparktechagency/about/">@SparkTech Agency</a>. 
+              I craft high-performance, secure, and maintainable backend architectures using modern technologies.
             </p>
-            <div className="text-center">
-              <a
-                target="_blank"
-                rel="noreferrer"
+
+            <div className="flex flex-wrap gap-4">
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 href="https://docs.google.com/document/d/1mGw-bCWSsJmKqaa6fie0V_nAhk86dg5hZ79hFQDOTVo/edit?usp=sharingg"
-                className="text-center mt-5 inline-block"
+                target="_blank"
+                className="px-8 py-4 rounded-2xl bg-gradient-to-r from-accent-purple to-accent-blue text-white font-semibold flex items-center gap-2 shadow-lg shadow-accent-purple/20"
               >
-                <button className="CBtnBG">view resume</button>
-              </a>
+                <Download size={20} />
+                Download CV
+              </motion.a>
+              
+              <div className="flex items-center gap-3">
+                {[
+                  { icon: FaGithub, href: "https://github.com/Mohosin075" },
+                  { icon: FaLinkedin, href: "https://www.linkedin.com/in/md-mohosin-5b34a0278/" },
+                  { icon: Mail, href: "mailto:mohosinali075@gmail.com" }
+                ].map((social, i) => (
+                  <motion.a
+                    key={i}
+                    whileHover={{ y: -3, backgroundColor: "rgba(255,255,255,0.1)" }}
+                    href={social.href}
+                    className="p-4 rounded-2xl bg-white/5 border border-white/10 text-gray-400 hover:text-white transition-colors"
+                  >
+                    <social.icon size={24} />
+                  </motion.a>
+                ))}
+              </div>
             </div>
-          </div>
-          <div className="md:w-1/3">
-            <img
-              className="rounded-full"
-              src="https://i.ibb.co/nM8b7ngD/IMG-20250505-200142-1.jpg"
-              alt=""
-            />
-          </div>
+          </motion.div>
+
+          {/* Right Content - Image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="relative flex justify-center lg:justify-end"
+          >
+            <div className="relative w-72 h-72 md:w-96 md:h-96">
+              {/* Decorative Rings */}
+              <div className="absolute inset-[-20px] rounded-full border border-white/5 animate-[spin_20s_linear_infinite]" />
+              <div className="absolute inset-[-40px] rounded-full border border-white/5 animate-[spin_30s_linear_infinite_reverse]" />
+              
+              <div ref={imageRef} className="relative z-10 w-full h-full rounded-[2rem] overflow-hidden border-2 border-white/10 shadow-2xl glassify">
+                <img
+                  className="w-full h-full object-cover"
+                  src="https://i.ibb.co/nM8b7ngD/IMG-20250505-200142-1.jpg"
+                  alt="Md Mohosin Ali"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              </div>
+              
+              {/* Floating Badges */}
+              <motion.div
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 3, repeat: Infinity }}
+                className="absolute -top-4 -right-4 z-20 glassify px-4 py-2 rounded-xl border border-white/10 flex items-center gap-2"
+              >
+                <span className="text-2xl">🚀</span>
+                <div className="text-xs">
+                  <p className="font-bold text-white">2+ Years</p>
+                  <p className="text-gray-400">Experience</p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                animate={{ y: [0, 10, 0] }}
+                transition={{ duration: 4, repeat: Infinity, delay: 1 }}
+                className="absolute -bottom-6 -left-6 z-20 glassify px-4 py-2 rounded-xl border border-white/10 flex items-center gap-2"
+              >
+                <span className="text-2xl">💻</span>
+                <div className="text-xs">
+                  <p className="font-bold text-white">Full Stack</p>
+                  <p className="text-gray-400">Developer</p>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
         </div>
 
-        <NavLink
-          to="/about"
-          className="hover:underline hover:translate-x-1 transition-all flex my-5 items-center"
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5 }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:block"
         >
-          See more about me{" "}
-          <span className="ml-3">
-            <FaArrowRight />
-          </span>
-        </NavLink>
-      </div>
-      <div className="mt-20">
-        <Projects></Projects>
-      </div>
-      <Contact></Contact>
+          <div className="w-6 h-10 rounded-full border-2 border-white/20 flex justify-center p-1">
+            <motion.div
+              animate={{ y: [0, 12, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+              className="w-1.5 h-1.5 rounded-full bg-white/40"
+            />
+          </div>
+        </motion.div>
+      </section>
+
+      <section className="py-20">
+        <div className="CContainer">
+          <div className="flex justify-between items-end mb-12">
+            <div>
+              <h2 className="mb-4">Featured <span className="text-gradient">Projects</span></h2>
+              <p className="text-gray-400">Some of my recent work that showcases my skills.</p>
+            </div>
+            <NavLink
+              to="/projects"
+              className="group flex items-center gap-2 text-white font-medium hover:text-accent-purple transition-colors"
+            >
+              View all projects
+              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+            </NavLink>
+          </div>
+          <Projects limit={3} />
+        </div>
+      </section>
+
+      <Contact />
     </div>
   );
 };

@@ -1,30 +1,22 @@
 import { Outlet } from "react-router-dom";
 import Footer from "./components/footer/Footer";
-import Navbar from "./components/navbar/Navbar";
-import Sidebar from "./components/navbar/Sidebar";
+import Navbar from "./components/navbar/NavBar";
 
 const App = () => {
   return (
-    <div>
-      <div className="md:py-5">
-        <div className="drawer">
-          <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-          <div className="drawer-content min-h-screen">
-            {/* Page content here */}
-            <Navbar />
-            <Outlet />
-            <Footer />
-          </div>
-          <div className="drawer-side">
-            <label
-              htmlFor="my-drawer-2"
-              aria-label="close sidebar"
-              className="drawer-overlay"
-            ></label>
-            {/* Sidebar content here */}
-            <Sidebar />
-          </div>
-        </div>
+    <div className="min-h-screen bg-mesh selection:bg-accent-purple/30 selection:text-white">
+      <div className="relative z-10">
+        <Navbar />
+        <main className="min-h-screen">
+          <Outlet />
+        </main>
+        <Footer />
+      </div>
+      
+      {/* Decorative background elements */}
+      <div className="fixed top-0 left-0 w-full h-full pointer-events-none -z-10 overflow-hidden">
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-accent-purple/20 blur-[120px] animate-pulse" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-accent-blue/20 blur-[120px] animate-pulse" style={{ animationDelay: '2s' }} />
       </div>
     </div>
   );
