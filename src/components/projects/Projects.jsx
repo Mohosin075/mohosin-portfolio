@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { ExternalLink, Code, Settings, Layers, Globe, Server } from "lucide-react";
+import PropTypes from "prop-types";
+import {  Layers, Globe, Server } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -9,7 +10,7 @@ const Projects = ({ limit }) => {
   
   useEffect(() => {
     setLoading(true);
-    fetch("projects.json")
+    fetch("/projects.json")
       .then((res) => {
         if (!res.ok) throw new Error("Network response was not ok");
         return res.json();
@@ -26,8 +27,8 @@ const Projects = ({ limit }) => {
 
   if (loading) return (
     <div className="flex flex-col items-center justify-center py-32 gap-6">
-      <div className="w-16 h-16 border-4 border-accent-purple/20 border-t-accent-purple rounded-full animate-spin" />
-      <p className="text-gray-500 font-bold animate-pulse">Orchestrating Projects...</p>
+      <div className="w-16 h-16 border-4 border-indigo-500/20 border-t-indigo-500 rounded-full animate-spin" />
+      <p className="text-slate-500 font-bold animate-pulse">Orchestrating Projects...</p>
     </div>
   );
 
@@ -73,14 +74,14 @@ const Projects = ({ limit }) => {
                 />
                 
                 {/* Modern Overlay */}
-                <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center gap-4 sm:gap-6">
+                <div className="absolute inset-0 bg-slate-950/60 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center gap-4 sm:gap-6">
                   <motion.a
                     whileHover={{ scale: 1.1, y: -5 }}
                     whileTap={{ scale: 0.9 }}
                     href={project?.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white text-black flex items-center justify-center shadow-2xl hover:bg-accent-purple hover:text-white transition-all"
+                    className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white text-slate-950 flex items-center justify-center shadow-2xl hover:bg-indigo-500 hover:text-white transition-all"
                   >
                     <Globe size={20} />
                   </motion.a>
@@ -91,7 +92,7 @@ const Projects = ({ limit }) => {
                       href={project?.githubClient || project?.githubServer}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white text-black flex items-center justify-center shadow-2xl hover:bg-accent-blue hover:text-white transition-all"
+                      className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white text-slate-950 flex items-center justify-center shadow-2xl hover:bg-indigo-500 hover:text-white transition-all"
                     >
                       <FaGithub size={20} />
                     </motion.a>
@@ -110,25 +111,25 @@ const Projects = ({ limit }) => {
 
               {/* Project Info */}
               <div className="p-8 sm:p-10 flex-grow flex flex-col">
-                <div className="flex items-center gap-3 mb-4 text-accent-purple">
+                <div className="flex items-center gap-3 mb-4 text-indigo-400">
                   <Layers size={16} />
-                  <span className="text-[10px] font-black uppercase tracking-[0.2em]">Project {index + 1}</span>
+                  <span className="text-[10px] font-bold uppercase tracking-[0.2em]">Project {index + 1}</span>
                 </div>
                 
-                <h3 className="text-xl sm:text-2xl font-black mb-4 group-hover:text-accent-purple transition-colors tracking-tight">
+                <h3 className="text-xl font-bold mb-4 group-hover:text-indigo-400 transition-colors tracking-tight">
                   {project?.title}
                 </h3>
                 
-                <p className="text-gray-500 text-sm sm:text-base mb-8 line-clamp-3 leading-relaxed font-medium">
+                <p className="text-slate-500 text-sm mb-8 line-clamp-3 leading-relaxed font-medium">
                   {project?.description}
                 </p>
 
                 {/* Tech Stack Visual */}
-                <div className="mt-auto pt-6 sm:pt-8 border-t border-white/5">
-                  <div className="flex flex-wrap gap-3 sm:gap-4">
+                <div className="mt-auto pt-6 border-t border-slate-800">
+                  <div className="flex flex-wrap gap-3">
                     {project?.backEnd?.map((tech, i) => (
-                      <div key={i} className="flex items-center gap-2 text-[10px] sm:text-xs font-black uppercase tracking-wider text-gray-400">
-                        <Server size={12} className="text-accent-blue" />
+                      <div key={i} className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                        <Server size={12} className="text-emerald-500" />
                         {tech}
                       </div>
                     ))}
@@ -141,6 +142,10 @@ const Projects = ({ limit }) => {
       </div>
     </div>
   );
+};
+
+Projects.propTypes = {
+  limit: PropTypes.number,
 };
 
 export default Projects;

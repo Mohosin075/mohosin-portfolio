@@ -44,27 +44,27 @@ const Home = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="inline-flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.03] border border-white/5 text-accent-cyan text-[10px] sm:text-xs 2xl:text-sm font-black uppercase tracking-[0.2em] mb-8 backdrop-blur-md"
+              className="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-indigo-500/5 border border-indigo-500/10 text-indigo-400 text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-6"
             >
               <Sparkles size={14} className="animate-pulse" />
               <span>Available for new opportunities</span>
             </motion.div>
 
-            <h1 className="mb-6 sm:mb-8 tracking-tighter leading-[0.9] 2xl:text-9xl">
-              Crafting <span className="text-gradient">Scalable</span> <br />
-              Digital Systems
+            <h1 className="mb-6 tracking-tight leading-[1.1] 2xl:text-8xl">
+              Engineering <span className="text-gradient">Robust</span> <br />
+              Backend Architectures
             </h1>
 
-            <div className="text-xl sm:text-2xl md:text-3xl 2xl:text-4xl font-bold text-gray-300 mb-8 sm:mb-10 h-24 md:h-20 flex items-center justify-center lg:justify-start">
+            <div className="text-lg sm:text-xl md:text-2xl font-bold text-slate-300 mb-8 h-20 flex items-center justify-center lg:justify-start">
               <TypeAnimation
                 sequence={[
                   "Hi, I'm Md Mohosin Ali",
                   2000,
-                  "I build Robust Backend APIs",
+                  "Backend Systems Engineer",
                   2000,
-                  "I specialize in MERN Stack",
+                  "MERN Stack Specialist",
                   2000,
-                  "I scale with Docker & AWS",
+                  "DevOps & Cloud Explorer",
                   2000,
                 ]}
                 wrapper="span"
@@ -73,24 +73,24 @@ const Home = () => {
               />
             </div>
 
-            <p className="text-gray-400 text-base sm:text-lg 2xl:text-2xl mb-10 sm:mb-12 max-w-xl 2xl:max-w-3xl mx-auto lg:mx-0 leading-relaxed font-medium">
-              Full-Stack Engineer <a className="text-accent-blue font-black hover:underline transition-all" href="https://www.linkedin.com/company/sparktechagency/about/">@SparkTech Agency</a>. 
-              I design and implement high-performance, secure backend architectures for modern applications.
+            <p className="text-slate-400 text-sm sm:text-base md:text-lg mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
+              Passionate about building high-performance, secure, and scalable server-side solutions. 
+              Currently crafting digital experiences <a className="text-indigo-400 font-bold hover:underline" href="https://www.linkedin.com/company/sparktechagency/about/">@SparkTech Agency</a>.
             </p>
 
-            <div className="flex flex-wrap gap-4 sm:gap-6 2xl:gap-8 items-center justify-center lg:justify-start">
+            <div className="flex flex-wrap gap-4 items-center justify-center lg:justify-start">
               <motion.a
-                whileHover={{ scale: 1.05, boxShadow: "0 0 40px rgba(147, 51, 234, 0.2)" }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.02, backgroundColor: "#4f46e5" }}
+                whileTap={{ scale: 0.98 }}
                 href="https://docs.google.com/document/d/1mGw-bCWSsJmKqaa6fie0V_nAhk86dg5hZ79hFQDOTVo/edit?usp=sharingg"
                 target="_blank"
-                className="px-8 sm:px-10 2xl:px-14 py-4 sm:py-5 2xl:py-7 rounded-2xl bg-white text-black font-black flex items-center gap-3 transition-all text-sm sm:text-base 2xl:text-xl"
+                className="px-8 py-4 rounded-xl bg-indigo-600 text-white font-bold flex items-center gap-3 transition-all text-sm shadow-lg shadow-indigo-600/20"
               >
-                <Download size={20} />
-                Get Resume
+                <Download size={18} />
+                Download CV
               </motion.a>
               
-              <div className="flex items-center gap-3 sm:gap-4 2xl:gap-6">
+              <div className="flex items-center gap-3">
                 {[
                   { icon: FaGithub, href: "https://github.com/Mohosin075" },
                   { icon: FaLinkedin, href: "https://www.linkedin.com/in/md-mohosin-5b34a0278/" },
@@ -98,11 +98,11 @@ const Home = () => {
                 ].map((social, i) => (
                   <motion.a
                     key={i}
-                    whileHover={{ y: -5, backgroundColor: "rgba(255,255,255,0.07)", borderColor: "rgba(255,255,255,0.1)" }}
+                    whileHover={{ y: -3, backgroundColor: "rgba(99, 102, 241, 0.1)", borderColor: "rgba(99, 102, 241, 0.2)" }}
                     href={social.href}
-                    className="w-12 h-12 sm:w-14 sm:h-14 2xl:w-20 2xl:h-20 rounded-2xl bg-white/[0.03] border border-white/5 text-gray-400 hover:text-white flex items-center justify-center transition-all duration-300"
+                    className="w-11 h-11 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-white flex items-center justify-center transition-all duration-300"
                   >
-                    <social.icon size={social.icon === Mail ? 20 : 24} className="2xl:scale-125" />
+                    <social.icon size={18} />
                   </motion.a>
                 ))}
               </div>
@@ -111,49 +111,49 @@ const Home = () => {
 
           {/* Right Content - Image */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, ease: "circOut" }}
+            transition={{ duration: 1, ease: "circOut" }}
             className="relative hidden lg:block"
           >
-            <div ref={imageRef} className="relative z-10 w-full max-w-lg 2xl:max-w-2xl mx-auto aspect-square rounded-[3.5rem] 2xl:rounded-[5rem] overflow-hidden border border-white/10 shadow-2xl shadow-accent-purple/10">
+            <div ref={imageRef} className="relative z-10 w-full max-w-md mx-auto aspect-square rounded-[3rem] overflow-hidden border border-slate-800 shadow-2xl">
               <img 
                 src="https://i.ibb.co/nM8b7ngD/IMG-20250505-200142-1.jpg" 
                 alt="Profile" 
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 scale-110"
+                className="w-full h-full object-cover transition-all duration-700 hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent" />
             </div>
             
             {/* Floating Stats */}
             <motion.div 
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -top-6 -right-6 2xl:-top-12 2xl:-right-12 p-5 2xl:p-8 rounded-[2rem] 2xl:rounded-[3rem] glassify-dark border border-white/10 backdrop-blur-2xl shadow-2xl z-20"
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -top-4 -right-4 p-5 rounded-2xl glassify-dark border border-slate-800 shadow-xl z-20"
             >
-              <div className="flex items-center gap-4 2xl:gap-6">
-                <div className="w-10 h-10 2xl:w-16 2xl:h-16 rounded-xl 2xl:rounded-2xl bg-accent-purple/10 flex items-center justify-center text-accent-purple">
-                  <Sparkles size={20} className="2xl:scale-150" />
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-400">
+                  <Sparkles size={18} />
                 </div>
                 <div>
-                  <p className="text-[10px] 2xl:text-xs text-gray-500 font-black uppercase tracking-widest">Experience</p>
-                  <p className="text-lg 2xl:text-3xl font-black text-white">2+ Years</p>
+                  <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Experience</p>
+                  <p className="text-base font-bold text-white">2+ Years</p>
                 </div>
               </div>
             </motion.div>
 
             <motion.div 
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute -bottom-6 -left-6 2xl:-bottom-12 2xl:-left-12 p-5 2xl:p-8 rounded-[2rem] 2xl:rounded-[3rem] glassify-dark border border-white/10 backdrop-blur-2xl shadow-2xl z-20"
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              className="absolute -bottom-4 -left-4 p-5 rounded-2xl glassify-dark border border-slate-800 shadow-xl z-20"
             >
-              <div className="flex items-center gap-4 2xl:gap-6">
-                <div className="w-10 h-10 2xl:w-16 2xl:h-16 rounded-xl 2xl:rounded-2xl bg-accent-blue/10 flex items-center justify-center text-accent-blue">
-                  <ArrowRight size={20} className="2xl:scale-150" />
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400">
+                  <ArrowRight size={18} />
                 </div>
                 <div>
-                  <p className="text-[10px] 2xl:text-xs text-gray-500 font-black uppercase tracking-widest">Projects</p>
-                  <p className="text-lg 2xl:text-3xl font-black text-white">15+ Completed</p>
+                  <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Projects</p>
+                  <p className="text-base font-bold text-white">15+ Built</p>
                 </div>
               </div>
             </motion.div>
@@ -161,16 +161,16 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Featured Projects Preview */}
-      <section className="section-padding relative bg-black/40">
+      {/* Featured Projects Section Preview */}
+      <section className="section-padding relative bg-slate-950/30">
         <div className="CContainer">
-          <div className="flex flex-col md:flex-row justify-between items-center md:items-end gap-6 mb-16 sm:mb-20 text-center md:text-left">
+          <div className="flex flex-col md:flex-row justify-between items-center md:items-end gap-6 mb-16 text-center md:text-left">
             <div>
-              <h2 className="section-title mb-4">Featured <span className="text-gradient">Systems</span></h2>
-              <p className="text-gray-500 max-w-lg font-medium">A selection of high-performance backend architectures and full-stack solutions.</p>
+              <h2 className="section-title">Selected <span className="text-gradient">Projects</span></h2>
+              <p className="section-subtitle lg:mx-0 mb-0">Highlighting my work in system architecture and full-stack development.</p>
             </div>
-            <NavLink to="/projects" className="flex items-center gap-2 text-accent-blue font-black uppercase tracking-widest text-xs hover:gap-4 transition-all duration-300">
-              Explore Portfolio <ArrowRight size={16} />
+            <NavLink to="/projects" className="flex items-center gap-2 text-indigo-400 font-bold uppercase tracking-widest text-[10px] hover:text-indigo-300 transition-colors">
+              All Projects <ArrowRight size={14} />
             </NavLink>
           </div>
           <Projects limit={3} />

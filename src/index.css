@@ -4,46 +4,46 @@
 
 @layer base {
   :root {
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --border: 240 3.7% 15.9%;
+    --primary: 222 47% 11%;
+    --primary-foreground: 210 40% 98%;
+    --accent: 226 70% 64%;
+    --accent-foreground: 222 47% 11%;
+    --border: 217 33% 17%;
   }
 }
 
 * {
-  font-family: "Outfit", "Inter", sans-serif;
+  font-family: "Inter", "Outfit", sans-serif;
   scroll-behavior: smooth;
 }
 
 body {
-  @apply bg-black text-white antialiased selection:bg-accent-purple/30;
+  @apply bg-[#020617] text-slate-200 antialiased selection:bg-indigo-500/30;
   overflow-x: hidden;
 }
 
 .CContainer {
-  @apply max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-16;
+  @apply max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 2xl:px-16;
 }
 
 .section-padding {
-  @apply py-12 md:py-24 lg:py-32 2xl:py-40;
+  @apply py-16 md:py-24 lg:py-32;
 }
 
 .section-title {
-  @apply text-3xl md:text-5xl lg:text-6xl 2xl:text-7xl font-black tracking-tighter mb-6 text-white;
+  @apply text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4 text-white;
 }
 
 .section-subtitle {
-  @apply text-base md:text-lg lg:text-xl 2xl:text-2xl text-gray-500 max-w-3xl mx-auto mb-16 2xl:mb-24 font-medium;
+  @apply text-sm md:text-base lg:text-lg text-slate-400 max-w-2xl mx-auto mb-12 font-medium;
 }
 
 .glass-card {
-  @apply glassify-dark transition-all duration-500 hover:border-white/10 hover:bg-white/[0.07];
+  @apply glassify-dark transition-all duration-300 hover:border-indigo-500/20 hover:bg-slate-900/40;
 }
 
 .text-gradient {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-purple via-accent-pink to-accent-blue;
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-emerald-400;
 }
 
 .bg-mesh {
@@ -51,32 +51,32 @@ body {
 }
 
 h1 {
-  @apply text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter text-white leading-[1.1] sm:leading-[1.05];
+  @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-tight;
 }
 h2 {
-  @apply text-3xl sm:text-5xl md:text-6xl font-black tracking-tighter text-white;
+  @apply text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white;
 }
 h3 {
   @apply text-xl sm:text-2xl md:text-3xl font-bold text-white;
 }
 p {
-  @apply text-sm sm:text-base md:text-lg text-gray-400 leading-relaxed;
+  @apply text-sm sm:text-base text-slate-400 leading-relaxed;
 }
 
 .btn-primary-modern {
-  @apply relative px-8 py-4 rounded-2xl bg-white text-black font-bold transition-all duration-300 hover:scale-105 active:scale-95 overflow-hidden;
+  @apply px-6 py-3 rounded-xl bg-indigo-600 text-white font-semibold transition-all duration-300 hover:bg-indigo-700 hover:shadow-lg hover:shadow-indigo-500/20 active:scale-95;
 }
 
 .btn-secondary-modern {
-  @apply relative px-8 py-4 rounded-2xl border border-white/10 text-white font-bold transition-all duration-300 hover:bg-white/5 active:scale-95 overflow-hidden;
+  @apply px-6 py-3 rounded-xl border border-slate-700 text-slate-300 font-semibold transition-all duration-300 hover:bg-slate-800 hover:text-white active:scale-95;
 }
 
 .nav-link {
-  @apply relative px-4 py-2 text-sm font-medium text-gray-400 transition-colors duration-300 hover:text-white;
+  @apply px-4 py-2 text-sm font-medium text-slate-400 transition-colors duration-200 hover:text-white;
 }
 
 .nav-link-active {
-  @apply text-white after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-1 after:rounded-full after:bg-accent-purple;
+  @apply text-white relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-indigo-500 after:rounded-full;
 }
 
 /* Custom Scrollbar */
@@ -84,8 +84,8 @@ p {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  @apply bg-black;
+  @apply bg-slate-950;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-white/10 rounded-full hover:bg-white/20 transition-colors;
+  @apply bg-slate-800 rounded-full hover:bg-slate-700 transition-colors;
 }

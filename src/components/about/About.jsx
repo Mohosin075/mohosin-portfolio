@@ -23,9 +23,9 @@ const About = () => {
   return (
     <section className="section-padding relative overflow-hidden bg-mesh min-h-screen pt-32">
       <div className="CContainer">
-        <div className="text-center lg:text-left mb-16 sm:mb-20">
+        <div className="text-center lg:text-left mb-16">
           <h2 className="section-title">Engineering <span className="text-gradient">Excellence</span></h2>
-          <p className="section-subtitle lg:mx-0">Backend Architect specializing in building high-performance distributed systems.</p>
+          <p className="section-subtitle lg:mx-0">Backend Architect focused on performance, security, and scalability.</p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 sm:gap-20 items-start">
@@ -37,21 +37,21 @@ const About = () => {
             transition={{ duration: 0.8 }}
             className="relative order-2 lg:order-1"
           >
-            <div className="relative z-10 rounded-[2.5rem] sm:rounded-[4rem] overflow-hidden border border-white/10 shadow-2xl group">
+            <div className="relative z-10 rounded-[2.5rem] overflow-hidden border border-slate-800 shadow-2xl group">
               <img
-                className="w-full aspect-[4/5] object-cover transition-transform duration-1000 group-hover:scale-105"
+                className="w-full aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-105"
                 src="https://i.ibb.co/nM8b7ngD/IMG-20250505-200142-1.jpg"
                 alt="Md Mohosin Ali"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60" />
               
-              <div className="absolute bottom-6 sm:bottom-10 left-6 sm:left-10">
-                <p className="text-white font-black text-2xl sm:text-3xl mb-1 tracking-tight">Md Mohosin Ali</p>
-                <p className="text-accent-blue font-black uppercase tracking-[0.2em] text-[10px] sm:text-xs">Full-Stack Engineer</p>
+              <div className="absolute bottom-6 left-8">
+                <p className="text-white font-bold text-2xl mb-1 tracking-tight">Md Mohosin Ali</p>
+                <p className="text-indigo-400 font-bold uppercase tracking-[0.2em] text-[10px]">Backend Systems Engineer</p>
               </div>
             </div>
             
-            <div className="grid grid-cols-2 gap-3 sm:gap-4 mt-8">
+            <div className="grid grid-cols-2 gap-4 mt-8">
               {stats.map((stat, i) => (
                 <motion.div
                   key={i}
@@ -59,12 +59,12 @@ const About = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1 }}
                   viewport={{ once: true }}
-                  className="glassify-dark p-5 sm:p-6 rounded-[2rem] border border-white/5 group hover:border-white/20 transition-all duration-500"
+                  className="glassify-dark p-6 rounded-2xl border border-slate-800 group hover:border-slate-700 transition-all duration-300"
                 >
-                  <stat.icon className="text-accent-purple mb-3 sm:mb-4 group-hover:scale-110 transition-transform" size={20} />
-                  <h4 className="text-3xl sm:text-4xl font-black text-white mb-1 tracking-tighter">{stat.value}</h4>
-                  <p className="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-black leading-tight">
-                    {stat.label} <br /> <span className="text-gray-600">{stat.suffix}</span>
+                  <stat.icon className="text-indigo-400 mb-4 group-hover:scale-110 transition-transform" size={20} />
+                  <h4 className="text-3xl font-bold text-white mb-1 tracking-tighter">{stat.value}</h4>
+                  <p className="text-[10px] text-slate-500 uppercase tracking-[0.2em] font-bold leading-tight">
+                    {stat.label} <br /> <span className="text-slate-600">{stat.suffix}</span>
                   </p>
                 </motion.div>
               ))}
@@ -79,42 +79,42 @@ const About = () => {
             transition={{ duration: 0.8 }}
             className="order-1 lg:order-2"
           >
-            <div className="space-y-6 sm:space-y-8 text-gray-400 text-base sm:text-lg leading-relaxed font-medium">
+            <div className="space-y-6 text-slate-400 text-sm sm:text-base leading-relaxed font-medium">
               <p>
-                Currently engineering scalable solutions at 
-                <span className="text-accent-blue font-black ml-1 uppercase tracking-wider text-sm">SparkTech Agency</span>.
+                Senior Developer at 
+                <span className="text-indigo-400 font-bold ml-1 uppercase tracking-wider text-xs">SparkTech Agency</span>.
               </p>
               
-              <div className="pl-6 border-l-2 border-accent-purple/30 italic text-gray-500 text-base sm:text-lg">
-                &quot;I believe in code that is not just functional, but an elegant piece of engineering that solves complex real-world problems.&quot;
+              <div className="pl-6 border-l-2 border-indigo-500/30 italic text-slate-500 text-base">
+                &quot;I engineer backend systems that are not just functional, but optimized for scale and performance.&quot;
               </div>
 
               <p>
-                My expertise lies in the <span className="text-white font-bold tracking-tight">MERN stack</span>, with deep focus on 
-                Node.js microservices, real-time data orchestration, and cloud-native deployments. 
-                I transform complex business requirements into robust, secure, and maintainable software.
+                Specializing in the <span className="text-white font-bold">MERN stack</span>, I build robust APIs, microservices, and 
+                real-time applications. My focus is on writing clean, maintainable code and implementing 
+                efficient database architectures.
               </p>
             </div>
 
-            <div className="mt-12 sm:mt-16">
-              <h3 className="text-xl sm:text-2xl font-black mb-6 sm:mb-8 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-accent-purple/10 flex items-center justify-center text-accent-purple">
+            <div className="mt-16">
+              <h3 className="text-xl font-bold mb-8 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-400">
                   <Cpu size={20} />
                 </div>
-                Technical Arsenal
+                Core Stack
               </h3>
               
-              <div className="grid grid-cols-2 sm:grid-cols-4 2xl:grid-cols-4 gap-3 sm:gap-4 2xl:gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 {skills.map((skill, i) => (
                   <motion.div
                     key={i}
-                    whileHover={{ y: -5, scale: 1.02 }}
-                    className={`p-4 sm:p-5 2xl:p-8 rounded-[2rem] ${skill.bg} border border-white/5 flex flex-col items-center gap-3 sm:gap-4 2xl:gap-6 transition-all duration-500 group`}
+                    whileHover={{ y: -5 }}
+                    className={`p-5 rounded-2xl bg-slate-900/50 border border-slate-800 flex flex-col items-center gap-4 transition-all duration-300 group`}
                   >
-                    <div className={`p-2 sm:p-3 2xl:p-5 rounded-2xl bg-black/40 group-hover:scale-110 transition-transform`}>
-                      <skill.icon size={24} className={`${skill.color} 2xl:scale-150`} />
+                    <div className={`p-3 rounded-xl bg-slate-950 group-hover:scale-110 transition-transform`}>
+                      <skill.icon size={24} className={`${skill.color}`} />
                     </div>
-                    <span className="text-[10px] sm:text-xs 2xl:text-sm font-black text-gray-300 tracking-[0.2em] uppercase">{skill.name}</span>
+                    <span className="text-[10px] font-bold text-slate-300 tracking-[0.2em] uppercase">{skill.name}</span>
                   </motion.div>
                 ))}
               </div>

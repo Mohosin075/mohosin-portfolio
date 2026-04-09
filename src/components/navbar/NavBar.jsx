@@ -19,32 +19,32 @@ const Navbar = () => {
     <motion.nav 
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 z-50 w-full transition-all duration-500 ${
-        scrolled ? "py-4 bg-black/60 backdrop-blur-xl border-b border-white/5" : "py-6 bg-transparent"
+      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
+        scrolled ? "py-4 bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/50 shadow-lg" : "py-6 bg-transparent"
       }`}
     >
       <div className="CContainer flex justify-between items-center">
         {/* Logo */}
         <NavLink to="/" className="flex items-center gap-3 group">
-          <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-accent-purple to-accent-blue flex items-center justify-center text-white font-bold text-2xl shadow-lg shadow-accent-purple/20 group-hover:rotate-[10deg] transition-all duration-500">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-emerald-500 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-indigo-500/20 group-hover:scale-110 transition-all duration-300">
             M
           </div>
-          <span className="text-2xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-gray-500">
+          <span className="text-xl font-bold tracking-tight text-white group-hover:text-indigo-400 transition-colors">
             Mohosin
           </span>
         </NavLink>
 
         {/* Nav Links Desktop */}
-        <div className="hidden md:flex items-center gap-2 p-1 rounded-2xl bg-white/5 border border-white/5 backdrop-blur-md">
+        <div className="hidden md:flex items-center gap-1">
           {ListItem.map((list, i) => (
             <NavLink
               key={i}
               to={`/${list?.location}`}
               className={({ isActive }) => `
-                px-6 py-2.5 text-sm font-semibold rounded-xl transition-all duration-300
+                px-5 py-2 text-sm font-semibold rounded-lg transition-all duration-200
                 ${isActive 
-                  ? "bg-white text-black shadow-xl" 
-                  : "text-gray-400 hover:text-white hover:bg-white/5"}
+                  ? "text-white bg-white/5 shadow-inner shadow-white/5" 
+                  : "text-slate-400 hover:text-white hover:bg-white/5"}
               `}
             >
               {list?.Label}
@@ -53,7 +53,7 @@ const Navbar = () => {
         </div>
 
         {/* Social Links Desktop */}
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden md:flex items-center gap-2">
           {[
             { icon: FaGithub, href: "https://github.com/Mohosin075" },
             { icon: FaLinkedin, href: "https://www.linkedin.com/in/md-mohosin-5b34a0278/" },
@@ -64,11 +64,11 @@ const Navbar = () => {
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ y: -3, scale: 1.1 }}
+              whileHover={{ y: -2 }}
               whileTap={{ scale: 0.9 }}
-              className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 border border-white/5 transition-all"
+              className="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-700 transition-all"
             >
-              <social.icon size={18} />
+              <social.icon size={16} />
             </motion.a>
           ))}
         </div>
