@@ -40,7 +40,7 @@ const About = () => {
             <div className="relative z-10 rounded-[2.5rem] overflow-hidden border border-slate-800 shadow-2xl group">
               <img
                 className="w-full aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-105"
-                src="https://i.ibb.co/nM8b7ngD/IMG-20250505-200142-1.jpg"
+                src="https://i.ibb.co.com/C5RnCvpF/ai-1.png"
                 alt="Md Mohosin Ali"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60" />

@@ -119,7 +119,7 @@ const Home = () => {
           >
             <div ref={imageRef} className="relative z-10 w-full max-w-md mx-auto aspect-square rounded-[3rem] overflow-hidden border border-slate-800 shadow-2xl">
               <img 
-                src="https://i.ibb.co/nM8b7ngD/IMG-20250505-200142-1.jpg" 
+                src="https://i.ibb.co.com/C5RnCvpF/ai-1.png" 
                 alt="Profile" 
                 className="w-full h-full object-cover transition-all duration-700 hover:scale-105"
               />
