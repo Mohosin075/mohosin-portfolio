@@ -82,8 +82,8 @@ const Contact = () => {
               { 
                 icon: Phone, 
                 label: "Call Me", 
-                value: "+880 1742-125075", 
-                href: "tel:+8801742125075",
+                value: "+8801981381383", 
+                href: "tel:+8801981381383",
                 color: "text-emerald-400",
                 bg: "bg-emerald-500/10"
               },
