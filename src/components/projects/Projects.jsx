@@ -101,7 +101,7 @@ const Projects = ({ limit }) => {
 
                 {/* Tech Tags */}
                 <div className="absolute top-4 sm:top-6 right-4 sm:right-6 flex flex-wrap gap-2 justify-end pointer-events-none">
-                  {project?.frontEnd?.slice(0, 2).map((tech, i) => (
+                  {project?.backEnd?.slice(0, 2).map((tech, i) => (
                     <span key={i} className="px-2 sm:px-3 py-1 text-[8px] sm:text-[10px] font-black uppercase tracking-[0.2em] bg-black/50 backdrop-blur-md border border-white/10 text-white rounded-full">
                       {tech}
                     </span>
