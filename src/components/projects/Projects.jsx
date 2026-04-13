@@ -54,7 +54,7 @@ const Projects = ({ limit }) => {
         </div>
       )}
 
-      <div className={`${!limit ? 'CContainer' : ''} grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6 sm:gap-10 2xl:gap-12`}>
+      <div className={`${!limit ? 'CContainer' : ''} grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-3 gap-6 sm:gap-10 2xl:gap-12`}>
         <AnimatePresence>
           {projects.map((project, index) => (
             <motion.div
@@ -116,7 +116,7 @@ const Projects = ({ limit }) => {
                   <span className="text-[10px] font-bold uppercase tracking-[0.2em]">Project {index + 1}</span>
                 </div>
                 
-                <h3 className="text-xl font-bold mb-4 group-hover:text-indigo-400 transition-colors tracking-tight">
+                <h3 className="text-xl font-bold mb-4 group-hover:text-indigo-400 transition-colors tracking-tight uppercase">
                   {project?.title}
                 </h3>
                 

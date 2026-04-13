@@ -1,0 +1,59 @@
+Md Mohosin Ali
+Jr. Backend Developer (MERN)
+Sparktech Agency
+Portfolio |  Github  | Linkedin
+Mohakhali, Dhaka
+Phone: 01981381386
+Email: web.mohosin@gmail.com
+
+Career Objective
+I am a backend-focused MERN stack developer with hands-on experience in building scalable and efficient web applications using Express, TypeScript, and MongoDB. Currently working at Sparktech Agency, I collaborate with my team to deliver solutions that align with both user needs and business objectives. I am committed to continuous learning, sharpening my technical expertise, and contributing to impactful projects that drive growth and innovation.
+
+Technical Skills
+Core Technologies: MongoDB, Express.js, React.js, Node.js, JavaScript (ES6+), TypeScript
+Database Technologies: MongoDB, PostgreSQL, Prisma
+Backend Development: Express.js, RESTful API Development, Mongoose (ODM), Authentication & Authorization (JWT)
+Frontend Development: HTML5, CSS3, Tailwind CSS, Shadcn UI, Ant Design, React.js (Hooks, Context API), Redux Toolkit, TanStack Query (React Query), Responsive Design
+Real-Time & Communication: WebSockets with Socket.io
+DevOps & Deployment: Docker, AWS, Vercel, CI/CD, NGINX, DevOps 
+Tools & Version Control: Git, GitHub, npm, yarn, Postman
+Payment: Stripe, SSLcommerz
+
+Job Experience
+Jr. Backend Developer — Sparktech Agency
+Jun 2025 – Present 
+Building and maintaining scalable backend services using Node.js, Express.js, TypeScript, and MongoDB
+Collaborating with a small, agile team to deliver solutions aligned with the client's business needs
+Implementing secure authentication, RESTful APIs, and efficient database models with Mongoose
+Actively improving code quality with validation, error handling, and best practices
+Contributing to team discussions, project planning, and continuous integration workflows
+Projects
+HappyValley (Backend Service Management System)
+GitHub: backend
+A comprehensive and scalable enterprise-grade backend system for managing services, bookings, and subscriptions. Built with a modular architecture designed for high performance, maintainability, and seamless scalability.
+Core Features:
+Authentication: Secure stateless authentication with JWT and multi-provider social login (Google/Facebook) via Passport.js
+Booking & Inventory: Advanced appointment scheduling with real-time availability tracking
+Smart Grocery Assistant: AI-powered grocery bot using OpenAI (GPT-4o) for intelligent recommendations
+Payments & Subscriptions: Stripe integration for one-time payments and recurring subscriptions
+Real-time & Communications: Bidirectional communication via Socket.io and push notifications
+Stack: Node.js, Express.js, TypeScript, MongoDB (Mongoose),  Stripe, Socket.io, Firebase, AWS S3, OpenAI (GPT-4o), Twilio, Zod, JWT, Passport.js, Git, GitHub, Postman
+
+Asetta Autos (MERN Stack Web App)
+ live link | Github > front end| backend
+A full-stack vehicle marketplace platform built with the MERN stack, designed for smooth browsing, secure transactions, and efficient vehicle management.
+Core Features:
+Authentication: Secure login/registration with JWT
+Inventory: Add, update, and manage car listings with images
+Search & Filter: Browse cars by brand, price, category, and availability
+Booking System: Schedule test drives and reserve cars
+Admin Tools: Manage users, car listings, and approvals
+Responsive UI: Optimized for both desktop and mobile
+Stack: React.js, Redux Toolkit, TanStack Query, Tailwind CSS, Shadcn UI, Express.js, TypeScript, RESTful APIs, Mongoose (ODM), MongoDB (NoSQL), JWT, Firebase Auth, WebSockets (Socket.io), Vercel, Git, GitHub, Postman, npm, yarn
+
+Education
+Diploma in Computer Technology
+Dinajpur Polytechnic Institute, Dinajpur | Completed January 2025 | Computer Technology
+
+Languages
+Bangla – (Native),  English – (Basic)
