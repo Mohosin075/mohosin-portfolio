@@ -47,12 +47,13 @@ const Home = () => {
               className="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-indigo-500/5 border border-indigo-500/10 text-indigo-400 text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-6"
             >
               <Sparkles size={14} className="animate-pulse" />
-              <span>Available for new opportunities</span>
+                
+              <span>Backend Engineer</span>
             </motion.div>
 
-            <h1 className="mb-6 tracking-tight leading-[1.1] 2xl:text-8xl">
-              Engineering <span className="text-gradient">Robust</span> <br />
-              Backend Architectures
+            <h1 className="mb-6 tracking-tight leading-[1.1] 2xl:text-6xl">
+              Building Scalable <span className="text-gradient">& Reliable </span> 
+              Systems
             </h1>
 
             <div className="text-lg sm:text-xl md:text-2xl font-bold text-slate-300 mb-8 h-20 flex items-center justify-center lg:justify-start">
@@ -82,7 +83,7 @@ const Home = () => {
               <motion.a
                 whileHover={{ scale: 1.02, backgroundColor: "#4f46e5" }}
                 whileTap={{ scale: 0.98 }}
-                href="https://docs.google.com/document/d/1mGw-bCWSsJmKqaa6fie0V_nAhk86dg5hZ79hFQDOTVo/edit?usp=sharingg"
+                href="https://docs.google.com/document/d/1OA-QK-BmcS-EdEjjR7k-SxCj2OEPz6mYWwpGaVuzwh0/edit?usp=sharing"
                 target="_blank"
                 className="px-8 py-4 rounded-xl bg-indigo-600 text-white font-bold flex items-center gap-3 transition-all text-sm shadow-lg shadow-indigo-600/20"
               >
@@ -137,7 +138,7 @@ const Home = () => {
                 </div>
                 <div>
                   <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Experience</p>
-                  <p className="text-base font-bold text-white">2+ Years</p>
+                  <p className="text-base font-bold text-white">1+ Years</p>
                 </div>
               </div>
             </motion.div>
@@ -153,7 +154,7 @@ const Home = () => {
                 </div>
                 <div>
                   <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Projects</p>
-                  <p className="text-base font-bold text-white">15+ Built</p>
+                  <p className="text-base font-bold text-white">5+ Built</p>
                 </div>
               </div>
             </motion.div>
