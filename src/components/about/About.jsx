@@ -81,7 +81,7 @@ const About = () => {
           >
             <div className="space-y-6 text-slate-400 text-sm sm:text-base leading-relaxed font-medium">
               <p>
-                Senior Developer at 
+                Jr. Developer at 
                 <span className="text-indigo-400 font-bold ml-1 uppercase tracking-wider text-xs">SparkTech Agency</span>.
               </p>
               
