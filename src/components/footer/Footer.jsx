@@ -39,14 +39,15 @@ const Footer = () => {
                   Md Mohosin Ali
                 </span>
                 <span className="text-[9px] font-bold uppercase tracking-[0.15em] text-slate-500">
-                  Backend Systems Engineer
+                  Full Stack Developer
                 </span>
               </div>
             </NavLink>
 
             <p className="text-slate-500 text-sm leading-relaxed max-w-sm font-medium">
-              Engineering robust backend architectures and crafting seamless
-              digital experiences with 2+ years of real-world production experience.
+              Backend-focused Full Stack Developer with 2+ years of real-world
+              production experience. Building scalable APIs, real-time systems,
+              and modern React frontends.
             </p>
 
             {/* Availability badge */}

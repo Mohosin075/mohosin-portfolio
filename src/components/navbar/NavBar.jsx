@@ -57,7 +57,7 @@ const Navbar = () => {
                 Mohosin
               </span>
               <span className="text-[9px] font-bold uppercase tracking-[0.15em] text-slate-500">
-                Backend Engineer
+                Full Stack Developer
               </span>
             </div>
           </NavLink>

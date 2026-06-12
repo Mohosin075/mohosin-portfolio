@@ -131,7 +131,7 @@ const About = () => {
             Engineering <span className="text-gradient">Excellence</span>
           </h2>
           <p className="section-subtitle text-center">
-            Backend Architect focused on performance, security, and scalability — with 2+ years of real-world experience.
+            Backend-focused Full Stack Developer — building scalable APIs, real-time systems, and modern React frontends with 2+ years of real-world experience.
           </p>
         </div>
 
@@ -178,7 +178,7 @@ const About = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-70" />
               <div className="absolute bottom-6 left-8 right-8">
                 <p className="text-white font-bold text-2xl mb-1 tracking-tight">Md Mohosin Ali</p>
-                <p className="text-indigo-400 font-bold uppercase tracking-[0.15em] text-[10px]">Backend Systems Engineer</p>
+                <p className="text-indigo-400 font-bold uppercase tracking-[0.15em] text-[10px]">Full Stack Developer (Backend Focus)</p>
                 <div className="flex items-center gap-2 mt-2">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                   <span className="text-emerald-400 text-[10px] font-bold uppercase tracking-wider">Available for hire</span>
@@ -189,18 +189,18 @@ const About = () => {
             {/* Bio */}
             <div className="space-y-5 text-slate-400 text-sm sm:text-base leading-relaxed font-medium">
               <p>
-                I&apos;m a <span className="text-white font-bold">Backend-focused MERN Stack Developer</span> with
+                I&apos;m a <span className="text-white font-bold">Backend-focused Full Stack Developer</span> with
                 2+ years of hands-on experience building production-grade systems. Currently working as a{" "}
                 <span className="text-indigo-400 font-bold">Jr. Backend Developer at Sparktech Agency</span>, where
-                I architect and maintain scalable services for real clients.
+                I architect scalable services while also delivering complete full-stack MERN applications.
               </p>
               <div className="pl-5 border-l-2 border-indigo-500/40 italic text-slate-500">
-                &quot;I engineer backend systems that are not just functional, but optimized for scale, performance, and maintainability.&quot;
+                &quot;I build both the engine and the dashboard — backend systems that are fast and secure, with frontends that feel alive.&quot;
               </div>
               <p>
-                My focus is on writing <span className="text-white font-bold">clean, maintainable code</span> — building
-                robust REST APIs, microservices, real-time apps, and implementing{" "}
-                <span className="text-white font-bold">secure authentication & payment systems</span> for production environments.
+                Strong in <span className="text-white font-bold">Node.js, Express & MongoDB</span> on the backend,
+                and equally comfortable with <span className="text-white font-bold">React, Redux & TanStack Query</span> on
+                the frontend. I write clean, maintainable code and build complete end-to-end products.
               </p>
             </div>
           </motion.div>

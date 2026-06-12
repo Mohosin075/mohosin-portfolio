@@ -62,7 +62,7 @@ const Home = () => {
               {/* Role badge */}
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-[10px] font-bold uppercase tracking-widest">
                 <Sparkles size={12} className="animate-pulse" />
-                Backend Engineer
+                Full Stack Developer
               </div>
             </motion.div>
 
@@ -79,13 +79,13 @@ const Home = () => {
                 sequence={[
                   "Hi, I'm Md Mohosin Ali 👋",
                   2500,
-                  "Jr. Backend Systems Engineer",
+                  "Backend-focused Full Stack Dev",
                   2000,
                   "MERN Stack Specialist",
                   2000,
-                  "REST API & DevOps Explorer",
+                  "REST API & System Architect",
                   2000,
-                  "Real-time App Developer",
+                  "React · Node · TypeScript",
                   2000,
                 ]}
                 wrapper="span"
@@ -96,9 +96,9 @@ const Home = () => {
 
             {/* Description */}
             <p className="text-slate-400 text-sm sm:text-base md:text-lg mb-4 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
-              Passionate about building high-performance, secure, and scalable
-              server-side solutions. Specializing in Node.js, TypeScript &
-              MongoDB architectures.
+              Backend-focused Full Stack Developer with 2+ years building scalable
+              REST APIs, real-time systems, and modern React frontends. Specializing
+              in Node.js, TypeScript &amp; MongoDB.
             </p>
 
             {/* Currently at */}
