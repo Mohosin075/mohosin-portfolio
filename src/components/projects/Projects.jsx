@@ -23,7 +23,7 @@ const FeaturedCard = ({ project, index }) => {
     >
     <article className="project-card">
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "start" }}
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "center" }}
            className="featured-grid">
 
         {/* Image side */}
@@ -58,7 +58,7 @@ const FeaturedCard = ({ project, index }) => {
         <div style={{ display: "flex", flexDirection: "column", height: "100%", justifyContent: "space-between", paddingTop: 4 }}>
           <div>
             {/* Project number */}
-            <span className="project-num" style={{ display: "block", marginBottom: -16, userSelect: "none" }}>
+            <span className="project-num" style={{ display: "block", marginBottom: 0, userSelect: "none" }}>
               {num}
             </span>
 
@@ -69,11 +69,11 @@ const FeaturedCard = ({ project, index }) => {
 
             {/* Title */}
             <h3 className="font-display" style={{
-              fontSize: "clamp(2rem, 4vw, 3.2rem)",
+              fontSize: "clamp(2rem, 4vw, 3rem)",
               color: "var(--chalk)",
-              lineHeight: 0.95,
-              marginBottom: 20,
-              letterSpacing: "0.01em",
+              lineHeight: 1.1,
+              marginBottom: 16,
+              letterSpacing: "-0.01em",
             }}>
               {project.title}
             </h3>
@@ -173,7 +173,7 @@ const CompactCard = ({ project, index }) => (
     transition={{ delay: index * 0.08, duration: 0.5 }}
     className="compact-card"
   >
-    <div style={{ display: "flex", flexDirection: "column" }}>
+    <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
       {/* Image */}
       <div className="img-container" style={{ height: 180, position: "relative" }}>
         <img
