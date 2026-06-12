@@ -1,96 +1,29 @@
 import { motion } from "framer-motion";
 import {
-  Code2, Database, Globe, Server, Cpu, Cloud, Terminal,
-  Shield, Award, Rocket, CheckCircle2, Zap, GitBranch,
-  Layers, Brain, Clock, CalendarDays,
+  Server, Database, Cpu, Clock, CalendarDays,
 } from "lucide-react";
-import { SiNodedotjs, SiExpress, SiMongodb, SiTypescript, SiReact, SiDocker, SiAmazon, SiPrisma, SiPostgresql, SiStripe, SiSocketdotio, SiFirebase, SiGithub, SiPostman } from "react-icons/si";
+import {
+  SiNodedotjs, SiExpress, SiMongodb, SiTypescript, SiReact,
+  SiDocker, SiAmazon, SiPrisma, SiPostgresql, SiStripe,
+  SiSocketdotio, SiFirebase, SiGithub, SiPostman, SiRedis,
+} from "react-icons/si";
 
-const skillCategories = [
-  {
-    label: "Backend Core",
-    color: "text-emerald-400",
-    border: "border-emerald-500/20",
-    bg: "bg-emerald-500/5",
-    skills: [
-      { name: "Node.js", icon: SiNodedotjs, color: "text-green-500" },
-      { name: "Express.js", icon: SiExpress, color: "text-gray-300" },
-      { name: "TypeScript", icon: SiTypescript, color: "text-blue-500" },
-      { name: "MongoDB", icon: SiMongodb, color: "text-green-600" },
-      { name: "PostgreSQL", icon: SiPostgresql, color: "text-blue-400" },
-      { name: "Prisma", icon: SiPrisma, color: "text-slate-300" },
-    ],
-  },
-  {
-    label: "Frontend",
-    color: "text-cyan-400",
-    border: "border-cyan-500/20",
-    bg: "bg-cyan-500/5",
-    skills: [
-      { name: "React.js", icon: SiReact, color: "text-cyan-400" },
-      { name: "Redux Toolkit", icon: Layers, color: "text-purple-400" },
-      { name: "TanStack Query", icon: Zap, color: "text-red-400" },
-      { name: "Tailwind CSS", icon: Globe, color: "text-sky-400" },
-    ],
-  },
-  {
-    label: "DevOps & Cloud",
-    color: "text-orange-400",
-    border: "border-orange-500/20",
-    bg: "bg-orange-500/5",
-    skills: [
-      { name: "Docker", icon: SiDocker, color: "text-blue-400" },
-      { name: "AWS S3", icon: SiAmazon, color: "text-orange-400" },
-      { name: "Firebase", icon: SiFirebase, color: "text-yellow-500" },
-      { name: "Vercel", icon: Cloud, color: "text-white" },
-    ],
-  },
-  {
-    label: "Integrations",
-    color: "text-purple-400",
-    border: "border-purple-500/20",
-    bg: "bg-purple-500/5",
-    skills: [
-      { name: "Stripe", icon: SiStripe, color: "text-indigo-400" },
-      { name: "Socket.io", icon: SiSocketdotio, color: "text-white" },
-      { name: "OpenAI", icon: Brain, color: "text-green-400" },
-      { name: "JWT / OAuth", icon: Shield, color: "text-yellow-400" },
-    ],
-  },
-];
-
-const stats = [
-  { label: "Experience", value: "2+", icon: Rocket, suffix: "Years", color: "text-indigo-400", bg: "bg-indigo-500/10" },
-  { label: "Projects", value: "10+", icon: CheckCircle2, suffix: "Completed", color: "text-emerald-400", bg: "bg-emerald-500/10" },
-  { label: "APIs Built", value: "30+", icon: Server, suffix: "Endpoints", color: "text-purple-400", bg: "bg-purple-500/10" },
-  { label: "Uptime", value: "99%", icon: Shield, suffix: "Reliable", color: "text-orange-400", bg: "bg-orange-500/10" },
-];
-
-const whatIDo = [
-  {
-    icon: Server,
-    title: "API Design & Development",
-    desc: "Building RESTful APIs that are secure, well-documented, versioned, and optimized for high-throughput production environments.",
-    color: "text-indigo-400",
-    bg: "bg-indigo-500/10",
-    border: "border-indigo-500/20",
-  },
-  {
-    icon: Database,
-    title: "Database Architecture",
-    desc: "Designing efficient MongoDB and PostgreSQL schemas with proper indexing, aggregation pipelines, and Prisma ORM integrations.",
-    color: "text-emerald-400",
-    bg: "bg-emerald-500/10",
-    border: "border-emerald-500/20",
-  },
-  {
-    icon: Cpu,
-    title: "Real-time Systems",
-    desc: "Implementing bidirectional communication with Socket.io, event-driven architectures, and push notification systems at scale.",
-    color: "text-purple-400",
-    bg: "bg-purple-500/10",
-    border: "border-purple-500/20",
-  },
+const allSkills = [
+  { name: "Node.js", icon: SiNodedotjs },
+  { name: "Express.js", icon: SiExpress },
+  { name: "TypeScript", icon: SiTypescript },
+  { name: "MongoDB", icon: SiMongodb },
+  { name: "PostgreSQL", icon: SiPostgresql },
+  { name: "Prisma", icon: SiPrisma },
+  { name: "React.js", icon: SiReact },
+  { name: "Redis", icon: SiRedis },
+  { name: "Docker", icon: SiDocker },
+  { name: "AWS S3", icon: SiAmazon },
+  { name: "Firebase", icon: SiFirebase },
+  { name: "Stripe", icon: SiStripe },
+  { name: "Socket.io", icon: SiSocketdotio },
+  { name: "GitHub", icon: SiGithub },
+  { name: "Postman", icon: SiPostman },
 ];
 
 const experience = [
@@ -98,301 +31,338 @@ const experience = [
     role: "Jr. Backend Developer",
     company: "Sparktech Agency",
     period: "Jun 2025 – Present",
-    location: "Dhaka, Bangladesh",
-    type: "Full-time",
     current: true,
     bullets: [
-      "Building and maintaining scalable backend services using Node.js, Express.js, TypeScript & MongoDB",
-      "Implementing secure authentication, JWT, RESTful APIs and Mongoose models",
-      "Collaborating with an agile team on client-aligned business solutions",
-      "Improving code quality through validation, error handling, and best practices",
-      "Contributing to CI/CD workflows and project planning discussions",
+      "Building scalable backend services with Node.js, Express.js, TypeScript & MongoDB",
+      "Implementing JWT auth, RESTful APIs, and Mongoose models in production",
+      "Working in an agile team on real client-facing business applications",
+      "Contributing to CI/CD workflows and code review processes",
     ],
-    stack: ["Node.js", "Express.js", "TypeScript", "MongoDB", "JWT", "Mongoose"],
+    stack: ["Node.js", "Express.js", "TypeScript", "MongoDB", "JWT"],
+  },
+];
+
+const services = [
+  {
+    icon: Server,
+    title: "API Design & Development",
+    desc: "Secure, well-documented RESTful APIs optimised for high-throughput production environments. Rate limiting, caching, versioning.",
+  },
+  {
+    icon: Database,
+    title: "Database Architecture",
+    desc: "Efficient MongoDB and PostgreSQL schemas — proper indexing, aggregation pipelines, and Prisma ORM integrations.",
+  },
+  {
+    icon: Cpu,
+    title: "Real-time Systems",
+    desc: "Bidirectional communication with Socket.io, event-driven architecture, and push notification systems at scale.",
   },
 ];
 
 const About = () => {
   return (
-    <section className="section-padding relative overflow-hidden bg-mesh min-h-screen pt-32">
-      <div className="CContainer">
-        {/* Section Header */}
-        <div className="text-center mb-16 lg:mb-24">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-[10px] font-bold mb-5 uppercase tracking-widest"
+    <div style={{ paddingTop: 120, paddingBottom: 80 }}>
+      <div className="CC">
+
+        {/* Page header */}
+        <div style={{ marginBottom: 80, borderBottom: "1px solid var(--border)", paddingBottom: 64 }}>
+          <div className="rule-label" style={{ marginBottom: 24 }}>
+            About
+          </div>
+          <h1
+            className="font-display"
+            style={{
+              fontSize: "clamp(3rem, 8vw, 7rem)",
+              color: "var(--chalk)",
+              lineHeight: 0.9,
+              letterSpacing: "0.01em",
+              marginBottom: 32,
+            }}
           >
-            <Rocket size={12} />
-            About Me
-          </motion.div>
-          <h2 className="section-title text-center">
-            Engineering <span className="text-gradient">Excellence</span>
-          </h2>
-          <p className="section-subtitle text-center">
-            Backend-focused Full Stack Developer — building scalable APIs, real-time systems, and modern React frontends with 2+ years of real-world experience.
+            Engineering<br />
+            <span style={{ color: "var(--vermillion)" }}>Excellence</span>
+          </h1>
+          <p style={{ fontSize: 16, color: "var(--muted)", maxWidth: 520, lineHeight: 1.75 }}>
+            Backend-focused Full Stack Developer with 2+ years of hands-on experience building
+            production-grade systems — scalable APIs, real-time features, and modern React frontends.
           </p>
         </div>
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-20">
-          {stats.map((stat, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
-              viewport={{ once: true }}
-              className="card-hover-glow glassify-dark p-6 rounded-2xl border border-slate-800 hover:border-slate-700 transition-all duration-300 text-center"
-            >
-              <div className={`w-10 h-10 rounded-xl ${stat.bg} flex items-center justify-center ${stat.color} mx-auto mb-4`}>
-                <stat.icon size={20} />
-              </div>
-              <h4 className={`text-3xl font-black mb-1 ${stat.color}`}>{stat.value}</h4>
-              <p className="text-[10px] text-slate-500 uppercase tracking-[0.15em] font-bold leading-tight">
-                {stat.label} <br />
-                <span className="text-slate-600">{stat.suffix}</span>
-              </p>
-            </motion.div>
-          ))}
-        </div>
+        {/* Two column: photo + bio */}
+        <div style={{ display: "grid", gridTemplateColumns: "340px 1fr", gap: 64, marginBottom: 80 }}
+             className="about-grid">
 
-        {/* Main content grid */}
-        <div className="grid lg:grid-cols-2 gap-16 xl:gap-24 items-start mb-20">
-          {/* ── Left: Image + Bio ── */}
+          {/* Photo */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative"
           >
-            <div className="relative z-10 rounded-[2.5rem] overflow-hidden border border-slate-800 shadow-2xl group mb-8 neon-indigo">
-              <img
-                className="w-full aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-105"
-                src="https://i.ibb.co.com/C5RnCvpF/ai-1.png"
-                alt="Md Mohosin Ali — Backend Systems Engineer"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-70" />
-              <div className="absolute bottom-6 left-8 right-8">
-                <p className="text-white font-bold text-2xl mb-1 tracking-tight">Md Mohosin Ali</p>
-                <p className="text-indigo-400 font-bold uppercase tracking-[0.15em] text-[10px]">Full Stack Developer (Backend Focus)</p>
-                <div className="flex items-center gap-2 mt-2">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  <span className="text-emerald-400 text-[10px] font-bold uppercase tracking-wider">Available for hire</span>
+            <div style={{ position: "relative" }}>
+              <div className="img-container" style={{ aspectRatio: "4/5" }}>
+                <img
+                  src="https://i.ibb.co.com/C5RnCvpF/ai-1.png"
+                  alt="Md Mohosin Ali"
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                />
+              </div>
+              {/* Caption strip */}
+              <div style={{
+                marginTop: 16,
+                padding: "12px 16px",
+                border: "1px solid var(--border)",
+                borderRadius: 2,
+                background: "var(--surface)",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}>
+                <div>
+                  <p style={{ fontSize: 14, fontWeight: 700, color: "var(--chalk)", lineHeight: 1.2 }}>
+                    Md Mohosin Ali
+                  </p>
+                  <p className="code-label" style={{ marginTop: 4 }}>Backend / Full Stack</p>
+                </div>
+                <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                  <div style={{ position: "relative", width: 8, height: 8 }}>
+                    <span style={{ position: "absolute", inset: 0, borderRadius: "50%", background: "#34C759" }} />
+                    <span className="status-dot-ring" style={{ position: "absolute", inset: 0, borderRadius: "50%", background: "rgba(52,199,89,0.4)" }} />
+                  </div>
+                  <span className="code-label" style={{ color: "#34C759" }}>Available</span>
                 </div>
               </div>
             </div>
+          </motion.div>
 
-            {/* Bio */}
-            <div className="space-y-5 text-slate-400 text-sm sm:text-base leading-relaxed font-medium">
-              <p>
-                I&apos;m a <span className="text-white font-bold">Backend-focused Full Stack Developer</span> with
-                2+ years of hands-on experience building production-grade systems. Currently working as a{" "}
-                <span className="text-indigo-400 font-bold">Jr. Backend Developer at Sparktech Agency</span>, where
-                I architect scalable services while also delivering complete full-stack MERN applications.
+          {/* Bio + stats */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            {/* Stats row */}
+            <div style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(3, 1fr)",
+              gap: 0,
+              marginBottom: 40,
+              paddingBottom: 40,
+              borderBottom: "1px solid var(--border)",
+            }}>
+              {[
+                { val: "2+", label: "Years experience" },
+                { val: "10+", label: "Projects shipped" },
+                { val: "30+", label: "APIs built" },
+              ].map((s, i) => (
+                <div key={i} style={{
+                  paddingRight: i < 2 ? 32 : 0,
+                  paddingLeft: i > 0 ? 32 : 0,
+                  borderRight: i < 2 ? "1px solid var(--border)" : "none",
+                }}>
+                  <div className="font-display" style={{ fontSize: 44, color: "var(--chalk)", lineHeight: 1 }}>
+                    {s.val}
+                  </div>
+                  <p className="code-label" style={{ marginTop: 6 }}>{s.label}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Bio text */}
+            <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
+              <p style={{ fontSize: 15, lineHeight: 1.75, color: "var(--muted)" }}>
+                I&apos;m a <span style={{ color: "var(--chalk)", fontWeight: 600 }}>Backend-focused Full Stack Developer</span> with
+                2+ years building production systems. Currently working as a{" "}
+                <span style={{ color: "var(--vermillion)", fontWeight: 600 }}>Jr. Backend Developer at Sparktech Agency</span>,
+                architecting scalable services while delivering complete full-stack applications.
               </p>
-              <div className="pl-5 border-l-2 border-indigo-500/40 italic text-slate-500">
-                &quot;I build both the engine and the dashboard — backend systems that are fast and secure, with frontends that feel alive.&quot;
-              </div>
-              <p>
-                Strong in <span className="text-white font-bold">Node.js, Express & MongoDB</span> on the backend,
-                and equally comfortable with <span className="text-white font-bold">React, Redux & TanStack Query</span> on
+
+              <blockquote style={{
+                borderLeft: `2px solid var(--vermillion)`,
+                paddingLeft: 20,
+                color: "var(--muted)",
+                fontSize: 14,
+                lineHeight: 1.75,
+                fontStyle: "italic",
+              }}>
+                &quot;I build both the engine and the dashboard — backend systems that are fast
+                and secure, with frontends that feel alive.&quot;
+              </blockquote>
+
+              <p style={{ fontSize: 15, lineHeight: 1.75, color: "var(--muted)" }}>
+                Strong in <span style={{ color: "var(--chalk)", fontWeight: 600 }}>Node.js, Express & MongoDB</span> on the backend,
+                equally comfortable with <span style={{ color: "var(--chalk)", fontWeight: 600 }}>React, Redux & TanStack Query</span> on
                 the frontend. I write clean, maintainable code and build complete end-to-end products.
               </p>
             </div>
           </motion.div>
-
-          {/* ── Right: What I Do + Experience ── */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="space-y-10"
-          >
-            {/* What I Do */}
-            <div>
-              <h3 className="text-base font-bold uppercase tracking-widest text-slate-500 mb-6 flex items-center gap-3">
-                <div className="w-8 h-px bg-indigo-500" />
-                What I Do
-              </h3>
-              <div className="space-y-4">
-                {whatIDo.map((item, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 15 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.1 }}
-                    viewport={{ once: true }}
-                    className={`p-5 rounded-2xl bg-slate-900/50 border ${item.border} hover:bg-slate-900/70 transition-all group`}
-                  >
-                    <div className="flex items-start gap-4">
-                      <div className={`w-10 h-10 rounded-xl ${item.bg} flex items-center justify-center ${item.color} shrink-0 group-hover:scale-110 transition-transform`}>
-                        <item.icon size={18} />
-                      </div>
-                      <div>
-                        <h4 className="text-white font-bold text-sm mb-1">{item.title}</h4>
-                        <p className="text-slate-500 text-xs leading-relaxed">{item.desc}</p>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            {/* Work Experience Timeline */}
-            <div>
-              <h3 className="text-base font-bold uppercase tracking-widest text-slate-500 mb-6 flex items-center gap-3">
-                <div className="w-8 h-px bg-indigo-500" />
-                Work Experience
-              </h3>
-              <div className="space-y-4">
-                {experience.map((job, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 15 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.1 }}
-                    viewport={{ once: true }}
-                    className="relative pl-5 border-l-2 border-indigo-500/30 hover:border-indigo-500/60 transition-colors"
-                  >
-                    <div className="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-indigo-500 ring-4 ring-slate-950" />
-                    <div className="glassify-dark rounded-2xl p-5 border border-slate-800 hover:border-slate-700 transition-all">
-                      <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
-                        <div>
-                          <h4 className="text-white font-bold text-sm">{job.role}</h4>
-                          <p className="text-indigo-400 text-xs font-bold">{job.company}</p>
-                        </div>
-                        <div className="flex flex-col items-end gap-1">
-                          {job.current && (
-                            <span className="px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-[9px] font-bold uppercase tracking-wider">
-                              Current
-                            </span>
-                          )}
-                          <div className="flex items-center gap-1 text-slate-500 text-[10px] font-bold">
-                            <Clock size={10} />
-                            {job.period}
-                          </div>
-                        </div>
-                      </div>
-                      <ul className="space-y-1.5 mb-4">
-                        {job.bullets.slice(0, 3).map((b, j) => (
-                          <li key={j} className="flex items-start gap-2 text-slate-500 text-xs">
-                            <CheckCircle2 size={11} className="text-indigo-400 mt-0.5 shrink-0" />
-                            {b}
-                          </li>
-                        ))}
-                      </ul>
-                      <div className="flex flex-wrap gap-2">
-                        {job.stack.map((t, j) => (
-                          <span key={j} className="px-2 py-0.5 rounded-full bg-slate-900 border border-slate-800 text-slate-400 text-[9px] font-bold uppercase tracking-wider">
-                            {t}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-
-                {/* Education */}
-                <motion.div
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                  viewport={{ once: true }}
-                  className="relative pl-5 border-l-2 border-slate-800"
-                >
-                  <div className="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-slate-700 ring-4 ring-slate-950" />
-                  <div className="glassify-dark rounded-2xl p-5 border border-slate-800 hover:border-slate-700 transition-all">
-                    <div className="flex flex-wrap items-start justify-between gap-2">
-                      <div>
-                        <h4 className="text-white font-bold text-sm">Diploma in Computer Technology</h4>
-                        <p className="text-slate-400 text-xs font-bold">Dinajpur Polytechnic Institute</p>
-                      </div>
-                      <div className="flex items-center gap-1 text-slate-500 text-[10px] font-bold">
-                        <CalendarDays size={10} />
-                        Completed Jan 2025
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-2 mt-3">
-                      <Award size={12} className="text-yellow-500" />
-                      <span className="text-slate-500 text-xs">Computer Technology</span>
-                    </div>
-                  </div>
-                </motion.div>
-              </div>
-            </div>
-          </motion.div>
         </div>
 
-        {/* ── Tech Stack Grid ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h3 className="text-base font-bold uppercase tracking-widest text-slate-500 mb-8 flex items-center gap-3">
-            <div className="w-8 h-px bg-indigo-500" />
-            Core Technology Stack
-          </h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {skillCategories.map((cat, ci) => (
+        {/* What I do */}
+        <div style={{ marginBottom: 80 }}>
+          <div className="rule-label" style={{ marginBottom: 40 }}>What I Do</div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 0 }} className="services-grid">
+            {services.map((s, i) => (
               <motion.div
-                key={ci}
-                initial={{ opacity: 0, y: 20 }}
+                key={i}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: ci * 0.1 }}
                 viewport={{ once: true }}
-                className={`p-5 rounded-2xl bg-slate-900/40 border ${cat.border} hover:bg-slate-900/60 transition-all`}
+                transition={{ delay: i * 0.1 }}
+                style={{
+                  padding: "32px",
+                  borderLeft: i > 0 ? "1px solid var(--border)" : "none",
+                  borderTop: "1px solid var(--border)",
+                  borderBottom: "1px solid var(--border)",
+                  ...(i === 0 ? { borderLeft: "1px solid var(--border)" } : {}),
+                  ...(i === services.length - 1 ? { borderRight: "1px solid var(--border)" } : {}),
+                  transition: "background 0.2s",
+                }}
+                onMouseEnter={e => e.currentTarget.style.background = "var(--surface)"}
+                onMouseLeave={e => e.currentTarget.style.background = "transparent"}
               >
-                <h4 className={`text-[9px] font-black uppercase tracking-widest ${cat.color} mb-4`}>
-                  {cat.label}
-                </h4>
-                <div className="grid grid-cols-2 gap-2">
-                  {cat.skills.map((skill, si) => (
-                    <div
-                      key={si}
-                      className="skill-pill flex items-center gap-2 px-2.5 py-2 rounded-xl bg-slate-950/50 border border-slate-800/60"
-                    >
-                      <skill.icon size={14} className={skill.color} />
-                      <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider truncate">
-                        {skill.name}
-                      </span>
+                <s.icon size={20} style={{ color: "var(--vermillion)", marginBottom: 16 }} />
+                <h3 style={{ fontSize: 16, fontWeight: 700, color: "var(--chalk)", marginBottom: 12, lineHeight: 1.3 }}>
+                  {s.title}
+                </h3>
+                <p style={{ fontSize: 13, color: "var(--muted)", lineHeight: 1.75 }}>{s.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Experience + Education */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, marginBottom: 80 }} className="exp-grid">
+          {/* Experience */}
+          <div>
+            <div className="rule-label" style={{ marginBottom: 32 }}>Experience</div>
+            {experience.map((job, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                style={{
+                  padding: "24px",
+                  border: "1px solid var(--border)",
+                  borderRadius: 3,
+                  background: "var(--surface)",
+                  marginBottom: 16,
+                }}
+              >
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 16 }}>
+                  <div>
+                    <h3 style={{ fontSize: 16, fontWeight: 700, color: "var(--chalk)", lineHeight: 1.2 }}>
+                      {job.role}
+                    </h3>
+                    <p style={{ fontSize: 13, color: "var(--vermillion)", fontWeight: 600, marginTop: 4 }}>
+                      {job.company}
+                    </p>
+                  </div>
+                  <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 6 }}>
+                    {job.current && (
+                      <span className="badge badge-green">Current</span>
+                    )}
+                    <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                      <Clock size={10} style={{ color: "var(--muted)" }} />
+                      <span className="code-label">{job.period}</span>
                     </div>
+                  </div>
+                </div>
+
+                <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 8, marginBottom: 16 }}>
+                  {job.bullets.slice(0, 3).map((b, j) => (
+                    <li key={j} style={{ display: "flex", gap: 10, fontSize: 13, color: "var(--muted)" }}>
+                      <span style={{ color: "var(--vermillion)", flexShrink: 0, fontFamily: "monospace" }}>→</span>
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+                  {job.stack.map((t, j) => (
+                    <span key={j} className="tech-tag">{t}</span>
                   ))}
                 </div>
               </motion.div>
             ))}
           </div>
-        </motion.div>
 
-        {/* ── Tools ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-8 flex flex-wrap gap-3 items-center"
-        >
-          <span className="text-[10px] text-slate-600 font-bold uppercase tracking-widest">Tools:</span>
-          {[
-            { name: "Git", icon: GitBranch },
-            { name: "GitHub", icon: SiGithub },
-            { name: "Postman", icon: SiPostman },
-            { name: "VS Code", icon: Code2 },
-            { name: "npm / yarn", icon: Terminal },
-          ].map((tool, i) => (
-            <div key={i} className="skill-pill flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-slate-500 hover:text-slate-300">
-              <tool.icon size={12} />
-              <span className="text-[10px] font-bold uppercase tracking-wider">{tool.name}</span>
-            </div>
-          ))}
-        </motion.div>
+          {/* Education */}
+          <div>
+            <div className="rule-label" style={{ marginBottom: 32 }}>Education</div>
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              style={{
+                padding: "24px",
+                border: "1px solid var(--border)",
+                borderRadius: 3,
+                background: "var(--surface)",
+              }}
+            >
+              <h3 style={{ fontSize: 16, fontWeight: 700, color: "var(--chalk)", lineHeight: 1.2, marginBottom: 6 }}>
+                Diploma in Computer Technology
+              </h3>
+              <p style={{ fontSize: 13, color: "var(--muted)", fontWeight: 600 }}>
+                Dinajpur Polytechnic Institute
+              </p>
+              <div style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 12 }}>
+                <CalendarDays size={12} style={{ color: "var(--muted)" }} />
+                <span className="code-label">Completed Jan 2025</span>
+              </div>
+              <div style={{ marginTop: 16 }}>
+                <span className="tech-tag">Computer Technology</span>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Skills grid */}
+        <div>
+          <div className="rule-label" style={{ marginBottom: 32 }}>Core Tech Stack</div>
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))",
+            gap: 8,
+          }}>
+            {allSkills.map((skill, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.03 }}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 10,
+                  padding: "12px 14px",
+                  border: "1px solid var(--border)",
+                  borderRadius: 3,
+                  cursor: "default",
+                  transition: "border-color 0.2s",
+                  background: "var(--surface)",
+                }}
+                onMouseEnter={e => e.currentTarget.style.borderColor = "var(--vermillion)"}
+                onMouseLeave={e => e.currentTarget.style.borderColor = "var(--border)"}
+              >
+                <skill.icon size={16} style={{ color: "var(--muted)", flexShrink: 0 }} />
+                <span style={{
+                  fontSize: 12,
+                  fontWeight: 600,
+                  color: "var(--muted)",
+                  letterSpacing: "0.04em",
+                }}>
+                  {skill.name}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
-    </section>
+    </div>
   );
 };
 

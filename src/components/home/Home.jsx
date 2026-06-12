@@ -1,257 +1,263 @@
 import { NavLink } from "react-router-dom";
-import { TypeAnimation } from "react-type-animation";
-import { ArrowRight, Download, Mail, Sparkles, MapPin, Building2 } from "lucide-react";
+import { ArrowRight, Download, Mail, MapPin } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import Projects from "../projects/Projects";
 import Contact from "../contact/Contact";
 import { motion } from "framer-motion";
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
 
-const techStack = [
+const skills = [
   "Node.js", "Express.js", "TypeScript", "MongoDB", "React.js",
   "PostgreSQL", "Docker", "AWS S3", "Socket.io", "Prisma",
-  "Redis", "REST APIs", "JWT", "Stripe", "OpenAI", "Zod",
+  "Redis", "REST API", "JWT", "Stripe", "OpenAI", "Zod",
+];
+
+const stats = [
+  { value: "2+", label: "Years of production experience" },
+  { value: "10+", label: "Projects shipped" },
+  { value: "∞", label: "Lines of server-side code" },
 ];
 
 const Home = () => {
-  const containerRef = useRef(null);
-  const imageRef = useRef(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.to(imageRef.current, {
-        y: 18,
-        duration: 3.5,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-      });
-    }, containerRef);
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <div ref={containerRef} className="overflow-hidden bg-mesh min-h-screen">
-      {/* ─── Hero ─────────────────────────────────────── */}
-      <section className="CContainer min-h-[95vh] flex flex-col justify-center relative pt-24 sm:pt-32 pb-16 sm:pb-24">
-        {/* Background Glows */}
-        <div className="absolute top-1/4 -left-20 w-64 h-64 sm:w-96 sm:h-96 bg-indigo-500/8 blur-[120px] rounded-full animate-slow-pulse" />
-        <div className="absolute bottom-1/4 -right-20 w-64 h-64 sm:w-96 sm:h-96 bg-emerald-500/8 blur-[120px] rounded-full animate-slow-pulse" style={{ animationDelay: "2s" }} />
+    <div style={{ overflowX: "hidden" }}>
 
-        <div className="grid lg:grid-cols-2 gap-12 sm:gap-20 2xl:gap-32 items-center">
-          {/* ── Left Content ── */}
+      {/* ═══════════════ HERO ═══════════════ */}
+      <section style={{ minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "flex-end", paddingTop: 120 }}>
+        <div className="CC">
+
+          {/* Top metadata row */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.9, ease: "easeOut" }}
-            className="text-center lg:text-left z-10"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            style={{ display: "flex", alignItems: "center", gap: 24, marginBottom: 40, flexWrap: "wrap" }}
           >
-            {/* Status badges row */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="flex flex-wrap items-center gap-3 justify-center lg:justify-start mb-6"
-            >
-              {/* Available badge */}
-              <div className="available-badge inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-[10px] font-bold uppercase tracking-widest">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                Available for hire
+            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              <div style={{ position: "relative", width: 8, height: 8 }}>
+                <span style={{
+                  position: "absolute", inset: 0, borderRadius: "50%",
+                  background: "#34C759",
+                }} />
+                <span className="status-dot-ring" style={{
+                  position: "absolute", inset: 0, borderRadius: "50%",
+                  background: "rgba(52,199,89,0.4)",
+                }} />
               </div>
-              {/* Role badge */}
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-[10px] font-bold uppercase tracking-widest">
-                <Sparkles size={12} className="animate-pulse" />
-                Full Stack Developer
-              </div>
-            </motion.div>
-
-            {/* Headline */}
-            <h1 className="mb-6 tracking-tight leading-[1.1] 2xl:text-6xl">
-              Building{" "}
-              <span className="animate-gradient-text">Scalable</span>{" "}
-              <br className="hidden sm:block" />& Reliable Systems
-            </h1>
-
-            {/* Type animation */}
-            <div className="text-lg sm:text-xl md:text-2xl font-bold text-slate-300 mb-5 h-16 flex items-center justify-center lg:justify-start">
-              <TypeAnimation
-                sequence={[
-                  "Hi, I'm Md Mohosin Ali 👋",
-                  2500,
-                  "Backend-focused Full Stack Dev",
-                  2000,
-                  "MERN Stack Specialist",
-                  2000,
-                  "REST API & System Architect",
-                  2000,
-                  "React · Node · TypeScript",
-                  2000,
-                ]}
-                wrapper="span"
-                speed={55}
-                repeat={Infinity}
-              />
+              <span className="code-label">Available for work</span>
             </div>
 
-            {/* Description */}
-            <p className="text-slate-400 text-sm sm:text-base md:text-lg mb-4 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
-              Backend-focused Full Stack Developer with 2+ years building scalable
-              REST APIs, real-time systems, and modern React frontends. Specializing
-              in Node.js, TypeScript &amp; MongoDB.
-            </p>
+            <div style={{ height: 1, width: 1, background: "var(--border)", flexShrink: 0, alignSelf: "stretch" }} />
 
-            {/* Currently at */}
-            <motion.a
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
+            <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+              <MapPin size={11} style={{ color: "var(--muted)" }} />
+              <span className="code-label">Dhaka, Bangladesh</span>
+            </div>
+
+            <a
               href="https://www.linkedin.com/company/sparktechagency/about/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all mb-8 group"
+              className="code-label underline-reveal"
+              style={{ textDecoration: "none", color: "var(--muted)" }}
             >
-              <Building2 size={13} className="text-indigo-400" />
-              <span className="text-slate-500 text-xs font-bold uppercase tracking-wider">Currently at</span>
-              <span className="text-indigo-400 text-xs font-bold">@Sparktech Agency</span>
-              <MapPin size={11} className="text-slate-600 ml-1" />
-              <span className="text-slate-600 text-[10px]">Dhaka, BD</span>
-            </motion.a>
-
-            {/* CTAs */}
-            <div className="flex flex-wrap gap-4 items-center justify-center lg:justify-start">
-              <motion.a
-                whileHover={{ scale: 1.03, backgroundColor: "#4f46e5" }}
-                whileTap={{ scale: 0.97 }}
-                href="https://docs.google.com/document/d/1OA-QK-BmcS-EdEjjR7k-SxCj2OEPz6mYWwpGaVuzwh0/edit?usp=sharing"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-7 py-3.5 rounded-xl bg-indigo-600 text-white font-bold flex items-center gap-3 transition-all text-sm shadow-lg shadow-indigo-600/25"
-              >
-                <Download size={17} />
-                Download CV
-              </motion.a>
-
-              <div className="flex items-center gap-2">
-                {[
-                  { icon: FaGithub, href: "https://github.com/Mohosin075", label: "GitHub" },
-                  { icon: FaLinkedin, href: "https://www.linkedin.com/in/md-mohosin-5b34a0278/", label: "LinkedIn" },
-                  { icon: Mail, href: "mailto:mohosinali075@gmail.com", label: "Email" },
-                ].map((social, i) => (
-                  <motion.a
-                    key={i}
-                    whileHover={{ y: -3, borderColor: "rgba(99,102,241,0.4)" }}
-                    href={social.href}
-                    aria-label={social.label}
-                    className="w-11 h-11 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-white flex items-center justify-center transition-all duration-300"
-                  >
-                    <social.icon size={18} />
-                  </motion.a>
-                ))}
-              </div>
-            </div>
+              @Sparktech Agency
+            </a>
           </motion.div>
 
-          {/* ── Right Content — Image ── */}
+          {/* HERO HEADLINE — big Bebas Neue */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className="relative hidden lg:block"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div
-              ref={imageRef}
-              className="relative z-10 w-full max-w-md mx-auto aspect-square rounded-[3rem] overflow-hidden border border-slate-800/80 shadow-2xl neon-indigo"
+            <h1
+              className="font-display"
+              style={{
+                fontSize: "clamp(3.5rem, 10vw, 8.5rem)",
+                lineHeight: 0.92,
+                letterSpacing: "0.01em",
+                color: "var(--chalk)",
+                marginBottom: 32,
+              }}
             >
-              <img
-                src="https://i.ibb.co.com/C5RnCvpF/ai-1.png"
-                alt="Md Mohosin Ali — Backend Engineer"
-                className="w-full h-full object-cover transition-all duration-700 hover:scale-105"
-                loading="eager"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 to-transparent" />
+              Backend-focused<br />
+              <span style={{ color: "var(--vermillion)" }}>Full Stack</span><br />
+              Developer
+              <span className="cursor-blink" />
+            </h1>
+          </motion.div>
+
+          {/* Bottom row: description + actions */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr auto",
+              gap: 48,
+              alignItems: "flex-end",
+              paddingBottom: 56,
+              borderBottom: "1px solid var(--border)",
+            }}
+            className="flex-col-mobile"
+          >
+            <div style={{ maxWidth: 480 }}>
+              <p style={{
+                fontSize: 16,
+                lineHeight: 1.7,
+                color: "var(--muted)",
+                fontWeight: 400,
+                marginBottom: 28,
+              }}>
+                Md Mohosin Ali — building scalable REST APIs, real-time systems,
+                and modern React frontends. 2+ years of production-grade code shipped.
+                Specialising in Node.js, TypeScript & MongoDB.
+              </p>
+
+              <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+                <a
+                  href="https://docs.google.com/document/d/1OA-QK-BmcS-EdEjjR7k-SxCj2OEPz6mYWwpGaVuzwh0/edit?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-v"
+                >
+                  <Download size={14} />
+                  Resume
+                </a>
+                <NavLink to="/projects" className="btn-ghost">
+                  View Work
+                  <ArrowRight size={14} />
+                </NavLink>
+              </div>
             </div>
 
-            {/* Floating Stat — Experience */}
-            <motion.div
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -top-4 -right-4 p-4 rounded-2xl glassify-dark border border-slate-800 shadow-xl z-20"
-            >
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-400">
-                  <Sparkles size={18} />
-                </div>
-                <div>
-                  <p className="text-[9px] text-slate-500 font-bold uppercase tracking-widest">Experience</p>
-                  <p className="text-base font-bold text-white">2+ Years</p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Floating Stat — Projects */}
-            <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute -bottom-4 -left-4 p-4 rounded-2xl glassify-dark border border-slate-800 shadow-xl z-20"
-            >
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400">
-                  <ArrowRight size={18} />
-                </div>
-                <div>
-                  <p className="text-[9px] text-slate-500 font-bold uppercase tracking-widest">Projects</p>
-                  <p className="text-base font-bold text-white">10+ Built</p>
-                </div>
-              </div>
-            </motion.div>
+            {/* Socials — vertical stacked */}
+            <div style={{ display: "flex", flexDirection: "column", gap: 12, alignItems: "flex-end" }}>
+              {[
+                { icon: FaGithub, href: "https://github.com/Mohosin075", label: "GitHub" },
+                { icon: FaLinkedin, href: "https://www.linkedin.com/in/md-mohosin-5b34a0278/", label: "LinkedIn" },
+                { icon: Mail, href: "mailto:mohosinali075@gmail.com", label: "Email" },
+              ].map((s, i) => (
+                <a
+                  key={i}
+                  href={s.href}
+                  aria-label={s.label}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 10,
+                    color: "var(--muted)",
+                    textDecoration: "none",
+                    fontSize: 12,
+                    fontWeight: 600,
+                    letterSpacing: "0.06em",
+                    transition: "color 0.2s",
+                  }}
+                  onMouseEnter={e => e.currentTarget.style.color = "var(--chalk)"}
+                  onMouseLeave={e => e.currentTarget.style.color = "var(--muted)"}
+                >
+                  <s.icon size={16} />
+                  <span style={{ fontFamily: "'Space Mono', monospace" }}>{s.label}</span>
+                </a>
+              ))}
+            </div>
           </motion.div>
+        </div>
+
+        {/* Stats row */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="CC"
+          style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", paddingTop: 32, paddingBottom: 80, gap: 0 }}
+        >
+          {stats.map((s, i) => (
+            <div
+              key={i}
+              style={{
+                padding: "0 32px 0 0",
+                borderRight: i < stats.length - 1 ? "1px solid var(--border)" : "none",
+                marginRight: i < stats.length - 1 ? 32 : 0,
+              }}
+            >
+              <div className="font-display" style={{ fontSize: 48, color: "var(--chalk)", lineHeight: 1 }}>
+                {s.value}
+              </div>
+              <p className="code-label" style={{ marginTop: 8, lineHeight: 1.4 }}>
+                {s.label}
+              </p>
+            </div>
+          ))}
+        </motion.div>
+      </section>
+
+      {/* ═══════════════ SKILLS ═══════════════ */}
+      <section style={{ padding: "80px 0", borderTop: "1px solid var(--border)" }}>
+        <div className="CC">
+          <div className="rule-label" style={{ marginBottom: 32 }}>
+            Technical Stack
+          </div>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+            {skills.map((s, i) => (
+              <motion.span
+                key={i}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.04 }}
+                className="skill-tag"
+              >
+                {s}
+              </motion.span>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* ─── Tech Stack Marquee ────────────────────────── */}
-      <div className="relative py-8 border-y border-slate-900 bg-slate-950/40 overflow-hidden">
-        <div className="absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-slate-950 to-transparent z-10" />
-        <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-slate-950 to-transparent z-10" />
-        <div className="flex animate-marquee whitespace-nowrap" style={{ width: "max-content" }}>
-          {[...techStack, ...techStack].map((tech, i) => (
-            <div
-              key={i}
-              className="flex items-center gap-2 px-6 py-2 mx-3 rounded-full bg-slate-900/60 border border-slate-800/60 text-slate-400 text-xs font-bold uppercase tracking-widest hover:text-indigo-400 hover:border-indigo-500/30 transition-colors"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
-              {tech}
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* ─── Selected Projects Preview ─────────────────── */}
-      <section className="section-padding relative bg-slate-950/30">
-        <div className="CContainer">
-          <div className="flex flex-col md:flex-row justify-between items-center md:items-end gap-6 mb-16 text-center md:text-left">
+      {/* ═══════════════ PROJECTS PREVIEW ═══════════════ */}
+      <section style={{ padding: "80px 0", borderTop: "1px solid var(--border)" }}>
+        <div className="CC">
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 56, flexWrap: "wrap", gap: 16 }}>
             <div>
-              <p className="text-[10px] text-indigo-400 font-bold uppercase tracking-widest mb-3">Portfolio</p>
-              <h2 className="section-title">
-                Selected <span className="text-gradient">Projects</span>
+              <div className="rule-label" style={{ marginBottom: 16 }}>
+                Selected Work
+              </div>
+              <h2 className="font-display" style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)", color: "var(--chalk)", lineHeight: 0.95 }}>
+                Projects
               </h2>
-              <p className="section-subtitle lg:mx-0 mb-0">
-                Highlighting my work in system architecture and full-stack development.
-              </p>
             </div>
             <NavLink
               to="/projects"
-              className="flex items-center gap-2 text-indigo-400 font-bold uppercase tracking-widest text-[10px] hover:text-indigo-300 transition-colors border border-indigo-500/20 px-4 py-2 rounded-lg hover:bg-indigo-500/5"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 8,
+                fontSize: 12,
+                fontWeight: 700,
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                color: "var(--muted)",
+                textDecoration: "none",
+                fontFamily: "'Space Mono', monospace",
+                transition: "color 0.2s",
+              }}
+              onMouseEnter={e => e.currentTarget.style.color = "var(--chalk)"}
+              onMouseLeave={e => e.currentTarget.style.color = "var(--muted)"}
             >
-              All Projects <ArrowRight size={14} />
+              All projects <ArrowRight size={14} />
             </NavLink>
           </div>
           <Projects limit={3} />
         </div>
       </section>
 
-      {/* ─── Contact ───────────────────────────────────── */}
+      {/* ═══════════════ CONTACT ═══════════════ */}
       <Contact />
+
     </div>
   );
 };

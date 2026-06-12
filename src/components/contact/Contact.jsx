@@ -2,11 +2,10 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import {
   Mail, MessageSquare, Send, User, Phone, MapPin,
-  Sparkles, Clock, CheckCircle2, ChevronDown,
+  Clock, ChevronDown,
 } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { motion } from "framer-motion";
-
 
 const INQUIRY_TYPES = [
   "Backend API Development",
@@ -17,6 +16,30 @@ const INQUIRY_TYPES = [
   "Collaboration / Open Source",
   "Other",
 ];
+
+const inputStyle = (hasError) => ({
+  width: "100%",
+  padding: "12px 16px",
+  background: "var(--surface-2)",
+  border: `1px solid ${hasError ? "var(--vermillion)" : "var(--border)"}`,
+  borderRadius: 3,
+  outline: "none",
+  color: "var(--chalk)",
+  fontSize: 14,
+  fontFamily: "'Space Grotesk', sans-serif",
+  transition: "border-color 0.2s",
+});
+
+const labelStyle = {
+  display: "block",
+  fontFamily: "'Space Mono', monospace",
+  fontSize: 10,
+  fontWeight: 700,
+  letterSpacing: "0.15em",
+  textTransform: "uppercase",
+  color: "var(--muted)",
+  marginBottom: 8,
+};
 
 const Contact = () => {
   const {
@@ -30,15 +53,15 @@ const Contact = () => {
     await new Promise((resolve) => setTimeout(resolve, 1500));
     if (data) {
       Swal.fire({
-        background: "#0a0a0a",
-        color: "#fff",
+        background: "#111110",
+        color: "#F0EDE6",
         icon: "success",
-        title: "Message Sent! 🎉",
-        text: "Thanks for reaching out. I usually respond within 24 hours.",
+        title: "Message sent.",
+        text: "I'll respond within 24 hours.",
         showConfirmButton: false,
         timer: 3000,
         customClass: {
-          popup: "rounded-[2rem] border border-white/10 glassify-dark",
+          popup: "rounded-none",
         },
       });
       reset();
@@ -48,220 +71,199 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="section-padding relative overflow-hidden bg-mesh min-h-screen pt-32"
+      style={{
+        borderTop: "1px solid var(--border)",
+        paddingTop: 80,
+        paddingBottom: 80,
+      }}
     >
-      <div className="CContainer">
-        {/* Header */}
-        <div className="text-center mb-16 sm:mb-20">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-[10px] font-bold mb-5 uppercase tracking-widest"
+      <div className="CC">
+        {/* Section header */}
+        <div style={{ marginBottom: 56 }}>
+          <div className="rule-label" style={{ marginBottom: 20 }}>
+            Contact
+          </div>
+          <h2
+            className="font-display"
+            style={{
+              fontSize: "clamp(2.5rem, 6vw, 5rem)",
+              color: "var(--chalk)",
+              lineHeight: 0.95,
+              letterSpacing: "0.01em",
+              marginBottom: 16,
+            }}
           >
-            <Sparkles size={12} />
-            Get In Touch
-          </motion.div>
-
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="section-title"
-          >
-            Let&apos;s Build Something{" "}
-            <span className="text-gradient">Robust</span>
-          </motion.h2>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.15 }}
-            viewport={{ once: true }}
-            className="section-subtitle"
-          >
-            Ready to scale your next project? Reach out and let&apos;s discuss
-            how we can engineer a high-performance solution together.
-          </motion.p>
-
-          {/* Availability Banner */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.25 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-4 px-6 py-3 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 mx-auto"
-          >
-            <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="text-emerald-400 text-xs font-bold uppercase tracking-wider">
-                Open to opportunities
-              </span>
-            </div>
-            <div className="w-px h-4 bg-slate-800" />
-            <div className="flex items-center gap-1.5 text-slate-500 text-xs font-bold">
-              <Clock size={12} />
-              Responds within 24h
-            </div>
-          </motion.div>
+            Let&apos;s Work<br />
+            <span style={{ color: "var(--vermillion)" }}>Together</span>
+          </h2>
+          <p style={{ fontSize: 15, color: "var(--muted)", maxWidth: 440, lineHeight: 1.7 }}>
+            Available for backend projects, full-stack builds, and contract work.
+            Responds within 24 hours.
+          </p>
         </div>
 
-        {/* Grid */}
-        <div className="grid lg:grid-cols-2 gap-12 sm:gap-16 items-start">
-          {/* ── Contact Info ── */}
+        {/* Two column: info + form */}
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1.4fr",
+          gap: 64,
+          alignItems: "start",
+        }} className="contact-grid">
+
+          {/* Left: contact info */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="space-y-4"
           >
-            {/* Info Cards */}
-            {[
-              {
-                icon: Mail,
-                label: "Email Me",
-                value: "mohosinali075@gmail.com",
-                href: "mailto:mohosinali075@gmail.com",
-                color: "text-indigo-400",
-                bg: "bg-indigo-500/10",
-                border: "border-indigo-500/20",
-              },
-              {
-                icon: Phone,
-                label: "Call Me",
-                value: "+880 1981-381383",
-                href: "tel:+8801981381383",
-                color: "text-emerald-400",
-                bg: "bg-emerald-500/10",
-                border: "border-emerald-500/20",
-              },
-              {
-                icon: MapPin,
-                label: "Location",
-                value: "Mohakhali, Dhaka, Bangladesh",
-                href: "#",
-                color: "text-purple-400",
-                bg: "bg-purple-500/10",
-                border: "border-purple-500/20",
-              },
-            ].map((item, i) => (
-              <motion.a
-                key={i}
-                href={item.href}
-                whileHover={{ x: 6 }}
-                className={`flex items-center gap-5 p-5 rounded-2xl glassify border ${item.border} hover:bg-slate-900/60 transition-all group`}
-              >
+            {/* Contact entries */}
+            <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
+              {[
+                { icon: Mail, label: "Email", value: "mohosinali075@gmail.com", href: "mailto:mohosinali075@gmail.com" },
+                { icon: Phone, label: "Phone", value: "+880 1981-381383", href: "tel:+8801981381383" },
+                { icon: MapPin, label: "Location", value: "Dhaka, Bangladesh", href: "#" },
+                { icon: Clock, label: "Response time", value: "Within 24 hours", href: null },
+              ].map((item, i) => (
                 <div
-                  className={`w-12 h-12 rounded-xl ${item.bg} flex items-center justify-center ${item.color} group-hover:scale-110 transition-transform shrink-0`}
+                  key={i}
+                  style={{
+                    padding: "20px 0",
+                    borderBottom: "1px solid var(--border)",
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: 16,
+                  }}
                 >
-                  <item.icon size={20} />
+                  <item.icon size={15} style={{ color: "var(--vermillion)", marginTop: 2, flexShrink: 0 }} />
+                  <div>
+                    <p className="code-label" style={{ marginBottom: 4 }}>{item.label}</p>
+                    {item.href ? (
+                      <a
+                        href={item.href}
+                        style={{
+                          fontSize: 14,
+                          fontWeight: 600,
+                          color: "var(--chalk)",
+                          textDecoration: "none",
+                          transition: "color 0.2s",
+                        }}
+                        onMouseEnter={e => e.currentTarget.style.color = "var(--vermillion)"}
+                        onMouseLeave={e => e.currentTarget.style.color = "var(--chalk)"}
+                      >
+                        {item.value}
+                      </a>
+                    ) : (
+                      <p style={{ fontSize: 14, fontWeight: 600, color: "var(--chalk)" }}>{item.value}</p>
+                    )}
+                  </div>
                 </div>
-                <div>
-                  <p className="text-[9px] text-slate-500 font-bold uppercase tracking-widest mb-0.5">
-                    {item.label}
-                  </p>
-                  <p className="text-white text-sm font-bold tracking-tight">
-                    {item.value}
-                  </p>
-                </div>
-              </motion.a>
-            ))}
+              ))}
+            </div>
 
-            {/* Quick Social Links */}
-            <div className="pt-2">
-              <p className="text-[9px] text-slate-600 font-bold uppercase tracking-widest mb-4">
-                Connect On
-              </p>
-              <div className="flex gap-3">
+            {/* Social links */}
+            <div style={{ marginTop: 32 }}>
+              <p className="code-label" style={{ marginBottom: 16 }}>Also find me on</p>
+              <div style={{ display: "flex", gap: 16 }}>
                 {[
-                  {
-                    icon: FaGithub,
-                    href: "https://github.com/Mohosin075",
-                    label: "GitHub",
-                    color: "hover:border-slate-600 hover:text-white",
-                  },
-                  {
-                    icon: FaLinkedin,
-                    href: "https://www.linkedin.com/in/md-mohosin-5b34a0278/",
-                    label: "LinkedIn",
-                    color: "hover:border-blue-500/50 hover:text-blue-400",
-                  },
+                  { icon: FaGithub, href: "https://github.com/Mohosin075", label: "GitHub" },
+                  { icon: FaLinkedin, href: "https://www.linkedin.com/in/md-mohosin-5b34a0278/", label: "LinkedIn" },
                 ].map((s, i) => (
-                  <motion.a
+                  <a
                     key={i}
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={s.label}
-                    whileHover={{ y: -3 }}
-                    className={`flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 font-bold text-xs transition-all ${s.color}`}
+                    className="underline-reveal"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 8,
+                      fontSize: 13,
+                      fontWeight: 600,
+                      color: "var(--muted)",
+                      textDecoration: "none",
+                      transition: "color 0.2s",
+                    }}
+                    onMouseEnter={e => e.currentTarget.style.color = "var(--chalk)"}
+                    onMouseLeave={e => e.currentTarget.style.color = "var(--muted)"}
                   >
-                    <s.icon size={16} />
+                    <s.icon size={15} />
                     {s.label}
-                  </motion.a>
+                  </a>
                 ))}
               </div>
             </div>
 
-            {/* What I can help with */}
-            <div className="mt-2 p-5 rounded-2xl bg-slate-900/40 border border-slate-800">
-              <p className="text-[9px] text-slate-500 font-bold uppercase tracking-widest mb-4">
-                I Can Help With
-              </p>
-              <div className="space-y-2">
+            {/* "I can help with" */}
+            <div style={{ marginTop: 40, padding: "24px", border: "1px solid var(--border)", borderRadius: 3, background: "var(--surface)" }}>
+              <p className="code-label" style={{ marginBottom: 16 }}>What I can help with</p>
+              <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 10 }}>
                 {[
                   "REST API design & development",
-                  "Database architecture (MongoDB, PostgreSQL)",
-                  "Authentication, Stripe & payment systems",
-                  "Real-time features with Socket.io",
+                  "MongoDB, PostgreSQL architecture",
+                  "Stripe & payment integration",
+                  "Real-time with Socket.io",
                   "Full-stack MERN applications",
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-2 text-xs text-slate-500">
-                    <CheckCircle2 size={12} className="text-indigo-400 shrink-0" />
+                  <li key={i} style={{ display: "flex", gap: 10, fontSize: 13, color: "var(--muted)" }}>
+                    <span style={{ color: "var(--vermillion)", fontFamily: "monospace", flexShrink: 0 }}>→</span>
                     {item}
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           </motion.div>
 
-          {/* ── Contact Form ── */}
+          {/* Right: form */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="card-hover-glow glassify-dark p-8 sm:p-10 rounded-3xl border border-slate-800 relative overflow-hidden"
+            style={{
+              background: "var(--surface)",
+              border: "1px solid var(--border)",
+              borderRadius: 3,
+              padding: 40,
+            }}
           >
-            <div className="absolute -top-20 -right-20 w-40 h-40 bg-indigo-500/5 blur-[80px] rounded-full pointer-events-none" />
-
-            <h3 className="text-lg font-bold text-white mb-2">Send a Message</h3>
-            <p className="text-slate-500 text-xs mb-8 font-medium">
-              Fill out the form below and I&apos;ll get back to you promptly.
+            <h3 style={{ fontSize: 18, fontWeight: 700, color: "var(--chalk)", marginBottom: 6 }}>
+              Send a message
+            </h3>
+            <p className="code-label" style={{ marginBottom: 32 }}>
+              I&apos;ll get back to you within 24 hours.
             </p>
 
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 relative z-10">
+            <form onSubmit={handleSubmit(onSubmit)} style={{ display: "flex", flexDirection: "column", gap: 20 }}>
               {/* Name + Email */}
-              <div className="grid md:grid-cols-2 gap-5">
-                <div className="space-y-2">
-                  <label className="text-[9px] font-bold text-slate-500 uppercase tracking-widest flex items-center gap-1.5">
-                    <User size={10} className="text-indigo-400" />
-                    Full Name
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }} className="form-grid">
+                <div>
+                  <label style={labelStyle}>
+                    <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                      <User size={10} style={{ color: "var(--vermillion)" }} />
+                      Name
+                    </span>
                   </label>
                   <input
                     {...register("name", { required: "Name is required" })}
                     placeholder="John Doe"
-                    className={`w-full px-4 py-3 rounded-xl bg-slate-950 border ${
-                      errors.name ? "border-red-500/50" : "border-slate-800"
-                    } focus:border-indigo-500/60 focus:ring-1 focus:ring-indigo-500/20 outline-none transition-all text-white text-sm font-medium placeholder:text-slate-700`}
+                    style={inputStyle(errors.name)}
+                    onFocus={e => e.target.style.borderColor = "var(--vermillion)"}
+                    onBlur={e => e.target.style.borderColor = errors.name ? "var(--vermillion)" : "var(--border)"}
                   />
                   {errors.name && (
-                    <p className="text-red-400 text-[10px] font-bold">{errors.name.message}</p>
+                    <p style={{ fontSize: 11, color: "var(--vermillion)", marginTop: 4, fontFamily: "monospace" }}>
+                      {errors.name.message}
+                    </p>
                   )}
                 </div>
-                <div className="space-y-2">
-                  <label className="text-[9px] font-bold text-slate-500 uppercase tracking-widest flex items-center gap-1.5">
-                    <Mail size={10} className="text-indigo-400" />
-                    Email Address
+
+                <div>
+                  <label style={labelStyle}>
+                    <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                      <Mail size={10} style={{ color: "var(--vermillion)" }} />
+                      Email
+                    </span>
                   </label>
                   <input
                     {...register("email", {
@@ -269,80 +271,100 @@ const Contact = () => {
                       pattern: { value: /^\S+@\S+$/i, message: "Invalid email" },
                     })}
                     placeholder="john@example.com"
-                    className={`w-full px-4 py-3 rounded-xl bg-slate-950 border ${
-                      errors.email ? "border-red-500/50" : "border-slate-800"
-                    } focus:border-indigo-500/60 focus:ring-1 focus:ring-indigo-500/20 outline-none transition-all text-white text-sm font-medium placeholder:text-slate-700`}
+                    style={inputStyle(errors.email)}
+                    onFocus={e => e.target.style.borderColor = "var(--vermillion)"}
+                    onBlur={e => e.target.style.borderColor = errors.email ? "var(--vermillion)" : "var(--border)"}
                   />
                   {errors.email && (
-                    <p className="text-red-400 text-[10px] font-bold">{errors.email.message}</p>
+                    <p style={{ fontSize: 11, color: "var(--vermillion)", marginTop: 4, fontFamily: "monospace" }}>
+                      {errors.email.message}
+                    </p>
                   )}
                 </div>
               </div>
 
               {/* Inquiry Type */}
-              <div className="space-y-2">
-                <label className="text-[9px] font-bold text-slate-500 uppercase tracking-widest flex items-center gap-1.5">
-                  <Sparkles size={10} className="text-indigo-400" />
-                  Inquiry Type
-                </label>
-                <div className="relative">
+              <div>
+                <label style={labelStyle}>Inquiry type</label>
+                <div style={{ position: "relative" }}>
                   <select
                     {...register("inquiryType", { required: "Please select an inquiry type" })}
-                    className={`w-full px-4 py-3 rounded-xl bg-slate-950 border ${
-                      errors.inquiryType ? "border-red-500/50" : "border-slate-800"
-                    } focus:border-indigo-500/60 focus:ring-1 focus:ring-indigo-500/20 outline-none transition-all text-sm font-medium text-slate-300 appearance-none cursor-pointer`}
+                    style={{ ...inputStyle(errors.inquiryType), appearance: "none", cursor: "pointer" }}
+                    onFocus={e => e.target.style.borderColor = "var(--vermillion)"}
+                    onBlur={e => e.target.style.borderColor = errors.inquiryType ? "var(--vermillion)" : "var(--border)"}
                   >
-                    <option value="" className="text-slate-600 bg-slate-950">
-                      Select inquiry type...
-                    </option>
+                    <option value="" style={{ background: "var(--surface)" }}>Select type...</option>
                     {INQUIRY_TYPES.map((type) => (
-                      <option key={type} value={type} className="bg-slate-900 text-white">
+                      <option key={type} value={type} style={{ background: "var(--surface)" }}>
                         {type}
                       </option>
                     ))}
                   </select>
                   <ChevronDown
-                    size={14}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none"
+                    size={13}
+                    style={{
+                      position: "absolute",
+                      right: 16,
+                      top: "50%",
+                      transform: "translateY(-50%)",
+                      color: "var(--muted)",
+                      pointerEvents: "none",
+                    }}
                   />
                 </div>
+                {errors.inquiryType && (
+                  <p style={{ fontSize: 11, color: "var(--vermillion)", marginTop: 4, fontFamily: "monospace" }}>
+                    {errors.inquiryType.message}
+                  </p>
+                )}
               </div>
 
               {/* Message */}
-              <div className="space-y-2">
-                <label className="text-[9px] font-bold text-slate-500 uppercase tracking-widest flex items-center gap-1.5">
-                  <MessageSquare size={10} className="text-indigo-400" />
-                  Message
+              <div>
+                <label style={labelStyle}>
+                  <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                    <MessageSquare size={10} style={{ color: "var(--vermillion)" }} />
+                    Message
+                  </span>
                 </label>
                 <textarea
-                  {...register("message", { required: "Message is required", minLength: { value: 20, message: "Please write at least 20 characters" } })}
-                  rows="4"
+                  {...register("message", {
+                    required: "Message is required",
+                    minLength: { value: 20, message: "Write at least 20 characters" },
+                  })}
+                  rows={5}
                   placeholder="Tell me about your project, timeline, and requirements..."
-                  className={`w-full px-4 py-3 rounded-xl bg-slate-950 border ${
-                    errors.message ? "border-red-500/50" : "border-slate-800"
-                  } focus:border-indigo-500/60 focus:ring-1 focus:ring-indigo-500/20 outline-none transition-all text-white text-sm font-medium placeholder:text-slate-700 resize-none`}
+                  style={{ ...inputStyle(errors.message), resize: "vertical" }}
+                  onFocus={e => e.target.style.borderColor = "var(--vermillion)"}
+                  onBlur={e => e.target.style.borderColor = errors.message ? "var(--vermillion)" : "var(--border)"}
                 />
                 {errors.message && (
-                  <p className="text-red-400 text-[10px] font-bold">{errors.message.message}</p>
+                  <p style={{ fontSize: 11, color: "var(--vermillion)", marginTop: 4, fontFamily: "monospace" }}>
+                    {errors.message.message}
+                  </p>
                 )}
               </div>
 
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+              <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-4 rounded-xl bg-indigo-600 text-white font-bold flex items-center justify-center gap-3 transition-all disabled:opacity-50 disabled:cursor-not-allowed hover:bg-indigo-500 shadow-lg shadow-indigo-600/20 text-sm"
+                className="btn-v"
+                style={{ justifyContent: "center", padding: "14px 28px", width: "100%", opacity: isSubmitting ? 0.6 : 1, cursor: isSubmitting ? "not-allowed" : "pointer" }}
               >
                 {isSubmitting ? (
-                  <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
+                  <div className="spin-slow" style={{
+                    width: 16, height: 16,
+                    border: "2px solid rgba(255,255,255,0.3)",
+                    borderTopColor: "#fff",
+                    borderRadius: "50%",
+                  }} />
                 ) : (
                   <>
-                    <Send size={17} className="group-hover:translate-x-1 transition-transform" />
+                    <Send size={14} />
                     Send Message
                   </>
                 )}
-              </motion.button>
+              </button>
             </form>
           </motion.div>
         </div>
