@@ -227,7 +227,7 @@ const About = () => {
                 style={{
                   padding: "24px",
                   border: "1px solid var(--border)",
-                  borderRadius: 3,
+                  borderRadius: 12,
                   background: "var(--surface)",
                   marginBottom: 16,
                 }}
@@ -271,8 +271,10 @@ const About = () => {
           </div>
 
           {/* Education */}
-          <div>
-            <div className="rule-label" style={{ marginBottom: 32 }}>Education</div>
+          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+            <div className="rule-label" style={{ marginBottom: 16 }}>Education</div>
+            
+            {/* Bachelor's */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -280,7 +282,39 @@ const About = () => {
               style={{
                 padding: "24px",
                 border: "1px solid var(--border)",
-                borderRadius: 3,
+                borderRadius: 12,
+                background: "var(--surface)",
+              }}
+            >
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 6 }}>
+                <div>
+                  <h3 style={{ fontSize: 16, fontWeight: 700, color: "var(--chalk)", lineHeight: 1.2 }}>
+                    B.Sc. in Computer Science and Engineering (CSE)
+                  </h3>
+                  <p style={{ fontSize: 13, color: "var(--vermillion)", fontWeight: 600, marginTop: 4 }}>
+                    Northern University Bangladesh (NUB)
+                  </p>
+                </div>
+                <span className="badge badge-green">Current</span>
+              </div>
+              <div style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 12 }}>
+                <CalendarDays size={12} style={{ color: "var(--muted)" }} />
+                <span className="code-label">Present</span>
+              </div>
+              <div style={{ marginTop: 16 }}>
+                <span className="tech-tag">Software Engineering</span>
+              </div>
+            </motion.div>
+
+            {/* Diploma */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              style={{
+                padding: "24px",
+                border: "1px solid var(--border)",
+                borderRadius: 12,
                 background: "var(--surface)",
               }}
             >
