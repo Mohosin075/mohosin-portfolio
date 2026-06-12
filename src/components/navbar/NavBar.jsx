@@ -69,7 +69,7 @@ const Navbar = () => {
           </NavLink>
 
           {/* Desktop nav links */}
-          <div style={{ display: "flex", alignItems: "center", gap: 32 }} className="hidden md:flex">
+          <div style={{ alignItems: "center", gap: 32 }} className="hidden md:flex">
             {ListItem.map((list, i) => (
               <NavLink
                 key={i}
@@ -82,7 +82,7 @@ const Navbar = () => {
           </div>
 
           {/* Right: socials + hire */}
-          <div style={{ display: "flex", alignItems: "center", gap: 16 }} className="hidden md:flex">
+          <div style={{ alignItems: "center", gap: 16 }} className="hidden md:flex">
             {[
               { icon: FaGithub, href: "https://github.com/Mohosin075", label: "GitHub" },
               { icon: FaLinkedin, href: "https://www.linkedin.com/in/md-mohosin-5b34a0278/", label: "LinkedIn" },
@@ -115,14 +115,13 @@ const Navbar = () => {
           {/* Mobile toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden"
+            className="flex md:hidden"
             aria-label="Toggle menu"
             style={{
               background: "none",
               border: "none",
               color: "var(--chalk)",
               cursor: "pointer",
-              display: "flex",
               alignItems: "center",
             }}
           >
