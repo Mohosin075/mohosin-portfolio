@@ -177,12 +177,17 @@ const Navbar = () => {
                       fontFamily: "'Bebas Neue', sans-serif",
                       fontSize: 56,
                       lineHeight: 1.1,
-                      color: "var(--muted)",
+                      color: (location.pathname === `/${list?.location}` || (list?.location === "" && location.pathname === "/"))
+                        ? "var(--vermillion)"
+                        : "var(--muted)",
                       letterSpacing: "0.02em",
                       transition: "color 0.2s",
                     }}
                     onMouseEnter={e => e.currentTarget.style.color = "var(--chalk)"}
-                    onMouseLeave={e => e.currentTarget.style.color = "var(--muted)"}
+                    onMouseLeave={e => {
+                      const isActive = (location.pathname === `/${list?.location}` || (list?.location === "" && location.pathname === "/"));
+                      e.currentTarget.style.color = isActive ? "var(--vermillion)" : "var(--muted)";
+                    }}
                   >
                     {list?.Label}
                   </motion.div>

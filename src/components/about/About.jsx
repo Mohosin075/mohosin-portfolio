@@ -98,6 +98,7 @@ const About = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            className="about-photo-wrapper"
           >
             <div style={{ position: "relative" }}>
               <div className="img-container" style={{ aspectRatio: "4/5" }}>
@@ -142,24 +143,13 @@ const About = () => {
             viewport={{ once: true }}
           >
             {/* Stats row */}
-            <div style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(3, 1fr)",
-              gap: 0,
-              marginBottom: 40,
-              paddingBottom: 40,
-              borderBottom: "1px solid var(--border)",
-            }}>
+            <div className="about-stats-grid">
               {[
                 { val: "2+", label: "Years experience" },
                 { val: "10+", label: "Projects shipped" },
                 { val: "30+", label: "APIs built" },
               ].map((s, i) => (
-                <div key={i} style={{
-                  paddingRight: i < 2 ? 32 : 0,
-                  paddingLeft: i > 0 ? 32 : 0,
-                  borderRight: i < 2 ? "1px solid var(--border)" : "none",
-                }}>
+                <div key={i} className="about-stat-item">
                   <div className="font-display" style={{ fontSize: 44, color: "var(--chalk)", lineHeight: 1 }}>
                     {s.val}
                   </div>
@@ -201,7 +191,7 @@ const About = () => {
         {/* What I do */}
         <div style={{ marginBottom: 80 }}>
           <div className="rule-label" style={{ marginBottom: 40 }}>What I Do</div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 0 }} className="services-grid">
+          <div className="services-grid">
             {services.map((s, i) => (
               <motion.div
                 key={i}
@@ -209,15 +199,7 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                style={{
-                  padding: "32px",
-                  borderLeft: i > 0 ? "1px solid var(--border)" : "none",
-                  borderTop: "1px solid var(--border)",
-                  borderBottom: "1px solid var(--border)",
-                  ...(i === 0 ? { borderLeft: "1px solid var(--border)" } : {}),
-                  ...(i === services.length - 1 ? { borderRight: "1px solid var(--border)" } : {}),
-                  transition: "background 0.2s",
-                }}
+                className="service-card"
                 onMouseEnter={e => e.currentTarget.style.background = "var(--surface)"}
                 onMouseLeave={e => e.currentTarget.style.background = "transparent"}
               >

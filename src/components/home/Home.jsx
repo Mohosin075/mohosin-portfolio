@@ -19,10 +19,10 @@ const stats = [
 
 const Home = () => {
   return (
-    <div style={{ overflowX: "hidden" }}>
+    <div style={{ overflowX: "hidden", width: "100%" }}>
 
       {/* ═══════════════ HERO ═══════════════ */}
-      <section style={{ minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "flex-end", paddingTop: 120 }}>
+      <section style={{ width: "100%", minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "space-between", paddingTop: 80 }}>
         <div className="CC">
 
           {/* Top metadata row */}
@@ -133,7 +133,7 @@ const Home = () => {
             </div>
 
             {/* Socials — vertical stacked */}
-            <div style={{ display: "flex", flexDirection: "column", gap: 12, alignItems: "flex-end" }}>
+            <div className="hero-socials">
               {[
                 { icon: FaGithub, href: "https://github.com/Mohosin075", label: "GitHub" },
                 { icon: FaLinkedin, href: "https://www.linkedin.com/in/md-mohosin-5b34a0278/", label: "LinkedIn" },
@@ -172,17 +172,12 @@ const Home = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="CC"
-          style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", paddingTop: 32, paddingBottom: 80, gap: 0 }}
+          className="CC hero-stats"
         >
           {stats.map((s, i) => (
             <div
               key={i}
-              style={{
-                padding: "0 32px 0 0",
-                borderRight: i < stats.length - 1 ? "1px solid var(--border)" : "none",
-                marginRight: i < stats.length - 1 ? 32 : 0,
-              }}
+              className="hero-stat-item"
             >
               <div className="font-display" style={{ fontSize: 48, color: "var(--chalk)", lineHeight: 1 }}>
                 {s.value}

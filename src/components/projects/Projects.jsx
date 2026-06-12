@@ -338,34 +338,36 @@ const Projects = ({ limit }) => {
       )}
 
       {/* Project list */}
-      <AnimatePresence mode="popLayout">
-        {/* Featured */}
-        <div key="featured">
-          {featured.map((project, i) => (
-            <FeaturedCard key={project.id} project={project} index={i} />
-          ))}
-        </div>
-
-        {/* Compact grid */}
-        {rest.length > 0 && (
-          <motion.div
-            key="rest"
-            layout
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
-              gap: 16,
-              marginTop: 40,
-              paddingTop: 40,
-              borderTop: "1px solid var(--border)",
-            }}
-          >
-            {rest.map((project, i) => (
-              <CompactCard key={project.id} project={project} index={i} />
+      <div className={!limit ? "CC" : ""}>
+        <AnimatePresence mode="popLayout">
+          {/* Featured */}
+          <div key="featured">
+            {featured.map((project, i) => (
+              <FeaturedCard key={project.id} project={project} index={i} />
             ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+
+          {/* Compact grid */}
+          {rest.length > 0 && (
+            <motion.div
+              key="rest"
+              layout
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 300px), 1fr))",
+                gap: 16,
+                marginTop: 40,
+                paddingTop: 40,
+                borderTop: "1px solid var(--border)",
+              }}
+            >
+              {rest.map((project, i) => (
+                <CompactCard key={project.id} project={project} index={i} />
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </div>
   );
 };

@@ -34,8 +34,7 @@ const Footer = () => {
           alignItems: "start",
           paddingBottom: 48,
           borderBottom: "1px solid var(--border)",
-          flexWrap: "wrap",
-        }}>
+        }} className="footer-grid">
           {/* Left: brand + desc + availability */}
           <div>
             <NavLink to="/" style={{ textDecoration: "none", display: "flex", alignItems: "baseline", gap: 4, marginBottom: 16, width: "fit-content" }}>
@@ -62,7 +61,7 @@ const Footer = () => {
           </div>
 
           {/* Right: nav + contact */}
-          <div style={{ display: "grid", gridTemplateColumns: "auto auto", gap: 48 }}>
+          <div className="footer-links-grid">
             <div>
               <p className="code-label" style={{ marginBottom: 16 }}>Navigation</p>
               <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 10 }}>

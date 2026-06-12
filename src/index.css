@@ -11,7 +11,7 @@
   --vermillion: #E8391E;
   --vermillion-dark: #C42E15;
   --chalk: #F0EDE6;
-  --muted: #6B6560;
+  --muted: #B0A9A3;
   --border: #2A2520;
   --surface: #111110;
   --surface-2: #1A1916;
@@ -61,9 +61,15 @@ body::before {
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--vermillion); }
 
+/* ── Placeholders ── */
+::placeholder {
+  color: var(--muted);
+  opacity: 0.9;
+}
+
 /* ── Container ── */
 .CC {
-  max-width: 1280px;
+  max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 24px;
@@ -379,6 +385,7 @@ body::before {
   flex-direction: column;
   justify-content: center;
   padding: 40px;
+  overflow-y: auto;
 }
 
 /* ── Grid background subtle ── */
@@ -400,6 +407,79 @@ body::before {
   letter-spacing: 0.1em;
 }
 
+/* ── Hero Stats ── */
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  padding-top: 32px;
+  padding-bottom: 80px;
+}
+.hero-stat-item {
+  padding-right: 32px;
+  border-right: 1px solid var(--border);
+}
+.hero-stat-item:last-child {
+  padding-right: 0;
+  border-right: none;
+}
+
+/* ── About Stats ── */
+.about-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--border);
+}
+.about-stat-item {
+  padding-right: 32px;
+  border-right: 1px solid var(--border);
+}
+.about-stat-item:last-child {
+  padding-right: 0;
+  border-right: none;
+}
+
+/* ── Services Grid ── */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+.service-card {
+  padding: 32px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+  background: transparent;
+  transition: background 0.2s;
+}
+.service-card:last-child {
+  border-right: 1px solid var(--border);
+}
+
+/* ── Footer Link Grid ── */
+.footer-links-grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 48px;
+}
+
+/* ── About Photo ── */
+.about-photo-wrapper {
+  max-width: 100%;
+}
+
+/* ── Socials ── */
+.hero-socials {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-end;
+}
+
 /* ═══════════ RESPONSIVE ═══════════ */
 
 /* Featured project grid → stack on mobile */
@@ -419,6 +499,39 @@ body::before {
   .flex-col-mobile > :last-child {
     flex-direction: row !important;
     flex-wrap: wrap !important;
+  }
+  .hero-stats {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    padding-bottom: 48px !important;
+  }
+  .hero-stat-item {
+    padding-right: 0 !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 20px;
+  }
+  .hero-stat-item:last-child {
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+  }
+  .hero-socials {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+  }
+  .services-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .service-card {
+    border-left: 1px solid var(--border) !important;
+    border-right: 1px solid var(--border) !important;
+    border-top: none !important;
+    border-bottom: 1px solid var(--border) !important;
+  }
+  .service-card:first-child {
+    border-top: 1px solid var(--border) !important;
   }
 }
 
@@ -443,15 +556,34 @@ body::before {
     grid-template-columns: 1fr !important;
     gap: 40px !important;
   }
+  .about-photo-wrapper {
+    max-width: 340px;
+    margin: 0 auto;
+  }
 }
 
 @media (max-width: 768px) {
-  .services-grid {
-    grid-template-columns: 1fr !important;
-  }
   .exp-grid {
     grid-template-columns: 1fr !important;
     gap: 40px !important;
+  }
+}
+
+@media (max-width: 580px) {
+  .about-stats-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+  .about-stat-item {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 20px;
+  }
+  .about-stat-item:last-child {
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
   }
 }
 
@@ -459,6 +591,13 @@ body::before {
 @media (max-width: 700px) {
   .footer-grid {
     grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-links-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
   }
 }
 
@@ -476,4 +615,5 @@ body::before {
     padding-right: 20px;
   }
 }
+
 
