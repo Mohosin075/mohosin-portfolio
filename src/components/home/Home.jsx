@@ -104,28 +104,22 @@ const Home = () => {
             </h1>
           </motion.div>
 
-          {/* Bottom row: description + actions */}
+          {/* Bottom row: description + actions & stats widget */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr auto",
-              gap: 48,
-              alignItems: "flex-end",
-              paddingBottom: 56,
-              borderBottom: "1px solid var(--border)",
-            }}
-            className="flex-col-mobile"
+            className="hero-bottom-grid"
           >
-            <div style={{ maxWidth: 480 }}>
+            {/* Left Column: Description, Actions & Socials */}
+            <div>
               <p style={{
                 fontSize: 16,
                 lineHeight: 1.7,
                 color: "var(--muted)",
                 fontWeight: 400,
                 marginBottom: 28,
+                maxWidth: 540,
               }}>
                 Md Mohosin Ali — building scalable REST APIs, real-time systems,
                 and modern React frontends. 2+ years of production-grade code shipped.
@@ -147,64 +141,52 @@ const Home = () => {
                   <ArrowRight size={14} />
                 </NavLink>
               </div>
+
+              {/* Horizontal Socials */}
+              <div className="hero-socials-horizontal">
+                {[
+                  { icon: FaGithub, href: "https://github.com/Mohosin075", label: "GitHub" },
+                  { icon: FaLinkedin, href: "https://www.linkedin.com/in/md-mohosin-5b34a0278/", label: "LinkedIn" },
+                  { icon: Mail, href: "mailto:mohosinali075@gmail.com", label: "Email" },
+                ].map((s, i) => (
+                  <a
+                    key={i}
+                    href={s.href}
+                    aria-label={s.label}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hero-social-link"
+                  >
+                    <s.icon size={15} />
+                    <span style={{ fontFamily: "'Space Mono', monospace" }}>{s.label}</span>
+                  </a>
+                ))}
+              </div>
             </div>
 
-            {/* Socials — vertical stacked */}
-            <div className="hero-socials">
-              {[
-                { icon: FaGithub, href: "https://github.com/Mohosin075", label: "GitHub" },
-                { icon: FaLinkedin, href: "https://www.linkedin.com/in/md-mohosin-5b34a0278/", label: "LinkedIn" },
-                { icon: Mail, href: "mailto:mohosinali075@gmail.com", label: "Email" },
-              ].map((s, i) => (
-                <a
-                  key={i}
-                  href={s.href}
-                  aria-label={s.label}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 10,
-                    color: "var(--muted)",
-                    textDecoration: "none",
-                    fontSize: 12,
-                    fontWeight: 600,
-                    letterSpacing: "0.06em",
-                    transition: "color 0.2s",
-                  }}
-                  onMouseEnter={e => e.currentTarget.style.color = "var(--chalk)"}
-                  onMouseLeave={e => e.currentTarget.style.color = "var(--muted)"}
-                >
-                  <s.icon size={16} />
-                  <span style={{ fontFamily: "'Space Mono', monospace" }}>{s.label}</span>
-                </a>
-              ))}
+            {/* Right Column: Stats console widget */}
+            <div className="stats-pane">
+              <div className="stats-pane-header">
+                <span className="code-label">System Metrics</span>
+                <div className="status-indicator">
+                  <span className="status-dot">
+                    <span className="status-dot-ring" style={{ position: "absolute", inset: -4, borderRadius: "50%", background: "rgba(52,199,89,0.4)" }} />
+                  </span>
+                  <span>Online</span>
+                </div>
+              </div>
+              <div className="stats-pane-grid">
+                {stats.map((s, i) => (
+                  <div key={i} className="stat-pane-item">
+                    <span className="stat-pane-value">{s.value}</span>
+                    <span className="stat-pane-label">{s.label}</span>
+                  </div>
+                ))}
+              </div>
             </div>
+
           </motion.div>
         </div>
-
-        {/* Stats row */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="CC hero-stats"
-        >
-          {stats.map((s, i) => (
-            <div
-              key={i}
-              className="hero-stat-item"
-            >
-              <div className="font-display" style={{ fontSize: 48, color: "var(--chalk)", lineHeight: 1 }}>
-                {s.value}
-              </div>
-              <p className="code-label" style={{ marginTop: 8, lineHeight: 1.4 }}>
-                {s.label}
-              </p>
-            </div>
-          ))}
-        </motion.div>
       </section>
 
       {/* ═══════════════ SKILLS ═══════════════ */}
