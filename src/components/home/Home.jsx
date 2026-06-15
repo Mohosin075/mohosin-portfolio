@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { ArrowRight, Download, Mail, MapPin, Server, Database, Layout, Cpu } from "lucide-react";
+import { ArrowRight, Download, Mail, MapPin, Server, Database, Layout, Cpu, Clock } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import Projects from "../projects/Projects";
 import Contact from "../contact/Contact";
@@ -29,9 +29,25 @@ const skillCategories = [
 ];
 
 const stats = [
-  { value: "2+", label: "Years of production experience" },
+  { value: "1+", label: "Years of production experience" },
   { value: "10+", label: "Projects shipped" },
   { value: "∞", label: "Lines of server-side code" },
+];
+
+const experience = [
+  {
+    role: "Jr. Backend Developer",
+    company: "Sparktech Agency",
+    period: "Jun 2025 – Present",
+    bullets: [
+      "Building and maintaining scalable backend services using Node.js, Express.js, TypeScript, and MongoDB",
+      "Collaborating with a small, agile team to deliver solutions aligned with the client's business needs",
+      "Implementing secure authentication, RESTful APIs, and efficient database models with Mongoose",
+      "Actively improving code quality with validation, error handling, and best practices",
+      "Contributing to team discussions, project planning, and continuous integration workflows",
+    ],
+    stack: ["Node.js", "Express.js", "TypeScript", "MongoDB", "JWT"],
+  },
 ];
 
 const Home = () => {
@@ -39,7 +55,7 @@ const Home = () => {
     <div style={{ overflowX: "hidden", width: "100%" }}>
 
       {/* ═══════════════ HERO ═══════════════ */}
-      <section style={{ width: "100%", minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "space-between", paddingTop: 80 }}>
+      <section style={{ width: "100%", display: "flex", flexDirection: "column", paddingTop: 80 }}>
         <div className="CC">
 
           {/* Top metadata row */}
@@ -104,22 +120,23 @@ const Home = () => {
             </h1>
           </motion.div>
 
-          {/* Bottom row: description + actions & stats widget */}
+          {/* Bottom row: description + actions */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-            className="hero-bottom-grid"
+            style={{
+              paddingBottom: 56,
+              borderBottom: "1px solid var(--border)",
+            }}
           >
-            {/* Left Column: Description, Actions & Socials */}
-            <div>
+            <div style={{ maxWidth: 600 }}>
               <p style={{
                 fontSize: 16,
                 lineHeight: 1.7,
                 color: "var(--muted)",
                 fontWeight: 400,
                 marginBottom: 28,
-                maxWidth: 540,
               }}>
                 Md Mohosin Ali — building scalable REST APIs, real-time systems,
                 and modern React frontends. 2+ years of production-grade code shipped.
@@ -163,28 +180,6 @@ const Home = () => {
                 ))}
               </div>
             </div>
-
-            {/* Right Column: Stats console widget */}
-            <div className="stats-pane">
-              <div className="stats-pane-header">
-                <span className="code-label">System Metrics</span>
-                <div className="status-indicator">
-                  <span className="status-dot">
-                    <span className="status-dot-ring" style={{ position: "absolute", inset: -4, borderRadius: "50%", background: "rgba(52,199,89,0.4)" }} />
-                  </span>
-                  <span>Online</span>
-                </div>
-              </div>
-              <div className="stats-pane-grid">
-                {stats.map((s, i) => (
-                  <div key={i} className="stat-pane-item">
-                    <span className="stat-pane-value">{s.value}</span>
-                    <span className="stat-pane-label">{s.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
           </motion.div>
         </div>
       </section>
@@ -221,6 +216,103 @@ const Home = () => {
                 </motion.div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════ EXPERIENCE ═══════════════ */}
+      <section style={{ padding: "80px 0" }}>
+        <div className="CC">
+          <div className="rule-label" style={{ marginBottom: 40 }}>
+            Experience
+          </div>
+          <div className="experience-grid">
+            {/* Left: Job experience details */}
+            <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+              {experience.map((job, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                  style={{
+                    border: "1px solid var(--border)",
+                    borderRadius: 12,
+                    padding: 32,
+                    background: "var(--surface)",
+                    position: "relative",
+                    overflow: "hidden",
+                  }}
+                >
+                  <div style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: 2,
+                    background: "linear-gradient(90deg, var(--vermillion), transparent)"
+                  }} />
+
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 20, flexWrap: "wrap", gap: 12 }}>
+                    <div>
+                      <h3 style={{ fontSize: 18, fontWeight: 700, color: "var(--chalk)", lineHeight: 1.2 }}>
+                        {job.role}
+                      </h3>
+                      <p style={{ fontSize: 14, color: "var(--vermillion)", fontWeight: 600, marginTop: 4 }}>
+                        {job.company}
+                      </p>
+                    </div>
+                    <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                      <Clock size={12} style={{ color: "var(--muted)" }} />
+                      <span className="code-label">{job.period}</span>
+                    </div>
+                  </div>
+
+                  <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 12, marginBottom: 24 }}>
+                    {job.bullets.map((b, j) => (
+                      <li key={j} style={{ display: "flex", gap: 10, fontSize: 14, color: "var(--muted)", lineHeight: 1.6 }}>
+                        <span style={{ color: "var(--vermillion)", flexShrink: 0, fontFamily: "monospace" }}>→</span>
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+                    {job.stack.map((t, j) => (
+                      <span key={j} className="tech-tag">{t}</span>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Right: System Metrics console card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="stats-pane"
+            >
+              <div className="stats-pane-header">
+                <span className="code-label">System Metrics</span>
+                <div className="status-indicator">
+                  <span className="status-dot">
+                    <span className="status-dot-ring" style={{ position: "absolute", inset: -4, borderRadius: "50%", background: "rgba(52,199,89,0.4)" }} />
+                  </span>
+                  <span>Online</span>
+                </div>
+              </div>
+              <div className="stats-pane-grid">
+                {stats.map((s, i) => (
+                  <div key={i} className="stat-pane-item">
+                    <span className="stat-pane-value">{s.value}</span>
+                    <span className="stat-pane-label">{s.label}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>

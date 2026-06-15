@@ -57,10 +57,11 @@ const experience = [
     period: "Jun 2025 – Present",
     current: true,
     bullets: [
-      "Building scalable backend services with Node.js, Express.js, TypeScript & MongoDB",
-      "Implementing JWT auth, RESTful APIs, and Mongoose models in production",
-      "Working in an agile team on real client-facing business applications",
-      "Contributing to CI/CD workflows and code review processes",
+      "Building and maintaining scalable backend services using Node.js, Express.js, TypeScript, and MongoDB",
+      "Collaborating with a small, agile team to deliver solutions aligned with the client's business needs",
+      "Implementing secure authentication, RESTful APIs, and efficient database models with Mongoose",
+      "Actively improving code quality with validation, error handling, and best practices",
+      "Contributing to team discussions, project planning, and continuous integration workflows",
     ],
     stack: ["Node.js", "Express.js", "TypeScript", "MongoDB", "JWT"],
   },
@@ -277,7 +278,7 @@ const About = () => {
                 </div>
 
                 <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 8, marginBottom: 16 }}>
-                  {job.bullets.slice(0, 3).map((b, j) => (
+                  {job.bullets.map((b, j) => (
                     <li key={j} style={{ display: "flex", gap: 10, fontSize: 13, color: "var(--muted)" }}>
                       <span style={{ color: "var(--vermillion)", flexShrink: 0, fontFamily: "monospace" }}>→</span>
                       {b}
