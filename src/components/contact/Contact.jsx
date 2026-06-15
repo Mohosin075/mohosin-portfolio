@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
 
 const INQUIRY_TYPES = [
   "Backend API Development",
@@ -50,13 +51,56 @@ const Contact = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    if (data) {
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    // Check if the credentials are not configured or are placeholders
+    if (
+      !serviceId ||
+      serviceId === "your_service_id" ||
+      !templateId ||
+      templateId === "your_template_id" ||
+      !publicKey ||
+      publicKey === "your_public_key"
+    ) {
+      console.warn("EmailJS credentials are not configured in your .env file. Running in simulation mode.");
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      Swal.fire({
+        background: "#111110",
+        color: "#F0EDE6",
+        icon: "info",
+        title: "Simulation: Message sent.",
+        text: "Configure your EmailJS keys in .env to send real emails.",
+        showConfirmButton: true,
+        customClass: {
+          popup: "rounded-none",
+        },
+      });
+      reset();
+      return;
+    }
+
+    try {
+      const templateParams = {
+        from_name: data.name,
+        name: data.name,
+        from_email: data.email,
+        email: data.email,
+        reply_to: data.email,
+        to_email: "mohosinali075@gmail.com",
+        to_name: "Md Mohosin Ali",
+        inquiry_type: data.inquiryType,
+        message: data.message,
+      };
+
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+
       Swal.fire({
         background: "#111110",
         color: "#F0EDE6",
         icon: "success",
-        title: "Message sent.",
+        title: "Message sent successfully!",
         text: "I'll respond within 24 hours.",
         showConfirmButton: false,
         timer: 3000,
@@ -65,8 +109,22 @@ const Contact = () => {
         },
       });
       reset();
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      Swal.fire({
+        background: "#111110",
+        color: "#F0EDE6",
+        icon: "error",
+        title: "Failed to send message",
+        text: error?.text || "Please check your network connection or try again later.",
+        showConfirmButton: true,
+        customClass: {
+          popup: "rounded-none",
+        },
+      });
     }
   };
+
 
   return (
     <section
