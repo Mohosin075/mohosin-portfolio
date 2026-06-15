@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Globe, ArrowUpRight, GitBranch } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const CATEGORIES = [
   { id: "all", label: "All" },
@@ -28,12 +29,14 @@ const FeaturedCard = ({ project, index }) => {
 
         {/* Image side */}
         <div className="img-container" style={{ aspectRatio: "16/10", position: "relative" }}>
-          <img
-            src={project.image}
-            alt={project.title}
-            loading="lazy"
-            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-          />
+          <Link to={`/projects/${project.id}`} style={{ display: "block", width: "100%", height: "100%" }}>
+            <img
+              src={project.image}
+              alt={project.title}
+              loading="lazy"
+              style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+            />
+          </Link>
           {/* Subtle dark overlay only at bottom */}
           <div style={{
             position: "absolute",
@@ -42,9 +45,10 @@ const FeaturedCard = ({ project, index }) => {
             right: 0,
             height: "40%",
             background: "linear-gradient(to top, rgba(10,10,10,0.6), transparent)",
+            pointerEvents: "none"
           }} />
           {/* Category tag on image */}
-          <div style={{ position: "absolute", bottom: 16, left: 16, display: "flex", gap: 8 }}>
+          <div style={{ position: "absolute", bottom: 16, left: 16, display: "flex", gap: 8, pointerEvents: "none" }}>
             <span className={`badge ${project.category === "backend" ? "badge-red" : "badge-muted"}`}>
               {project.category}
             </span>
@@ -75,7 +79,9 @@ const FeaturedCard = ({ project, index }) => {
               marginBottom: 16,
               letterSpacing: "-0.01em",
             }}>
-              {project.title}
+              <Link to={`/projects/${project.id}`} style={{ color: "inherit", textDecoration: "none" }} className="underline-reveal">
+                {project.title}
+              </Link>
             </h3>
 
             {/* Description */}
@@ -122,16 +128,22 @@ const FeaturedCard = ({ project, index }) => {
 
           {/* Links */}
           <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+            <Link
+              to={`/projects/${project.id}`}
+              className="btn-v"
+            >
+              View Details
+              <ArrowUpRight size={13} />
+            </Link>
             {project.demo && (
               <a
                 href={project.demo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-v"
+                className="btn-ghost"
               >
                 <Globe size={13} />
                 Live Site
-                <ArrowUpRight size={12} />
               </a>
             )}
             {project.githubServer && (
@@ -176,17 +188,20 @@ const CompactCard = ({ project, index }) => (
     <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
       {/* Image */}
       <div className="img-container" style={{ height: 180, position: "relative" }}>
-        <img
-          src={project.image}
-          alt={project.title}
-          loading="lazy"
-          style={{ width: "100%", height: "100%", objectFit: "cover" }}
-        />
+        <Link to={`/projects/${project.id}`} style={{ display: "block", height: "100%" }}>
+          <img
+            src={project.image}
+            alt={project.title}
+            loading="lazy"
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          />
+        </Link>
         <div style={{
           position: "absolute", inset: 0,
           background: "rgba(10,10,10,0.2)",
+          pointerEvents: "none"
         }} />
-        <div style={{ position: "absolute", top: 12, left: 12 }}>
+        <div style={{ position: "absolute", top: 12, left: 12, pointerEvents: "none" }}>
           <span className={`badge ${project.category === "backend" ? "badge-red" : "badge-muted"}`}>
             {project.category}
           </span>
@@ -203,11 +218,28 @@ const CompactCard = ({ project, index }) => (
           marginBottom: 10,
           lineHeight: 1.2,
         }}>
-          {project.title}
+          <Link to={`/projects/${project.id}`} style={{ color: "inherit", textDecoration: "none" }} onMouseEnter={e => e.currentTarget.style.color = "var(--vermillion)"} onMouseLeave={e => e.currentTarget.style.color = "var(--chalk)"}>
+            {project.title}
+          </Link>
         </h3>
-        <p style={{ fontSize: 13, color: "var(--muted)", lineHeight: 1.6, marginBottom: 16 }}>
+        <p style={{ fontSize: 13, color: "var(--muted)", lineHeight: 1.6, marginBottom: 12 }}>
           {project.description.slice(0, 100)}...
         </p>
+        <Link to={`/projects/${project.id}`} style={{
+          display: "inline-flex",
+          alignItems: "center",
+          gap: 4,
+          fontSize: 11,
+          fontWeight: 700,
+          fontFamily: "'Space Mono', monospace",
+          color: "var(--vermillion)",
+          textDecoration: "none",
+          marginBottom: 16,
+          textTransform: "uppercase",
+          letterSpacing: "0.05em"
+        }}>
+          Read Details <ArrowUpRight size={11} />
+        </Link>
 
         {/* Tech + links row */}
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", paddingTop: 14, borderTop: "1px solid var(--border)" }}>
@@ -370,6 +402,46 @@ const Projects = ({ limit }) => {
       </div>
     </div>
   );
+};
+
+FeaturedCard.propTypes = {
+  project: PropTypes.shape({
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string,
+    category: PropTypes.string,
+    featured: PropTypes.bool,
+    description: PropTypes.string,
+    highlights: PropTypes.arrayOf(PropTypes.string),
+    frontEnd: PropTypes.arrayOf(PropTypes.string),
+    backEnd: PropTypes.arrayOf(PropTypes.string),
+    tools: PropTypes.arrayOf(PropTypes.string),
+    image: PropTypes.string,
+    demo: PropTypes.string,
+    githubServer: PropTypes.string,
+    githubClient: PropTypes.string,
+  }).isRequired,
+  index: PropTypes.number.isRequired,
+};
+
+CompactCard.propTypes = {
+  project: PropTypes.shape({
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string,
+    category: PropTypes.string,
+    featured: PropTypes.bool,
+    description: PropTypes.string,
+    highlights: PropTypes.arrayOf(PropTypes.string),
+    frontEnd: PropTypes.arrayOf(PropTypes.string),
+    backEnd: PropTypes.arrayOf(PropTypes.string),
+    tools: PropTypes.arrayOf(PropTypes.string),
+    image: PropTypes.string,
+    demo: PropTypes.string,
+    githubServer: PropTypes.string,
+    githubClient: PropTypes.string,
+  }).isRequired,
+  index: PropTypes.number.isRequired,
 };
 
 Projects.propTypes = { limit: PropTypes.number };
