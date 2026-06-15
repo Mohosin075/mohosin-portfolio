@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import {
-  Server, Database, Cpu, Clock, CalendarDays,
+  Server, Database, Cpu, Clock, CalendarDays, Layout,
 } from "lucide-react";
 import {
   SiNodedotjs, SiExpress, SiMongodb, SiTypescript, SiReact,
@@ -8,22 +8,46 @@ import {
   SiSocketdotio, SiFirebase, SiGithub, SiPostman, SiRedis,
 } from "react-icons/si";
 
-const allSkills = [
-  { name: "Node.js", icon: SiNodedotjs },
-  { name: "Express.js", icon: SiExpress },
-  { name: "TypeScript", icon: SiTypescript },
-  { name: "MongoDB", icon: SiMongodb },
-  { name: "PostgreSQL", icon: SiPostgresql },
-  { name: "Prisma", icon: SiPrisma },
-  { name: "React.js", icon: SiReact },
-  { name: "Redis", icon: SiRedis },
-  { name: "Docker", icon: SiDocker },
-  { name: "AWS S3", icon: SiAmazon },
-  { name: "Firebase", icon: SiFirebase },
-  { name: "Stripe", icon: SiStripe },
-  { name: "Socket.io", icon: SiSocketdotio },
-  { name: "GitHub", icon: SiGithub },
-  { name: "Postman", icon: SiPostman },
+const skillCategories = [
+  {
+    title: "Backend & APIs",
+    icon: Server,
+    skills: [
+      { name: "Node.js", icon: SiNodedotjs },
+      { name: "Express.js", icon: SiExpress },
+      { name: "TypeScript", icon: SiTypescript },
+      { name: "Socket.io", icon: SiSocketdotio },
+      { name: "Postman", icon: SiPostman },
+    ],
+  },
+  {
+    title: "Databases & Caching",
+    icon: Database,
+    skills: [
+      { name: "MongoDB", icon: SiMongodb },
+      { name: "PostgreSQL", icon: SiPostgresql },
+      { name: "Redis", icon: SiRedis },
+      { name: "Prisma", icon: SiPrisma },
+    ],
+  },
+  {
+    title: "Frontend & Client",
+    icon: Layout,
+    skills: [
+      { name: "React.js", icon: SiReact },
+      { name: "Firebase", icon: SiFirebase },
+      { name: "Stripe", icon: SiStripe },
+    ],
+  },
+  {
+    title: "DevOps & Tools",
+    icon: Cpu,
+    skills: [
+      { name: "Docker", icon: SiDocker },
+      { name: "AWS S3", icon: SiAmazon },
+      { name: "GitHub", icon: SiGithub },
+    ],
+  },
 ];
 
 const experience = [
@@ -337,44 +361,34 @@ const About = () => {
 
         {/* Skills grid */}
         <div>
-          <div className="rule-label" style={{ marginBottom: 32 }}>Core Tech Stack</div>
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))",
-            gap: 8,
-          }}>
-            {allSkills.map((skill, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.03 }}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 10,
-                  padding: "12px 14px",
-                  border: "1px solid var(--border)",
-                  borderRadius: 3,
-                  cursor: "default",
-                  transition: "border-color 0.2s",
-                  background: "var(--surface)",
-                }}
-                onMouseEnter={e => e.currentTarget.style.borderColor = "var(--vermillion)"}
-                onMouseLeave={e => e.currentTarget.style.borderColor = "var(--border)"}
-              >
-                <skill.icon size={16} style={{ color: "var(--muted)", flexShrink: 0 }} />
-                <span style={{
-                  fontSize: 12,
-                  fontWeight: 600,
-                  color: "var(--muted)",
-                  letterSpacing: "0.04em",
-                }}>
-                  {skill.name}
-                </span>
-              </motion.div>
-            ))}
+          <div className="rule-label" style={{ marginBottom: 40 }}>Core Tech Stack</div>
+          <div className="tech-stack-grid">
+            {skillCategories.map((category, index) => {
+              const Icon = category.icon;
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  className="tech-card"
+                >
+                  <div className="tech-card-header">
+                    <Icon size={18} style={{ color: "var(--vermillion)" }} />
+                    <h3 className="tech-card-title">{category.title}</h3>
+                  </div>
+                  <div className="tech-card-skills">
+                    {category.skills.map((skill, i) => (
+                      <span key={i} className="skill-tag-icon">
+                        <skill.icon size={14} style={{ flexShrink: 0 }} />
+                        {skill.name}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </div>

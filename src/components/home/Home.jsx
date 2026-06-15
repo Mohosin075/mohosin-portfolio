@@ -1,14 +1,31 @@
 import { NavLink } from "react-router-dom";
-import { ArrowRight, Download, Mail, MapPin } from "lucide-react";
+import { ArrowRight, Download, Mail, MapPin, Server, Database, Layout, Cpu } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import Projects from "../projects/Projects";
 import Contact from "../contact/Contact";
 import { motion } from "framer-motion";
 
-const skills = [
-  "Node.js", "Express.js", "TypeScript", "MongoDB", "React.js",
-  "PostgreSQL", "Docker", "AWS S3", "Socket.io", "Prisma",
-  "Redis", "REST API", "JWT", "Stripe", "OpenAI", "Zod",
+const skillCategories = [
+  {
+    title: "Backend & APIs",
+    icon: Server,
+    skills: ["Node.js", "Express.js", "Socket.io", "REST API", "JWT", "Zod"]
+  },
+  {
+    title: "Databases & Caching",
+    icon: Database,
+    skills: ["MongoDB", "PostgreSQL", "Redis", "Prisma"]
+  },
+  {
+    title: "Frontend & Client",
+    icon: Layout,
+    skills: ["React.js", "TypeScript"]
+  },
+  {
+    title: "DevOps & Cloud",
+    icon: Cpu,
+    skills: ["Docker", "AWS S3", "Stripe", "OpenAI"]
+  }
 ];
 
 const stats = [
@@ -191,30 +208,43 @@ const Home = () => {
       </section>
 
       {/* ═══════════════ SKILLS ═══════════════ */}
-      <section style={{ padding: "80px 0", borderTop: "1px solid var(--border)" }}>
+      <section style={{ padding: "80px 0" }}>
         <div className="CC">
-          <div className="rule-label" style={{ marginBottom: 32 }}>
+          <div className="rule-label" style={{ marginBottom: 40 }}>
             Technical Stack
           </div>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-            {skills.map((s, i) => (
-              <motion.span
-                key={i}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.04 }}
-                className="skill-tag"
-              >
-                {s}
-              </motion.span>
-            ))}
+          <div className="tech-stack-grid">
+            {skillCategories.map((category, index) => {
+              const Icon = category.icon;
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  className="tech-card"
+                >
+                  <div className="tech-card-header">
+                    <Icon size={18} style={{ color: "var(--vermillion)" }} />
+                    <h3 className="tech-card-title">{category.title}</h3>
+                  </div>
+                  <div className="tech-card-skills">
+                    {category.skills.map((s, i) => (
+                      <span key={i} className="skill-tag">
+                        {s}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* ═══════════════ PROJECTS PREVIEW ═══════════════ */}
-      <section style={{ padding: "80px 0", borderTop: "1px solid var(--border)" }}>
+      <section style={{ padding: "80px 0" }}>
         <div className="CC">
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 56, flexWrap: "wrap", gap: 16 }}>
             <div>

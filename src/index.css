@@ -184,6 +184,7 @@ body::before {
 .skill-tag:hover {
   border-color: var(--vermillion);
   color: var(--chalk);
+  background: rgba(232, 57, 30, 0.04);
 }
 .skill-tag::before {
   content: '·';
@@ -623,5 +624,98 @@ body::before {
     padding-right: 20px;
   }
 }
+
+/* ── Tech Stack Categorized Grid ── */
+.tech-stack-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.tech-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: transparent;
+  transition: opacity 0.3s ease;
+}
+
+.tech-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 6px;
+}
+
+.tech-card-title {
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--chalk);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.25s ease;
+}
+
+.tech-card:hover .tech-card-title {
+  color: var(--vermillion);
+}
+
+.tech-card-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@media (max-width: 1024px) {
+  .tech-stack-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
+
+@media (max-width: 640px) {
+  .tech-stack-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+
+.skill-tag-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.01);
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: default;
+}
+
+.skill-tag-icon:hover {
+  border-color: var(--vermillion);
+  color: var(--chalk);
+  background: rgba(232, 57, 30, 0.04);
+}
+
+.skill-tag-icon svg {
+  color: var(--muted);
+  transition: all 0.2s ease;
+}
+
+.skill-tag-icon:hover svg {
+  color: var(--vermillion);
+  transform: scale(1.15);
+}
+
+
 
 

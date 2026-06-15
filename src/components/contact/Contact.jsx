@@ -72,7 +72,6 @@ const Contact = () => {
     <section
       id="contact"
       style={{
-        borderTop: "1px solid var(--border)",
         paddingTop: 80,
         paddingBottom: 80,
       }}
