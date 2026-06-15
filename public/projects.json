@@ -86,5 +86,49 @@
     "demo": "https://summer-camp-ass12.web.app/",
     "githubServer": "https://github.com/Mohosin075/summer-camp-server",
     "githubClient": "https://github.com/Mohosin075/summer-camp-client"
+  },
+  {
+    "id": 5,
+    "title": "Photopia Backend & Admin Portal",
+    "subtitle": "On-Demand Media Booking & Web Dashboard",
+    "category": "fullstack",
+    "featured": true,
+    "description": "A comprehensive backend system and administrative dashboard powering an on-demand photography platform. Responsible for designing the core database models, REST/WebSocket APIs, and building the Next.js admin dashboard to manage bookings, payments, and service categories.",
+    "highlights": [
+      "Built Next.js admin dashboard for managing service categories, themes, and platform metrics",
+      "Implemented Stripe Connect split-payment logic for automated professional earnings payouts",
+      "Designed and documented RESTful APIs to facilitate seamless frontend and mobile integrations",
+      "Built real-time notification scheduling and bidirectional Socket.io messaging engine",
+      "Structured secure media uploads using AWS S3 presigned URLs for efficient storage"
+    ],
+    "frontEnd": ["Next.js", "React.js", "Tailwind CSS", "Axios"],
+    "backEnd": ["Node.js", "Express.js", "TypeScript", "MongoDB", "Mongoose", "Stripe Connect", "Socket.io", "AWS S3", "Zod", "JWT", "Passport.js"],
+    "tools": ["Git", "GitHub", "Postman", "Yarn", "ESLint", "Vercel"],
+    "image": "/photopia.png",
+    "demo": null,
+    "githubServer": "https://github.com/Mohosin075/photopia-ayoubouajj",
+    "githubClient": null
+  },
+  {
+    "id": 6,
+    "title": "Photopia - Mobile Integration",
+    "subtitle": "On-Demand Booking & Media API Collaboration",
+    "category": "backend",
+    "featured": true,
+    "description": "Designed the backend architecture, incremental sync protocols, and secure checkout endpoints to support the Photopia mobile platform. Collaborated closely with the Flutter development team, providing API integrations and offline caching layers for the mobile app.",
+    "highlights": [
+      "Created incremental offline sync protocols for caching Hadith libraries and articles locally",
+      "Implemented secure payment intent generation supporting Card and SEPA Direct Debit checkout",
+      "Supported mobile chat system with real-time Socket.io endpoints and FCM push notifications",
+      "Built custom 'Modify Offer' API allowing negotiations on pending bookings from the mobile app",
+      "Collaborated with the Flutter team (who built the client app) to optimize mobile-to-backend data flows"
+    ],
+    "frontEnd": ["Flutter (Built by Mobile Team)", "Dart", "Stripe SDK", "Firebase FCM", "just_audio"],
+    "backEnd": ["Node.js", "Express.js", "TypeScript", "MongoDB", "Mongoose", "Stripe Connect", "Socket.io", "AWS S3"],
+    "tools": ["Git", "GitHub", "Postman", "Yarn", "ESLint"],
+    "image": "/photopia.png",
+    "demo": null,
+    "githubServer": "https://github.com/Mohosin075/photopia-ayoubouajj",
+    "githubClient": "https://github.com/Mohosin075/photopia-ayoubouajj"
   }
 ]
