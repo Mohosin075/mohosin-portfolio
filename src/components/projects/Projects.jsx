@@ -90,7 +90,6 @@ const FeaturedCard = ({ project, index }) => {
               lineHeight: 1.75,
               color: "var(--muted)",
               marginBottom: 24,
-              maxWidth: 400,
             }}>
               {project.description}
             </p>

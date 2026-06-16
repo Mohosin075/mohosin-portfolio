@@ -1,27 +1,5 @@
 [
-  {
-    "id": 5,
-    "title": "Photopia - On-Demand Booking Ecosystem",
-    "subtitle": "Backend, Admin Portal & Mobile API Integration",
-    "category": "fullstack",
-    "featured": true,
-    "description": "A comprehensive media booking ecosystem. Designed and developed the high-performance backend architecture, secure Stripe Connect payouts, and built the Next.js admin dashboard. Also collaborated with the Flutter mobile team to design and integrate REST/WebSocket APIs, real-time messaging, and incremental offline caching protocols.",
-    "highlights": [
-      "Built Next.js admin dashboard for managing service categories, themes, and platform metrics",
-      "Implemented Stripe Connect split-payment logic for automated professional earnings payouts",
-      "Designed and documented RESTful APIs to facilitate seamless frontend and mobile integrations",
-      "Built real-time notification scheduling and bidirectional Socket.io messaging engine",
-      "Created incremental offline sync protocols for caching Hadith libraries and articles locally",
-      "Collaborated with the Flutter mobile team to optimize mobile-to-backend data flows and push notifications"
-    ],
-    "frontEnd": ["Next.js", "React.js", "Tailwind CSS", "Axios", "Flutter (Mobile API Integration)"],
-    "backEnd": ["Node.js", "Express.js", "TypeScript", "MongoDB", "Mongoose", "Stripe Connect", "Socket.io", "AWS S3", "Zod", "JWT", "Passport.js"],
-    "tools": ["Git", "GitHub", "Postman", "Yarn", "ESLint", "Vercel", "Firebase FCM"],
-    "image": "/photopia.png",
-    "demo": null,
-    "githubServer": "https://github.com/Mohosin075/photopia-ayoubouajj",
-    "githubClient": null
-  },
+
   {
     "id": 6,
     "title": "Roadtripeado - Travel & Local Business Mapping System",
@@ -43,6 +21,29 @@
     "image": "/road.png",
     "demo": null,
     "githubServer": "https://github.com/Mohosin075/giovafilm-roadtripeado",
+    "githubClient": null
+  },
+    {
+    "id": 5,
+    "title": "Photopia - On-Demand Booking Ecosystem",
+    "subtitle": "Backend, Admin Portal & Mobile API Integration",
+    "category": "fullstack",
+    "featured": true,
+    "description": "A comprehensive media booking ecosystem. Designed and developed the high-performance backend architecture, secure Stripe Connect payouts, and built the Next.js admin dashboard. Also collaborated with the Flutter mobile team to design and integrate REST/WebSocket APIs, real-time messaging, and incremental offline caching protocols.",
+    "highlights": [
+      "Built Next.js admin dashboard for managing service categories, themes, and platform metrics",
+      "Implemented Stripe Connect split-payment logic for automated professional earnings payouts",
+      "Designed and documented RESTful APIs to facilitate seamless frontend and mobile integrations",
+      "Built real-time notification scheduling and bidirectional Socket.io messaging engine",
+      "Created incremental offline sync protocols for caching Hadith libraries and articles locally",
+      "Collaborated with the Flutter mobile team to optimize mobile-to-backend data flows and push notifications"
+    ],
+    "frontEnd": ["Next.js", "React.js", "Tailwind CSS", "Axios", "Flutter (Mobile API Integration)"],
+    "backEnd": ["Node.js", "Express.js", "TypeScript", "MongoDB", "Mongoose", "Stripe Connect", "Socket.io", "AWS S3", "Zod", "JWT", "Passport.js"],
+    "tools": ["Git", "GitHub", "Postman", "Yarn", "ESLint", "Vercel", "Firebase FCM"],
+    "image": "/photopia.png",
+    "demo": null,
+    "githubServer": "https://github.com/Mohosin075/photopia-ayoubouajj",
     "githubClient": null
   }
 ]
