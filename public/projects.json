@@ -1,5 +1,4 @@
 [
-
   {
     "id": 5,
     "title": "Photopia - On-Demand Booking Ecosystem",
@@ -21,6 +20,29 @@
     "image": "/photopia.png",
     "demo": null,
     "githubServer": "https://github.com/Mohosin075/photopia-ayoubouajj",
+    "githubClient": null
+  },
+  {
+    "id": 6,
+    "title": "Roadtripeado - Travel & Local Business Mapping System",
+    "subtitle": "Interactive Location Directory, Award Milestones & Subscriptions",
+    "category": "fullstack",
+    "featured": true,
+    "description": "A robust Express TypeScript backend system designed for a road-trip directory and mapping service. It manages interactive map pins, user awards/achievements, real-time communications via Socket.io, and a subscription-based model allowing local businesses to show their locations and offer deals. Equipped with automated cron scheduling, Stripe payments, and structured Winston logging.",
+    "highlights": [
+      "Built a secure, tiered business subscription engine using Stripe Payments for map visibility",
+      "Designed a real-time gamification and milestone system (Award System) for users to unlock achievements and free maps",
+      "Implemented live locations listing, category filtering, and favorites caching with MongoDB",
+      "Integrated real-time chat and support messaging using Socket.io and stored history in database",
+      "Configured robust file uploads to AWS S3 processed with Sharp, Zod schemas for request validation, and centralized API error handlers",
+      "Established cron-based automated scheduling for task processing and structured Winston logging"
+    ],
+    "frontEnd": ["Next.js", "React.js", "Tailwind CSS", "Axios", "TanStack Query", "Socket.io-client"],
+    "backEnd": ["Node.js", "Express.js", "TypeScript", "MongoDB", "Mongoose", "Socket.io", "Stripe", "AWS S3", "Sharp", "Zod", "JWT", "Passport.js", "Winston", "Nodemailer", "Twilio"],
+    "tools": ["Git", "GitHub", "Postman", "npm", "ESLint", "Prettier", "Husky", "Vercel"],
+    "image": "/road.png",
+    "demo": null,
+    "githubServer": "https://github.com/Mohosin075/giovafilm-roadtripeado",
     "githubClient": null
   }
 ]
