@@ -1,6 +1,29 @@
 [
 
   {
+    "id": 7,
+    "title": "Bean Fien - Specialty Coffee Hub & Analytics Dashboard",
+    "subtitle": "E-Commerce Cafe, Loyalty Rewards & Real-Time Admin Console",
+    "category": "fullstack",
+    "featured": true,
+    "description": "A feature-rich specialty cafe application and administrative platform. It integrates a sleek consumer ordering web interface with a robust backend administrative dashboard. Built with Next.js, Redux Toolkit, and Recharts, the client interfaces with a comprehensive TypeScript Express server handling secure Stripe checkouts, Socket.io live updates, Redis queues, and loyalty rewards tracking.",
+    "highlights": [
+      "Designed a sleek, dark-themed Next.js e-commerce storefront with responsive menu navigation, custom cart drawer, and interactive gift card tools",
+      "Built a live-monitoring Admin Dashboard featuring interactive area, bar, and pie charts with Recharts to visualize real-time revenues, order counts, and category breakdowns",
+      "Created a robust loyalty reward system with real-time star point progression bar and coupon claiming workflows",
+      "Configured a high-performance Express & TypeScript backend with MongoDB (Mongoose) for schema validation and indexing",
+      "Integrated secure authentication with role-based JWT access/refresh tokens and social logins (Google, Facebook via Passport)",
+      "Implemented asynchronous task processing using BullMQ and Redis, file uploads to AWS S3 with Sharp image processing, and Winston log rotation"
+    ],
+    "frontEnd": ["Next.js", "React.js", "Redux Toolkit", "Recharts", "Tailwind CSS", "Lucide React", "Radix UI", "Socket.io-client"],
+    "backEnd": ["Node.js", "Express.js", "TypeScript", "MongoDB", "Mongoose", "Socket.io", "BullMQ", "Redis", "Stripe", "AWS S3", "Sharp", "Twilio", "Passport.js", "JWT", "Firebase Admin", "Winston", "Nodemailer", "Resend", "Zod", "OpenAI"],
+    "tools": ["Git", "GitHub", "Postman", "npm", "Yarn", "ESLint", "Prettier", "Husky", "Vercel"],
+    "image": "/bean.png",
+    "demo": null,
+    "githubServer": "https://github.com/Mohosin075/chaserxhype-bean-fien-server",
+    "githubClient": "https://github.com/Mohosin075/dashboard-chaserxhype-bean-fien"
+  },
+  {
     "id": 6,
     "title": "Roadtripeado - Travel & Local Business Mapping System",
     "subtitle": "Interactive Location Directory, Award Milestones & Subscriptions",
