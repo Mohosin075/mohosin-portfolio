@@ -19,7 +19,7 @@
     "backEnd": ["Node.js", "Express.js", "TypeScript", "MongoDB", "Mongoose", "Socket.io", "BullMQ", "Redis", "Stripe", "AWS S3", "Sharp", "Twilio", "Passport.js", "JWT", "Firebase Admin", "Winston", "Nodemailer", "Resend", "Zod", "OpenAI"],
     "tools": ["Git", "GitHub", "Postman", "npm", "Yarn", "ESLint", "Prettier", "Husky", "Vercel"],
     "image": "/bean.png",
-    "demo": null,
+    "demo": "https://website-chaserxhype-bean-fien.vercel.app",
     "githubServer": "https://github.com/Mohosin075/chaserxhype-bean-fien-server",
     "githubClient": "https://github.com/Mohosin075/dashboard-chaserxhype-bean-fien"
   },
@@ -42,7 +42,7 @@
     "backEnd": ["Node.js", "Express.js", "TypeScript", "MongoDB", "Mongoose", "Socket.io", "Stripe", "AWS S3", "Sharp", "Zod", "JWT", "Passport.js", "Winston", "Nodemailer", "Twilio"],
     "tools": ["Git", "GitHub", "Postman", "npm", "ESLint", "Prettier", "Husky", "Vercel"],
     "image": "/road.png",
-    "demo": null,
+    "demo": "https://roadtripeado.shop",
     "githubServer": "https://github.com/Mohosin075/giovafilm-roadtripeado",
     "githubClient": null
   },
