@@ -53,134 +53,158 @@ const experience = [
 const Home = () => {
   return (
     <div style={{ overflowX: "hidden", width: "100%" }}>
-
       {/* ═══════════════ HERO ═══════════════ */}
-      <section style={{ width: "100%", display: "flex", flexDirection: "column", paddingTop: 80 }}>
+      <section style={{ width: "100%", display: "flex", flexDirection: "column", paddingTop: 130 }}>
         <div className="CC">
+          <div className="hero-grid-layout">
+            
+            {/* Left Column: Text Content */}
+            <div className="hero-text-column">
+              {/* Top metadata row */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6 }}
+                className="hero-metadata-row"
+                style={{ display: "flex", alignItems: "center", gap: 20, marginBottom: 24, flexWrap: "wrap" }}
+              >
+                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                  <div style={{ position: "relative", width: 8, height: 8 }}>
+                    <span style={{
+                      position: "absolute", inset: 0, borderRadius: "50%",
+                      background: "#34C759",
+                    }} />
+                    <span className="status-dot-ring" style={{
+                      position: "absolute", inset: 0, borderRadius: "50%",
+                      background: "rgba(52,199,89,0.4)",
+                    }} />
+                  </div>
+                  <span className="code-label">Available for work</span>
+                </div>
 
-          {/* Top metadata row */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            style={{ display: "flex", alignItems: "center", gap: 24, marginBottom: 40, flexWrap: "wrap" }}
-          >
-            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-              <div style={{ position: "relative", width: 8, height: 8 }}>
-                <span style={{
-                  position: "absolute", inset: 0, borderRadius: "50%",
-                  background: "#34C759",
-                }} />
-                <span className="status-dot-ring" style={{
-                  position: "absolute", inset: 0, borderRadius: "50%",
-                  background: "rgba(52,199,89,0.4)",
-                }} />
-              </div>
-              <span className="code-label">Available for work</span>
-            </div>
+                <div style={{ height: 12, width: 1, background: "var(--border)", flexShrink: 0 }} />
 
-            <div style={{ height: 1, width: 1, background: "var(--border)", flexShrink: 0, alignSelf: "stretch" }} />
+                <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                  <MapPin size={11} style={{ color: "var(--muted)" }} />
+                  <span className="code-label">Dhaka, Bangladesh</span>
+                </div>
 
-            <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-              <MapPin size={11} style={{ color: "var(--muted)" }} />
-              <span className="code-label">Dhaka, Bangladesh</span>
-            </div>
+                <div style={{ height: 12, width: 1, background: "var(--border)", flexShrink: 0 }} />
 
-            <a
-              href="https://www.linkedin.com/company/sparktechagency/about/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="code-label underline-reveal"
-              style={{ textDecoration: "none", color: "var(--muted)" }}
-            >
-              @Sparktech Agency
-            </a>
-          </motion.div>
-
-          {/* HERO HEADLINE — big Bebas Neue */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <h1
-              className="font-display"
-              style={{
-                fontSize: "clamp(3.5rem, 10vw, 8.5rem)",
-                lineHeight: 0.92,
-                letterSpacing: "0.01em",
-                color: "var(--chalk)",
-                marginBottom: 32,
-              }}
-            >
-              Backend-focused<br />
-              <span style={{ color: "var(--vermillion)" }}>Full Stack</span><br />
-              Developer
-              <span className="cursor-blink" />
-            </h1>
-          </motion.div>
-
-          {/* Bottom row: description + actions */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-            style={{
-              paddingBottom: 56,
-              borderBottom: "1px solid var(--border)",
-            }}
-          >
-            <div style={{ maxWidth: 600 }}>
-              <p style={{
-                fontSize: 16,
-                lineHeight: 1.7,
-                color: "var(--muted)",
-                fontWeight: 400,
-                marginBottom: 28,
-              }}>
-                Md Mohosin Ali — building scalable REST APIs, real-time systems,
-                and modern React frontends. 2+ years of production-grade code shipped.
-                Specialising in Node.js, TypeScript & MongoDB.
-              </p>
-
-              <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
                 <a
-                  href="https://docs.google.com/document/d/1OA-QK-BmcS-EdEjjR7k-SxCj2OEPz6mYWwpGaVuzwh0/edit?usp=sharing"
+                  href="https://www.linkedin.com/company/sparktechagency/about/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-v"
+                  className="code-label underline-reveal"
+                  style={{ textDecoration: "none", color: "var(--muted)" }}
                 >
-                  <Download size={14} />
-                  Resume
+                  @Sparktech Agency
                 </a>
-                <NavLink to="/projects" className="btn-ghost">
-                  View Work
-                  <ArrowRight size={14} />
-                </NavLink>
-              </div>
+              </motion.div>
 
-              {/* Horizontal Socials */}
-              <div className="hero-socials-horizontal">
-                {[
-                  { icon: FaGithub, href: "https://github.com/Mohosin075", label: "GitHub" },
-                  { icon: FaLinkedin, href: "https://www.linkedin.com/in/md-mohosin-5b34a0278/", label: "LinkedIn" },
-                  { icon: Mail, href: "mailto:mohosinali075@gmail.com", label: "Email" },
-                ].map((s, i) => (
+              {/* HERO HEADLINE */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                style={{ width: "100%" }}
+              >
+                <h1
+                  className="font-display"
+                  style={{
+                    fontSize: "clamp(2.5rem, 5.5vw, 4.5rem)",
+                    lineHeight: 1.0,
+                    letterSpacing: "-0.01em",
+                    color: "var(--chalk)",
+                    marginBottom: 24,
+                  }}
+                >
+                  Backend-focused <br />
+                  <span style={{ color: "var(--vermillion)" }}>Full Stack</span> Developer
+                  <span className="cursor-blink" />
+                </h1>
+              </motion.div>
+
+              {/* Bio description, actions, and socials */}
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+                style={{ width: "100%" }}
+              >
+                <p style={{
+                  fontSize: 15,
+                  lineHeight: 1.7,
+                  color: "var(--muted)",
+                  fontWeight: 400,
+                  marginBottom: 28,
+                  maxWidth: 580,
+                }}>
+                  Md Mohosin Ali — building scalable REST APIs, real-time systems,
+                  and modern React frontends. 2+ years of production-grade code shipped.
+                  Specialising in Node.js, TypeScript & MongoDB.
+                </p>
+
+                <div className="hero-actions-row" style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
                   <a
-                    key={i}
-                    href={s.href}
-                    aria-label={s.label}
+                    href="https://docs.google.com/document/d/1OA-QK-BmcS-EdEjjR7k-SxCj2OEPz6mYWwpGaVuzwh0/edit?usp=sharing"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hero-social-link"
+                    className="btn-v"
                   >
-                    <s.icon size={15} />
-                    <span style={{ fontFamily: "'Space Mono', monospace" }}>{s.label}</span>
+                    <Download size={14} />
+                    Resume
                   </a>
-                ))}
-              </div>
+                  <NavLink to="/projects" className="btn-ghost">
+                    View Work
+                    <ArrowRight size={14} />
+                  </NavLink>
+                </div>
+
+                {/* Horizontal Socials */}
+                <div className="hero-socials-horizontal">
+                  {[
+                    { icon: FaGithub, href: "https://github.com/Mohosin075", label: "GitHub" },
+                    { icon: FaLinkedin, href: "https://www.linkedin.com/in/md-mohosin-5b34a0278/", label: "LinkedIn" },
+                    { icon: Mail, href: "mailto:mohosinali075@gmail.com", label: "Email" },
+                  ].map((s, i) => (
+                    <a
+                      key={i}
+                      href={s.href}
+                      aria-label={s.label}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hero-social-link"
+                    >
+                      <s.icon size={15} />
+                      <span style={{ fontFamily: "'Space Mono', monospace" }}>{s.label}</span>
+                    </a>
+                  ))}
+                </div>
+              </motion.div>
             </div>
-          </motion.div>
+
+            {/* Right Column: Profile Image */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="hero-image-wrapper"
+            >
+              <div className="hero-image-container">
+                <div className="hero-image-frame">
+                  <img 
+                    src="https://i.ibb.co.com/C5RnCvpF/ai-1.png" 
+                    alt="Md Mohosin Ali" 
+                    onError={(e) => {
+                      e.target.src = "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=500&q=80";
+                    }}
+                  />
+                </div>
+              </div>
+            </motion.div>
+
+          </div>
         </div>
       </section>
 
@@ -206,10 +230,13 @@ const Home = () => {
                     <Icon size={18} style={{ color: "var(--vermillion)" }} />
                     <h3 className="tech-card-title">{category.title}</h3>
                   </div>
-                  <div className="tech-card-skills">
+                  <div className="tech-card-skills-clean">
                     {category.skills.map((s, i) => (
-                      <span key={i} className="skill-tag">
+                      <span key={i} className="skill-text-item">
                         {s}
+                        {i < category.skills.length - 1 && (
+                          <span className="skill-divider">/</span>
+                        )}
                       </span>
                     ))}
                   </div>
