@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { Globe, ArrowUpRight, GitBranch } from "lucide-react";
+import { Globe, ArrowUpRight, GitBranch, Play } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
+import VideoModal from "./VideoModal";
 
 const CATEGORIES = [
   { id: "all", label: "All" },
@@ -14,14 +15,16 @@ const CATEGORIES = [
 /* ── FEATURED PROJECT CARD ── */
 const FeaturedCard = ({ project, index }) => {
   const num = String(index + 1).padStart(2, "0");
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-    >
+    <>
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      >
     <article className="project-card">
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "center" }}
@@ -145,6 +148,16 @@ const FeaturedCard = ({ project, index }) => {
                 Live Site
               </a>
             )}
+            {project.video && (
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="btn-ghost"
+                style={{ display: "inline-flex", alignItems: "center", gap: 6 }}
+              >
+                <Play size={13} fill="currentColor" />
+                Video Overview
+              </button>
+            )}
             {project.githubServer && (
               <a
                 href={project.githubServer}
@@ -172,18 +185,29 @@ const FeaturedCard = ({ project, index }) => {
       </div>
     </article>
     </motion.div>
+    <VideoModal
+      isOpen={isModalOpen}
+      onClose={() => setIsModalOpen(false)}
+      videoUrl={project.video}
+      projectTitle={project.title}
+    />
+    </>
   );
 };
 
 /* ── COMPACT PROJECT CARD ── */
-const CompactCard = ({ project, index }) => (
-  <motion.article
-    initial={{ opacity: 0, y: 16 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ delay: index * 0.08, duration: 0.5 }}
-    className="compact-card"
-  >
+const CompactCard = ({ project, index }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  return (
+    <>
+      <motion.article
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: index * 0.08, duration: 0.5 }}
+        className="compact-card"
+      >
     <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
       {/* Image */}
       <div className="img-container" style={{ height: 180, position: "relative" }}>
@@ -251,23 +275,45 @@ const CompactCard = ({ project, index }) => (
             )}
           </div>
 
-          <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-            {project.demo && (
-              <a href={project.demo} target="_blank" rel="noopener noreferrer"
-                style={{ color: "var(--muted)", transition: "color 0.2s" }}
+          <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
+            {project.video && (
+              <button
+                onClick={() => setIsModalOpen(true)}
+                style={{
+                  background: "none",
+                  border: "none",
+                  padding: 6,
+                  cursor: "pointer",
+                  color: "var(--muted)",
+                  transition: "color 0.2s",
+                  display: "flex",
+                  alignItems: "center"
+                }}
                 onMouseEnter={e => e.currentTarget.style.color = "var(--vermillion)"}
                 onMouseLeave={e => e.currentTarget.style.color = "var(--muted)"}
+                title="Watch Video Overview"
               >
-                <Globe size={15} />
+                <Play size={16} fill="currentColor" />
+              </button>
+            )}
+            {project.demo && (
+              <a href={project.demo} target="_blank" rel="noopener noreferrer"
+                style={{ color: "var(--muted)", transition: "color 0.2s", display: "flex", alignItems: "center", padding: 6 }}
+                onMouseEnter={e => e.currentTarget.style.color = "var(--vermillion)"}
+                onMouseLeave={e => e.currentTarget.style.color = "var(--muted)"}
+                title="Live Site"
+              >
+                <Globe size={16} />
               </a>
             )}
             {project.githubServer && (
               <a href={project.githubServer} target="_blank" rel="noopener noreferrer"
-                style={{ color: "var(--muted)", transition: "color 0.2s" }}
+                style={{ color: "var(--muted)", transition: "color 0.2s", display: "flex", alignItems: "center", padding: 6 }}
                 onMouseEnter={e => e.currentTarget.style.color = "var(--chalk)"}
                 onMouseLeave={e => e.currentTarget.style.color = "var(--muted)"}
+                title="Source Code"
               >
-                <FaGithub size={15} />
+                <FaGithub size={16} />
               </a>
             )}
           </div>
@@ -275,7 +321,15 @@ const CompactCard = ({ project, index }) => (
       </div>
     </div>
   </motion.article>
+  <VideoModal
+    isOpen={isModalOpen}
+    onClose={() => setIsModalOpen(false)}
+    videoUrl={project.video}
+    projectTitle={project.title}
+  />
+  </>
 );
+};
 
 /* ══════════════════ MAIN ══════════════════ */
 const Projects = ({ limit }) => {

@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { Globe, ArrowLeft, ArrowUpRight, GitBranch, Terminal, Layers, Cpu } from "lucide-react";
+import { Globe, ArrowLeft, ArrowUpRight, GitBranch, Terminal, Layers, Cpu, Play } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
+import VideoModal from "./VideoModal";
 
 const ProjectDetails = () => {
   const { id } = useParams();
   const [project, setProject] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     // Scroll to top on page render
@@ -205,6 +207,16 @@ const ProjectDetails = () => {
                   <ArrowUpRight size={14} />
                 </a>
               )}
+              {project.video && (
+                <button
+                  onClick={() => setIsModalOpen(true)}
+                  className="btn-ghost"
+                  style={{ display: "inline-flex", alignItems: "center", gap: 8 }}
+                >
+                  <Play size={15} fill="currentColor" />
+                  Video Overview
+                </button>
+              )}
               {project.githubServer && (
                 <a
                   href={project.githubServer}
@@ -332,6 +344,12 @@ const ProjectDetails = () => {
 
         </div>
       </div>
+      <VideoModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        videoUrl={project.video}
+        projectTitle={project.title}
+      />
     </motion.div>
   );
 };

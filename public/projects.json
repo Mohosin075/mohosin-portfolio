@@ -19,9 +19,10 @@
     "backEnd": ["Node.js", "Express.js", "TypeScript", "MongoDB", "Mongoose", "Socket.io", "BullMQ", "Redis", "Stripe", "AWS S3", "Sharp", "Twilio", "Passport.js", "JWT", "Firebase Admin", "Winston", "Nodemailer", "Resend", "Zod", "OpenAI"],
     "tools": ["Git", "GitHub", "Postman", "npm", "Yarn", "ESLint", "Prettier", "Husky", "Vercel"],
     "image": "/bean.png",
-    "demo": "https://website-chaserxhype-bean-fien.vercel.app",
+    "demo": "",
     "githubServer": "https://github.com/Mohosin075/chaserxhype-bean-fien-server",
-    "githubClient": "https://github.com/Mohosin075/dashboard-chaserxhype-bean-fien"
+    "githubClient": "https://github.com/Mohosin075/dashboard-chaserxhype-bean-fien",
+    "video": "https://www.youtube.com/watch?v=LVOLFgSqHQ0"
   },
   {
     "id": 6,
@@ -44,7 +45,8 @@
     "image": "/road.png",
     "demo": "https://roadtripeado.shop",
     "githubServer": "https://github.com/Mohosin075/giovafilm-roadtripeado",
-    "githubClient": null
+    "githubClient": null,
+    "video": "https://www.youtube.com/watch?v=LVOLFgSqHQ0"
   },
     {
     "id": 5,
@@ -67,6 +69,7 @@
     "image": "/photopia.png",
     "demo": null,
     "githubServer": "https://github.com/Mohosin075/photopia-ayoubouajj",
-    "githubClient": null
+    "githubClient": null,
+    "video": null
   }
 ]
