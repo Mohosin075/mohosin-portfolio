@@ -4,7 +4,7 @@ import {
   Mail, MessageSquare, Send, User, Phone, MapPin,
   Clock, ChevronDown,
 } from "lucide-react";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
@@ -101,7 +101,7 @@ const Contact = () => {
         color: "#F0EDE6",
         icon: "success",
         title: "Message sent successfully!",
-        text: "I'll respond within 24 hours.",
+        text: "I'll respond Within 1-2 hours.",
         showConfirmButton: false,
         timer: 3000,
         customClass: {
@@ -155,7 +155,7 @@ const Contact = () => {
           </h2>
           <p style={{ fontSize: 15, color: "var(--muted)", maxWidth: 440, lineHeight: 1.7 }}>
             Available for backend projects, full-stack builds, and contract work.
-            Responds within 24 hours.
+            Responds Within 1-2 hours.
           </p>
         </div>
 
@@ -177,9 +177,9 @@ const Contact = () => {
             <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
               {[
                 { icon: Mail, label: "Email", value: "mohosinali075@gmail.com", href: "mailto:mohosinali075@gmail.com" },
-                { icon: Phone, label: "Phone", value: "+880 1981-381383", href: "tel:+8801981381383" },
+                { icon: FaWhatsapp, label: "Whatsapp", value: "+880 1981-381383", href: "https://wa.me/8801981381383" },
                 { icon: MapPin, label: "Location", value: "Dhaka, Bangladesh", href: "#" },
-                { icon: Clock, label: "Response time", value: "Within 24 hours", href: null },
+                { icon: Clock, label: "Response time", value: "Within 1-2 hours", href: null },
               ].map((item, i) => (
                 <div
                   key={i}
@@ -288,7 +288,7 @@ const Contact = () => {
               Send a message
             </h3>
             <p className="code-label" style={{ marginBottom: 32 }}>
-              I&apos;ll get back to you within 24 hours.
+              I&apos;ll get back to you Within 1-2 hours.
             </p>
 
             <form onSubmit={handleSubmit(onSubmit)} style={{ display: "flex", flexDirection: "column", gap: 20 }}>

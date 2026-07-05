@@ -162,7 +162,7 @@ const Home = () => {
                 </div>
 
                 {/* Horizontal Socials */}
-                <div className="hero-socials-horizontal">
+                {/* <div className="hero-socials-horizontal">
                   {[
                     { icon: FaGithub, href: "https://github.com/Mohosin075", label: "GitHub" },
                     { icon: FaLinkedin, href: "https://www.linkedin.com/in/md-mohosin-5b34a0278/", label: "LinkedIn" },
@@ -180,7 +180,7 @@ const Home = () => {
                       <span style={{ fontFamily: "'Space Mono', monospace" }}>{s.label}</span>
                     </a>
                   ))}
-                </div>
+                </div> */}
               </motion.div>
             </div>
 
