@@ -1,5 +1,30 @@
 [
-
+  {
+    "id": 8,
+    "title": "Ascela — Menstrual Cycle & Personalized Nutrition Tracker",
+    "subtitle": "Menstrual Cycle Syncing, AI Recipe Recommendations & Wellness Dashboard",
+    "category": "backend",
+    "featured": true,
+    "description": "A production-grade health and wellness backend designed for menstrual cycle-syncing, personalized nutrition, and fitness tracking. Architected a scalable Express & TypeScript server that synchronizes workouts, meal logging, and AI-powered recipe recommendations with the user's current menstrual cycle phase. Features robust Stripe integrations for subscription management, real-time user features via Socket.io, AWS S3 image uploads, and Zod validation, all optimized for integration with a Flutter mobile app.",
+    "highlights": [
+      "AI-powered personalized recipe recommendations with favorite, save, and swipe-based interaction system with daily usage limits",
+      "Menstrual cycle tracking with phase detection, calendar view, educational content, and cycle overview",
+      "Grocery list & pantry management — create lists, add recipe ingredients automatically, move items to pantry",
+      "Meal logging system to track daily food intake and nutrition",
+      "Workout logging to track exercise sessions and fitness history",
+      "Subscription & billing system with plan management, trial eligibility, pause/resume/cancel, billing portal, and Stripe Checkout",
+      "Admin analytics dashboard with platform stats, subscription analytics, and revenue overview",
+      "Flutter mobile app fully integrated with REST and WebSocket APIs for real-time features"
+    ],
+    "frontEnd": ["Flutter (Mobile API Integration)", "Firebase FCM"],
+    "backEnd": ["Node.js", "Express.js", "TypeScript", "MongoDB", "Mongoose", "Socket.io", "JWT", "Passport.js", "Google OAuth", "AWS S3", "Sharp", "BullMQ", "Redis", "Stripe", "Agora", "Twilio", "Zod", "Winston", "Nodemailer", "Resend", "Firebase Admin", "OpenAI"],
+    "tools": ["Git", "GitHub", "Postman", "Yarn", "ESLint", "Prettier", "Husky", "Vercel", "ts-node-dev"],
+    "image": "/pia.png",
+    "demo": null,
+    "githubServer": "https://github.com/Mohosin075?tab=repositories",
+    "githubClient": null,
+    "video": null
+  },
   {
     "id": 7,
     "title": "Bean Fien - Specialty Coffee Hub & Analytics Dashboard",
