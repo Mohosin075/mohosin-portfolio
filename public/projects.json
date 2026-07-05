@@ -1,5 +1,30 @@
 [
   {
+    "id": 9,
+    "title": "ClipFrame — Content Scheduling & Meta Automation",
+    "subtitle": "Social Media Scheduling, Content Workflows, Subscriptions & Analytics Hub",
+    "category": "backend",
+    "featured": true,
+    "description": "A robust, scalable backend engine built with Express.js and TypeScript for social media content scheduling, automated templates, and customized brand onboarding. Integrates AWS S3 and Cloudinary for file and media storage, Stripe for tier-based subscription limits and plan management, Socket.io for real-time alerts, and BullMQ/Redis for asynchronous background jobs. Designed with a clean modular architecture, comprehensive Swagger API documentation, and secure Passport OAuth and rate limiters.",
+    "highlights": [
+      "Dynamic user onboarding flow with custom branding setup including brand color palettes and logos",
+      "Interactive weekly content planner providing clear checklists and structures for reels, posts, and stories",
+      "Multi-channel content scheduler supporting Instagram and Facebook publishing with custom reminder triggers",
+      "Customizable content templates with step-by-step shot guidelines, media durations, and pre-defined hashtags",
+      "Tiered subscription plans with weekly limits control for reels, posts, stories, and manageable businesses",
+      "Social media integration system for one-click connection to Facebook and Instagram business pages",
+      "Detailed workspace statistics and engagement analytics to track content performance and platform metrics"
+    ],
+    "frontEnd": [],
+    "backEnd": ["Node.js", "Express.js", "TypeScript", "MongoDB", "Mongoose", "Socket.io", "BullMQ", "Redis", "Stripe", "AWS S3", "Cloudinary", "Passport.js", "JWT", "Swagger", "Zod", "Winston", "Nodemailer", "Twilio", "Helmet", "Express Rate Limit"],
+    "tools": ["Git", "GitHub", "Postman", "Yarn", "ESLint", "Prettier", "Husky", "Vercel"],
+    "image": "/clipframe (2).png",
+    "demo": null,
+    "githubServer": "https://github.com/Mohosin075/ClipFrame",
+    "githubClient": null,
+    "video": null
+  },
+  {
     "id": 8,
     "title": "Ascela — Menstrual Cycle & Personalized Nutrition Tracker",
     "subtitle": "Menstrual Cycle Syncing, AI Recipe Recommendations & Wellness Dashboard",
