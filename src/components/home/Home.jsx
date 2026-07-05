@@ -186,7 +186,7 @@ const Home = () => {
 
             {/* Right Column: Profile Image */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 1, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.1 }}
               className="hero-image-wrapper"
