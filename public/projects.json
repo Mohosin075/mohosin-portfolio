@@ -1,5 +1,55 @@
 [
   {
+    "id": 10,
+    "title": "Quran International - Comprehensive Islamic Ecosystem",
+    "subtitle": "Quran, Hadith, Tafsir, Prayer Times, Real-time Chat & Subscriptions",
+    "category": "backend",
+    "featured": true,
+    "description": "A robust, scalable production-ready backend for a comprehensive Islamic mobile and web application. Architected with Express, TypeScript, and MongoDB. The system features a massive database for Quran, Hadith (multi-language), and Tafsir processing. It integrates real-time chat via Socket.io, robust subscription management with Stripe and In-App Purchases (IAP), automated notifications, and interactive features like bookmarks, highlights, and Hasanat (rewards) tracking.",
+    "highlights": [
+      "Built massive data pipelines and storage systems for multi-language Quran, Hadith, Tafsir, and an Islamic Knowledge Library",
+      "Integrated real-time chat, support messaging, and community interactions for seamless user communication",
+      "Implemented a comprehensive dual-subscription system handling both web-based and in-app purchases",
+      "Designed interactive user features including bookmarks, text highlights, daily last-read syncing, and Hasanat (rewards) tracking",
+      "Configured automated push notifications to engage users with daily prayers, dua, and community alerts",
+      "Created an administrative dashboard system for content management, user support, and subscription analytics"
+    ],
+    "frontEnd": [],
+    "backEnd": [
+      "Node.js",
+      "Express.js",
+      "TypeScript",
+      "MongoDB",
+      "Mongoose",
+      "Socket.io",
+      "Stripe",
+      "Apple IAP",
+      "AWS S3",
+      "Sharp",
+      "Firebase Admin",
+      "Passport.js",
+      "JWT",
+      "Zod",
+      "Winston",
+      "Morgan",
+      "Cron"
+    ],
+    "tools": [
+      "Git",
+      "GitHub",
+      "Postman",
+      "npm",
+      "ESLint",
+      "Prettier",
+      "Husky"
+    ],
+    "image": "/quran.png",
+    "demo": null,
+    "githubServer": "https://github.com/Mohosin075/lionel10gg-quranInternational",
+    "githubClient": null,
+    "video": null
+  },
+  {
     "id": 9,
     "title": "ClipFrame — Content Scheduling & Meta Automation",
     "subtitle": "Social Media Scheduling, Content Workflows, Subscriptions & Analytics Hub",
