@@ -110,26 +110,40 @@ const ProjectDetails = () => {
         </div>
 
         {/* Large Media Image */}
-        <div className="img-container" style={{
-          aspectRatio: "16/9",
-          width: "100%",
-          maxHeight: 600,
-          position: "relative",
-          marginBottom: 64,
-          border: "1px solid var(--border)",
-          boxShadow: "0 20px 40px rgba(0, 0, 0, 0.5)"
-        }}>
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.98, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+          className="img-container" 
+          style={{
+            width: "100%",
+            position: "relative",
+            marginBottom: 64,
+            borderRadius: 24,
+            overflow: "hidden",
+            border: "1px solid rgba(255, 255, 255, 0.08)",
+            boxShadow: "0 30px 60px -12px rgba(0, 0, 0, 0.8), 0 0 40px rgba(230, 57, 70, 0.15)"
+          }}
+        >
           <img
             src={project.image}
             alt={project.title}
-            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+            style={{ width: "100%", height: "auto", display: "block" }}
           />
           <div style={{
             position: "absolute",
             inset: 0,
-            background: "linear-gradient(to top, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0) 50%)",
+            background: "linear-gradient(to top, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.2) 20%, rgba(10,10,10,0) 100%)",
+            pointerEvents: "none"
           }} />
-        </div>
+          {/* Subtle top glare effect */}
+          <div style={{
+            position: "absolute",
+            top: 0, left: 0, right: 0, height: "15%",
+            background: "linear-gradient(to bottom, rgba(255,255,255,0.06), transparent)",
+            pointerEvents: "none"
+          }} />
+        </motion.div>
 
         {/* Content Layout */}
         <div style={{
