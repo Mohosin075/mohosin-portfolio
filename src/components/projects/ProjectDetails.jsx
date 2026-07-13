@@ -95,7 +95,7 @@ const ProjectDetails = () => {
           </div>
 
           <h1 className="font-display" style={{
-            fontSize: "clamp(2.5rem, 6vw, 5rem)",
+            fontSize: "clamp(2rem, 6vw, 5rem)",
             color: "var(--chalk)",
             lineHeight: 1.1,
             marginBottom: 16,

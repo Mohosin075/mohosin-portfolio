@@ -76,13 +76,13 @@ const FeaturedCard = ({ project, index }) => {
 
             {/* Title */}
             <h3 className="font-display" style={{
-              fontSize: "clamp(2rem, 4vw, 3rem)",
+              fontSize: "clamp(2rem, 3vw, 2.5rem)",
               color: "var(--chalk)",
               lineHeight: 1.1,
               marginBottom: 16,
               letterSpacing: "-0.01em",
             }}>
-              <Link to={`/projects/${project.id}`} style={{ color: "inherit", textDecoration: "none" }} className="underline-reveal">
+              <Link to={`/projects/${project.id}`} style={{ color: "inherit", textDecoration: "none" }} className="">
                 {project.title}
               </Link>
             </h3>
