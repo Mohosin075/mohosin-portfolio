@@ -49,7 +49,7 @@ const Home = () => {
             <div className="rounded-full p-1 bg-gradient-to-br from-[var(--accent-from)] to-[var(--accent-to)] animate-float">
               <img
                 className="w-56 h-56 md:w-72 md:h-72 rounded-full object-cover shadow-2xl ring-4 ring-[var(--accent-from)]/12"
-                src="https://i.ibb.co/nM8b7ngD/IMG-20250505-200142-1.jpg"
+                src="https://i.ibb.co.com/C5RnCvpF/ai-1.png"
                 alt="Mohosin"
               />
             </div>
