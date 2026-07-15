@@ -7,7 +7,7 @@ const About = () => {
       <div className="w-32 md:w-48 mb-6 mx-auto">
         <img
           className="rounded-full shadow-2xl border-2 border-[rgba(255,255,255,0.03)]"
-          src="https://i.ibb.co/nM8b7ngD/IMG-20250505-200142-1.jpg"
+          src="https://i.ibb.co.com/C5RnCvpF/ai-1.png"
           alt=""
         />
       </div>
