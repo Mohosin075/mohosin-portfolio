@@ -57,7 +57,7 @@ const Home = () => {
       <section style={{ width: "100%", display: "flex", flexDirection: "column", paddingTop: 130 }}>
         <div className="CC">
           <div className="hero-grid-layout">
-            
+
             {/* Left Column: Text Content */}
             <div className="hero-text-column">
               {/* Top metadata row */}
@@ -193,9 +193,9 @@ const Home = () => {
             >
               <div className="hero-image-container">
                 <div className="hero-image-frame">
-                  <img 
-                    src="https://i.ibb.co.com/C5RnCvpF/ai-1.png" 
-                    alt="Md Mohosin Ali" 
+                  <img
+                    src="https://i.ibb.co.com/bj0RtPFk/me-mohosin.png"
+                    alt="Md Mohosin Ali"
                     onError={(e) => {
                       e.target.src = "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=500&q=80";
                     }}
