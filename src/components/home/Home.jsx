@@ -1,3 +1,4 @@
+import ProfileImage from "../ProfileImage";
 import { NavLink } from "react-router-dom";
 import { ArrowRight, Download, MapPin, Server, Database, Layout, Cpu, Clock } from "lucide-react";
 
@@ -193,13 +194,7 @@ const Home = () => {
             >
               <div className="hero-image-container">
                 <div className="hero-image-frame">
-                  <img
-                    src="https://i.ibb.co.com/bj0RtPFk/me-mohosin.png"
-                    alt="Md Mohosin Ali"
-                    onError={(e) => {
-                      e.target.src = "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=500&q=80";
-                    }}
-                  />
+                  <ProfileImage sizes="(min-width: 640px) 280px, 250px" />
                 </div>
               </div>
             </motion.div>

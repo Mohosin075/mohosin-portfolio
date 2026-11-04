@@ -3,7 +3,20 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), {
+    name: 'portrait-preload-paths',
+    transformIndexHtml: {
+      enforce: 'post',
+      transform(html, context) {
+        for (const asset of Object.values(context.bundle || {})) {
+          if (asset.type === 'asset' && /^mohosin-(320|640|960)\.webp$/.test(asset.name || '')) {
+            html = html.replaceAll('/src/assets/portrait/' + asset.name, '/' + asset.fileName);
+          }
+        }
+        return html;
+      },
+    },
+  }],
   build: {
     rollupOptions: {
       output: {

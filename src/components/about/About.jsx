@@ -1,3 +1,4 @@
+import ProfileImage from "../ProfileImage";
 import { motion } from "framer-motion";
 import {
   Server, Database, Cpu, Clock, CalendarDays, Layout,
@@ -127,11 +128,7 @@ const About = () => {
           >
             <div style={{ position: "relative" }}>
               <div className="img-container" style={{ aspectRatio: "4/5" }}>
-                <img
-                  src="https://i.ibb.co.com/bj0RtPFk/me-mohosin.png"
-                  alt="Md Mohosin Ali"
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                />
+                <ProfileImage sizes="(max-width: 388px) calc(100vw - 48px), 340px" />
               </div>
               {/* Caption strip */}
               <div style={{
