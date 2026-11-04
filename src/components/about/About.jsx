@@ -116,7 +116,7 @@ const About = () => {
 
         {/* Two column: photo + bio */}
         <div style={{ display: "grid", gridTemplateColumns: "340px 1fr", gap: 64, marginBottom: 80 }}
-             className="about-grid">
+          className="about-grid">
 
           {/* Photo */}
           <motion.div
@@ -128,7 +128,7 @@ const About = () => {
             <div style={{ position: "relative" }}>
               <div className="img-container" style={{ aspectRatio: "4/5" }}>
                 <img
-                  src="https://i.ibb.co.com/C5RnCvpF/ai-1.png"
+                  src="https://i.ibb.co.com/bj0RtPFk/me-mohosin.png"
                   alt="Md Mohosin Ali"
                   style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />
@@ -298,7 +298,7 @@ const About = () => {
           {/* Education */}
           <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
             <div className="rule-label" style={{ marginBottom: 16 }}>Education</div>
-            
+
             {/* Bachelor's */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
