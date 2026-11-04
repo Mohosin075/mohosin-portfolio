@@ -1,7 +1,7 @@
 [
   {
     "id": 6,
-    "title": "Roadtripeado ? Travel & Business Mapping",
+    "title": "Roadtripeado — Travel & Business Mapping",
     "subtitle": "Mapping APIs, business subscriptions and real-time messaging",
     "category": "backend",
     "featured": true,
@@ -81,7 +81,7 @@
   },
   {
     "id": 10,
-    "title": "Quran International ? Islamic Content Platform",
+    "title": "Quran International — Islamic Content Platform",
     "subtitle": "Multilingual content APIs, subscriptions and reading progress",
     "category": "backend",
     "featured": true,
@@ -155,7 +155,7 @@
   },
   {
     "id": 9,
-    "title": "ClipFrame ? Content Scheduling & Meta Integration",
+    "title": "ClipFrame — Content Scheduling & Meta Integration",
     "subtitle": "Scheduled publishing, background jobs and subscription limits",
     "category": "backend",
     "featured": true,
@@ -235,7 +235,7 @@
   },
   {
     "id": 8,
-    "title": "Ascela ? Cycle, Nutrition & Fitness Tracking",
+    "title": "Ascela — Cycle, Nutrition & Fitness Tracking",
     "subtitle": "Wellness APIs, AI recipe features and Flutter integration",
     "category": "backend",
     "featured": false,
@@ -321,7 +321,7 @@
   },
   {
     "id": 7,
-    "title": "Bean Fien ? Coffee Storefront & Admin Dashboard",
+    "title": "Bean Fien — Coffee Storefront & Admin Dashboard",
     "subtitle": "Next.js commerce, loyalty rewards and backend services",
     "category": "fullstack",
     "featured": false,
@@ -411,7 +411,7 @@
   },
   {
     "id": 5,
-    "title": "Photopia ? Media Booking & Payouts",
+    "title": "Photopia — Media Booking & Payouts",
     "subtitle": "Stripe Connect, Next.js administration and mobile APIs",
     "category": "fullstack",
     "featured": false,

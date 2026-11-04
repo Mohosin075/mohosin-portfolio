@@ -1,3 +1,5 @@
+import ProjectImage from "./ProjectImage";
+import { projectName } from "../../utils/projectName";
 import { loadProjects } from "../../utils/loadProjects";
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
@@ -9,6 +11,7 @@ import VideoModal from "./VideoModal";
 const ProjectDetails = () => {
   const { id } = useParams();
   const [project, setProject] = useState(null);
+  const [nextProject, setNextProject] = useState(null);
   const [error, setError] = useState(false);
   const [attempt, setAttempt] = useState(0);
   const [loading, setLoading] = useState(true);
@@ -24,7 +27,9 @@ const ProjectDetails = () => {
     loadProjects(controller.signal)
       .then((data) => {
         if (controller.signal.aborted) return;
-        setProject(data.find((p) => String(p.id) === String(id)));
+        const index = data.findIndex((p) => String(p.id) === String(id));
+        setProject(data[index]);
+        setNextProject(index >= 0 && data.length > 1 ? data[(index + 1) % data.length] : null);
         setLoading(false);
       })
       .catch(() => {
@@ -36,25 +41,19 @@ const ProjectDetails = () => {
   }, [id, attempt]);
 
   if (error) return (
-    <div className="CC" role="alert" style={{ paddingTop: 140, paddingBottom: 80 }}>
-      <p>Projects could not be loaded. Check your connection and try again.</p>
-      <button className="btn-v" style={{ marginTop: 20 }} onClick={() => setAttempt((value) => value + 1)}>Try again</button>
-    </div>
+    <div className="CC page-shell"><div className="state-panel" role="alert">
+      <h1>Could not load this case study.</h1>
+      <p>Check your connection and try again.</p>
+      <button className="btn-v" onClick={() => setAttempt((value) => value + 1)}>Try again</button>
+    </div></div>
   );
 
-  if (loading) {
-    return (
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", minHeight: "80vh", gap: 12 }}>
-        <div className="spin-slow" style={{
-          width: 24, height: 24,
-          border: "2px solid var(--border)",
-          borderTopColor: "var(--vermillion)",
-          borderRadius: "50%",
-        }} />
-        <span className="code-label">Loading project details...</span>
-      </div>
-    );
-  }
+  if (loading) return (
+    <div className="CC page-shell" role="status" aria-label="Loading case study">
+      <span className="sr-only">Loading case study</span>
+      <div className="work-skeleton" aria-hidden="true"><span /><span /><div style={{ marginTop: 32, height: 360 }} /></div>
+    </div>
+  );
 
   if (!project) {
     return (
@@ -72,6 +71,7 @@ const ProjectDetails = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      className="case-study-page page-shell"
       style={{ width: "100%", paddingTop: 120, paddingBottom: 100 }}
     >
       <div className="CC">
@@ -137,44 +137,11 @@ const ProjectDetails = () => {
           {!project.demo && !project.video && <p style={{ color: "var(--muted)", marginTop: 12 }}>A public demo is not currently linked. Contact me to discuss the implementation and available walkthrough options.</p>}
           {!project.githubServer && !project.githubClient && <p style={{ color: "var(--muted)", marginTop: 12 }}>Source code is not publicly linked.</p>}
         </section>
-        {/* Large Media Image */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.98, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="img-container" 
-          style={{
-            width: "100%",
-            position: "relative",
-            marginBottom: 64,
-            borderRadius: 24,
-            overflow: "hidden",
-            border: "1px solid rgba(255, 255, 255, 0.08)",
-            boxShadow: "0 30px 60px -12px rgba(0, 0, 0, 0.8), 0 0 40px rgba(230, 57, 70, 0.15)"
-          }}
-        >
-          <img
-            src={project.image}
+        <ProjectImage key={project.id} src={project.image} title={project.title} />
 
-            decoding="async"
-            alt={project.title}
-            style={{ width: "100%", height: "auto", display: "block" }}
-          />
-          <div style={{
-            position: "absolute",
-            inset: 0,
-            background: "linear-gradient(to top, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.2) 20%, rgba(10,10,10,0) 100%)",
-            pointerEvents: "none"
-          }} />
-          {/* Subtle top glare effect */}
-          <div style={{
-            position: "absolute",
-            top: 0, left: 0, right: 0, height: "15%",
-            background: "linear-gradient(to bottom, rgba(255,255,255,0.06), transparent)",
-            pointerEvents: "none"
-          }} />
-        </motion.div>
-
+        <nav className="case-study-navigation" aria-label="Case study sections">
+          <a href="#case-context">Context</a><a href="#implementation-heading">Implementation</a><a href="#case-contributions">Contributions</a><a href="#case-stack">Technologies</a>
+        </nav>
         {/* Content Layout */}
         <div style={{
           display: "grid",
@@ -185,7 +152,7 @@ const ProjectDetails = () => {
           
           {/* Left Column: Details */}
           <div>
-            <section style={{ marginBottom: 48 }}>
+            <section id="case-context" style={{ marginBottom: 48 }}>
               <h2 className="font-display" style={{ fontSize: 24, color: "var(--chalk)", marginBottom: 20 }}>
                   Product context
               </h2>
@@ -221,7 +188,7 @@ const ProjectDetails = () => {
             )}
 
             {project.highlights && project.highlights.length > 0 && (
-              <section style={{ marginBottom: 48 }}>
+              <section id="case-contributions" style={{ marginBottom: 48 }}>
                 <h2 className="font-display" style={{ fontSize: 24, color: "var(--chalk)", marginBottom: 20 }}>
                   Contribution summary
                 </h2>
@@ -307,7 +274,7 @@ const ProjectDetails = () => {
           </div>
 
           {/* Right Column: Tech Stack Panels */}
-          <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+          <aside id="case-stack" className="case-stack" style={{ display: "flex", flexDirection: "column", gap: 24 }}>
             
             {/* Frontend Tech Stack Card */}
             {project.frontEnd && project.frontEnd.length > 0 && (
@@ -410,10 +377,11 @@ const ProjectDetails = () => {
                 </div>
               </div>
             )}
-          </div>
+          </aside>
 
         </div>
       </div>
+      {nextProject && <div className="CC"><Link className="next-project" to={"/projects/" + nextProject.id}><span className="eyebrow">Continue exploring</span><span>{projectName(nextProject.title)}</span><ArrowUpRight size={28} /></Link></div>}
       <VideoModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}

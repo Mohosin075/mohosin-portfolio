@@ -87,7 +87,7 @@ const services = [
 
 const About = () => {
   return (
-    <div style={{ paddingTop: 120, paddingBottom: 80 }}>
+    <div className="about-page page-shell" style={{ paddingTop: 120, paddingBottom: 80 }}>
       <div className="CC">
 
         {/* Page header */}
@@ -105,8 +105,8 @@ const About = () => {
               marginBottom: 32,
             }}
           >
-            Engineering<br />
-            <span style={{ color: "var(--vermillion)" }}>Excellence</span>
+            The person behind<br />
+            <span style={{ color: "var(--vermillion)" }}>the work.</span>
           </h1>
           <p style={{ fontSize: 16, color: "var(--muted)", maxWidth: 520, lineHeight: 1.75 }}>
             Backend-focused Full Stack Developer building
@@ -231,6 +231,7 @@ const About = () => {
                 <p style={{ fontSize: 13, color: "var(--muted)", lineHeight: 1.75 }}>{s.desc}</p>
               </motion.div>
             ))}
+            </div>
           </div>
         </div>
 
@@ -239,6 +240,7 @@ const About = () => {
           {/* Experience */}
           <div>
             <div className="rule-label" style={{ marginBottom: 32 }}>Experience</div>
+            <div className="experience-timeline">
             {experience.map((job, i) => (
               <motion.div
                 key={i}

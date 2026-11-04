@@ -23,7 +23,7 @@ const inputStyle = (hasError) => ({
   width: "100%",
   padding: "12px 16px",
   background: "var(--surface-2)",
-  border: `1px solid ${hasError ? "var(--vermillion)" : "var(--border)"}`,
+  border: `1px solid ${hasError ? "var(--danger)" : "var(--border)"}`,
   borderRadius: 3,
   outline: "none",
   color: "var(--chalk)",
@@ -67,7 +67,7 @@ const Contact = () => {
       publicKey === "your_public_key"
     ) {
       await Swal.fire({
-        background: "#111110", color: "#F0EDE6", icon: "error",
+        background: "#f6f5ef", color: "#192321", icon: "error",
         title: "Message could not be sent",
         text: "Please email mohosinali075@gmail.com directly. Your message has been kept here so you can copy it.",
       });
@@ -90,8 +90,8 @@ const Contact = () => {
       await emailjs.send(serviceId, templateId, templateParams, publicKey);
 
       Swal.fire({
-        background: "#111110",
-        color: "#F0EDE6",
+        background: "#f6f5ef",
+        color: "#192321",
         icon: "success",
         title: "Message sent successfully!",
         text: "I'll respond as soon as possible.",
@@ -105,8 +105,8 @@ const Contact = () => {
     } catch (error) {
       console.error("EmailJS Error:", error);
       Swal.fire({
-        background: "#111110",
-        color: "#F0EDE6",
+        background: "#f6f5ef",
+        color: "#192321",
         icon: "error",
         title: "Failed to send message",
         text: error?.text || "Please check your network connection or try again later.",
@@ -122,6 +122,7 @@ const Contact = () => {
   return (
     <section
       id="contact"
+      className="contact-page page-shell"
       style={{
         paddingTop: 80,
         paddingBottom: 80,
@@ -143,8 +144,8 @@ const Contact = () => {
               marginBottom: 16,
             }}
           >
-            Let&apos;s Work<br />
-            <span style={{ color: "var(--vermillion)" }}>Together</span>
+            Let&apos;s start<br />
+            <span style={{ color: "var(--vermillion)" }}>a conversation.</span>
           </Heading>
           <p style={{ fontSize: 15, color: "var(--muted)", maxWidth: 440, lineHeight: 1.7 }}>
             Open to Backend, MERN and Full Stack roles, as well as relevant project opportunities.
@@ -273,8 +274,8 @@ const Contact = () => {
             style={{
               background: "var(--surface)",
               border: "1px solid var(--border)",
-              borderRadius: 3,
-              padding: 40,
+              borderRadius: 12,
+              padding: 32,
             }}
           >
             <h3 style={{ fontSize: 18, fontWeight: 700, color: "var(--chalk)", marginBottom: 6 }}>
@@ -299,10 +300,10 @@ const Contact = () => {
                     placeholder="John Doe"
                     style={inputStyle(errors.name)}
                     onFocus={e => e.target.style.borderColor = "var(--vermillion)"}
-                    onBlurCapture={e => e.target.style.borderColor = errors.name ? "var(--vermillion)" : "var(--border)"}
+                    onBlurCapture={e => e.target.style.borderColor = errors.name ? "var(--danger)" : "var(--border)"}
                   />
                   {errors.name && (
-                    <p id="contact-name-error" role="alert" style={{ fontSize: 11, color: "var(--vermillion)", marginTop: 4, fontFamily: "monospace" }}>
+                    <p id="contact-name-error" role="alert" style={{ fontSize: 13, color: "var(--danger)", marginTop: 4, fontFamily: "monospace" }}>
                       {errors.name.message}
                     </p>
                   )}
@@ -323,10 +324,10 @@ const Contact = () => {
                     placeholder="john@example.com"
                     style={inputStyle(errors.email)}
                     onFocus={e => e.target.style.borderColor = "var(--vermillion)"}
-                    onBlurCapture={e => e.target.style.borderColor = errors.email ? "var(--vermillion)" : "var(--border)"}
+                    onBlurCapture={e => e.target.style.borderColor = errors.email ? "var(--danger)" : "var(--border)"}
                   />
                   {errors.email && (
-                    <p id="contact-email-error" role="alert" style={{ fontSize: 11, color: "var(--vermillion)", marginTop: 4, fontFamily: "monospace" }}>
+                    <p id="contact-email-error" role="alert" style={{ fontSize: 13, color: "var(--danger)", marginTop: 4, fontFamily: "monospace" }}>
                       {errors.email.message}
                     </p>
                   )}
@@ -341,7 +342,7 @@ const Contact = () => {
                     {...register("inquiryType", { required: "Please select an inquiry type" })}
                     style={{ ...inputStyle(errors.inquiryType), appearance: "none", cursor: "pointer" }}
                     onFocus={e => e.target.style.borderColor = "var(--vermillion)"}
-                    onBlurCapture={e => e.target.style.borderColor = errors.inquiryType ? "var(--vermillion)" : "var(--border)"}
+                    onBlurCapture={e => e.target.style.borderColor = errors.inquiryType ? "var(--danger)" : "var(--border)"}
                   >
                     <option value="" style={{ background: "var(--surface)" }}>Select type...</option>
                     {INQUIRY_TYPES.map((type) => (
@@ -363,7 +364,7 @@ const Contact = () => {
                   />
                 </div>
                 {errors.inquiryType && (
-                  <p id="contact-inquiryType-error" role="alert" style={{ fontSize: 11, color: "var(--vermillion)", marginTop: 4, fontFamily: "monospace" }}>
+                  <p id="contact-inquiryType-error" role="alert" style={{ fontSize: 13, color: "var(--danger)", marginTop: 4, fontFamily: "monospace" }}>
                     {errors.inquiryType.message}
                   </p>
                 )}
@@ -386,10 +387,10 @@ const Contact = () => {
                   placeholder="Tell me about your project, timeline, and requirements..."
                   style={{ ...inputStyle(errors.message), resize: "vertical" }}
                   onFocus={e => e.target.style.borderColor = "var(--vermillion)"}
-                  onBlurCapture={e => e.target.style.borderColor = errors.message ? "var(--vermillion)" : "var(--border)"}
+                  onBlurCapture={e => e.target.style.borderColor = errors.message ? "var(--danger)" : "var(--border)"}
                 />
                 {errors.message && (
-                  <p id="contact-message-error" role="alert" style={{ fontSize: 11, color: "var(--vermillion)", marginTop: 4, fontFamily: "monospace" }}>
+                  <p id="contact-message-error" role="alert" style={{ fontSize: 13, color: "var(--danger)", marginTop: 4, fontFamily: "monospace" }}>
                     {errors.message.message}
                   </p>
                 )}

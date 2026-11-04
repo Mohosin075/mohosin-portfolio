@@ -8,7 +8,7 @@ import { MotionConfig } from "framer-motion";
 const App = () => {
   return (
     <MotionConfig reducedMotion="user">
-    <div className="min-h-screen grid-bg" style={{ background: "var(--ink)" }}>
+    <div className="portfolio-shell editorial-theme min-h-screen" style={{ background: "var(--ink)" }}>
       <PageMetadata />
       <Navbar />
       <main className="min-h-screen">

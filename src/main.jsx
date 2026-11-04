@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
+import "./redesign.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import NotFound from "./components/NotFound.jsx";
 const lazyPage = (load) => async () => ({ Component: (await load()).default });

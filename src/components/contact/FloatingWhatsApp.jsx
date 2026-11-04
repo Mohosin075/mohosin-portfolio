@@ -9,8 +9,8 @@ const FloatingWhatsApp = () => {
     <div
       style={{
         position: "fixed",
-        bottom: 32,
-        right: 32,
+        bottom: 20,
+        right: 20,
         zIndex: 80,
         display: "flex",
         alignItems: "center",
@@ -49,16 +49,16 @@ const FloatingWhatsApp = () => {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         style={{
-          width: 56,
-          height: 56,
+          width: 44,
+          height: 44,
           borderRadius: "50%",
           backgroundColor: "#25D366",
           color: "#FFFFFF",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          fontSize: 28,
-          boxShadow: "0 4px 20px rgba(37, 211, 102, 0.4)",
+          fontSize: 23,
+          boxShadow: "none",
           cursor: "pointer",
           textDecoration: "none",
         }}
