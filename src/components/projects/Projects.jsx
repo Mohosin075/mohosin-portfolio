@@ -36,6 +36,8 @@ const FeaturedCard = ({ project, index }) => {
           <Link to={`/projects/${project.id}`} style={{ display: "block", width: "100%", height: "100%" }}>
             <img
               src={project.image}
+
+            decoding="async"
               alt={project.title}
               loading="lazy"
               style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
@@ -56,8 +58,8 @@ const FeaturedCard = ({ project, index }) => {
             <span className={`badge ${project.category === "backend" ? "badge-red" : "badge-muted"}`}>
               {project.category}
             </span>
-            {project.featured && (
-              <span className="badge badge-green">Live</span>
+            {project.demo && (
+              <span className="badge badge-green">Demo</span>
             )}
           </div>
         </div>
@@ -76,7 +78,7 @@ const FeaturedCard = ({ project, index }) => {
             </p>
 
             {/* Title */}
-            <h3 className="font-display" style={{
+            <h2 className="font-display" style={{
               fontSize: "clamp(2rem, 3vw, 2.5rem)",
               color: "var(--chalk)",
               lineHeight: 1.1,
@@ -86,7 +88,7 @@ const FeaturedCard = ({ project, index }) => {
               <Link to={`/projects/${project.id}`} style={{ color: "inherit", textDecoration: "none" }} className="">
                 {project.title}
               </Link>
-            </h3>
+            </h2>
 
             {/* Description */}
             <p style={{
@@ -215,6 +217,8 @@ const CompactCard = ({ project, index }) => {
         <Link to={`/projects/${project.id}`} style={{ display: "block", height: "100%" }}>
           <img
             src={project.image}
+
+            decoding="async"
             alt={project.title}
             loading="lazy"
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
@@ -235,7 +239,7 @@ const CompactCard = ({ project, index }) => {
       {/* Content */}
       <div style={{ padding: 20 }}>
         <p className="code-label" style={{ marginBottom: 6 }}>{project.subtitle}</p>
-        <h3 style={{
+        <h2 style={{
           fontSize: 20,
           fontWeight: 700,
           color: "var(--chalk)",
@@ -245,7 +249,7 @@ const CompactCard = ({ project, index }) => {
           <Link to={`/projects/${project.id}`} style={{ color: "inherit", textDecoration: "none" }} onMouseEnter={e => e.currentTarget.style.color = "var(--vermillion)"} onMouseLeave={e => e.currentTarget.style.color = "var(--chalk)"}>
             {project.title}
           </Link>
-        </h3>
+        </h2>
         <p style={{ fontSize: 13, color: "var(--muted)", lineHeight: 1.6, marginBottom: 12 }}>
           {project.description.slice(0, 100)}...
         </p>
@@ -387,7 +391,34 @@ const Projects = ({ limit }) => {
 
   return (
     <div style={{ width: "100%" }}>
-
+      {limit ? (
+        <div className="home-project-grid">
+          {projects.map((project) => (
+            <article key={project.id} className="home-project-card">
+              <Link to={`/projects/${project.id}`} className="home-project-image">
+                <img src={project.image} alt={project.title} loading="lazy" decoding="async" width="640" height="400" />
+              </Link>
+              <div className="home-project-content">
+                <span className="code-label">{project.category === "backend" ? "Backend engineering" : "Full-stack development"}</span>
+                <h3><Link to={`/projects/${project.id}`}>{project.title.split(" - ")[0]}</Link></h3>
+                <p className="home-project-summary">{project.subtitle}</p>
+                {project.highlights?.[0] && (
+                  <div className="home-project-contribution">
+                    <span className="code-label">Key contribution</span>
+                    <p>{project.highlights[0]}</p>
+                  </div>
+                )}
+                <div className="home-project-tags">
+                  {project.backEnd?.slice(0, 3).map((tech) => <span className="tech-tag" key={tech}>{tech}</span>)}
+                </div>
+                <Link to={`/projects/${project.id}`} className="home-case-link">
+                  View Case Study <ArrowUpRight size={16} />
+                </Link>
+              </div>
+            </article>
+          ))}
+        </div>
+      ) : (<>
       {/* Full-page header with category filter */}
       {!limit && (
         <div style={{ paddingTop: 120, paddingBottom: 64 }} className="CC">
@@ -396,7 +427,7 @@ const Projects = ({ limit }) => {
           </div>
 
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: 24 }}>
-            <motion.h2
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               className="font-display"
@@ -404,7 +435,7 @@ const Projects = ({ limit }) => {
             >
               Selected<br />
               <span style={{ color: "transparent", WebkitTextStroke: "1px rgba(240,237,230,0.2)" }}>Work</span>
-            </motion.h2>
+            </motion.h1>
 
             {/* Category filter — minimal tabs */}
             <motion.div
@@ -417,6 +448,7 @@ const Projects = ({ limit }) => {
                 <button
                   key={cat.id}
                   onClick={() => setActiveCategory(cat.id)}
+                  aria-pressed={activeCategory === cat.id}
                   style={{
                     padding: "8px 18px",
                     borderRadius: 2,
@@ -440,6 +472,7 @@ const Projects = ({ limit }) => {
         </div>
       )}
 
+      <p className="CC" style={{ color: "var(--muted)", marginBottom: 24 }}>Six selected projects covering backend services, integrations and full-stack applications.</p>
       {/* Project list */}
       <div className={!limit ? "CC" : ""}>
         <AnimatePresence mode="popLayout">
@@ -471,6 +504,7 @@ const Projects = ({ limit }) => {
           )}
         </AnimatePresence>
       </div>
+      </>)}
     </div>
   );
 };
@@ -487,6 +521,7 @@ FeaturedCard.propTypes = {
     frontEnd: PropTypes.arrayOf(PropTypes.string),
     backEnd: PropTypes.arrayOf(PropTypes.string),
     tools: PropTypes.arrayOf(PropTypes.string),
+    imageSet: PropTypes.string,
     image: PropTypes.string,
     demo: PropTypes.string,
     githubServer: PropTypes.string,
@@ -508,6 +543,7 @@ CompactCard.propTypes = {
     frontEnd: PropTypes.arrayOf(PropTypes.string),
     backEnd: PropTypes.arrayOf(PropTypes.string),
     tools: PropTypes.arrayOf(PropTypes.string),
+    imageSet: PropTypes.string,
     image: PropTypes.string,
     demo: PropTypes.string,
     githubServer: PropTypes.string,

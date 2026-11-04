@@ -30,7 +30,7 @@ const FloatingWhatsApp = () => {
               borderRadius: 6,
               fontSize: 12,
               fontWeight: 600,
-              fontFamily: "'Space Grotesk', sans-serif",
+              fontFamily: "'Inter', sans-serif",
               border: "1px solid var(--border, rgba(255,255,255,0.1))",
               boxShadow: "0 4px 12px rgba(0,0,0,0.5)",
               whiteSpace: "nowrap",

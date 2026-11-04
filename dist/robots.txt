@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mohosin-portfolio.vercel.app/sitemap.xml

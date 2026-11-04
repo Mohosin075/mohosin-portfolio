@@ -1,3 +1,4 @@
+import { useLocation } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import {
@@ -27,7 +28,7 @@ const inputStyle = (hasError) => ({
   outline: "none",
   color: "var(--chalk)",
   fontSize: 14,
-  fontFamily: "'Space Grotesk', sans-serif",
+  fontFamily: "'Inter', sans-serif",
   transition: "border-color 0.2s",
 });
 
@@ -43,6 +44,7 @@ const labelStyle = {
 };
 
 const Contact = () => {
+  const Heading = useLocation().pathname === "/contact" ? "h1" : "h2";
   const {
     register,
     handleSubmit,
@@ -92,7 +94,7 @@ const Contact = () => {
         color: "#F0EDE6",
         icon: "success",
         title: "Message sent successfully!",
-        text: "I'll respond Within 1-2 hours.",
+        text: "I'll respond as soon as possible.",
         showConfirmButton: false,
         timer: 3000,
         customClass: {
@@ -131,7 +133,7 @@ const Contact = () => {
           <div className="rule-label" style={{ marginBottom: 20 }}>
             Contact
           </div>
-          <h2
+          <Heading
             className="font-display"
             style={{
               fontSize: "clamp(2.5rem, 6vw, 5rem)",
@@ -143,10 +145,10 @@ const Contact = () => {
           >
             Let&apos;s Work<br />
             <span style={{ color: "var(--vermillion)" }}>Together</span>
-          </h2>
+          </Heading>
           <p style={{ fontSize: 15, color: "var(--muted)", maxWidth: 440, lineHeight: 1.7 }}>
             Available for backend projects, full-stack builds, and contract work.
-            Responds Within 1-2 hours.
+            Let’s discuss your project.
           </p>
         </div>
 
@@ -169,8 +171,8 @@ const Contact = () => {
               {[
                 { icon: Mail, label: "Email", value: "mohosinali075@gmail.com", href: "mailto:mohosinali075@gmail.com" },
                 { icon: FaWhatsapp, label: "Whatsapp", value: "+880 1981-381383", href: "https://wa.me/8801981381383" },
-                { icon: MapPin, label: "Location", value: "Dhaka, Bangladesh", href: "#" },
-                { icon: Clock, label: "Response time", value: "Within 1-2 hours", href: null },
+                { icon: MapPin, label: "Location", value: "Dhaka, Bangladesh", href: null },
+                { icon: Clock, label: "Response time", value: "As soon as possible", href: null },
               ].map((item, i) => (
                 <div
                   key={i}
@@ -279,7 +281,7 @@ const Contact = () => {
               Send a message
             </h3>
             <p className="code-label" style={{ marginBottom: 32 }}>
-              I&apos;ll get back to you Within 1-2 hours.
+              I&apos;ll get back to you as soon as possible.
             </p>
 
             <form onSubmit={handleSubmit(onSubmit)} style={{ display: "flex", flexDirection: "column", gap: 20 }}>

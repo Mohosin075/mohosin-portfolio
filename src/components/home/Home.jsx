@@ -30,9 +30,8 @@ const skillCategories = [
 ];
 
 const stats = [
-  { value: "2+", label: "Years of production experience" },
-  { value: "10+", label: "Projects shipped" },
-  { value: "∞", label: "Lines of server-side code" },
+  { value: "2025", label: "At Sparktech since June" },
+  { value: "6", label: "Selected projects" },
 ];
 
 const experience = [
@@ -53,9 +52,9 @@ const experience = [
 
 const Home = () => {
   return (
-    <div style={{ overflowX: "hidden", width: "100%" }}>
+    <div className="home-page" style={{ overflowX: "hidden", width: "100%" }}>
       {/* ═══════════════ HERO ═══════════════ */}
-      <section style={{ width: "100%", display: "flex", flexDirection: "column", paddingTop: 130 }}>
+      <section className="home-hero">
         <div className="CC">
           <div className="hero-grid-layout">
 
@@ -110,10 +109,11 @@ const Home = () => {
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                 style={{ width: "100%" }}
               >
+                <p className="hero-introduction">Hi, I&apos;m Mohosin Ali</p>
                 <h1
                   className="font-display"
                   style={{
-                    fontSize: "clamp(2.5rem, 5.5vw, 4.5rem)",
+                    fontSize: "clamp(2.15rem, 5vw, 4.25rem)",
                     lineHeight: 1.0,
                     letterSpacing: "-0.01em",
                     color: "var(--chalk)",
@@ -122,7 +122,7 @@ const Home = () => {
                 >
                   Backend-focused <br />
                   <span style={{ color: "var(--vermillion)" }}>Full Stack</span> Developer
-                  <span className="cursor-blink" />
+
                 </h1>
               </motion.div>
 
@@ -141,47 +141,22 @@ const Home = () => {
                   marginBottom: 28,
                   maxWidth: 580,
                 }}>
-                  Md Mohosin Ali — building scalable REST APIs, real-time systems,
-                  and modern React frontends. 2+ years of production-grade code shipped.
-                  Specialising in Node.js, TypeScript & MongoDB.
+                  I build reliable APIs, real-time systems, and React applications.
+                  Working at Sparktech Agency since June 2025 with Node.js, TypeScript & MongoDB.
                 </p>
 
-                <div className="hero-actions-row" style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+                <div className="hero-actions-row">
+                  <NavLink to="/projects" className="btn-v">
+                    View Work <ArrowRight size={16} />
+                  </NavLink>
                   <a
                     href="https://docs.google.com/document/d/1OA-QK-BmcS-EdEjjR7k-SxCj2OEPz6mYWwpGaVuzwh0/edit?usp=sharing"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-v"
+                    target="_blank" rel="noopener noreferrer" className="btn-ghost"
                   >
-                    <Download size={14} />
-                    Resume
+                    <Download size={16} /> Resume
                   </a>
-                  <NavLink to="/projects" className="btn-ghost">
-                    View Work
-                    <ArrowRight size={14} />
-                  </NavLink>
                 </div>
 
-                {/* Horizontal Socials */}
-                {/* <div className="hero-socials-horizontal">
-                  {[
-                    { icon: FaGithub, href: "https://github.com/Mohosin075", label: "GitHub" },
-                    { icon: FaLinkedin, href: "https://www.linkedin.com/in/md-mohosin-5b34a0278/", label: "LinkedIn" },
-                    { icon: Mail, href: "mailto:mohosinali075@gmail.com", label: "Email" },
-                  ].map((s, i) => (
-                    <a
-                      key={i}
-                      href={s.href}
-                      aria-label={s.label}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hero-social-link"
-                    >
-                      <s.icon size={15} />
-                      <span style={{ fontFamily: "'Space Mono', monospace" }}>{s.label}</span>
-                    </a>
-                  ))}
-                </div> */}
               </motion.div>
             </div>
 
@@ -194,7 +169,7 @@ const Home = () => {
             >
               <div className="hero-image-container">
                 <div className="hero-image-frame">
-                  <ProfileImage sizes="(min-width: 640px) 280px, 250px" />
+                  <ProfileImage sizes="(min-width: 900px) 280px, (min-width: 640px) 200px, 180px" />
                 </div>
               </div>
             </motion.div>
@@ -203,8 +178,44 @@ const Home = () => {
         </div>
       </section>
 
+      <section className="home-section">
+        <div className="CC">
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 56, flexWrap: "wrap", gap: 16 }}>
+            <div>
+              <div className="rule-label" style={{ marginBottom: 16 }}>
+                Selected Work
+              </div>
+              <h2 className="font-display" style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)", color: "var(--chalk)", lineHeight: 0.95 }}>
+                Projects
+              </h2>
+            </div>
+            <NavLink
+              to="/projects"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 8,
+                fontSize: 12,
+                fontWeight: 700,
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                color: "var(--muted)",
+                textDecoration: "none",
+                fontFamily: "'Space Mono', monospace",
+                transition: "color 0.2s",
+              }}
+              onMouseEnter={e => e.currentTarget.style.color = "var(--chalk)"}
+              onMouseLeave={e => e.currentTarget.style.color = "var(--muted)"}
+            >
+              All projects <ArrowRight size={14} />
+            </NavLink>
+          </div>
+          <Projects limit={3} />
+        </div>
+      </section>
+
       {/* ═══════════════ SKILLS ═══════════════ */}
-      <section style={{ padding: "80px 0" }}>
+      <section className="home-section">
         <div className="CC">
           <div className="rule-label" style={{ marginBottom: 40 }}>
             Technical Stack
@@ -243,7 +254,7 @@ const Home = () => {
       </section>
 
       {/* ═══════════════ EXPERIENCE ═══════════════ */}
-      <section style={{ padding: "80px 0" }}>
+      <section className="home-section">
         <div className="CC">
           <div className="rule-label" style={{ marginBottom: 40 }}>
             Experience
@@ -309,7 +320,7 @@ const Home = () => {
               ))}
             </div>
 
-            {/* Right: System Metrics console card */}
+            {/* Right: Experience at a glance console card */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -318,13 +329,8 @@ const Home = () => {
               className="stats-pane"
             >
               <div className="stats-pane-header">
-                <span className="code-label">System Metrics</span>
-                <div className="status-indicator">
-                  <span className="status-dot">
-                    <span className="status-dot-ring" style={{ position: "absolute", inset: -4, borderRadius: "50%", background: "rgba(52,199,89,0.4)" }} />
-                  </span>
-                  <span>Online</span>
-                </div>
+                <span className="code-label">Experience at a glance</span>
+
               </div>
               <div className="stats-pane-grid">
                 {stats.map((s, i) => (
@@ -340,41 +346,7 @@ const Home = () => {
       </section>
 
       {/* ═══════════════ PROJECTS PREVIEW ═══════════════ */}
-      <section style={{ padding: "80px 0" }}>
-        <div className="CC">
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 56, flexWrap: "wrap", gap: 16 }}>
-            <div>
-              <div className="rule-label" style={{ marginBottom: 16 }}>
-                Selected Work
-              </div>
-              <h2 className="font-display" style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)", color: "var(--chalk)", lineHeight: 0.95 }}>
-                Projects
-              </h2>
-            </div>
-            <NavLink
-              to="/projects"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: 8,
-                fontSize: 12,
-                fontWeight: 700,
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                color: "var(--muted)",
-                textDecoration: "none",
-                fontFamily: "'Space Mono', monospace",
-                transition: "color 0.2s",
-              }}
-              onMouseEnter={e => e.currentTarget.style.color = "var(--chalk)"}
-              onMouseLeave={e => e.currentTarget.style.color = "var(--muted)"}
-            >
-              All projects <ArrowRight size={14} />
-            </NavLink>
-          </div>
-          <Projects limit={3} />
-        </div>
-      </section>
+
 
       {/* ═══════════════ CONTACT ═══════════════ */}
       <Contact />

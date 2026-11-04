@@ -3,12 +3,45 @@ import { ListItem } from "../../utils/constant";
 import { Menu, X } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const menuRef = useRef(null);
+  const toggleRef = useRef(null);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const menu = menuRef.current;
+    const previous = document.activeElement;
+    const toggle = toggleRef.current;
+    const overflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    menu?.querySelector('button, a[href]')?.focus();
+    const handleKey = (event) => {
+      if (event.key === 'Escape') { event.preventDefault(); setIsOpen(false); }
+      if (event.key !== 'Tab') return;
+      const targets = [...menu.querySelectorAll('button, a[href]')];
+      const first = targets[0], last = targets[targets.length - 1];
+      if (event.shiftKey && (document.activeElement === first || !menu.contains(document.activeElement))) {
+        event.preventDefault(); last?.focus();
+      } else if (!event.shiftKey && (document.activeElement === last || !menu.contains(document.activeElement))) {
+        event.preventDefault(); first?.focus();
+      }
+    };
+    const media = window.matchMedia('(min-width: 768px)');
+    const closeOnDesktop = () => { if (media.matches) setIsOpen(false); };
+    document.addEventListener('keydown', handleKey);
+    media.addEventListener('change', closeOnDesktop);
+    return () => {
+      document.body.style.overflow = overflow;
+      document.removeEventListener('keydown', handleKey);
+      media.removeEventListener('change', closeOnDesktop);
+      (previous?.isConnected ? previous : toggle)?.focus();
+    };
+  }, [isOpen]);
 
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
@@ -58,7 +91,7 @@ const Navbar = () => {
               M<span style={{ color: "var(--vermillion)" }}>.</span>
             </span>
             <span style={{
-              fontFamily: "'Space Grotesk', sans-serif",
+              fontFamily: "'Inter', sans-serif",
               fontSize: 13,
               fontWeight: 600,
               color: "var(--muted)",
@@ -114,6 +147,7 @@ const Navbar = () => {
 
           {/* Mobile toggle */}
           <button
+            ref={toggleRef}
             onClick={() => setIsOpen(!isOpen)}
             className="flex md:hidden"
             aria-label="Toggle menu"
@@ -136,6 +170,10 @@ const Navbar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            ref={menuRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Navigation"
             initial={{ opacity: 0, x: "100%" }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
@@ -177,7 +215,7 @@ const Navbar = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.07 }}
                     style={{
-                      fontFamily: "'Bebas Neue', sans-serif",
+                      fontFamily: "'Outfit', sans-serif",
                       fontSize: 56,
                       lineHeight: 1.1,
                       color: (location.pathname === `/${list?.location}` || (list?.location === "" && location.pathname === "/"))
@@ -199,10 +237,10 @@ const Navbar = () => {
             </div>
 
             <div style={{ marginTop: 48, display: "flex", gap: 16 }}>
-              <a href="https://github.com/Mohosin075" target="_blank" rel="noopener noreferrer" style={{ color: "var(--muted)" }}>
+              <a aria-label="GitHub" href="https://github.com/Mohosin075" target="_blank" rel="noopener noreferrer" style={{ color: "var(--muted)" }}>
                 <FaGithub size={20} />
               </a>
-              <a href="https://www.linkedin.com/in/md-mohosin-5b34a0278/" target="_blank" rel="noopener noreferrer" style={{ color: "var(--muted)" }}>
+              <a aria-label="LinkedIn" href="https://www.linkedin.com/in/md-mohosin-5b34a0278/" target="_blank" rel="noopener noreferrer" style={{ color: "var(--muted)" }}>
                 <FaLinkedin size={20} />
               </a>
             </div>

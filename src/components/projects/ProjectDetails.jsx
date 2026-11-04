@@ -126,6 +126,12 @@ const ProjectDetails = () => {
           </p>
         </div>
 
+        <section style={{ marginBottom: 32 }} aria-label="Contribution">
+          <h2 className="code-label" style={{ marginBottom: 12 }}>My contribution</h2>
+          <p style={{ color: "var(--muted)", lineHeight: 1.7 }}>{project.role}</p>
+          {!project.demo && !project.video && <p style={{ color: "var(--muted)", marginTop: 12 }}>A public demo is not currently linked. Contact me to discuss the implementation and available walkthrough options.</p>}
+          {!project.githubServer && !project.githubClient && <p style={{ color: "var(--muted)", marginTop: 12 }}>Source code is not publicly linked.</p>}
+        </section>
         {/* Large Media Image */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.98, y: 20 }}
@@ -144,6 +150,8 @@ const ProjectDetails = () => {
         >
           <img
             src={project.image}
+
+            decoding="async"
             alt={project.title}
             style={{ width: "100%", height: "auto", display: "block" }}
           />

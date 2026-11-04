@@ -1,5 +1,5 @@
 [
-    {
+  {
     "id": 6,
     "title": "Roadtripeado - Travel & Local Business Mapping System",
     "subtitle": "Interactive Location Directory, Award Milestones & Subscriptions",
@@ -14,14 +14,48 @@
       "Configured robust file uploads to AWS S3 processed with Sharp, Zod schemas for request validation, and centralized API error handlers",
       "Established cron-based automated scheduling for task processing and structured Winston logging"
     ],
-    "frontEnd": ["Next.js", "React.js", "Tailwind CSS", "Axios", "TanStack Query", "Socket.io-client"],
-    "backEnd": ["Node.js", "Express.js", "TypeScript", "MongoDB", "Mongoose", "Socket.io", "Stripe", "AWS S3", "Sharp", "Zod", "JWT", "Passport.js", "Winston", "Nodemailer", "Twilio"],
-    "tools": ["Git", "GitHub", "Postman", "npm", "ESLint", "Prettier", "Husky", "Vercel"],
+    "frontEnd": [
+      "Next.js",
+      "React.js",
+      "Tailwind CSS",
+      "Axios",
+      "TanStack Query",
+      "Socket.io-client"
+    ],
+    "backEnd": [
+      "Node.js",
+      "Express.js",
+      "TypeScript",
+      "MongoDB",
+      "Mongoose",
+      "Socket.io",
+      "Stripe",
+      "AWS S3",
+      "Sharp",
+      "Zod",
+      "JWT",
+      "Passport.js",
+      "Winston",
+      "Nodemailer",
+      "Twilio"
+    ],
+    "tools": [
+      "Git",
+      "GitHub",
+      "Postman",
+      "npm",
+      "ESLint",
+      "Prettier",
+      "Husky",
+      "Vercel"
+    ],
     "image": "/road.png",
     "demo": "https://roadtripeado.shop",
     "githubServer": "https://github.com/Mohosin075/giovafilm-roadtripeado",
     "githubClient": null,
-    "video": ""
+    "video": "",
+    "role": "Backend development: subscriptions, mapping APIs, awards and real-time messaging.",
+    "sourceImage": "/road.png"
   },
   {
     "id": 10,
@@ -71,7 +105,9 @@
     "demo": null,
     "githubServer": "https://github.com/Mohosin075/lionel10gg-quranInternational",
     "githubClient": null,
-    "video": null
+    "video": null,
+    "role": "Backend development: Islamic content APIs, subscriptions and real-time features.",
+    "sourceImage": "/quran.png"
   },
   {
     "id": 9,
@@ -90,20 +126,52 @@
       "Detailed workspace statistics and engagement analytics to track content performance and platform metrics"
     ],
     "frontEnd": [],
-    "backEnd": ["Node.js", "Express.js", "TypeScript", "MongoDB", "Mongoose", "Socket.io", "BullMQ", "Redis", "Stripe", "AWS S3", "Cloudinary", "Passport.js", "JWT", "Swagger", "Zod", "Winston", "Nodemailer", "Twilio", "Helmet", "Express Rate Limit"],
-    "tools": ["Git", "GitHub", "Postman", "Yarn", "ESLint", "Prettier", "Husky", "Vercel"],
+    "backEnd": [
+      "Node.js",
+      "Express.js",
+      "TypeScript",
+      "MongoDB",
+      "Mongoose",
+      "Socket.io",
+      "BullMQ",
+      "Redis",
+      "Stripe",
+      "AWS S3",
+      "Cloudinary",
+      "Passport.js",
+      "JWT",
+      "Swagger",
+      "Zod",
+      "Winston",
+      "Nodemailer",
+      "Twilio",
+      "Helmet",
+      "Express Rate Limit"
+    ],
+    "tools": [
+      "Git",
+      "GitHub",
+      "Postman",
+      "Yarn",
+      "ESLint",
+      "Prettier",
+      "Husky",
+      "Vercel"
+    ],
     "image": "/clipframe (2).png",
     "demo": null,
     "githubServer": "https://github.com/Mohosin075/ClipFrame",
     "githubClient": null,
-    "video": null
+    "video": null,
+    "role": "Backend development: content scheduling, social integrations and background jobs.",
+    "sourceImage": "/clipframe (2).png"
   },
   {
     "id": 8,
     "title": "Ascela — Menstrual Cycle & Personalized Nutrition Tracker",
     "subtitle": "Menstrual Cycle Syncing, AI Recipe Recommendations & Wellness Dashboard",
     "category": "backend",
-    "featured": true,
+    "featured": false,
     "description": "A production-grade health and wellness backend designed for menstrual cycle-syncing, personalized nutrition, and fitness tracking. Architected a scalable Express & TypeScript server that synchronizes workouts, meal logging, and AI-powered recipe recommendations with the user's current menstrual cycle phase. Features robust Stripe integrations for subscription management, real-time user features via Socket.io, AWS S3 image uploads, and Zod validation, all optimized for integration with a Flutter mobile app.",
     "highlights": [
       "AI-powered personalized recipe recommendations with favorite, save, and swipe-based interaction system with daily usage limits",
@@ -115,21 +183,59 @@
       "Admin analytics dashboard with platform stats, subscription analytics, and revenue overview",
       "Flutter mobile app fully integrated with REST and WebSocket APIs for real-time features"
     ],
-    "frontEnd": ["Flutter (Mobile API Integration)", "Firebase FCM"],
-    "backEnd": ["Node.js", "Express.js", "TypeScript", "MongoDB", "Mongoose", "Socket.io", "JWT", "Passport.js", "Google OAuth", "AWS S3", "Sharp", "BullMQ", "Redis", "Stripe", "Agora", "Twilio", "Zod", "Winston", "Nodemailer", "Resend", "Firebase Admin", "OpenAI"],
-    "tools": ["Git", "GitHub", "Postman", "Yarn", "ESLint", "Prettier", "Husky", "Vercel", "ts-node-dev"],
+    "frontEnd": [
+      "Flutter (Mobile API Integration)",
+      "Firebase FCM"
+    ],
+    "backEnd": [
+      "Node.js",
+      "Express.js",
+      "TypeScript",
+      "MongoDB",
+      "Mongoose",
+      "Socket.io",
+      "JWT",
+      "Passport.js",
+      "Google OAuth",
+      "AWS S3",
+      "Sharp",
+      "BullMQ",
+      "Redis",
+      "Stripe",
+      "Agora",
+      "Twilio",
+      "Zod",
+      "Winston",
+      "Nodemailer",
+      "Resend",
+      "Firebase Admin",
+      "OpenAI"
+    ],
+    "tools": [
+      "Git",
+      "GitHub",
+      "Postman",
+      "Yarn",
+      "ESLint",
+      "Prettier",
+      "Husky",
+      "Vercel",
+      "ts-node-dev"
+    ],
     "image": "/pia.png",
     "demo": null,
-    "githubServer": "https://github.com/Mohosin075?tab=repositories",
+    "githubServer": null,
     "githubClient": null,
-    "video": null
+    "video": null,
+    "role": "Backend development and API integration with the Flutter mobile app.",
+    "sourceImage": "/pia.png"
   },
   {
     "id": 7,
     "title": "Bean Fien - Specialty Coffee Hub & Analytics Dashboard",
     "subtitle": "E-Commerce Cafe, Loyalty Rewards & Real-Time Admin Console",
     "category": "fullstack",
-    "featured": true,
+    "featured": false,
     "description": "A feature-rich specialty cafe application and administrative platform. It integrates a sleek consumer ordering web interface with a robust backend administrative dashboard. Built with Next.js, Redux Toolkit, and Recharts, the client interfaces with a comprehensive TypeScript Express server handling secure Stripe checkouts, Socket.io live updates, Redis queues, and loyalty rewards tracking.",
     "highlights": [
       "Designed a sleek, dark-themed Next.js e-commerce storefront with responsive menu navigation, custom cart drawer, and interactive gift card tools",
@@ -139,38 +245,106 @@
       "Integrated secure authentication with role-based JWT access/refresh tokens and social logins (Google, Facebook via Passport)",
       "Implemented asynchronous task processing using BullMQ and Redis, file uploads to AWS S3 with Sharp image processing, and Winston log rotation"
     ],
-    "frontEnd": ["Next.js", "React.js", "Redux Toolkit", "Recharts", "Tailwind CSS", "Lucide React", "Radix UI", "Socket.io-client"],
-    "backEnd": ["Node.js", "Express.js", "TypeScript", "MongoDB", "Mongoose", "Socket.io", "BullMQ", "Redis", "Stripe", "AWS S3", "Sharp", "Twilio", "Passport.js", "JWT", "Firebase Admin", "Winston", "Nodemailer", "Resend", "Zod", "OpenAI"],
-    "tools": ["Git", "GitHub", "Postman", "npm", "Yarn", "ESLint", "Prettier", "Husky", "Vercel"],
+    "frontEnd": [
+      "Next.js",
+      "React.js",
+      "Redux Toolkit",
+      "Recharts",
+      "Tailwind CSS",
+      "Lucide React",
+      "Radix UI",
+      "Socket.io-client"
+    ],
+    "backEnd": [
+      "Node.js",
+      "Express.js",
+      "TypeScript",
+      "MongoDB",
+      "Mongoose",
+      "Socket.io",
+      "BullMQ",
+      "Redis",
+      "Stripe",
+      "AWS S3",
+      "Sharp",
+      "Twilio",
+      "Passport.js",
+      "JWT",
+      "Firebase Admin",
+      "Winston",
+      "Nodemailer",
+      "Resend",
+      "Zod",
+      "OpenAI"
+    ],
+    "tools": [
+      "Git",
+      "GitHub",
+      "Postman",
+      "npm",
+      "Yarn",
+      "ESLint",
+      "Prettier",
+      "Husky",
+      "Vercel"
+    ],
     "image": "/bean.png",
     "demo": "",
     "githubServer": "https://github.com/Mohosin075/chaserxhype-bean-fien-server",
     "githubClient": "https://github.com/Mohosin075/dashboard-chaserxhype-bean-fien",
-    "video": ""
+    "video": "",
+    "role": "Full-stack development: storefront, admin dashboard and backend services.",
+    "sourceImage": "/bean.png"
   },
-
-    {
+  {
     "id": 5,
     "title": "Photopia - On-Demand Booking Ecosystem",
     "subtitle": "Backend, Admin Portal & Mobile API Integration",
     "category": "fullstack",
-    "featured": true,
-    "description": "A comprehensive media booking ecosystem. Designed and developed the high-performance backend architecture, secure Stripe Connect payouts, and built the Next.js admin dashboard. Also collaborated with the Flutter mobile team to design and integrate REST/WebSocket APIs, real-time messaging, and incremental offline caching protocols.",
+    "featured": false,
+    "description": "A comprehensive media booking ecosystem. Designed and developed the high-performance backend architecture, secure Stripe Connect payouts, and built the Next.js admin dashboard. Also collaborated with the Flutter mobile team to design and integrate REST/WebSocket APIs, real-time messaging.",
     "highlights": [
       "Built Next.js admin dashboard for managing service categories, themes, and platform metrics",
       "Implemented Stripe Connect split-payment logic for automated professional earnings payouts",
       "Designed and documented RESTful APIs to facilitate seamless frontend and mobile integrations",
       "Built real-time notification scheduling and bidirectional Socket.io messaging engine",
-      "Created incremental offline sync protocols for caching Hadith libraries and articles locally",
       "Collaborated with the Flutter mobile team to optimize mobile-to-backend data flows and push notifications"
     ],
-    "frontEnd": ["Next.js", "React.js", "Tailwind CSS", "Axios", "Flutter (Mobile API Integration)"],
-    "backEnd": ["Node.js", "Express.js", "TypeScript", "MongoDB", "Mongoose", "Stripe Connect", "Socket.io", "AWS S3", "Zod", "JWT", "Passport.js"],
-    "tools": ["Git", "GitHub", "Postman", "Yarn", "ESLint", "Vercel", "Firebase FCM"],
+    "frontEnd": [
+      "Next.js",
+      "React.js",
+      "Tailwind CSS",
+      "Axios",
+      "Flutter (Mobile API Integration)"
+    ],
+    "backEnd": [
+      "Node.js",
+      "Express.js",
+      "TypeScript",
+      "MongoDB",
+      "Mongoose",
+      "Stripe Connect",
+      "Socket.io",
+      "AWS S3",
+      "Zod",
+      "JWT",
+      "Passport.js"
+    ],
+    "tools": [
+      "Git",
+      "GitHub",
+      "Postman",
+      "Yarn",
+      "ESLint",
+      "Vercel",
+      "Firebase FCM"
+    ],
     "image": "/photopia.png",
     "demo": null,
     "githubServer": "https://github.com/Mohosin075/photopia-ayoubouajj",
     "githubClient": null,
-    "video": null
+    "video": null,
+    "role": "Backend development, Next.js admin dashboard and Flutter API integration.",
+    "sourceImage": "/photopia.png"
   }
 ]

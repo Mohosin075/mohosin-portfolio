@@ -2,10 +2,14 @@ import { Outlet } from "react-router-dom";
 import Footer from "./components/footer/Footer";
 import Navbar from "./components/navbar/NavBar";
 import FloatingWhatsApp from "./components/contact/FloatingWhatsApp";
+import PageMetadata from "./components/PageMetadata";
+import { MotionConfig } from "framer-motion";
 
 const App = () => {
   return (
+    <MotionConfig reducedMotion="user">
     <div className="min-h-screen grid-bg" style={{ background: "var(--ink)" }}>
+      <PageMetadata />
       <Navbar />
       <main className="min-h-screen">
         <Outlet />
@@ -13,6 +17,7 @@ const App = () => {
       <Footer />
       <FloatingWhatsApp />
     </div>
+    </MotionConfig>
   );
 };
 

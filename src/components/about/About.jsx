@@ -110,7 +110,7 @@ const About = () => {
             <span style={{ color: "var(--vermillion)" }}>Excellence</span>
           </h1>
           <p style={{ fontSize: 16, color: "var(--muted)", maxWidth: 520, lineHeight: 1.75 }}>
-            Backend-focused Full Stack Developer with 2+ years of hands-on experience building
+            Backend-focused Full Stack Developer building
             production-grade systems — scalable APIs, real-time features, and modern React frontends.
           </p>
         </div>
@@ -167,9 +167,9 @@ const About = () => {
             {/* Stats row */}
             <div className="about-stats-grid">
               {[
-                { val: "2+", label: "Years experience" },
-                { val: "10+", label: "Projects shipped" },
-                { val: "30+", label: "APIs built" },
+                { val: "2025", label: "At Sparktech since June" },
+                { val: "6", label: "Selected projects" },
+                { val: "MERN", label: "Core stack" },
               ].map((s, i) => (
                 <div key={i} className="about-stat-item">
                   <div className="font-display" style={{ fontSize: 44, color: "var(--chalk)", lineHeight: 1 }}>
@@ -183,8 +183,8 @@ const About = () => {
             {/* Bio text */}
             <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
               <p style={{ fontSize: 15, lineHeight: 1.75, color: "var(--muted)" }}>
-                I&apos;m a <span style={{ color: "var(--chalk)", fontWeight: 600 }}>Backend-focused Full Stack Developer</span> with
-                2+ years building production systems. Currently working as a{" "}
+                I&apos;m a <span style={{ color: "var(--chalk)", fontWeight: 600 }}>Backend-focused Full Stack Developer</span> building
+                production systems. Since June 2025, I have worked as a{" "}
                 <span style={{ color: "var(--vermillion)", fontWeight: 600 }}>Jr. Backend Developer at Sparktech Agency</span>,
                 architecting scalable services while delivering complete full-stack applications.
               </p>
