@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useId } from "react";
 import PropTypes from "prop-types";
 import { X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -7,7 +7,7 @@ const getEmbedUrl = (url) => {
   if (!url) return null;
 
   // YouTube
-  const ytRegex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
+  const ytRegex = /(?:youtube\.com\/(?:[^/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?/\s]{11})/;
   const ytMatch = url.match(ytRegex);
   if (ytMatch && ytMatch[1]) {
     return {
@@ -52,33 +52,35 @@ const getEmbedUrl = (url) => {
 };
 
 const VideoModal = ({ isOpen, onClose, videoUrl, projectTitle }) => {
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === "Escape") onClose();
-    };
-
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-      window.addEventListener("keydown", handleKeyDown);
-    }
-
-    return () => {
-      document.body.style.overflow = "";
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [isOpen, onClose]);
-
+  const dialogRef = useRef(null);
+  const titleId = useId();
   const media = getEmbedUrl(videoUrl);
+
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!isOpen || !dialog || !videoUrl) return;
+    const previousOverflow = document.body.style.overflow;
+    dialog.showModal();
+    document.body.style.overflow = "hidden";
+    return () => {
+      dialog.close();
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [isOpen, videoUrl]);
 
   return (
     <AnimatePresence>
       {isOpen && media && (
-        <motion.div
+        <motion.dialog
+          ref={dialogRef}
+          aria-labelledby={titleId}
+          aria-modal="true"
+          onCancel={(event) => { event.preventDefault(); onClose(); }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className="video-modal-overlay"
-          onClick={onClose}
+          onClick={(event) => { if (event.target === event.currentTarget) onClose(); }}
         >
           {/* Modal Card */}
           <motion.div
@@ -95,12 +97,14 @@ const VideoModal = ({ isOpen, onClose, videoUrl, projectTitle }) => {
                 <span className="code-label" style={{ fontSize: 10, color: "var(--vermillion)", display: "block", marginBottom: 2 }}>
                   Video Walkthrough
                 </span>
-                <h3 className="font-display" style={{ color: "var(--chalk)", margin: 0 }}>
+                <h3 id={titleId} className="font-display" style={{ color: "var(--chalk)", margin: 0 }}>
                   {projectTitle}
                 </h3>
               </div>
 
               <button
+                autoFocus
+                aria-label="Close video"
                 onClick={onClose}
                 style={{
                   display: "flex",
@@ -164,7 +168,7 @@ const VideoModal = ({ isOpen, onClose, videoUrl, projectTitle }) => {
               )}
             </div>
           </motion.div>
-        </motion.div>
+        </motion.dialog>
       )}
     </AnimatePresence>
   );

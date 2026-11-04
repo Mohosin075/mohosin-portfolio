@@ -884,6 +884,13 @@ body::before {
 
 /* ── Video Modal Premium Styles ── */
 .video-modal-overlay {
+  margin: 0;
+  width: 100vw;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  border: 0;
+  color: var(--chalk);
   position: fixed;
   inset: 0;
   z-index: 1000;
@@ -1081,3 +1088,6 @@ body::before {
 
 
 
+
+.video-modal-overlay::backdrop { background: transparent; }
+:focus-visible { outline: 2px solid var(--vermillion); outline-offset: 4px; }

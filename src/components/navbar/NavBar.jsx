@@ -117,6 +117,8 @@ const Navbar = () => {
             onClick={() => setIsOpen(!isOpen)}
             className="flex md:hidden"
             aria-label="Toggle menu"
+            aria-expanded={isOpen}
+            aria-controls="mobile-navigation"
             style={{
               background: "none",
               border: "none",
@@ -139,9 +141,11 @@ const Navbar = () => {
             exit={{ opacity: 0, x: "100%" }}
             transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
             className="mobile-menu"
+            id="mobile-navigation"
           >
             {/* Close */}
             <button
+              aria-label="Close menu"
               onClick={() => setIsOpen(false)}
               style={{
                 position: "absolute",

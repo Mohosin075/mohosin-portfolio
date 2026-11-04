@@ -1,3 +1,4 @@
+import { loadProjects } from "../../utils/loadProjects";
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Globe, ArrowUpRight, GitBranch, Play } from "lucide-react";
@@ -334,18 +335,28 @@ const CompactCard = ({ project, index }) => {
 /* ══════════════════ MAIN ══════════════════ */
 const Projects = ({ limit }) => {
   const [projects, setProjects] = useState([]);
+  const [error, setError] = useState(false);
+  const [attempt, setAttempt] = useState(0);
   const [loading, setLoading] = useState(true);
   const [activeCategory, setActiveCategory] = useState("all");
 
   useEffect(() => {
-    fetch("/projects.json")
-      .then((r) => r.json())
+    const controller = new AbortController();
+    setLoading(true);
+    setError(false);
+    loadProjects(controller.signal)
       .then((data) => {
+        if (controller.signal.aborted) return;
         setProjects(limit ? data.slice(0, limit) : data);
         setLoading(false);
       })
-      .catch(() => setLoading(false));
-  }, [limit]);
+      .catch(() => {
+        if (controller.signal.aborted) return;
+        setError(true);
+        setLoading(false);
+      });
+    return () => controller.abort();
+  }, [limit, attempt]);
 
   const filtered = activeCategory === "all"
     ? projects
@@ -353,6 +364,13 @@ const Projects = ({ limit }) => {
 
   const featured = filtered.filter((p) => p.featured);
   const rest = filtered.filter((p) => !p.featured);
+
+  if (error) return (
+    <div className="CC" role="alert" style={{ paddingTop: 140, paddingBottom: 80 }}>
+      <p>Projects could not be loaded. Check your connection and try again.</p>
+      <button className="btn-v" style={{ marginTop: 20 }} onClick={() => setAttempt((value) => value + 1)}>Try again</button>
+    </div>
+  );
 
   if (loading)
     return (
@@ -473,6 +491,7 @@ FeaturedCard.propTypes = {
     demo: PropTypes.string,
     githubServer: PropTypes.string,
     githubClient: PropTypes.string,
+    video: PropTypes.string,
   }).isRequired,
   index: PropTypes.number.isRequired,
 };
@@ -493,6 +512,7 @@ CompactCard.propTypes = {
     demo: PropTypes.string,
     githubServer: PropTypes.string,
     githubClient: PropTypes.string,
+    video: PropTypes.string,
   }).isRequired,
   index: PropTypes.number.isRequired,
 };

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -11,7 +11,7 @@ const FloatingWhatsApp = () => {
         position: "fixed",
         bottom: 32,
         right: 32,
-        zIndex: 9999,
+        zIndex: 80,
         display: "flex",
         alignItems: "center",
         gap: 12,
@@ -43,7 +43,7 @@ const FloatingWhatsApp = () => {
       </AnimatePresence>
 
       <motion.a
-        href="https://wa.me/8801981381383"
+        aria-label="Chat on WhatsApp" href="https://wa.me/8801981381383"
         target="_blank"
         rel="noopener noreferrer"
         onMouseEnter={() => setIsHovered(true)}

@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import {
-  Mail, MessageSquare, Send, User, Phone, MapPin,
+  Mail, MessageSquare, Send, User, MapPin,
   Clock, ChevronDown,
 } from "lucide-react";
 import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
@@ -64,20 +64,11 @@ const Contact = () => {
       !publicKey ||
       publicKey === "your_public_key"
     ) {
-      console.warn("EmailJS credentials are not configured in your .env file. Running in simulation mode.");
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      Swal.fire({
-        background: "#111110",
-        color: "#F0EDE6",
-        icon: "info",
-        title: "Simulation: Message sent.",
-        text: "Configure your EmailJS keys in .env to send real emails.",
-        showConfirmButton: true,
-        customClass: {
-          popup: "rounded-none",
-        },
+      await Swal.fire({
+        background: "#111110", color: "#F0EDE6", icon: "error",
+        title: "Message could not be sent",
+        text: "Please email mohosinali075@gmail.com directly. Your message has been kept here so you can copy it.",
       });
-      reset();
       return;
     }
 
@@ -295,34 +286,34 @@ const Contact = () => {
               {/* Name + Email */}
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }} className="form-grid">
                 <div>
-                  <label style={labelStyle}>
+                  <label htmlFor="contact-name" style={labelStyle}>
                     <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
                       <User size={10} style={{ color: "var(--vermillion)" }} />
                       Name
                     </span>
                   </label>
-                  <input
+                  <input autoComplete="name" id="contact-name" aria-invalid={Boolean(errors.name)} aria-describedby={errors.name ? "contact-name-error" : undefined}
                     {...register("name", { required: "Name is required" })}
                     placeholder="John Doe"
                     style={inputStyle(errors.name)}
                     onFocus={e => e.target.style.borderColor = "var(--vermillion)"}
-                    onBlur={e => e.target.style.borderColor = errors.name ? "var(--vermillion)" : "var(--border)"}
+                    onBlurCapture={e => e.target.style.borderColor = errors.name ? "var(--vermillion)" : "var(--border)"}
                   />
                   {errors.name && (
-                    <p style={{ fontSize: 11, color: "var(--vermillion)", marginTop: 4, fontFamily: "monospace" }}>
+                    <p id="contact-name-error" role="alert" style={{ fontSize: 11, color: "var(--vermillion)", marginTop: 4, fontFamily: "monospace" }}>
                       {errors.name.message}
                     </p>
                   )}
                 </div>
 
                 <div>
-                  <label style={labelStyle}>
+                  <label htmlFor="contact-email" style={labelStyle}>
                     <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
                       <Mail size={10} style={{ color: "var(--vermillion)" }} />
                       Email
                     </span>
                   </label>
-                  <input
+                  <input type="email" autoComplete="email" id="contact-email" aria-invalid={Boolean(errors.email)} aria-describedby={errors.email ? "contact-email-error" : undefined}
                     {...register("email", {
                       required: "Email is required",
                       pattern: { value: /^\S+@\S+$/i, message: "Invalid email" },
@@ -330,10 +321,10 @@ const Contact = () => {
                     placeholder="john@example.com"
                     style={inputStyle(errors.email)}
                     onFocus={e => e.target.style.borderColor = "var(--vermillion)"}
-                    onBlur={e => e.target.style.borderColor = errors.email ? "var(--vermillion)" : "var(--border)"}
+                    onBlurCapture={e => e.target.style.borderColor = errors.email ? "var(--vermillion)" : "var(--border)"}
                   />
                   {errors.email && (
-                    <p style={{ fontSize: 11, color: "var(--vermillion)", marginTop: 4, fontFamily: "monospace" }}>
+                    <p id="contact-email-error" role="alert" style={{ fontSize: 11, color: "var(--vermillion)", marginTop: 4, fontFamily: "monospace" }}>
                       {errors.email.message}
                     </p>
                   )}
@@ -342,13 +333,13 @@ const Contact = () => {
 
               {/* Inquiry Type */}
               <div>
-                <label style={labelStyle}>Inquiry type</label>
+                <label htmlFor="contact-inquiryType" style={labelStyle}>Inquiry type</label>
                 <div style={{ position: "relative" }}>
-                  <select
+                  <select id="contact-inquiryType" aria-invalid={Boolean(errors.inquiryType)} aria-describedby={errors.inquiryType ? "contact-inquiryType-error" : undefined}
                     {...register("inquiryType", { required: "Please select an inquiry type" })}
                     style={{ ...inputStyle(errors.inquiryType), appearance: "none", cursor: "pointer" }}
                     onFocus={e => e.target.style.borderColor = "var(--vermillion)"}
-                    onBlur={e => e.target.style.borderColor = errors.inquiryType ? "var(--vermillion)" : "var(--border)"}
+                    onBlurCapture={e => e.target.style.borderColor = errors.inquiryType ? "var(--vermillion)" : "var(--border)"}
                   >
                     <option value="" style={{ background: "var(--surface)" }}>Select type...</option>
                     {INQUIRY_TYPES.map((type) => (
@@ -370,7 +361,7 @@ const Contact = () => {
                   />
                 </div>
                 {errors.inquiryType && (
-                  <p style={{ fontSize: 11, color: "var(--vermillion)", marginTop: 4, fontFamily: "monospace" }}>
+                  <p id="contact-inquiryType-error" role="alert" style={{ fontSize: 11, color: "var(--vermillion)", marginTop: 4, fontFamily: "monospace" }}>
                     {errors.inquiryType.message}
                   </p>
                 )}
@@ -378,13 +369,13 @@ const Contact = () => {
 
               {/* Message */}
               <div>
-                <label style={labelStyle}>
+                <label htmlFor="contact-message" style={labelStyle}>
                   <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
                     <MessageSquare size={10} style={{ color: "var(--vermillion)" }} />
                     Message
                   </span>
                 </label>
-                <textarea
+                <textarea id="contact-message" aria-invalid={Boolean(errors.message)} aria-describedby={errors.message ? "contact-message-error" : undefined}
                   {...register("message", {
                     required: "Message is required",
                     minLength: { value: 20, message: "Write at least 20 characters" },
@@ -393,10 +384,10 @@ const Contact = () => {
                   placeholder="Tell me about your project, timeline, and requirements..."
                   style={{ ...inputStyle(errors.message), resize: "vertical" }}
                   onFocus={e => e.target.style.borderColor = "var(--vermillion)"}
-                  onBlur={e => e.target.style.borderColor = errors.message ? "var(--vermillion)" : "var(--border)"}
+                  onBlurCapture={e => e.target.style.borderColor = errors.message ? "var(--vermillion)" : "var(--border)"}
                 />
                 {errors.message && (
-                  <p style={{ fontSize: 11, color: "var(--vermillion)", marginTop: 4, fontFamily: "monospace" }}>
+                  <p id="contact-message-error" role="alert" style={{ fontSize: 11, color: "var(--vermillion)", marginTop: 4, fontFamily: "monospace" }}>
                     {errors.message.message}
                   </p>
                 )}

@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
-import { ArrowRight, Download, Mail, MapPin, Server, Database, Layout, Cpu, Clock } from "lucide-react";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { ArrowRight, Download, MapPin, Server, Database, Layout, Cpu, Clock } from "lucide-react";
+
 import Projects from "../projects/Projects";
 import Contact from "../contact/Contact";
 import { motion } from "framer-motion";
@@ -29,7 +29,7 @@ const skillCategories = [
 ];
 
 const stats = [
-  { value: "1+", label: "Years of production experience" },
+  { value: "2+", label: "Years of production experience" },
   { value: "10+", label: "Projects shipped" },
   { value: "∞", label: "Lines of server-side code" },
 ];

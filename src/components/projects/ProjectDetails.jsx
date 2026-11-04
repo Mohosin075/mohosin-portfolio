@@ -1,3 +1,4 @@
+import { loadProjects } from "../../utils/loadProjects";
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Globe, ArrowLeft, ArrowUpRight, GitBranch, Terminal, Layers, Cpu, Play } from "lucide-react";
@@ -8,6 +9,8 @@ import VideoModal from "./VideoModal";
 const ProjectDetails = () => {
   const { id } = useParams();
   const [project, setProject] = useState(null);
+  const [error, setError] = useState(false);
+  const [attempt, setAttempt] = useState(0);
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -15,15 +18,29 @@ const ProjectDetails = () => {
     // Scroll to top on page render
     window.scrollTo(0, 0);
 
-    fetch("/projects.json")
-      .then((r) => r.json())
+    const controller = new AbortController();
+    setLoading(true);
+    setError(false);
+    loadProjects(controller.signal)
       .then((data) => {
-        const found = data.find((p) => String(p.id) === String(id));
-        setProject(found);
+        if (controller.signal.aborted) return;
+        setProject(data.find((p) => String(p.id) === String(id)));
         setLoading(false);
       })
-      .catch(() => setLoading(false));
-  }, [id]);
+      .catch(() => {
+        if (controller.signal.aborted) return;
+        setError(true);
+        setLoading(false);
+      });
+    return () => controller.abort();
+  }, [id, attempt]);
+
+  if (error) return (
+    <div className="CC" role="alert" style={{ paddingTop: 140, paddingBottom: 80 }}>
+      <p>Projects could not be loaded. Check your connection and try again.</p>
+      <button className="btn-v" style={{ marginTop: 20 }} onClick={() => setAttempt((value) => value + 1)}>Try again</button>
+    </div>
+  );
 
   if (loading) {
     return (

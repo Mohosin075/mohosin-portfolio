@@ -3,36 +3,34 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import About from "./components/about/About.jsx";
-import Contact from "./components/contact/Contact.jsx";
-import Projects from "./components/projects/Projects.jsx";
-import Home from "./components/home/Home.jsx";
-import ProjectDetails from "./components/projects/ProjectDetails.jsx";
+import NotFound from "./components/NotFound.jsx";
+const lazyPage = (load) => async () => ({ Component: (await load()).default });
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
     children : [
+      { path: "*", element: <NotFound /> },
       {
         path : '/',
-        element : <Home></Home>
+        lazy: lazyPage(() => import("./components/home/Home.jsx"))
       },
       {
         path : '/about',
-        element : <About></About>
+        lazy: lazyPage(() => import("./components/about/About.jsx"))
       },
       {
         path : '/contact',
-        element : <Contact></Contact>
+        lazy: lazyPage(() => import("./components/contact/Contact.jsx"))
       },
       {
         path : '/projects',
-        element : <Projects></Projects>
+        lazy: lazyPage(() => import("./components/projects/Projects.jsx"))
       },
       {
         path : '/projects/:id',
-        element : <ProjectDetails></ProjectDetails>
+        lazy: lazyPage(() => import("./components/projects/ProjectDetails.jsx"))
       },
     ]
   },
@@ -40,6 +38,6 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <RouterProvider router={router} fallbackElement={<p role="status" className="CC" style={{ paddingTop: 120 }}>Loading page...</p>} />
   </React.StrictMode>
 );
