@@ -28,13 +28,13 @@ const inputStyle = (hasError) => ({
   outline: "none",
   color: "var(--chalk)",
   fontSize: 14,
-  fontFamily: "'Inter', sans-serif",
+  fontFamily: "'DM Sans', sans-serif",
   transition: "border-color 0.2s",
 });
 
 const labelStyle = {
   display: "block",
-  fontFamily: "'Space Mono', monospace",
+  fontFamily: "'DM Sans', sans-serif",
   fontSize: 10,
   fontWeight: 700,
   letterSpacing: "0.15em",

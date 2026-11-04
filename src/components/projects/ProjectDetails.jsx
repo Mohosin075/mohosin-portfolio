@@ -89,7 +89,7 @@ const ProjectDetails = () => {
               textTransform: "uppercase",
               color: "var(--muted)",
               textDecoration: "none",
-              fontFamily: "'Space Mono', monospace",
+              fontFamily: "'DM Sans', sans-serif",
               transition: "color 0.2s",
             }}
             onMouseEnter={(e) => (e.currentTarget.style.color = "var(--chalk)")}
@@ -210,7 +210,7 @@ const ProjectDetails = () => {
                     >
                       <span style={{
                         color: "var(--vermillion)",
-                        fontFamily: "'Space Mono', monospace",
+                        fontFamily: "'DM Sans', sans-serif",
                         fontSize: 14,
                         marginTop: 2,
                         flexShrink: 0,
@@ -292,7 +292,7 @@ const ProjectDetails = () => {
                   left: 0,
                   width: "100%",
                   height: 2,
-                  background: "linear-gradient(90deg, var(--vermillion), transparent)"
+                  background: "var(--border)"
                 }} />
                 <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
                   <Layers size={16} style={{ color: "var(--vermillion)" }} />
@@ -324,7 +324,7 @@ const ProjectDetails = () => {
                   left: 0,
                   width: "100%",
                   height: 2,
-                  background: "linear-gradient(90deg, var(--vermillion), transparent)"
+                  background: "var(--border)"
                 }} />
                 <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
                   <Cpu size={16} style={{ color: "var(--vermillion)" }} />
@@ -362,7 +362,7 @@ const ProjectDetails = () => {
                   left: 0,
                   width: "100%",
                   height: 2,
-                  background: "linear-gradient(90deg, var(--vermillion), transparent)"
+                  background: "var(--border)"
                 }} />
                 <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
                   <Terminal size={16} style={{ color: "var(--vermillion)" }} />

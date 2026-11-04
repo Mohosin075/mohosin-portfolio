@@ -27,14 +27,14 @@ export default function Projects({ limit }) {
     <section className={limit ? "work-preview" : "work-page page-shell CC"} aria-label="Selected projects">
       {!limit && <header className="page-heading">
         <span className="eyebrow">The work</span>
-        <h1>Built around real problems.</h1>
+        <h1>Projects & contributions.</h1>
         <p>Backend services, product integrations and full-stack applications. Explore the work and my contribution to each project.</p>
       </header>}
       {!limit && <div className="work-toolbar">
         <div className="work-filters" aria-label="Filter projects">
           {categories.map((item) => <button key={item.id} aria-pressed={category === item.id} onClick={() => setCategory(item.id)}>{item.label}</button>)}
         </div>
-        <p role="status">{status === "ready" ? visible.length + " projects" : "Loading work"}</p>
+        <p role="status">{status === "ready" ? visible.length + " projects" : status === "error" ? "Work unavailable" : "Loading work"}</p>
       </div>}
       {status === "error" ? <div className="state-panel" role="alert"><h2>Could not load the work.</h2><p>Check your connection and try again.</p><button className="btn-v" onClick={() => setAttempt((n) => n + 1)}>Try again <ArrowRight size={16} /></button></div> :
        status === "loading" ? <div role="status" aria-label="Loading projects" className="work-grid"><span className="sr-only">Loading projects</span>{[0,1,2].map(n => <div className="work-skeleton" aria-hidden="true" key={n}><div /><span /><span /></div>)}</div> :
