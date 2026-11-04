@@ -40,11 +40,10 @@ const experience = [
     company: "Sparktech Agency",
     period: "Jun 2025 – Present",
     bullets: [
-      "Building and maintaining scalable backend services using Node.js, Express.js, TypeScript, and MongoDB",
-      "Collaborating with a small, agile team to deliver solutions aligned with the client's business needs",
-      "Implementing secure authentication, RESTful APIs, and efficient database models with Mongoose",
-      "Actively improving code quality with validation, error handling, and best practices",
-      "Contributing to team discussions, project planning, and continuous integration workflows",
+      "Developing Node.js, Express and TypeScript APIs backed by MongoDB.",
+      "Implementing authentication, subscriptions, real-time messaging and background jobs across client projects.",
+      "Building Next.js admin interfaces and collaborating with frontend and Flutter teams on API integration.",
+      "Applying request validation, error handling and API documentation to support ongoing development.",
     ],
     stack: ["Node.js", "Express.js", "TypeScript", "MongoDB", "JWT"],
   },
@@ -79,7 +78,7 @@ const Home = () => {
                       background: "rgba(52,199,89,0.4)",
                     }} />
                   </div>
-                  <span className="code-label">Available for work</span>
+                  <span className="code-label">Open to Backend & Full Stack roles</span>
                 </div>
 
                 <div style={{ height: 12, width: 1, background: "var(--border)", flexShrink: 0 }} />
@@ -141,9 +140,11 @@ const Home = () => {
                   marginBottom: 28,
                   maxWidth: 580,
                 }}>
-                  I build reliable APIs, real-time systems, and React applications.
+                  I build Node.js and TypeScript backends for subscriptions, scheduled jobs and real-time features, alongside React and Next.js interfaces.
                   Working at Sparktech Agency since June 2025 with Node.js, TypeScript & MongoDB.
                 </p>
+
+                <p className="job-availability">Serving notice at Sparktech Agency. Open to Backend, MERN and Full Stack opportunities.</p>
 
                 <div className="hero-actions-row">
                   <NavLink to="/projects" className="btn-v">

@@ -147,7 +147,7 @@ const Contact = () => {
             <span style={{ color: "var(--vermillion)" }}>Together</span>
           </Heading>
           <p style={{ fontSize: 15, color: "var(--muted)", maxWidth: 440, lineHeight: 1.7 }}>
-            Available for backend projects, full-stack builds, and contract work.
+            Open to Backend, MERN and Full Stack roles, as well as relevant project opportunities.
             Let’s discuss your project.
           </p>
         </div>

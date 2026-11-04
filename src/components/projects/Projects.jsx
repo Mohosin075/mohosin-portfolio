@@ -402,6 +402,7 @@ const Projects = ({ limit }) => {
                 <span className="code-label">{project.category === "backend" ? "Backend engineering" : "Full-stack development"}</span>
                 <h3><Link to={`/projects/${project.id}`}>{project.title.split(" - ")[0]}</Link></h3>
                 <p className="home-project-summary">{project.subtitle}</p>
+                <p className="home-project-role">{project.role}</p>
                 {project.highlights?.[0] && (
                   <div className="home-project-contribution">
                     <span className="code-label">Key contribution</span>
@@ -409,7 +410,7 @@ const Projects = ({ limit }) => {
                   </div>
                 )}
                 <div className="home-project-tags">
-                  {project.backEnd?.slice(0, 3).map((tech) => <span className="tech-tag" key={tech}>{tech}</span>)}
+                  {(project.primaryStack || project.backEnd)?.slice(0, 3).map((tech) => <span className="tech-tag" key={tech}>{tech}</span>)}
                 </div>
                 <Link to={`/projects/${project.id}`} className="home-case-link">
                   View Case Study <ArrowUpRight size={16} />

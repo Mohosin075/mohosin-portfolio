@@ -1149,3 +1149,8 @@ body::before {
   .home-page .hero-actions-row a { flex: 1; max-width: 200px; }
   .home-project-content { padding: 20px; }
 }
+
+.job-availability { font-size: 14px; line-height: 1.7; color: var(--chalk); margin: 0 0 24px; max-width: 580px; }
+.home-project-role { font-size: 14px; line-height: 1.7; color: var(--chalk); }
+.case-study-focus { display: flex; flex-direction: column; }
+.case-study-focus-item { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 16px; padding: 24px 0; border-top: 1px solid var(--border); }

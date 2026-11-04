@@ -129,6 +129,11 @@ const ProjectDetails = () => {
         <section style={{ marginBottom: 32 }} aria-label="Contribution">
           <h2 className="code-label" style={{ marginBottom: 12 }}>My contribution</h2>
           <p style={{ color: "var(--muted)", lineHeight: 1.7 }}>{project.role}</p>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 20 }}>
+            {project.demo && <a href={project.demo} target="_blank" rel="noopener noreferrer" className="btn-v">Live Website <ArrowUpRight size={14} /></a>}
+            {project.githubServer && <a href={project.githubServer} target="_blank" rel="noopener noreferrer" className="btn-ghost">Backend Repository <FaGithub size={14} /></a>}
+            {project.githubClient && project.githubClient !== project.githubServer && <a href={project.githubClient} target="_blank" rel="noopener noreferrer" className="btn-ghost">Frontend Repository <GitBranch size={14} /></a>}
+          </div>
           {!project.demo && !project.video && <p style={{ color: "var(--muted)", marginTop: 12 }}>A public demo is not currently linked. Contact me to discuss the implementation and available walkthrough options.</p>}
           {!project.githubServer && !project.githubClient && <p style={{ color: "var(--muted)", marginTop: 12 }}>Source code is not publicly linked.</p>}
         </section>
@@ -182,23 +187,43 @@ const ProjectDetails = () => {
           <div>
             <section style={{ marginBottom: 48 }}>
               <h2 className="font-display" style={{ fontSize: 24, color: "var(--chalk)", marginBottom: 20 }}>
-                Overview
+                  Product context
               </h2>
               <p style={{
                 fontSize: 16,
                 lineHeight: 1.8,
                 color: "var(--muted)",
                 marginBottom: 24,
-                textAlign: "justify"
+                textAlign: "left"
               }}>
                 {project.description}
               </p>
+              {project.problem && <p style={{ fontSize: 15, lineHeight: 1.8, color: "var(--muted)" }}>{project.problem}</p>}
             </section>
+
+            {project.focus?.length > 0 && (
+              <section aria-labelledby="implementation-heading" style={{ marginBottom: 48 }}>
+                <h2 id="implementation-heading" className="font-display" style={{ fontSize: 24, marginBottom: 24 }}>
+                  Implementation focus
+                </h2>
+                <div className="case-study-focus">
+                  {project.focus.map((item, index) => (
+                    <div key={item.title} className="case-study-focus-item">
+                      <span aria-hidden="true" className="code-label">{String(index + 1).padStart(2, "0")}</span>
+                      <div>
+                        <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 10 }}>{item.title}</h3>
+                        <p style={{ fontSize: 15, lineHeight: 1.8, color: "var(--muted)" }}>{item.body}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
 
             {project.highlights && project.highlights.length > 0 && (
               <section style={{ marginBottom: 48 }}>
                 <h2 className="font-display" style={{ fontSize: 24, color: "var(--chalk)", marginBottom: 20 }}>
-                  Key Features & Accomplishments
+                  Contribution summary
                 </h2>
                 <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 16 }}>
                   {project.highlights.map((highlight, index) => (
@@ -304,7 +329,7 @@ const ProjectDetails = () => {
                 }} />
                 <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
                   <Layers size={16} style={{ color: "var(--vermillion)" }} />
-                  <h3 className="code-label" style={{ color: "var(--chalk)", fontWeight: 700 }}>Frontend Stack</h3>
+                  <h3 className="code-label" style={{ color: "var(--chalk)", fontWeight: 700 }}>Client technologies & integration</h3>
                 </div>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
                   {project.frontEnd.map((tech, idx) => (
@@ -336,15 +361,21 @@ const ProjectDetails = () => {
                 }} />
                 <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
                   <Cpu size={16} style={{ color: "var(--vermillion)" }} />
-                  <h3 className="code-label" style={{ color: "var(--chalk)", fontWeight: 700 }}>Backend Stack</h3>
+                  <h3 className="code-label" style={{ color: "var(--chalk)", fontWeight: 700 }}>Core backend technologies</h3>
                 </div>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-                  {project.backEnd.map((tech, idx) => (
+                  {(project.primaryStack || project.backEnd).map((tech, idx) => (
                     <span key={idx} className="skill-tag">
                       {tech}
                     </span>
                   ))}
                 </div>
+                {project.primaryStack && (
+                  <details style={{ marginTop: 20, color: "var(--muted)", fontSize: 14 }}>
+                    <summary style={{ cursor: "pointer", padding: "8px 0" }}>All backend libraries & services</summary>
+                    <p style={{ marginTop: 12, lineHeight: 1.8 }}>{project.backEnd.join(", ")}</p>
+                  </details>
+                )}
               </div>
             )}
 

@@ -1,18 +1,17 @@
 [
   {
     "id": 6,
-    "title": "Roadtripeado - Travel & Local Business Mapping System",
-    "subtitle": "Interactive Location Directory, Award Milestones & Subscriptions",
-    "category": "fullstack",
+    "title": "Roadtripeado ? Travel & Business Mapping",
+    "subtitle": "Mapping APIs, business subscriptions and real-time messaging",
+    "category": "backend",
     "featured": true,
-    "description": "A robust Express TypeScript backend system designed for a road-trip directory and mapping service. It manages interactive map pins, user awards/achievements, real-time communications via Socket.io, and a subscription-based model allowing local businesses to show their locations and offer deals. Equipped with automated cron scheduling, Stripe payments, and structured Winston logging.",
+    "description": "A road-trip directory connecting travellers with locations, local businesses and offers. My backend work covered mapping APIs, business subscriptions, awards and real-time messaging using Express, TypeScript and MongoDB.",
     "highlights": [
-      "Built a secure, tiered business subscription engine using Stripe Payments for map visibility",
-      "Designed a real-time gamification and milestone system (Award System) for users to unlock achievements and free maps",
-      "Implemented live locations listing, category filtering, and favorites caching with MongoDB",
-      "Integrated real-time chat and support messaging using Socket.io and stored history in database",
-      "Configured robust file uploads to AWS S3 processed with Sharp, Zod schemas for request validation, and centralized API error handlers",
-      "Established cron-based automated scheduling for task processing and structured Winston logging"
+      "Implemented tiered Stripe subscriptions for business map visibility.",
+      "Built location listings, category filters and favourites with MongoDB.",
+      "Developed award milestones for achievements and free-map access.",
+      "Integrated Socket.io messaging with database-backed chat history.",
+      "Added S3/Sharp media uploads, Zod validation, scheduled tasks and Winston logging."
     ],
     "frontEnd": [
       "Next.js",
@@ -54,23 +53,45 @@
     "githubServer": "https://github.com/Mohosin075/giovafilm-roadtripeado",
     "githubClient": null,
     "video": "",
-    "role": "Backend development: subscriptions, mapping APIs, awards and real-time messaging.",
-    "sourceImage": "/road.png"
+    "role": "Backend development: mapping and filtering APIs, Stripe subscriptions, award milestones, Socket.io messaging and media uploads.",
+    "sourceImage": "/road.png",
+    "problem": "The product brings location discovery, paid business visibility and traveller engagement into one directory.",
+    "focus": [
+      {
+        "title": "Subscription-based business visibility",
+        "body": "Implemented tiered Stripe subscriptions so local businesses could list locations and offers on the map."
+      },
+      {
+        "title": "Location discovery and engagement",
+        "body": "Built location listings, category filtering and favourites with MongoDB, alongside award milestones that unlock achievements and free maps."
+      },
+      {
+        "title": "Messaging and backend operations",
+        "body": "Integrated Socket.io chat with stored message history, AWS S3 uploads processed with Sharp, Zod validation, scheduled tasks and Winston logging."
+      }
+    ],
+    "primaryStack": [
+      "Node.js",
+      "Express.js",
+      "TypeScript",
+      "MongoDB",
+      "Socket.io",
+      "Stripe"
+    ]
   },
   {
     "id": 10,
-    "title": "Quran International - Comprehensive Islamic Ecosystem",
-    "subtitle": "Quran, Hadith, Tafsir, Prayer Times, Real-time Chat & Subscriptions",
+    "title": "Quran International ? Islamic Content Platform",
+    "subtitle": "Multilingual content APIs, subscriptions and reading progress",
     "category": "backend",
     "featured": true,
-    "description": "A robust, scalable production-ready backend for a comprehensive Islamic mobile and web application. Architected with Express, TypeScript, and MongoDB. The system features a massive database for Quran, Hadith (multi-language), and Tafsir processing. It integrates real-time chat via Socket.io, robust subscription management with Stripe and In-App Purchases (IAP), automated notifications, and interactive features like bookmarks, highlights, and Hasanat (rewards) tracking.",
+    "description": "An Islamic content platform with Quran, Hadith, Tafsir and a knowledge library. My backend work covered multilingual content, reading features, subscriptions, real-time communication and notifications using Express, TypeScript and MongoDB.",
     "highlights": [
-      "Built massive data pipelines and storage systems for multi-language Quran, Hadith, Tafsir, and an Islamic Knowledge Library",
-      "Integrated real-time chat, support messaging, and community interactions for seamless user communication",
-      "Implemented a comprehensive dual-subscription system handling both web-based and in-app purchases",
-      "Designed interactive user features including bookmarks, text highlights, daily last-read syncing, and Hasanat (rewards) tracking",
-      "Configured automated push notifications to engage users with daily prayers, dua, and community alerts",
-      "Created an administrative dashboard system for content management, user support, and subscription analytics"
+      "Built multilingual Quran, Hadith, Tafsir and knowledge-library data features.",
+      "Implemented bookmarks, highlights, last-read syncing and Hasanat tracking.",
+      "Integrated web and in-app subscription support.",
+      "Developed real-time chat, support messaging and push notifications.",
+      "Built administrative features for content, user support and subscription analytics."
     ],
     "frontEnd": [],
     "backEnd": [
@@ -106,24 +127,45 @@
     "githubServer": "https://github.com/Mohosin075/lionel10gg-quranInternational",
     "githubClient": null,
     "video": null,
-    "role": "Backend development: Islamic content APIs, subscriptions and real-time features.",
-    "sourceImage": "/quran.png"
+    "role": "Backend development: content APIs and storage, reading progress, Stripe and in-app subscriptions, real-time features and notifications.",
+    "sourceImage": "/quran.png",
+    "problem": "The application combines multilingual religious content with personal reading progress, paid access and community features.",
+    "focus": [
+      {
+        "title": "Multilingual content and reading features",
+        "body": "Built storage and data processing for Quran, Hadith, Tafsir and library content, with bookmarks, highlights, last-read syncing and Hasanat tracking."
+      },
+      {
+        "title": "Web and in-app subscriptions",
+        "body": "Implemented subscription support for web payments through Stripe and in-app purchases."
+      },
+      {
+        "title": "Communication and administration",
+        "body": "Integrated real-time chat, support messaging and push notifications, alongside administrative features for content, support and subscription analytics."
+      }
+    ],
+    "primaryStack": [
+      "Node.js",
+      "Express.js",
+      "TypeScript",
+      "MongoDB",
+      "Socket.io",
+      "Stripe"
+    ]
   },
   {
     "id": 9,
-    "title": "ClipFrame — Content Scheduling & Meta Automation",
-    "subtitle": "Social Media Scheduling, Content Workflows, Subscriptions & Analytics Hub",
+    "title": "ClipFrame ? Content Scheduling & Meta Integration",
+    "subtitle": "Scheduled publishing, background jobs and subscription limits",
     "category": "backend",
     "featured": true,
-    "description": "A robust, scalable backend engine built with Express.js and TypeScript for social media content scheduling, automated templates, and customized brand onboarding. Integrates AWS S3 and Cloudinary for file and media storage, Stripe for tier-based subscription limits and plan management, Socket.io for real-time alerts, and BullMQ/Redis for asynchronous background jobs. Designed with a clean modular architecture, comprehensive Swagger API documentation, and secure Passport OAuth and rate limiters.",
+    "description": "A social content platform for brand onboarding, content planning and Instagram/Facebook publishing. My backend work combined Express and TypeScript APIs with BullMQ/Redis background jobs, Meta integrations, Stripe subscriptions and media storage.",
     "highlights": [
-      "Dynamic user onboarding flow with custom branding setup including brand color palettes and logos",
-      "Interactive weekly content planner providing clear checklists and structures for reels, posts, and stories",
-      "Multi-channel content scheduler supporting Instagram and Facebook publishing with custom reminder triggers",
-      "Customizable content templates with step-by-step shot guidelines, media durations, and pre-defined hashtags",
-      "Tiered subscription plans with weekly limits control for reels, posts, stories, and manageable businesses",
-      "Social media integration system for one-click connection to Facebook and Instagram business pages",
-      "Detailed workspace statistics and engagement analytics to track content performance and platform metrics"
+      "Built content scheduling and Facebook/Instagram business-page integrations.",
+      "Implemented asynchronous background jobs with BullMQ and Redis.",
+      "Added Stripe subscription plans with weekly content and business limits.",
+      "Supported brand onboarding, reusable templates and content planning.",
+      "Integrated media storage, real-time alerts, OAuth and documented APIs."
     ],
     "frontEnd": [],
     "backEnd": [
@@ -163,25 +205,47 @@
     "githubServer": "https://github.com/Mohosin075/ClipFrame",
     "githubClient": null,
     "video": null,
-    "role": "Backend development: content scheduling, social integrations and background jobs.",
-    "sourceImage": "/clipframe (2).png"
+    "role": "Backend development: content scheduling, Facebook/Instagram integrations, BullMQ/Redis jobs, subscription limits and API documentation.",
+    "sourceImage": "/clipframe (2).png",
+    "problem": "Businesses need to manage brand assets, plan content and schedule publishing while staying within their subscription limits.",
+    "focus": [
+      {
+        "title": "Planning and social publishing",
+        "body": "Implemented content workflows for weekly planners and reusable templates, with scheduling for Instagram and Facebook and reminder triggers."
+      },
+      {
+        "title": "Background processing and media",
+        "body": "Used BullMQ and Redis for asynchronous jobs, AWS S3 and Cloudinary for media storage, and Socket.io for real-time alerts."
+      },
+      {
+        "title": "Access, limits and documentation",
+        "body": "Integrated Stripe plan management and weekly content limits, Passport OAuth, rate limiting and Swagger API documentation."
+      }
+    ],
+    "primaryStack": [
+      "Node.js",
+      "Express.js",
+      "TypeScript",
+      "MongoDB",
+      "Socket.io",
+      "BullMQ",
+      "Redis",
+      "Stripe"
+    ]
   },
   {
     "id": 8,
-    "title": "Ascela — Menstrual Cycle & Personalized Nutrition Tracker",
-    "subtitle": "Menstrual Cycle Syncing, AI Recipe Recommendations & Wellness Dashboard",
+    "title": "Ascela ? Cycle, Nutrition & Fitness Tracking",
+    "subtitle": "Wellness APIs, AI recipe features and Flutter integration",
     "category": "backend",
     "featured": false,
-    "description": "A production-grade health and wellness backend designed for menstrual cycle-syncing, personalized nutrition, and fitness tracking. Architected a scalable Express & TypeScript server that synchronizes workouts, meal logging, and AI-powered recipe recommendations with the user's current menstrual cycle phase. Features robust Stripe integrations for subscription management, real-time user features via Socket.io, AWS S3 image uploads, and Zod validation, all optimized for integration with a Flutter mobile app.",
+    "description": "A wellness application combining cycle tracking, meal and workout logs, and personalised recipe features. My work focused on its Express/TypeScript backend and REST/WebSocket integration with a Flutter mobile app.",
     "highlights": [
-      "AI-powered personalized recipe recommendations with favorite, save, and swipe-based interaction system with daily usage limits",
-      "Menstrual cycle tracking with phase detection, calendar view, educational content, and cycle overview",
-      "Grocery list & pantry management — create lists, add recipe ingredients automatically, move items to pantry",
-      "Meal logging system to track daily food intake and nutrition",
-      "Workout logging to track exercise sessions and fitness history",
-      "Subscription & billing system with plan management, trial eligibility, pause/resume/cancel, billing portal, and Stripe Checkout",
-      "Admin analytics dashboard with platform stats, subscription analytics, and revenue overview",
-      "Flutter mobile app fully integrated with REST and WebSocket APIs for real-time features"
+      "Built cycle tracking, meal logs, workout history and grocery/pantry features.",
+      "Implemented AI recipe interactions with daily usage limits.",
+      "Added Stripe subscriptions, trial eligibility and billing management.",
+      "Integrated REST/WebSocket APIs with the Flutter mobile application.",
+      "Supported administrative views for platform, subscription and revenue data."
     ],
     "frontEnd": [
       "Flutter (Mobile API Integration)",
@@ -227,23 +291,47 @@
     "githubServer": null,
     "githubClient": null,
     "video": null,
-    "role": "Backend development and API integration with the Flutter mobile app.",
-    "sourceImage": "/pia.png"
+    "role": "Backend development and Flutter API integration: tracking features, AI recipe interactions, subscriptions, real-time APIs and notifications.",
+    "sourceImage": "/pia.png",
+    "problem": "The mobile application brings cycle information, nutrition, fitness records and subscription access into a shared experience.",
+    "focus": [
+      {
+        "title": "Tracking and recipe features",
+        "body": "Built cycle-phase and calendar features, meal/workout logs, grocery lists and pantry management, alongside AI recipe recommendations with save, favourite, swipe and daily usage limits."
+      },
+      {
+        "title": "Subscription lifecycle",
+        "body": "Implemented Stripe Checkout and billing features covering plan management, trial eligibility, pause, resume, cancellation and the billing portal."
+      },
+      {
+        "title": "Mobile and admin integration",
+        "body": "Integrated REST and WebSocket APIs with the Flutter application and supported administrative statistics, subscription analytics and revenue views."
+      }
+    ],
+    "primaryStack": [
+      "Node.js",
+      "Express.js",
+      "TypeScript",
+      "MongoDB",
+      "Socket.io",
+      "BullMQ",
+      "Redis",
+      "Stripe"
+    ]
   },
   {
     "id": 7,
-    "title": "Bean Fien - Specialty Coffee Hub & Analytics Dashboard",
-    "subtitle": "E-Commerce Cafe, Loyalty Rewards & Real-Time Admin Console",
+    "title": "Bean Fien ? Coffee Storefront & Admin Dashboard",
+    "subtitle": "Next.js commerce, loyalty rewards and backend services",
     "category": "fullstack",
     "featured": false,
-    "description": "A feature-rich specialty cafe application and administrative platform. It integrates a sleek consumer ordering web interface with a robust backend administrative dashboard. Built with Next.js, Redux Toolkit, and Recharts, the client interfaces with a comprehensive TypeScript Express server handling secure Stripe checkouts, Socket.io live updates, Redis queues, and loyalty rewards tracking.",
+    "description": "A specialty coffee application with a customer storefront and administrative dashboard. My full-stack work covered the Next.js interface, Redux Toolkit state, Recharts reporting, and Express/TypeScript services for payments, rewards and live updates.",
     "highlights": [
-      "Designed a sleek, dark-themed Next.js e-commerce storefront with responsive menu navigation, custom cart drawer, and interactive gift card tools",
-      "Built a live-monitoring Admin Dashboard featuring interactive area, bar, and pie charts with Recharts to visualize real-time revenues, order counts, and category breakdowns",
-      "Created a robust loyalty reward system with real-time star point progression bar and coupon claiming workflows",
-      "Configured a high-performance Express & TypeScript backend with MongoDB (Mongoose) for schema validation and indexing",
-      "Integrated secure authentication with role-based JWT access/refresh tokens and social logins (Google, Facebook via Passport)",
-      "Implemented asynchronous task processing using BullMQ and Redis, file uploads to AWS S3 with Sharp image processing, and Winston log rotation"
+      "Built a Next.js storefront with menu navigation, cart and gift-card tools.",
+      "Developed a Recharts admin dashboard for revenue, orders and categories.",
+      "Implemented loyalty points and coupon-claiming workflows.",
+      "Built MongoDB-backed services with JWT access/refresh tokens and social login.",
+      "Integrated Stripe checkout, live updates, background jobs and media uploads."
     ],
     "frontEnd": [
       "Next.js",
@@ -293,22 +381,47 @@
     "githubServer": "https://github.com/Mohosin075/chaserxhype-bean-fien-server",
     "githubClient": "https://github.com/Mohosin075/dashboard-chaserxhype-bean-fien",
     "video": "",
-    "role": "Full-stack development: storefront, admin dashboard and backend services.",
-    "sourceImage": "/bean.png"
+    "role": "Full-stack development: Next.js storefront, admin dashboard, Express/TypeScript APIs, authentication and loyalty features.",
+    "sourceImage": "/bean.png",
+    "problem": "The product connects customer ordering and loyalty features with the administrative views needed to manage orders and revenue.",
+    "focus": [
+      {
+        "title": "Customer-facing commerce",
+        "body": "Built a responsive Next.js storefront with menu navigation, a cart drawer and gift-card tools, connected to Stripe checkout services."
+      },
+      {
+        "title": "Administrative visibility",
+        "body": "Developed a dashboard using Recharts for revenue, order and category views, with Socket.io live updates."
+      },
+      {
+        "title": "Backend and loyalty features",
+        "body": "Built loyalty points and coupon workflows, MongoDB schemas and indexes, JWT access/refresh authentication, social login, BullMQ/Redis jobs and S3 uploads."
+      }
+    ],
+    "primaryStack": [
+      "Node.js",
+      "Express.js",
+      "TypeScript",
+      "MongoDB",
+      "Socket.io",
+      "BullMQ",
+      "Redis",
+      "Stripe"
+    ]
   },
   {
     "id": 5,
-    "title": "Photopia - On-Demand Booking Ecosystem",
-    "subtitle": "Backend, Admin Portal & Mobile API Integration",
+    "title": "Photopia ? Media Booking & Payouts",
+    "subtitle": "Stripe Connect, Next.js administration and mobile APIs",
     "category": "fullstack",
     "featured": false,
-    "description": "A comprehensive media booking ecosystem. Designed and developed the high-performance backend architecture, secure Stripe Connect payouts, and built the Next.js admin dashboard. Also collaborated with the Flutter mobile team to design and integrate REST/WebSocket APIs, real-time messaging.",
+    "description": "A media booking platform connecting backend services, a Next.js admin portal and a Flutter mobile application. My work covered backend APIs, professional payouts, administration and collaboration with the mobile team.",
     "highlights": [
-      "Built Next.js admin dashboard for managing service categories, themes, and platform metrics",
-      "Implemented Stripe Connect split-payment logic for automated professional earnings payouts",
-      "Designed and documented RESTful APIs to facilitate seamless frontend and mobile integrations",
-      "Built real-time notification scheduling and bidirectional Socket.io messaging engine",
-      "Collaborated with the Flutter mobile team to optimize mobile-to-backend data flows and push notifications"
+      "Implemented Stripe Connect split payments for professional payouts.",
+      "Built a Next.js admin dashboard for categories, themes and platform metrics.",
+      "Designed and documented REST APIs for web and mobile integration.",
+      "Developed Socket.io messaging and notification scheduling.",
+      "Collaborated with the Flutter team on API integration and push notifications."
     ],
     "frontEnd": [
       "Next.js",
@@ -344,7 +457,30 @@
     "githubServer": "https://github.com/Mohosin075/photopia-ayoubouajj",
     "githubClient": null,
     "video": null,
-    "role": "Backend development, Next.js admin dashboard and Flutter API integration.",
-    "sourceImage": "/photopia.png"
+    "role": "Backend and Next.js admin development, plus REST/WebSocket API collaboration with the Flutter mobile team.",
+    "sourceImage": "/photopia.png",
+    "problem": "The platform needs to coordinate media bookings, professional earnings, communication and administrative management across web and mobile clients.",
+    "focus": [
+      {
+        "title": "Professional payment flows",
+        "body": "Implemented Stripe Connect split-payment logic for professional earnings payouts."
+      },
+      {
+        "title": "Administration and API design",
+        "body": "Built a Next.js admin dashboard for service categories, themes and platform metrics, and designed and documented REST APIs for client integration."
+      },
+      {
+        "title": "Mobile communication",
+        "body": "Built Socket.io messaging and notification scheduling, and collaborated with the Flutter team on API data flows and push notifications."
+      }
+    ],
+    "primaryStack": [
+      "Node.js",
+      "Express.js",
+      "TypeScript",
+      "MongoDB",
+      "Stripe Connect",
+      "Socket.io"
+    ]
   }
 ]
