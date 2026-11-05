@@ -225,12 +225,7 @@ body { background:#f8f7f4; color:#202522; font-family:'DM Sans',sans-serif; }
  .editorial-theme .case-study-navigation { gap:20px; }
  .footer-bottom { text-transform:none; letter-spacing:0; }
 }
-@supports (animation-timeline: view()) {
- @media (prefers-reduced-motion: no-preference) {
-  .editorial-section-heading,.editorial-skills,.system-overview,.delivered-section { animation:editorial-enter linear both; animation-timeline:view(); animation-range:entry 0% entry 20%; }
- }
-}
-@keyframes editorial-enter { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+
 /* Hero technology rail */
 .core-stack { display:grid; grid-template-columns:200px minmax(0,1fr) auto; align-items:center; gap:32px; border-block:1px solid var(--border); padding:28px 0; }
 .core-stack-intro p { margin-top:6px; font-size:13px; color:var(--muted); }

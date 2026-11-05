@@ -1,6 +1,5 @@
 import { experience, profile } from "../../data/profile";
 import ProfileImage from "../ProfileImage";
-import { motion } from "framer-motion";
 import {
   Server, Database, Cpu, Clock, CalendarDays, Layout, Code2,
 } from "lucide-react";
@@ -54,10 +53,7 @@ const About = () => {
           className="about-grid">
 
           {/* Photo */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <div
             className="about-photo-wrapper"
           >
             <div style={{ position: "relative" }}>
@@ -90,13 +86,10 @@ const About = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Bio + stats */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+          <div
           >
             {/* Stats row */}
             <div className="about-stats-grid">
@@ -138,20 +131,16 @@ const About = () => {
                 My backend work uses Node.js, Express.js and TypeScript with MongoDB, PostgreSQL and Prisma. On the frontend, I build with React, Next.js and Redux Toolkit. I integrate OpenAI, Stripe and Firebase, and manage deployments with AWS, Docker, NGINX and PM2.
               </p>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* What I do */}
         <div style={{ marginBottom: 80 }}>
           <div className="rule-label" style={{ marginBottom: 40 }}>What I Do</div>
           <div className="services-grid">
-            {services.map((s, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
+            {services.map((s) => (
+              <div
+                key={s.title}
                 className="service-card"
                 onMouseEnter={e => e.currentTarget.style.background = "var(--surface)"}
                 onMouseLeave={e => e.currentTarget.style.background = "transparent"}
@@ -161,7 +150,7 @@ const About = () => {
                   {s.title}
                 </h3>
                 <p style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.75 }}>{s.desc}</p>
-              </motion.div>
+              </div>
             ))}
             </div>
           </div>
@@ -172,11 +161,8 @@ const About = () => {
             <div className="rule-label" style={{ marginBottom: 32 }}>Experience</div>
             <div className="experience-timeline editorial-panels">
             {experience.map((job, i) => (
-              <motion.div
+              <div
                 key={i}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
                 style={{
                   padding: "24px",
                   border: "1px solid var(--border)",
@@ -219,7 +205,7 @@ const About = () => {
                     <span key={j} className="tech-tag">{t}</span>
                   ))}
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
           </div>
@@ -229,10 +215,7 @@ const About = () => {
             <div className="rule-label" style={{ marginBottom: 16 }}>Education</div>
 
             {/* Bachelor's */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+            <div
               style={{
                 padding: "24px",
                 border: "1px solid var(--border)",
@@ -258,13 +241,10 @@ const About = () => {
               <div style={{ marginTop: 16 }}>
                 <span className="tech-tag">Software Engineering</span>
               </div>
-            </motion.div>
+            </div>
 
             {/* Diploma */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+            <div
               style={{
                 padding: "24px",
                 border: "1px solid var(--border)",
@@ -285,7 +265,7 @@ const About = () => {
               <div style={{ marginTop: 16 }}>
                 <span className="tech-tag">Computer Technology</span>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
 
@@ -295,15 +275,11 @@ const About = () => {
         <div>
           <div className="rule-label" style={{ marginBottom: 40 }}>Core Tech Stack</div>
           <div className="tech-stack-grid">
-            {skillCategories.map((category, index) => {
+            {skillCategories.map((category) => {
               const Icon = category.icon;
               return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                <div
+                  key={category.title}
                   className="tech-card"
                 >
                   <div className="tech-card-header">
@@ -316,7 +292,7 @@ const About = () => {
                       </span>
                     ))}
                   </div>
-                </motion.div>
+                </div>
               );
             })}
           </div>

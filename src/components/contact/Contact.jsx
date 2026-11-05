@@ -6,7 +6,6 @@ import {
   Clock, ChevronDown,
 } from "lucide-react";
 import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
-import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
 const INQUIRY_TYPES = [
@@ -163,10 +162,7 @@ const Contact = () => {
         }} className="contact-grid">
 
           {/* Left: contact info */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+          <div
           >
             {/* Contact entries */}
             <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
@@ -265,13 +261,10 @@ const Contact = () => {
                 ))}
               </ul>
             </div>
-          </motion.div>
+          </div>
 
           {/* Right: form */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+          <div
             style={{
               background: "var(--surface)",
               border: "1px solid var(--border)",
@@ -418,7 +411,7 @@ const Contact = () => {
                 )}
               </button>
             </form>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
