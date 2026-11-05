@@ -11,9 +11,11 @@ import emailjs from "@emailjs/browser";
 
 const INQUIRY_TYPES = [
   "Backend API Development",
-  "Full-Stack (MERN) Project",
+  "Full-Stack Web Application",
   "Freelance / Contract Work",
   "Job Opportunity",
+  "AI / Payment Integration",
+  "Cloud Deployment",
   "Technical Consultation",
   "Collaboration / Open Source",
   "Other",
@@ -35,7 +37,7 @@ const inputStyle = (hasError) => ({
 const labelStyle = {
   display: "block",
   fontFamily: "'DM Sans', sans-serif",
-  fontSize: 10,
+  fontSize: 14,
   fontWeight: 700,
   letterSpacing: "0.15em",
   textTransform: "uppercase",
@@ -130,7 +132,7 @@ const Contact = () => {
     >
       <div className="CC">
         {/* Section header */}
-        <div style={{ marginBottom: 56 }}>
+        <div className="page-heading interior-heading" style={{ marginBottom: 56 }}>
           <div className="rule-label" style={{ marginBottom: 20 }}>
             Contact
           </div>
@@ -148,8 +150,7 @@ const Contact = () => {
             <span style={{ color: "var(--vermillion)" }}>a conversation.</span>
           </Heading>
           <p style={{ fontSize: 15, color: "var(--muted)", maxWidth: 440, lineHeight: 1.7 }}>
-            Open to Backend, MERN and Full Stack roles, as well as relevant project opportunities.
-            Let’s discuss your project.
+            Open to Full Stack and Backend roles, as well as relevant project opportunities. Get in touch about web applications, API development, integrations or cloud deployment.
           </p>
         </div>
 
@@ -171,8 +172,8 @@ const Contact = () => {
             <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
               {[
                 { icon: Mail, label: "Email", value: "mohosinali075@gmail.com", href: "mailto:mohosinali075@gmail.com" },
-                { icon: FaWhatsapp, label: "Whatsapp", value: "+880 1981-381383", href: "https://wa.me/8801981381383" },
-                { icon: MapPin, label: "Location", value: "Dhaka, Bangladesh", href: null },
+                { icon: FaWhatsapp, label: "Whatsapp", value: "+880 1981-381386", href: "https://wa.me/8801981381386" },
+                { icon: MapPin, label: "Location", value: "Mohakhali, Dhaka", href: null },
                 { icon: Clock, label: "Response time", value: "As soon as possible", href: null },
               ].map((item, i) => (
                 <div
@@ -217,7 +218,7 @@ const Contact = () => {
               <div style={{ display: "flex", gap: 16 }}>
                 {[
                   { icon: FaGithub, href: "https://github.com/Mohosin075", label: "GitHub" },
-                  { icon: FaLinkedin, href: "https://www.linkedin.com/in/md-mohosin-5b34a0278/", label: "LinkedIn" },
+                  { icon: FaLinkedin, href: "https://www.linkedin.com/in/mohosin075/", label: "LinkedIn" },
                 ].map((s, i) => (
                   <a
                     key={i}
@@ -230,7 +231,7 @@ const Contact = () => {
                       display: "flex",
                       alignItems: "center",
                       gap: 8,
-                      fontSize: 13,
+                      fontSize: 14,
                       fontWeight: 600,
                       color: "var(--muted)",
                       textDecoration: "none",
@@ -257,7 +258,7 @@ const Contact = () => {
                   "Real-time with Socket.io",
                   "Full-stack MERN applications",
                 ].map((item, i) => (
-                  <li key={i} style={{ display: "flex", gap: 10, fontSize: 13, color: "var(--muted)" }}>
+                  <li key={i} style={{ display: "flex", gap: 10, fontSize: 14, color: "var(--muted)" }}>
                     <span style={{ color: "var(--vermillion)", fontFamily: "monospace", flexShrink: 0 }}>→</span>
                     {item}
                   </li>
@@ -274,7 +275,7 @@ const Contact = () => {
             style={{
               background: "var(--surface)",
               border: "1px solid var(--border)",
-              borderRadius: 12,
+              borderRadius: 4,
               padding: 32,
             }}
           >
@@ -303,7 +304,7 @@ const Contact = () => {
                     onBlurCapture={e => e.target.style.borderColor = errors.name ? "var(--danger)" : "var(--border)"}
                   />
                   {errors.name && (
-                    <p id="contact-name-error" role="alert" style={{ fontSize: 13, color: "var(--danger)", marginTop: 4, fontFamily: "monospace" }}>
+                    <p id="contact-name-error" role="alert" style={{ fontSize: 14, color: "var(--danger)", marginTop: 4, fontFamily: "monospace" }}>
                       {errors.name.message}
                     </p>
                   )}
@@ -327,7 +328,7 @@ const Contact = () => {
                     onBlurCapture={e => e.target.style.borderColor = errors.email ? "var(--danger)" : "var(--border)"}
                   />
                   {errors.email && (
-                    <p id="contact-email-error" role="alert" style={{ fontSize: 13, color: "var(--danger)", marginTop: 4, fontFamily: "monospace" }}>
+                    <p id="contact-email-error" role="alert" style={{ fontSize: 14, color: "var(--danger)", marginTop: 4, fontFamily: "monospace" }}>
                       {errors.email.message}
                     </p>
                   )}
@@ -364,7 +365,7 @@ const Contact = () => {
                   />
                 </div>
                 {errors.inquiryType && (
-                  <p id="contact-inquiryType-error" role="alert" style={{ fontSize: 13, color: "var(--danger)", marginTop: 4, fontFamily: "monospace" }}>
+                  <p id="contact-inquiryType-error" role="alert" style={{ fontSize: 14, color: "var(--danger)", marginTop: 4, fontFamily: "monospace" }}>
                     {errors.inquiryType.message}
                   </p>
                 )}
@@ -390,7 +391,7 @@ const Contact = () => {
                   onBlurCapture={e => e.target.style.borderColor = errors.message ? "var(--danger)" : "var(--border)"}
                 />
                 {errors.message && (
-                  <p id="contact-message-error" role="alert" style={{ fontSize: 13, color: "var(--danger)", marginTop: 4, fontFamily: "monospace" }}>
+                  <p id="contact-message-error" role="alert" style={{ fontSize: 14, color: "var(--danger)", marginTop: 4, fontFamily: "monospace" }}>
                     {errors.message.message}
                   </p>
                 )}

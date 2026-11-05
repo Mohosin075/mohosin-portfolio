@@ -32,7 +32,7 @@ const FloatingWhatsApp = () => {
               fontWeight: 600,
               fontFamily: "'DM Sans', sans-serif",
               border: "1px solid var(--border, rgba(255,255,255,0.1))",
-              boxShadow: "0 4px 12px rgba(0,0,0,0.5)",
+              boxShadow: "0 4px 12px rgba(32,37,34,0.08)",
               whiteSpace: "nowrap",
               pointerEvents: "none",
             }}
@@ -43,7 +43,7 @@ const FloatingWhatsApp = () => {
       </AnimatePresence>
 
       <motion.a
-        aria-label="Chat on WhatsApp" href="https://wa.me/8801981381383"
+        aria-label="Chat on WhatsApp" href="https://wa.me/8801981381386"
         target="_blank"
         rel="noopener noreferrer"
         onMouseEnter={() => setIsHovered(true)}
@@ -52,8 +52,8 @@ const FloatingWhatsApp = () => {
           width: 44,
           height: 44,
           borderRadius: "50%",
-          backgroundColor: "#25D366",
-          color: "#FFFFFF",
+          backgroundColor: "#f8f7f4",
+          color: "#294a9d", border: "1px solid var(--border)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -65,8 +65,8 @@ const FloatingWhatsApp = () => {
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         whileHover={{
-          scale: 1.1,
-          boxShadow: "0 6px 24px rgba(37, 211, 102, 0.6)",
+          scale: 1.05,
+          boxShadow: "0 6px 20px rgba(32, 37, 34, 0.12)",
         }}
         whileTap={{ scale: 0.95 }}
         transition={{ type: "spring", stiffness: 260, damping: 20 }}

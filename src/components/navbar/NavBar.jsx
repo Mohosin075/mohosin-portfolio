@@ -33,7 +33,7 @@ export default function Navbar(){
       {isOpen && <div className="editorial-mobile-menu" id="mobile-navigation" ref={menuRef} role="dialog" aria-modal="true" aria-label="Navigation">
         <div className="mobile-menu-top"><span>MENU</span><button onClick={()=>setIsOpen(false)} aria-label="Close navigation"><X size={26}/></button></div>
         {ListItem.map((item,index)=><NavLink key={item.location} to={"/"+item.location} onClick={()=>setIsOpen(false)}><small>0{index+1}</small>{item.Label}<span>&#8599;</span></NavLink>)}
-        <p>Backend Developer &middot; Dhaka, Bangladesh</p>
+        <p>Full Stack Developer &middot; Dhaka, Bangladesh</p>
       </div>}
     </>
   );

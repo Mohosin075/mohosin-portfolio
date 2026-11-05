@@ -2,11 +2,12 @@
   {
     "id": 6,
     "title": "Roadtripeado — Travel & Business Mapping",
-    "subtitle": "Mapping APIs, business subscriptions and real-time messaging",
-    "category": "backend",
+    "subtitle": "Travel mapping, route planning and paid guides for 7,000+ users",
+    "category": "fullstack",
     "featured": true,
-    "description": "A road-trip directory connecting travellers with locations, local businesses and offers. My backend work covered mapping APIs, business subscriptions, awards and real-time messaging using Express, TypeScript and MongoDB.",
+    "description": "A full-stack travel mapping platform serving 7,000+ real users, with interactive maps, route planning, location search and paid travel guides. My work spans the Next.js frontend and Express/TypeScript backend, alongside subscriptions, messaging and media services.",
     "highlights": [
+      "Built a travel mapping platform serving 7,000+ real users with interactive maps, route planning, location search and paid guides.",
       "Implemented tiered Stripe subscriptions for business map visibility.",
       "Built location listings, category filters and favourites with MongoDB.",
       "Developed award milestones for achievements and free-map access.",
@@ -19,7 +20,9 @@
       "Tailwind CSS",
       "Axios",
       "TanStack Query",
-      "Socket.io-client"
+      "Socket.io-client",
+      "Redux Toolkit",
+      "Google Maps API"
     ],
     "backEnd": [
       "Node.js",
@@ -36,7 +39,8 @@
       "Passport.js",
       "Winston",
       "Nodemailer",
-      "Twilio"
+      "Twilio",
+      "Webhooks"
     ],
     "tools": [
       "Git",
@@ -48,12 +52,12 @@
       "Husky",
       "Vercel"
     ],
-    "image": "/road.png",
+    "image": "/images/projects/6-960.webp",
     "demo": "https://roadtripeado.shop",
     "githubServer": "https://github.com/Mohosin075/giovafilm-roadtripeado",
     "githubClient": null,
     "video": "",
-    "role": "Backend development: mapping and filtering APIs, Stripe subscriptions, award milestones, Socket.io messaging and media uploads.",
+    "role": "Full-stack development: Next.js interface, interactive maps and location search, route planning, backend APIs, Stripe subscriptions and real-time messaging.",
     "sourceImage": "/road.png",
     "problem": "The product brings location discovery, paid business visibility and traveller engagement into one directory.",
     "focus": [
@@ -71,13 +75,37 @@
       }
     ],
     "primaryStack": [
-      "Node.js",
-      "Express.js",
+      "Next.js",
       "TypeScript",
+      "Node.js",
       "MongoDB",
-      "Socket.io",
+      "Google Maps API",
       "Stripe"
-    ]
+    ],
+    "systemFlow": [
+      "Next.js / Google Maps API",
+      "Express / TypeScript APIs",
+      "MongoDB / Stripe / Socket.io"
+    ],
+    "decisions": [
+      {
+        "challenge": "Paid business visibility",
+        "choice": "Stripe subscription tiers",
+        "implementation": "Listing visibility is connected to subscription plans.",
+        "reasoning": "A billing provider fits recurring paid access; the application still needs to keep listing permissions aligned with each plan.",
+        "result": "The platform serves 7,000+ real users with interactive travel maps, route planning and paid travel guides."
+      },
+      {
+        "challenge": "Live conversation with a record",
+        "choice": "Socket.io + MongoDB",
+        "implementation": "Real-time messaging is paired with stored chat history.",
+        "reasoning": "Live delivery and persistence serve different needs: an open connection delivers messages, while storage keeps the conversation available later.",
+        "result": "Messaging includes database-backed conversation history."
+      }
+    ],
+    "previewLabel": "Project artwork",
+    "imageTone": "sand",
+    "imageSet": "/images/projects/6-480.webp 480w, /images/projects/6-960.webp 960w, /images/projects/6-1440.webp 1440w"
   },
   {
     "id": 10,
@@ -122,7 +150,7 @@
       "Prettier",
       "Husky"
     ],
-    "image": "/quran.png",
+    "image": "/images/projects/10-960.webp",
     "demo": null,
     "githubServer": "https://github.com/Mohosin075/lionel10gg-quranInternational",
     "githubClient": null,
@@ -151,7 +179,31 @@
       "MongoDB",
       "Socket.io",
       "Stripe"
-    ]
+    ],
+    "systemFlow": [
+      "Content & reading features",
+      "Express / TypeScript APIs",
+      "MongoDB / Subscriptions / Notifications"
+    ],
+    "decisions": [
+      {
+        "challenge": "Reading across sessions",
+        "choice": "Stored reading progress",
+        "implementation": "Bookmarks, highlights and last-read state are stored alongside content features.",
+        "reasoning": "Persistent reading state supports returning readers; multilingual content and personal progress remain separate concerns.",
+        "result": "Readers can save highlights, bookmark content and resume reading."
+      },
+      {
+        "challenge": "Access across payment channels",
+        "choice": "Stripe + in-app subscriptions",
+        "implementation": "The backend supports web and in-app subscription purchases.",
+        "reasoning": "Multiple payment channels need a shared application access model, even though each provider has its own purchase flow.",
+        "result": "Subscription support covers web payments and in-app purchases."
+      }
+    ],
+    "previewLabel": "Project artwork",
+    "imageTone": "sage",
+    "imageSet": "/images/projects/10-480.webp 480w, /images/projects/10-960.webp 960w, /images/projects/10-1440.webp 1440w"
   },
   {
     "id": 9,
@@ -167,7 +219,9 @@
       "Supported brand onboarding, reusable templates and content planning.",
       "Integrated media storage, real-time alerts, OAuth and documented APIs."
     ],
-    "frontEnd": [],
+    "frontEnd": [
+      "Next.js"
+    ],
     "backEnd": [
       "Node.js",
       "Express.js",
@@ -188,7 +242,8 @@
       "Nodemailer",
       "Twilio",
       "Helmet",
-      "Express Rate Limit"
+      "Express Rate Limit",
+      "Webhooks"
     ],
     "tools": [
       "Git",
@@ -200,12 +255,12 @@
       "Husky",
       "Vercel"
     ],
-    "image": "/clipframe (2).png",
+    "image": "/images/projects/9-960.webp",
     "demo": null,
     "githubServer": "https://github.com/Mohosin075/ClipFrame",
     "githubClient": null,
     "video": null,
-    "role": "Backend development: content scheduling, Facebook/Instagram integrations, BullMQ/Redis jobs, subscription limits and API documentation.",
+    "role": "Content automation development: Next.js workflows, scheduling APIs, Facebook/Instagram Meta integration, BullMQ/Redis jobs, subscription limits and webhooks.",
     "sourceImage": "/clipframe (2).png",
     "problem": "Businesses need to manage brand assets, plan content and schedule publishing while staying within their subscription limits.",
     "focus": [
@@ -231,7 +286,31 @@
       "BullMQ",
       "Redis",
       "Stripe"
-    ]
+    ],
+    "systemFlow": [
+      "Content planner",
+      "Express / TypeScript APIs",
+      "BullMQ / Redis / Meta publishing"
+    ],
+    "decisions": [
+      {
+        "challenge": "Publishing at a scheduled time",
+        "choice": "BullMQ + Redis",
+        "implementation": "Asynchronous jobs support scheduled Facebook and Instagram publishing.",
+        "reasoning": "A queue separates scheduled work from the request that creates it. Provider failures, retries and job timing are concerns to account for in this approach.",
+        "result": "Content planning is connected to scheduled social publishing."
+      },
+      {
+        "challenge": "Plan-based content limits",
+        "choice": "Stripe + application limits",
+        "implementation": "Stripe plans are paired with weekly content and business limits.",
+        "reasoning": "Billing status and product usage are different responsibilities: the application must apply the limits associated with each plan.",
+        "result": "Weekly content allowances follow subscription plans."
+      }
+    ],
+    "previewLabel": "Project artwork",
+    "imageTone": "lavender",
+    "imageSet": "/images/projects/9-480.webp 480w, /images/projects/9-960.webp 960w, /images/projects/9-1440.webp 1440w"
   },
   {
     "id": 8,
@@ -286,7 +365,7 @@
       "Vercel",
       "ts-node-dev"
     ],
-    "image": "/pia.png",
+    "image": "/images/projects/8-960.webp",
     "demo": null,
     "githubServer": null,
     "githubClient": null,
@@ -317,7 +396,31 @@
       "BullMQ",
       "Redis",
       "Stripe"
-    ]
+    ],
+    "systemFlow": [
+      "Flutter mobile app",
+      "REST / WebSocket APIs",
+      "MongoDB / Stripe / Recipe features"
+    ],
+    "decisions": [
+      {
+        "challenge": "Web services for a mobile product",
+        "choice": "REST + WebSocket APIs",
+        "implementation": "Backend endpoints and real-time APIs are integrated with a Flutter application.",
+        "reasoning": "Request/response APIs suit saved tracking data; a live connection supports features that need updates while the app is open.",
+        "result": "The mobile app connects tracking and real-time features to backend services."
+      },
+      {
+        "challenge": "A complete subscription lifecycle",
+        "choice": "Stripe billing features",
+        "implementation": "Subscriptions include trial eligibility, pause, resume, cancellation and billing portal access.",
+        "reasoning": "Subscription access changes over time. The integration needs to account for lifecycle changes as well as the initial checkout.",
+        "result": "Users have subscription and billing-management workflows."
+      }
+    ],
+    "previewLabel": "Project artwork",
+    "imageTone": "rose",
+    "imageSet": "/images/projects/8-480.webp 480w, /images/projects/8-960.webp 960w, /images/projects/8-1440.webp 1440w"
   },
   {
     "id": 7,
@@ -376,7 +479,7 @@
       "Husky",
       "Vercel"
     ],
-    "image": "/bean.png",
+    "image": "/images/projects/7-960.webp",
     "demo": "",
     "githubServer": "https://github.com/Mohosin075/chaserxhype-bean-fien-server",
     "githubClient": "https://github.com/Mohosin075/dashboard-chaserxhype-bean-fien",
@@ -407,7 +510,31 @@
       "BullMQ",
       "Redis",
       "Stripe"
-    ]
+    ],
+    "systemFlow": [
+      "Next.js storefront & admin",
+      "Express / TypeScript APIs",
+      "MongoDB / Stripe / Loyalty"
+    ],
+    "decisions": [
+      {
+        "challenge": "Customer and administrator interfaces",
+        "choice": "Next.js + Express services",
+        "implementation": "A storefront and reporting dashboard connect to backend commerce services.",
+        "reasoning": "Different interfaces can serve different tasks while relying on the same underlying order, payment and loyalty data.",
+        "result": "Customers have menu, cart and gift-card tools; administrators have order and revenue views."
+      },
+      {
+        "challenge": "Loyalty alongside checkout",
+        "choice": "MongoDB + Stripe",
+        "implementation": "Payment integration sits alongside loyalty points and coupon workflows.",
+        "reasoning": "Payments and rewards are connected business flows, but they need distinct records and rules to keep their responsibilities clear.",
+        "result": "Checkout, loyalty points and coupon claiming are supported."
+      }
+    ],
+    "previewLabel": "Project artwork",
+    "imageTone": "sand",
+    "imageSet": "/images/projects/7-480.webp 480w, /images/projects/7-960.webp 960w, /images/projects/7-1440.webp 1440w"
   },
   {
     "id": 5,
@@ -452,7 +579,7 @@
       "Vercel",
       "Firebase FCM"
     ],
-    "image": "/photopia.png",
+    "image": "/images/projects/5-960.webp",
     "demo": null,
     "githubServer": "https://github.com/Mohosin075/photopia-ayoubouajj",
     "githubClient": null,
@@ -481,6 +608,30 @@
       "MongoDB",
       "Stripe Connect",
       "Socket.io"
-    ]
+    ],
+    "systemFlow": [
+      "Mobile app & Next.js admin",
+      "REST / WebSocket APIs",
+      "Stripe Connect / Messaging"
+    ],
+    "decisions": [
+      {
+        "challenge": "Earnings for service professionals",
+        "choice": "Stripe Connect",
+        "implementation": "Split-payment logic supports professional earnings payouts.",
+        "reasoning": "Marketplace payments involve multiple recipients. A connected-account payment service fits that flow, with payout and booking records still managed by the application.",
+        "result": "Professional earnings have a split-payment and payout workflow."
+      },
+      {
+        "challenge": "One backend across web and mobile",
+        "choice": "REST APIs + Socket.io",
+        "implementation": "A Next.js admin portal and Flutter integration share backend APIs and messaging features.",
+        "reasoning": "Documented APIs give web and mobile teams a common integration surface; real-time messaging handles live communication.",
+        "result": "Administration and mobile client integration connect to the platform services."
+      }
+    ],
+    "previewLabel": "Project artwork",
+    "imageTone": "lavender",
+    "imageSet": "/images/projects/5-480.webp 480w, /images/projects/5-960.webp 960w, /images/projects/5-1440.webp 1440w"
   }
 ]

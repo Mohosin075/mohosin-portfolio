@@ -28,7 +28,7 @@ export default function Projects({ limit }) {
       {!limit && <header className="page-heading">
         <span className="eyebrow">The work</span>
         <h1>Projects & contributions.</h1>
-        <p>Backend services, product integrations and full-stack applications. Explore the work and my contribution to each project.</p>
+        <p>Full-stack travel mapping, content automation and backend systems. Explore the implementation, integrations and my contribution to each product.</p>
       </header>}
       {!limit && <div className="work-toolbar">
         <div className="work-filters" aria-label="Filter projects">
@@ -41,12 +41,12 @@ export default function Projects({ limit }) {
        visible.length === 0 ? <div className="state-panel"><h2>No projects in this category yet.</h2><button className="btn-ghost" onClick={() => setCategory("all")}>View all work</button></div> :
        <div className="work-grid">
          {visible.map((project, index) => <article key={project.id} className={index === 0 ? "work-card work-card-featured" : "work-card"}>
-           <Link className="work-card-image" to={"/projects/" + project.id} aria-label={"View " + project.title + " case study"}><img src={project.image} alt={project.title} loading="lazy" decoding="async" /></Link>
+           <Link className={"work-card-image work-tone-" + project.imageTone} to={"/projects/" + project.id} aria-label={"View " + project.title + " case study"}><img src={project.image} srcSet={project.imageSet} sizes={index === 0 ? "(max-width: 799px) calc(100vw - 40px), 760px" : "(max-width: 799px) calc(100vw - 40px), 580px"} alt={projectName(project.title) + " project artwork"} loading="lazy" decoding="async" /><span className="work-image-caption">{project.previewLabel}<ArrowUpRight size={18} aria-hidden="true" /></span></Link>
            <div className="work-card-body">
-             <div className="work-card-kicker"><span className="eyebrow">{project.category === "backend" ? "Backend engineering" : "Full-stack development"}</span>{index === 0 && <span className="featured-label">Featured work</span>}</div>
+             <div className="work-card-kicker"><span className="work-index">{String(index + 1).padStart(2, "0")}</span><span className="eyebrow">{project.category === "backend" ? "Backend engineering" : "Full-stack development"}</span>{index === 0 && <span className="featured-label">Featured work</span>}</div>
              <h2><Link to={"/projects/" + project.id}>{projectName(project.title)}</Link></h2>
              <p className="work-card-summary">{project.subtitle}</p>
-             <p className="work-card-role">{project.role}</p>
+             <div className="work-card-role"><span className="eyebrow">My contribution</span><p>{project.role}</p></div>
              <div className="work-card-tags">{(project.primaryStack || project.backEnd || []).slice(0,4).map(tech => <span key={tech}>{tech}</span>)}</div>
              <Link className="work-card-link" to={"/projects/" + project.id}>Explore case study <ArrowUpRight size={19} /></Link>
            </div>

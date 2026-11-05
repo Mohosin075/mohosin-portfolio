@@ -17,13 +17,13 @@ export default function ProjectImage({ src, title }) {
   return (
     <figure className="project-gallery" id="project-preview">
       <button className="project-gallery-trigger" onClick={() => setOpen(true)} aria-label={`Enlarge ${title} screenshot`}>
-        <img src={src} alt={`${title} project screenshot`} decoding="async" />
+        <img src={src} alt={`${title} project artwork`} decoding="async" />
         <span><Expand size={16} /> View full image</span>
       </button>
-      <figcaption>Project preview <span>Original image · click to enlarge</span></figcaption>
+      <figcaption>Project artwork <span>Visual overview &middot; select to enlarge</span></figcaption>
       <dialog ref={dialog} className="image-dialog" aria-labelledby={heading} onCancel={(event) => { event.preventDefault(); setOpen(false); }} onClick={(event) => { if (event.target === event.currentTarget) setOpen(false); }}>
         <div className="image-dialog-bar"><h2 id={heading}>{title}</h2><button autoFocus onClick={() => setOpen(false)} aria-label="Close image"><X size={22} /></button></div>
-        <img src={src} alt={`${title} full screenshot`} />
+        <img src={src} alt={`${title} full project artwork`} />
         <a href={src} target="_blank" rel="noopener noreferrer">Open original image <ArrowUpRight size={16} /></a>
       </dialog>
     </figure>

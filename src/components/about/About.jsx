@@ -1,88 +1,24 @@
+import { experience, profile } from "../../data/profile";
 import ProfileImage from "../ProfileImage";
 import { motion } from "framer-motion";
 import {
-  Server, Database, Cpu, Clock, CalendarDays, Layout,
+  Server, Database, Cpu, Clock, CalendarDays, Layout, Code2,
 } from "lucide-react";
-import {
-  SiNodedotjs, SiExpress, SiMongodb, SiTypescript, SiReact,
-  SiDocker, SiAmazon, SiPrisma, SiPostgresql, SiStripe,
-  SiSocketdotio, SiFirebase, SiGithub, SiPostman, SiRedis,
-} from "react-icons/si";
-
 const skillCategories = [
-  {
-    title: "Backend & APIs",
-    icon: Server,
-    skills: [
-      { name: "Node.js", icon: SiNodedotjs },
-      { name: "Express.js", icon: SiExpress },
-      { name: "TypeScript", icon: SiTypescript },
-      { name: "Socket.io", icon: SiSocketdotio },
-      { name: "Postman", icon: SiPostman },
-    ],
-  },
-  {
-    title: "Databases & Caching",
-    icon: Database,
-    skills: [
-      { name: "MongoDB", icon: SiMongodb },
-      { name: "PostgreSQL", icon: SiPostgresql },
-      { name: "Redis", icon: SiRedis },
-      { name: "Prisma", icon: SiPrisma },
-    ],
-  },
-  {
-    title: "Frontend & Client",
-    icon: Layout,
-    skills: [
-      { name: "React.js", icon: SiReact },
-      { name: "Firebase", icon: SiFirebase },
-      { name: "Stripe", icon: SiStripe },
-    ],
-  },
-  {
-    title: "DevOps & Tools",
-    icon: Cpu,
-    skills: [
-      { name: "Docker", icon: SiDocker },
-      { name: "AWS S3", icon: SiAmazon },
-      { name: "GitHub", icon: SiGithub },
-    ],
-  },
+  { title: "Languages", icon: Code2, skills: ["JavaScript (ES6+)","TypeScript","SQL"] },
+  { title: "Backend & APIs", icon: Server, skills: ["Node.js","Express.js","Socket.io","REST APIs","Passport.js","JWT","Zod"] },
+  { title: "Databases & Caching", icon: Database, skills: ["MongoDB","Mongoose","PostgreSQL","Prisma","Redis"] },
+  { title: "Frontend & Mobile", icon: Layout, skills: ["React.js","Next.js","Redux Toolkit","Tailwind CSS","TanStack Query","Flutter","Dart"] },
+  { title: "Cloud & Deployment", icon: Cpu, skills: ["AWS S3","AWS EC2","Docker","NGINX","PM2","CI/CD","Vercel"] },
+  { title: "Tools & Integrations", icon: Server, skills: ["Git","GitHub","Postman","npm","Yarn","Stripe","SSLCommerz","Firebase Authentication","OpenAI API"] },
 ];
 
-const experience = [
-  {
-    role: "Jr. Backend Developer",
-    company: "Sparktech Agency",
-    period: "Jun 2025 – Present",
-    current: true,
-    bullets: [
-      "Developing Node.js, Express and TypeScript APIs backed by MongoDB.",
-      "Implementing authentication, subscriptions, real-time messaging and background jobs across client projects.",
-      "Building Next.js admin interfaces and collaborating with frontend and Flutter teams on API integration.",
-      "Applying request validation, error handling and API documentation to support ongoing development.",
-    ],
-    stack: ["Node.js", "Express.js", "TypeScript", "MongoDB", "JWT"],
-  },
-];
+
 
 const services = [
-  {
-    icon: Server,
-    title: "API Design & Development",
-    desc: "Secure, well-documented RESTful APIs optimised for high-throughput production environments. Rate limiting, caching, versioning.",
-  },
-  {
-    icon: Database,
-    title: "Database Architecture",
-    desc: "Efficient MongoDB and PostgreSQL schemas — proper indexing, aggregation pipelines, and Prisma ORM integrations.",
-  },
-  {
-    icon: Cpu,
-    title: "Real-time Systems",
-    desc: "Bidirectional communication with Socket.io, event-driven architecture, and push notification systems at scale.",
-  },
+ { icon: Layout, title: "Full-stack Applications", desc: "React and Next.js interfaces backed by Node.js, Express.js and TypeScript APIs, from application architecture to delivery." },
+ { icon: Database, title: "APIs & Database Design", desc: "REST APIs, authentication and database models using MongoDB, PostgreSQL and Prisma, with validation and integration support." },
+ { icon: Cpu, title: "Integrations & Deployment", desc: "OpenAI, payment and Firebase integrations, plus application deployment with AWS, Docker, NGINX and PM2." },
 ];
 
 const About = () => {
@@ -91,7 +27,7 @@ const About = () => {
       <div className="CC">
 
         {/* Page header */}
-        <div style={{ marginBottom: 80, borderBottom: "1px solid var(--border)", paddingBottom: 64 }}>
+        <div className="page-heading interior-heading" style={{ marginBottom: 80, borderBottom: "1px solid var(--border)", paddingBottom: 64 }}>
           <div className="rule-label" style={{ marginBottom: 24 }}>
             About
           </div>
@@ -109,8 +45,7 @@ const About = () => {
             <span style={{ color: "var(--vermillion)" }}>the work.</span>
           </h1>
           <p style={{ fontSize: 16, color: "var(--muted)", maxWidth: 520, lineHeight: 1.75 }}>
-            Backend-focused Full Stack Developer building
-            production-grade systems — scalable APIs, real-time features, and modern React frontends.
+            {profile.summary}
           </p>
         </div>
 
@@ -144,14 +79,14 @@ const About = () => {
                   <p style={{ fontSize: 14, fontWeight: 700, color: "var(--chalk)", lineHeight: 1.2 }}>
                     Md Mohosin Ali
                   </p>
-                  <p className="code-label" style={{ marginTop: 4 }}>Backend / Full Stack</p>
+                  <p className="code-label" style={{ marginTop: 4 }}>Full Stack Developer</p>
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
                   <div style={{ position: "relative", width: 8, height: 8 }}>
                     <span style={{ position: "absolute", inset: 0, borderRadius: "50%", background: "#34C759" }} />
                     <span className="status-dot-ring" style={{ position: "absolute", inset: 0, borderRadius: "50%", background: "rgba(52,199,89,0.4)" }} />
                   </div>
-                  <span className="code-label" style={{ color: "#34C759" }}>Available</span>
+                  <span className="code-label" style={{ color: "#2c603c" }}>Open to roles</span>
                 </div>
               </div>
             </div>
@@ -182,10 +117,10 @@ const About = () => {
             {/* Bio text */}
             <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
               <p style={{ fontSize: 15, lineHeight: 1.75, color: "var(--muted)" }}>
-                I&apos;m a <span style={{ color: "var(--chalk)", fontWeight: 600 }}>Backend-focused Full Stack Developer</span> building
+                I&apos;m a <span style={{ color: "var(--chalk)", fontWeight: 600 }}>Full Stack Developer</span> building
                 production systems. Since June 2025, I have worked as a{" "}
-                <span style={{ color: "var(--vermillion)", fontWeight: 600 }}>Jr. Backend Developer at Sparktech Agency</span>,
-                architecting scalable services while delivering complete full-stack applications.
+                <span style={{ color: "var(--vermillion)", fontWeight: 600 }}>Backend Developer at Sparktech Agency</span>,
+                building APIs, React and Next.js applications, and integrations for international clients.
               </p>
 
               <blockquote style={{
@@ -196,14 +131,11 @@ const About = () => {
                 lineHeight: 1.75,
                 fontStyle: "italic",
               }}>
-                &quot;I build both the engine and the dashboard — backend systems that are fast
-                and secure, with frontends that feel alive.&quot;
+                I work across the product lifecycle: architecture, database design, development, code review and cloud deployment.
               </blockquote>
 
               <p style={{ fontSize: 15, lineHeight: 1.75, color: "var(--muted)" }}>
-                Strong in <span style={{ color: "var(--chalk)", fontWeight: 600 }}>Node.js, Express & MongoDB</span> on the backend,
-                equally comfortable with <span style={{ color: "var(--chalk)", fontWeight: 600 }}>React, Redux & TanStack Query</span> on
-                the frontend. I write clean, maintainable code and build complete end-to-end products.
+                My backend work uses Node.js, Express.js and TypeScript with MongoDB, PostgreSQL and Prisma. On the frontend, I build with React, Next.js and Redux Toolkit. I integrate OpenAI, Stripe and Firebase, and manage deployments with AWS, Docker, NGINX and PM2.
               </p>
             </div>
           </motion.div>
@@ -228,19 +160,17 @@ const About = () => {
                 <h3 style={{ fontSize: 16, fontWeight: 700, color: "var(--chalk)", marginBottom: 12, lineHeight: 1.3 }}>
                   {s.title}
                 </h3>
-                <p style={{ fontSize: 13, color: "var(--muted)", lineHeight: 1.75 }}>{s.desc}</p>
+                <p style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.75 }}>{s.desc}</p>
               </motion.div>
             ))}
             </div>
           </div>
-        </div>
-
         {/* Experience + Education */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, marginBottom: 80 }} className="exp-grid">
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, marginBottom: 80 }} className="exp-grid editorial-history">
           {/* Experience */}
           <div>
             <div className="rule-label" style={{ marginBottom: 32 }}>Experience</div>
-            <div className="experience-timeline">
+            <div className="experience-timeline editorial-panels">
             {experience.map((job, i) => (
               <motion.div
                 key={i}
@@ -250,7 +180,7 @@ const About = () => {
                 style={{
                   padding: "24px",
                   border: "1px solid var(--border)",
-                  borderRadius: 12,
+                  borderRadius: 4,
                   background: "var(--surface)",
                   marginBottom: 16,
                 }}
@@ -260,7 +190,7 @@ const About = () => {
                     <h3 style={{ fontSize: 16, fontWeight: 700, color: "var(--chalk)", lineHeight: 1.2 }}>
                       {job.role}
                     </h3>
-                    <p style={{ fontSize: 13, color: "var(--vermillion)", fontWeight: 600, marginTop: 4 }}>
+                    <p style={{ fontSize: 14, color: "var(--vermillion)", fontWeight: 600, marginTop: 4 }}>
                       {job.company}
                     </p>
                   </div>
@@ -277,7 +207,7 @@ const About = () => {
 
                 <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 8, marginBottom: 16 }}>
                   {job.bullets.map((b, j) => (
-                    <li key={j} style={{ display: "flex", gap: 10, fontSize: 13, color: "var(--muted)" }}>
+                    <li key={j} style={{ display: "flex", gap: 10, fontSize: 14, color: "var(--muted)" }}>
                       <span style={{ color: "var(--vermillion)", flexShrink: 0, fontFamily: "monospace" }}>→</span>
                       {b}
                     </li>
@@ -292,6 +222,7 @@ const About = () => {
               </motion.div>
             ))}
           </div>
+          </div>
 
           {/* Education */}
           <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
@@ -305,7 +236,7 @@ const About = () => {
               style={{
                 padding: "24px",
                 border: "1px solid var(--border)",
-                borderRadius: 12,
+                borderRadius: 4,
                 background: "var(--surface)",
               }}
             >
@@ -314,7 +245,7 @@ const About = () => {
                   <h3 style={{ fontSize: 16, fontWeight: 700, color: "var(--chalk)", lineHeight: 1.2 }}>
                     B.Sc. in Computer Science and Engineering (CSE)
                   </h3>
-                  <p style={{ fontSize: 13, color: "var(--vermillion)", fontWeight: 600, marginTop: 4 }}>
+                  <p style={{ fontSize: 14, color: "var(--vermillion)", fontWeight: 600, marginTop: 4 }}>
                     Northern University Bangladesh (NUB)
                   </p>
                 </div>
@@ -337,14 +268,14 @@ const About = () => {
               style={{
                 padding: "24px",
                 border: "1px solid var(--border)",
-                borderRadius: 12,
+                borderRadius: 4,
                 background: "var(--surface)",
               }}
             >
               <h3 style={{ fontSize: 16, fontWeight: 700, color: "var(--chalk)", lineHeight: 1.2, marginBottom: 6 }}>
                 Diploma in Computer Technology
               </h3>
-              <p style={{ fontSize: 13, color: "var(--muted)", fontWeight: 600 }}>
+              <p style={{ fontSize: 14, color: "var(--muted)", fontWeight: 600 }}>
                 Dinajpur Polytechnic Institute
               </p>
               <div style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 12 }}>
@@ -357,6 +288,8 @@ const About = () => {
             </motion.div>
           </div>
         </div>
+
+        <section className="profile-languages" aria-labelledby="spoken-languages-heading"><h2 id="spoken-languages-heading" className="rule-label">Languages</h2><dl><div><dt>Bangla</dt><dd>Native</dd></div><div><dt>English</dt><dd>Basic</dd></div></dl></section>
 
         {/* Skills grid */}
         <div>
@@ -378,10 +311,8 @@ const About = () => {
                     <h3 className="tech-card-title">{category.title}</h3>
                   </div>
                   <div className="tech-card-skills">
-                    {category.skills.map((skill, i) => (
-                      <span key={i} className="skill-tag-icon">
-                        <skill.icon size={14} style={{ flexShrink: 0 }} />
-                        {skill.name}
+                    {category.skills.map((skill) => (
+                      <span key={skill} className="skill-tag-icon">{skill}
                       </span>
                     ))}
                   </div>
