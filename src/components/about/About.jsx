@@ -243,29 +243,6 @@ const About = () => {
               </div>
             </div>
 
-            {/* Diploma */}
-            <div
-              style={{
-                padding: "24px",
-                border: "1px solid var(--border)",
-                borderRadius: 4,
-                background: "var(--surface)",
-              }}
-            >
-              <h3 style={{ fontSize: 16, fontWeight: 700, color: "var(--chalk)", lineHeight: 1.2, marginBottom: 6 }}>
-                Diploma in Computer Technology
-              </h3>
-              <p style={{ fontSize: 14, color: "var(--muted)", fontWeight: 600 }}>
-                Dinajpur Polytechnic Institute
-              </p>
-              <div style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 12 }}>
-                <CalendarDays size={12} style={{ color: "var(--muted)" }} />
-                <span className="code-label">Completed Jan 2025</span>
-              </div>
-              <div style={{ marginTop: 16 }}>
-                <span className="tech-tag">Computer Technology</span>
-              </div>
-            </div>
           </div>
         </div>
 

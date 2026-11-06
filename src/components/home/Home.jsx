@@ -1,7 +1,7 @@
 import { experience, profile } from "../../data/profile";
 import ProfileImage from "../ProfileImage";
 import { NavLink } from "react-router-dom";
-import { ArrowRight, Download, Server, Database, Layout, Cpu } from "lucide-react";
+import { ArrowRight, Download, Server, Database, Layout, Cpu, BriefcaseBusiness } from "lucide-react";
 
 import Projects from "../projects/Projects";
 import { SiNodedotjs, SiTypescript, SiMongodb, SiReact, SiNextdotjs } from "react-icons/si";
@@ -51,11 +51,13 @@ const Home = () => (
           <div className="editorial-actions"><NavLink to="/projects" className="btn-v">Explore my work <ArrowRight size={18} /></NavLink><a className="text-link" href="/mohosin-ali-resume.pdf" download>Download resume <Download size={16} /></a></div>
           <p className="hero-notice"><span />{profile.availability}</p>
         </div>
-        <div className="editorial-portrait">
-
-          <div className="editorial-portrait-image"><ProfileImage sizes="(min-width: 1100px) 380px, (min-width: 800px) 320px, (min-width: 640px) 360px, 280px" /></div>
-          <div className="portrait-caption"><span>Backend Developer at Sparktech Agency</span><span>Since Jun &apos;25 <ArrowRight size={16} /></span></div>
-        </div>
+        <figure className="editorial-portrait hero-portrait-card">
+          <div className="editorial-portrait-image"><ProfileImage sizes="(min-width: 1100px) 354px, (min-width: 800px) 30vw, (min-width: 380px) 274px, calc(100vw - 66px)" /></div>
+          <figcaption className="hero-portrait-caption">
+            <div className="portrait-job"><span className="portrait-job-icon" aria-hidden="true"><BriefcaseBusiness size={18} strokeWidth={1.5} /></span><div><p>Backend Developer</p><span>Sparktech Agency</span></div></div>
+            <p className="portrait-tenure"><span aria-hidden="true" />Since June 2025</p>
+          </figcaption>
+        </figure>
       </div>
       <div className="core-stack" aria-labelledby="core-stack-heading">
         <div className="core-stack-intro"><span className="eyebrow" id="core-stack-heading">Core technologies</span><p>The tools behind the work.</p></div>
