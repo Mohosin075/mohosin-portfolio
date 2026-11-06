@@ -1,7 +1,7 @@
 import { experience, profile } from "../../data/profile";
 import ProfileImage from "../ProfileImage";
 import { NavLink } from "react-router-dom";
-import { ArrowRight, Download, MapPin, Server, Database, Layout, Cpu } from "lucide-react";
+import { ArrowRight, Download, Server, Database, Layout, Cpu } from "lucide-react";
 
 import Projects from "../projects/Projects";
 import { SiNodedotjs, SiTypescript, SiMongodb, SiReact, SiNextdotjs } from "react-icons/si";
@@ -43,12 +43,10 @@ const skillCategories = [
 const Home = () => (
   <div className="home-page redesign-home">
     <section className="editorial-hero CC">
-      <div className="hero-topline"><span className="eyebrow">Full-stack development & cloud deployment</span><span className="hero-location"><MapPin size={14} /> Dhaka, Bangladesh</span></div>
       <div className="editorial-hero-grid">
         <div className="editorial-hero-copy">
-          <p className="hero-greeting">Mohosin Ali / Full Stack Developer</p>
+          <p className="hero-greeting"><span>Mohosin Ali</span><span className="hero-greeting-divider" aria-hidden="true"> / </span><span className="hero-greeting-role">Full Stack Developer</span></p>
           <h1>Building products that solve <span className="hero-name-period">real problems.</span></h1>
-          <p className="hero-role">Full-stack development, <span>from idea to production.</span></p>
           <p className="hero-description">{profile.summary}</p>
           <div className="editorial-actions"><NavLink to="/projects" className="btn-v">Explore my work <ArrowRight size={18} /></NavLink><a className="text-link" href="/mohosin-ali-resume.pdf" download>Download resume <Download size={16} /></a></div>
           <p className="hero-notice"><span />{profile.availability}</p>

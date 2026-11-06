@@ -171,7 +171,7 @@ const About = () => {
                   marginBottom: 16,
                 }}
               >
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 16 }}>
+                  <div className="experience-job-header" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 16 }}>
                   <div>
                     <h3 style={{ fontSize: 16, fontWeight: 700, color: "var(--chalk)", lineHeight: 1.2 }}>
                       {job.role}
@@ -180,7 +180,7 @@ const About = () => {
                       {job.company}
                     </p>
                   </div>
-                  <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 6 }}>
+                    <div className="experience-job-meta" style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 6 }}>
                     {job.current && (
                       <span className="badge badge-green">Current</span>
                     )}
