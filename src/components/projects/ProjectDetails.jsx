@@ -35,21 +35,31 @@ export default function ProjectDetails() {
         <h1>{projectName(project.title)}<span className="heading-period">.</span></h1>
         <p>{project.subtitle}</p>
       </header>
+      <div className="case-quick-links" aria-label="Project resources">
+        {project.demo && <a href={project.demo} target="_blank" rel="noopener noreferrer" className="btn-v">Live website <ArrowUpRight size={17} /></a>}
+        {project.githubServer && <a href={project.githubServer} target="_blank" rel="noopener noreferrer" className="btn-ghost">Backend repository <ArrowUpRight size={17} /></a>}
+        {project.githubClient && project.githubClient !== project.githubServer && <a href={project.githubClient} target="_blank" rel="noopener noreferrer" className="btn-ghost">Frontend repository <ArrowUpRight size={17} /></a>}
+        {project.video && <button className="btn-ghost" onClick={() => setIsModalOpen(true)}>Video overview <Play size={17} /></button>}
+      </div>
       <div className="case-facts">
         <div><span className="eyebrow">My role</span><p>{project.category === "backend" ? "Backend development" : "Backend & web development"}</p></div>
-        <div><span className="eyebrow">Core stack</span><p>{project.primaryStack.slice(0,4).join(" / ")}</p></div>
+        <div><span className="eyebrow">Core stack</span><ul className="case-core-stack">{project.primaryStack.map(tech => <li key={tech}>{tech}</li>)}</ul></div>
         <div><span className="eyebrow">Focus</span><p>{project.decisions?.[0]?.choice || project.subtitle}</p></div>
       </div>
       <ProjectImage key={project.id} src={project.image} title={projectName(project.title)} />
-      <nav className="case-study-navigation" aria-label="Case study sections"><a href="#case-context">01 Overview</a><a href="#case-decisions">02 Decisions</a><a href="#case-results">03 Results</a><a href="#case-stack">04 Stack & links</a></nav>
+      <nav className="case-study-navigation" aria-label="Case study sections"><a href="#case-context">01 Overview</a>{project.focus?.length > 0 && <a href="#case-features">02 Features</a>}<a href="#case-decisions">03 Engineering</a><a href="#case-results">04 Results</a><a href="#case-stack">05 Stack & links</a></nav>
       <section className="case-section" id="case-context">
         <div className="case-section-label"><span className="eyebrow">01 / The brief</span><h2>Problem & contribution.</h2></div>
         <div className="case-section-content"><p className="case-lead">{project.problem}</p><p>{project.description}</p><div className="case-contribution"><span className="eyebrow">What I worked on</span><p>{project.role}</p></div>
-          {project.systemFlow?.length > 0 && <ol className="system-flow" aria-label="Simplified system overview">{project.systemFlow.map((step,i) => <li key={step}><span className="eyebrow">0{i+1}</span><strong>{step}</strong>{i < project.systemFlow.length-1 && <ArrowUpRight size={18} aria-hidden="true" />}</li>)}</ol>}
+          {project.systemFlow?.length > 0 && <div className="case-system"><h3>How the system connects</h3><ol className="system-flow" aria-label="Simplified system overview">{project.systemFlow.map((step,i) => <li key={step}><span className="eyebrow">0{i+1}</span><strong>{step}</strong>{i < project.systemFlow.length-1 && <ArrowUpRight size={18} aria-hidden="true" />}</li>)}</ol></div>}
         </div>
       </section>
+      {project.focus?.length > 0 && <section className="case-section" id="case-features">
+        <div className="case-section-label"><span className="eyebrow">02 / Product features</span><h2>What I built.</h2><p>The main parts of the product and the work behind each one.</p></div>
+        <div className="case-feature-grid">{project.focus.map((feature, i) => <div className="case-feature-card" key={feature.title}><span className="case-feature-number">{String(i + 1).padStart(2, "0")}</span><h3>{feature.title}</h3><p>{feature.body}</p></div>)}</div>
+      </section>}
       <section className="case-section" id="case-decisions">
-        <div className="case-section-label"><span className="eyebrow">02 / Engineering</span><h2>Choices behind the features.</h2><p>The implementation, what it enables and the considerations that come with it.</p></div>
+        <div className="case-section-label"><span className="eyebrow">03 / Engineering</span><h2>Choices behind the features.</h2><p>The implementation, what it enables and the considerations that come with it.</p></div>
         <div className="case-section-content"><p className="case-editorial-note">The considerations below explain how each approach fits the documented work; they are not a record of the original decision process.</p>
           {project.decisions?.map((decision,i) => <section className="decision-card" key={decision.challenge}>
             <div className="decision-title"><span className="eyebrow">0{i+1}</span><h3>{decision.challenge}</h3></div>
@@ -58,11 +68,11 @@ export default function ProjectDetails() {
         </div>
       </section>
       <section className="case-section" id="case-results">
-        <div className="case-section-label"><span className="eyebrow">03 / The result</span><h2>What the work enables.</h2><p>Functional outcomes from the documented contributions.</p></div>
-        <div className="case-section-content"><ul className="case-outcomes">{project.decisions?.map(d => <li key={d.result}><ArrowUpRight size={22} aria-hidden="true" /><p>{d.result}</p></li>)}</ul><details className="case-details"><summary>View the complete contribution list</summary><ul>{project.highlights.map(item => <li key={item}>{item}</li>)}</ul></details></div>
+        <div className="case-section-label"><span className="eyebrow">04 / The result</span><h2>What the work enables.</h2><p>Functional outcomes from the documented contributions.</p></div>
+        <div className="case-section-content"><ul className="case-outcomes">{project.decisions?.map(d => <li key={d.result}><ArrowUpRight size={22} aria-hidden="true" /><p>{d.result}</p></li>)}</ul><div className="case-deliverables"><h3>Complete contribution list</h3><ul>{project.highlights.map(item => <li key={item}>{item}</li>)}</ul></div></div>
       </section>
       <section className="case-section" id="case-stack">
-        <div className="case-section-label"><span className="eyebrow">04 / Explore further</span><h2>Stack & project links.</h2></div>
+        <div className="case-section-label"><span className="eyebrow">05 / Explore further</span><h2>Stack & project links.</h2></div>
         <div className="case-section-content"><div className="case-tech-groups">{[{title:"Backend",items:project.backEnd},{title:"Client & integration",items:project.frontEnd},{title:"Tools",items:project.tools}].filter(group => group.items?.length).map(group => <div key={group.title}><h3>{group.title}</h3><ul>{group.items.map(item => <li key={item}>{item}</li>)}</ul></div>)}</div>
           <div className="case-project-links">
             {project.demo && <a href={project.demo} target="_blank" rel="noopener noreferrer" className="btn-v">Live website <ArrowUpRight size={18} /></a>}
