@@ -2,6 +2,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import { ListItem } from "../../utils/constant";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
+import BrandLogo from "../BrandLogo";
 export default function Navbar(){
  const [isOpen,setIsOpen]=useState(false);
  const [scrolled,setScrolled]=useState(false);
@@ -24,7 +25,7 @@ export default function Navbar(){
     <>
       <nav className={scrolled ? "editorial-nav is-scrolled" : "editorial-nav"} aria-label="Main navigation">
         <div className="CC editorial-nav-inner">
-          <NavLink to="/" className="editorial-logo" aria-label="Mohosin Ali home">mohosin<span>.</span><small>DEVELOPER / DHAKA</small></NavLink>
+          <BrandLogo />
           <div className="editorial-nav-links">{ListItem.map(item=><NavLink key={item.location} to={"/"+item.location}>{item.Label}</NavLink>)}</div>
           <NavLink to="/contact" className="nav-contact">Let&apos;s talk <span>&#8599;</span></NavLink>
           <button ref={toggleRef} className="editorial-menu-toggle" aria-label="Open navigation" aria-expanded={isOpen} aria-controls="mobile-navigation" onClick={()=>setIsOpen(true)}><Menu size={24}/></button>

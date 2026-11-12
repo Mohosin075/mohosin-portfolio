@@ -1,5 +1,5 @@
-import { NavLink } from "react-router-dom";
 import { ArrowUp, ArrowUpRight } from "lucide-react";
+import BrandLogo from "../BrandLogo";
 
 export default function Footer() {
   return (
@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="CC">
         <div className="footer-top">
           <div className="footer-brand">
-            <NavLink to="/" className="editorial-logo" aria-label="Mohosin Ali home">mohosin<span>.</span></NavLink>
+            <BrandLogo />
             <p>Full-stack development.<br />Architecture to deployment.</p>
           </div>
           <nav className="footer-socials" aria-label="Social and contact links">
