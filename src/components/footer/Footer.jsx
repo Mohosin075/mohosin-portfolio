@@ -1,5 +1,6 @@
 import { ArrowUp, ArrowUpRight, MapPin } from "lucide-react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { ListItem } from "../../utils/constant";
 import BrandLogo from "../BrandLogo";
 import { contact } from "../../data/profile";
 import "./Footer.css";
@@ -17,7 +18,7 @@ export default function Footer() {
           </div>
           <nav className="footer-link-group" aria-label="Footer navigation">
             <h2>Explore</h2>
-            <NavLink to="/" end>Home</NavLink><NavLink to="/projects">Projects</NavLink><NavLink to="/contact">Contact</NavLink>
+            {ListItem.map(item=><Link key={item.location} to={`/#${item.location}`}>{item.Label}</Link>)}
           </nav>
           <nav className="footer-link-group" aria-label="Social links">
             <h2>Connect</h2>

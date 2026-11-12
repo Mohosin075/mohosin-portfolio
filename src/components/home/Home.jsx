@@ -1,6 +1,5 @@
 import { experience, profile } from "../../data/profile";
 import ProfileImage from "../ProfileImage";
-import { NavLink } from "react-router-dom";
 import { ArrowRight, Download, Server, Database, Layout, Cpu, Briefcase, FolderOpen, Building2, CalendarDays, Check } from "lucide-react";
 import SectionHeading from "../SectionHeading";
 import Contact from "../contact/Contact";
@@ -40,21 +39,21 @@ const skillCategories = [
 
 
 const Home = () => (
-  <div className="home-page redesign-home">
+  <div className="home-page redesign-home" id="home">
     <section className="editorial-hero CC">
       <div className="editorial-hero-grid">
         <div className="editorial-hero-copy">
           <p className="hero-greeting"><span>Mohosin Ali</span><span className="hero-greeting-divider" aria-hidden="true"> / </span><span className="hero-greeting-role">Full Stack Developer</span></p>
           <h1 className="hero-title"><span className="hero-title-line">Building Scalable</span>{" "}<span className="hero-title-line">Solutions for</span>{" "}<span className="hero-title-line hero-name-period">Real Problems.</span></h1>
           <p className="hero-description">I turn complex ideas into reliable, scalable digital products — from initial concept and system architecture to seamless user experiences and production deployment.</p>
-          <div className="editorial-actions"><NavLink to="/projects" className="btn-v">Explore my work <ArrowRight size={18} /></NavLink><a className="text-link" href="/mohosin-ali-resume.pdf" download>Download resume <Download size={16} /></a></div>
+          <div className="editorial-actions"><a href="#projects" className="btn-v">Explore my work <ArrowRight size={18} /></a><a className="text-link" href="/mohosin-ali-resume.pdf" download>Download resume <Download size={16} /></a></div>
         </div>
         <figure className="editorial-portrait hero-portrait">
           <figcaption className="hero-notice"><span aria-hidden="true" />{profile.availability}</figcaption>
           <div className="editorial-portrait-image"><ProfileImage sizes="(min-width: 1920px) 480px, (min-width: 1440px) 25vw, (min-width: 1100px) 380px, (min-width: 800px) 36vw, (min-width: 380px) 300px, calc(100vw - 40px)" /></div>
         </figure>
       </div>
-      <div className="core-stack" aria-labelledby="core-stack-heading">
+      <div className="core-stack" id="tech-stack" aria-labelledby="core-stack-heading">
         <SectionHeading className="core-stack-intro" label="My toolkit" title="One stack." accent="Every layer." description="From the interface to the infrastructure — the tools I use and what each layer does." id="core-stack-heading" />
         <a className="core-stack-explore" href="#experience"><span>View experience</span><ArrowRight size={18} aria-hidden="true" /></a>
         <div className="stack-category-grid">
@@ -69,9 +68,9 @@ const Home = () => (
         </div>
       </div>
     </section>
-    <section className="editorial-section CC" id="selected-work">
-      <div className="editorial-section-heading"><SectionHeading label="01 / Selected work" title="Selected" accent="projects." description="Travel mapping, social publishing and full-stack products built for real workflows." icon={FolderOpen} /><NavLink className="text-link" to="/projects">All projects <ArrowRight size={18} /></NavLink></div>
-      <Projects limit={3} />
+    <section className="editorial-section CC" id="projects">
+      <div className="editorial-section-heading"><SectionHeading label="01 / Selected work" title="Selected" accent="projects." description="Travel mapping, social publishing and full-stack products built for real workflows." icon={FolderOpen} /></div>
+      <Projects embedded />
     </section>
     <section className="editorial-section CC editorial-experience" id="experience">
       <div className="editorial-section-heading"><SectionHeading label="02 / Experience" title="Building in" accent="practice." description="Backend and full-stack development at Sparktech Agency." icon={Briefcase} /><a href="/mohosin-ali-resume.pdf" download className="text-link">Download resume <Download size={18}/></a></div>

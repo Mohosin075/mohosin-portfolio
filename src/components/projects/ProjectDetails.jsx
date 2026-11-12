@@ -30,7 +30,7 @@ export default function ProjectDetails() {
   if (!project) return <div className="CC page-shell state-panel"><h1>Project not found.</h1><Link className="text-link" to="/projects">Back to projects <ArrowLeft size={18} /></Link></div>;
   return <article className="case-study-page page-shell">
     <div className="CC">
-      <Link to="/projects" className="case-back"><ArrowLeft size={16} /> All projects</Link>
+      <Link to="/#projects" className="case-back"><ArrowLeft size={16} /> All projects</Link>
       <header className="page-heading case-heading">
         <span className="eyebrow">Case study / {project.category === "backend" ? "Backend engineering" : "Full-stack development"}</span>
         <h1>{projectName(project.title)}<span className="heading-period">.</span></h1>
@@ -80,7 +80,7 @@ export default function ProjectDetails() {
             {project.githubServer && <a href={project.githubServer} target="_blank" rel="noopener noreferrer" className="btn-ghost">Backend repository <ArrowUpRight size={18} /></a>}
             {project.githubClient && project.githubClient !== project.githubServer && <a href={project.githubClient} target="_blank" rel="noopener noreferrer" className="btn-ghost">Frontend repository <ArrowUpRight size={18} /></a>}
             {project.video && <button className="btn-ghost" onClick={() => setIsModalOpen(true)}>Video overview <Play size={18} /></button>}
-            {!project.demo && <Link to="/contact" className="text-link">Discuss this project <ArrowUpRight size={18} /></Link>}
+            {!project.demo && <Link to="/#contact" className="text-link">Discuss this project <ArrowUpRight size={18} /></Link>}
           </div>
           {!project.demo && <p className="case-availability">A public demo is not linked.{!project.githubServer && !project.githubClient ? " Source code is not publicly linked." : ""}</p>}
         </div>

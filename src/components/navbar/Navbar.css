@@ -4,6 +4,11 @@
 }
 .nav-footer-theme .brand-mark { color:#365cae; }
 .nav-footer-theme .mobile-menu-top button { color:var(--chalk); }
+#tech-stack,#projects,#experience,#contact { scroll-margin-top:110px; }
+@media (max-width:1100px) {
+  .editorial-theme .editorial-nav-links,.editorial-theme .nav-contact { display:none; }
+  .editorial-theme .editorial-menu-toggle { display:flex; }
+}
 @media (prefers-reduced-motion:no-preference) {
   .editorial-theme .editorial-nav { transition:background-color .25s ease,border-color .25s ease,color .25s ease; }
   .editorial-nav :is(.brand-logo,.brand-mark,.brand-period,.brand-descriptor,.editorial-nav-links a,.nav-contact,.editorial-menu-toggle) { transition:color .25s ease,border-color .25s ease; }

@@ -7,7 +7,7 @@ import { projectName } from "../../utils/projectName";
 
 const categories = [{ id: "all", label: "All work" }, { id: "backend", label: "Backend" }, { id: "fullstack", label: "Full stack" }];
 
-export default function Projects({ limit }) {
+export default function Projects({ limit, embedded = false }) {
   const [projects, setProjects] = useState([]);
   const [category, setCategory] = useState("all");
   const [status, setStatus] = useState("loading");
@@ -24,8 +24,8 @@ export default function Projects({ limit }) {
   }, [attempt]);
   const visible = (category === "all" ? projects : projects.filter((p) => p.category === category)).slice(0, limit || projects.length);
   return (
-    <section className={limit ? "work-preview" : "work-page page-shell CC"} aria-label="Selected projects">
-      {!limit && <header className="page-heading">
+    <section className={limit || embedded ? "work-preview" : "work-page page-shell CC"} aria-label="Selected projects">
+      {!limit && !embedded && <header className="page-heading">
         <span className="eyebrow">The work</span>
         <h1>Projects & contributions.</h1>
         <p>Full-stack travel mapping, content automation and backend systems. Explore the implementation, integrations and my contribution to each product.</p>
@@ -55,4 +55,4 @@ export default function Projects({ limit }) {
     </section>
   );
 }
-Projects.propTypes = { limit: PropTypes.number };
+Projects.propTypes = { limit: PropTypes.number, embedded: PropTypes.bool };

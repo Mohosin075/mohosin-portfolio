@@ -25,7 +25,7 @@ Project content is in `public/projects.json`. Use `null` for unavailable links a
 
 Keep screenshot originals at their `sourceImage` paths. Run `npm run optimize:projects` to generate 480, 960 and 1440px WebP files and update responsive image paths. Run `npm run optimize:portrait` after replacing `assets-source/me-mohosin.png`.
 
-Experience uses the documented June 2025 start date. Update Home when the timeline changes. Skills and experience are on Home; legacy `/about` links redirect there.
+Experience uses the documented June 2025 start date. Home contains Tech Stack, Projects, Experience and Contact in that order. The menu scrolls to each section. Legacy `/about`, `/projects` and `/contact` links redirect to Home; individual project details remain separate.
 
 ## Checks and deployment
 
@@ -35,7 +35,7 @@ npm run build
 npm run preview
 ```
 
-Deploy the complete `dist/` directory. The build generates metadata HTML for all nine routes, canonical links, a sitemap and robots.txt. This generates social preview metadata, not server-rendered React content. Client navigation also updates metadata and restores scroll position.
+Deploy the complete `dist/` directory. The build generates metadata HTML for Home and six project detail routes, canonical links, a sitemap and robots.txt. This generates social preview metadata, not server-rendered React content. Client navigation also updates metadata and scrolls to the selected Home section.
 
 Vercel configuration is in `vercel.json`; Firebase Hosting uses `firebase.json`. Static route files must take precedence over the SPA fallback. If changing domains, update `siteUrl` in `src/utils/metadata.js` and fallback metadata in `index.html`, then rebuild.
 

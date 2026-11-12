@@ -3,7 +3,7 @@ import { pageMetadata, siteUrl } from '../src/utils/metadata.js';
 
 const projects = JSON.parse(await readFile('public/projects.json', 'utf8'));
 const template = await readFile('dist/index.html', 'utf8');
-const paths = ['/', '/projects', '/contact', ...projects.map(p => `/projects/${p.id}`)];
+const paths = ['/', ...projects.map(p => `/projects/${p.id}`)];
 const escape = value => value.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
 for (const path of paths) {
   const meta = pageMetadata(path, projects);

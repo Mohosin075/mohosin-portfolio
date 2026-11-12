@@ -26,11 +26,11 @@ const router = createBrowserRouter([
       },
       {
         path : '/contact',
-        lazy: lazyPage(() => import("./components/contact/Contact.jsx"))
+        loader: () => redirect('/#contact')
       },
       {
         path : '/projects',
-        lazy: lazyPage(() => import("./components/projects/Projects.jsx"))
+        loader: () => redirect('/#projects')
       },
       {
         path : '/projects/:id',

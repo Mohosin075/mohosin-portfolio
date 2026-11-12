@@ -1,4 +1,4 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ListItem } from "../../utils/constant";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
@@ -8,9 +8,10 @@ export default function Navbar(){
  const [isOpen,setIsOpen]=useState(false);
  const [scrolled,setScrolled]=useState(false);
  const [atFooter,setAtFooter]=useState(false);
+ const [activeSection,setActiveSection]=useState('home');
  const menuRef=useRef(null), toggleRef=useRef(null);
  const location=useLocation();
- useEffect(()=>{setIsOpen(false);},[location.pathname]);
+ useEffect(()=>{setIsOpen(false);},[location.pathname,location.hash]);
  useEffect(()=>{
   const footer=document.querySelector('.site-footer');
   let frame=0;
@@ -18,6 +19,11 @@ export default function Navbar(){
    frame=0;
    setScrolled(window.scrollY>24);
    setAtFooter(Boolean(footer && footer.getBoundingClientRect().top <= window.innerHeight*.2));
+   if(location.pathname==='/'){
+    let active='home';
+    for(const item of ListItem){const section=document.getElementById(item.location);if(section && section.getBoundingClientRect().top<=160)active=item.location;}
+    setActiveSection(active);
+   }else setActiveSection(location.pathname.startsWith('/projects/')?'projects':'');
   };
   const schedule=()=>{if(!frame)frame=requestAnimationFrame(update);};
   const resizeObserver=typeof ResizeObserver==='undefined'?null:new ResizeObserver(schedule);
@@ -36,7 +42,7 @@ export default function Navbar(){
   background.forEach(({node}) => {node.inert = true;});
   document.body.style.overflow='hidden';menu.querySelector('button, a[href]')?.focus();
   const handle=(event)=>{if(event.key==='Escape'){event.preventDefault();setIsOpen(false);}if(event.key!=='Tab')return;const targets=[...menu.querySelectorAll('button,a[href]')],first=targets[0],last=targets[targets.length-1];if(event.shiftKey&&(document.activeElement===first||!menu.contains(document.activeElement))){event.preventDefault();last.focus();}else if(!event.shiftKey&&(document.activeElement===last||!menu.contains(document.activeElement))){event.preventDefault();first.focus();}};
-  const media=window.matchMedia('(min-width: 800px)'),resize=()=>{if(media.matches)setIsOpen(false);};
+  const media=window.matchMedia('(min-width: 1101px)'),resize=()=>{if(media.matches)setIsOpen(false);};
   document.addEventListener('keydown',handle);media.addEventListener('change',resize);
   return ()=>{background.forEach(({node,inert}) => {node.inert = inert;});document.body.style.overflow=overflow;document.removeEventListener('keydown',handle);media.removeEventListener('change',resize);if(previous?.isConnected)previous.focus();};
  },[isOpen]);
@@ -45,14 +51,14 @@ export default function Navbar(){
       <nav className={`editorial-nav${scrolled ? " is-scrolled" : ""}${atFooter ? " nav-footer-theme" : ""}`} aria-label="Main navigation">
         <div className="CC editorial-nav-inner">
           <BrandLogo />
-          <div className="editorial-nav-links">{ListItem.map(item=><NavLink key={item.location} to={"/"+item.location}>{item.Label}</NavLink>)}</div>
-          <NavLink to="/contact" className="nav-contact">Let&apos;s talk <span>&#8599;</span></NavLink>
+          <div className="editorial-nav-links">{ListItem.map(item=><Link key={item.location} to={`/#${item.location}`} className={activeSection===item.location?'active':undefined} aria-current={activeSection===item.location?'location':undefined}>{item.Label}</Link>)}</div>
+          <Link to="/#contact" className="nav-contact">Let&apos;s talk <span>&#8599;</span></Link>
           <button ref={toggleRef} className="editorial-menu-toggle" aria-label="Open navigation" aria-expanded={isOpen} aria-controls="mobile-navigation" onClick={()=>setIsOpen(true)}><Menu size={24}/></button>
         </div>
       </nav>
       {isOpen && <div className={`editorial-mobile-menu${atFooter ? " nav-footer-theme" : ""}`} id="mobile-navigation" ref={menuRef} role="dialog" aria-modal="true" aria-label="Navigation">
         <div className="mobile-menu-top"><span>MENU</span><button onClick={()=>setIsOpen(false)} aria-label="Close navigation"><X size={26}/></button></div>
-        {ListItem.map((item,index)=><NavLink key={item.location} to={"/"+item.location} onClick={()=>setIsOpen(false)}><small>0{index+1}</small>{item.Label}<span>&#8599;</span></NavLink>)}
+        {ListItem.map((item,index)=><Link key={item.location} to={`/#${item.location}`} className={activeSection===item.location?'active':undefined} aria-current={activeSection===item.location?'location':undefined} onClick={()=>setIsOpen(false)}><small>0{index+1}</small>{item.Label}<span>&#8599;</span></Link>)}
         <p>Full Stack Developer &middot; Dhaka, Bangladesh</p>
       </div>}
     </>
