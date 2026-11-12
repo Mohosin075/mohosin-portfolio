@@ -52,7 +52,7 @@ const Home = () => (
           <p className="hero-notice"><span />{profile.availability}</p>
         </div>
         <figure className="editorial-portrait hero-portrait">
-          <div className="editorial-portrait-image"><ProfileImage sizes="(min-width: 1100px) 380px, (min-width: 800px) 30vw, (min-width: 380px) 300px, calc(100vw - 40px)" /></div>
+          <div className="editorial-portrait-image"><ProfileImage sizes="(min-width: 1920px) 480px, (min-width: 1440px) 25vw, (min-width: 1100px) 380px, (min-width: 800px) 36vw, (min-width: 380px) 300px, calc(100vw - 40px)" /></div>
         </figure>
       </div>
       <div className="core-stack" aria-labelledby="core-stack-heading">

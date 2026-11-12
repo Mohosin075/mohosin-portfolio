@@ -1,0 +1,46 @@
+/* Wide layouts share a container; text retains a comfortable reading measure. */
+.editorial-theme :is(.editorial-hero-copy,.work-card-body,.editorial-section-heading > *, .editorial-experience > *) { min-width:0; }
+.editorial-theme .hero-description { max-width:48ch; }
+.editorial-theme .work-card-role { max-width:68ch; }
+.editorial-theme .case-section-content > p { max-width:72ch; }
+.editorial-theme .editorial-section-heading p { max-width:40ch; }
+
+@media (min-width:1440px) {
+  .editorial-hero-grid { grid-template-columns:minmax(0,1.5fr) minmax(0,1fr); gap:clamp(64px,6vw,120px); }
+  .editorial-portrait.hero-portrait { max-width:clamp(380px,25vw,480px); }
+  .editorial-theme .editorial-hero h1 { font-size:clamp(5.5rem,5.6vw,6.75rem) !important; max-width:15ch; }
+  .editorial-theme .work-grid { gap:64px 40px; }
+  .editorial-theme .work-card-featured { gap:clamp(40px,4vw,80px); }
+  .editorial-theme .editorial-experience { gap:clamp(80px,7vw,140px); }
+}
+
+@media (min-width:1600px) {
+  .editorial-theme .work-page .work-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .editorial-theme .work-page .work-card-featured { grid-template-columns:minmax(0,1.35fr) minmax(0,1fr); }
+  .editorial-theme .editorial-skills > div { padding:36px; }
+  .editorial-theme .editorial-skills > div:first-child { padding-left:0; }
+  .editorial-theme .editorial-section-heading > div:last-child { max-width:400px; }
+}
+
+@media (min-width:800px) and (max-width:1100px) {
+  .editorial-theme .editorial-hero h1 { font-size:clamp(3rem,5.6vw,4rem) !important; }
+  .editorial-hero-grid { gap:32px; }
+  .editorial-theme .editorial-nav-inner { gap:24px; }
+  .editorial-nav-links { gap:24px; }
+  .core-stack-list { gap:20px; }
+}
+
+@media (max-width:799px) {
+  .editorial-theme .editorial-section-heading > div:last-child { max-width:100%; }
+  .editorial-theme :is(.work-card-kicker,.work-card-tags,.case-project-links) { flex-wrap:wrap; }
+  .editorial-theme :is(.work-card-summary,.work-card-role,.editorial-experience li) { overflow-wrap:anywhere; }
+}
+
+@media (max-width:360px) {
+  .editorial-theme .CC { padding-inline:16px; }
+  .core-stack-list { gap:20px 12px; }
+  .core-stack-list li { gap:8px; }
+  .core-stack-list small { font-size:12px; }
+  .editorial-theme .editorial-section h2 { font-size:2.2rem !important; }
+  .editorial-theme .contact-circle { width:52px; height:52px; }
+}
