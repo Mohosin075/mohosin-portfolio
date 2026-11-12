@@ -47,8 +47,8 @@ const Home = () => (
       <div className="editorial-hero-grid">
         <div className="editorial-hero-copy">
           <p className="hero-greeting"><span>Mohosin Ali</span><span className="hero-greeting-divider" aria-hidden="true"> / </span><span className="hero-greeting-role">Full Stack Developer</span></p>
-          <h1>Building products that solve <span className="hero-name-period">real problems.</span></h1>
-          <p className="hero-description">{profile.summary}</p>
+          <h1 className="hero-title"><span className="hero-title-line">Building Scalable</span>{" "}<span className="hero-title-line">Solutions for</span>{" "}<span className="hero-title-line hero-name-period">Real Problems.</span></h1>
+          <p className="hero-description">I turn complex ideas into reliable, scalable digital products — from initial concept and system architecture to seamless user experiences and production deployment.</p>
           <div className="editorial-actions"><NavLink to="/projects" className="btn-v">Explore my work <ArrowRight size={18} /></NavLink><a className="text-link" href="/mohosin-ali-resume.pdf" download>Download resume <Download size={16} /></a></div>
         </div>
         <figure className="editorial-portrait hero-portrait">

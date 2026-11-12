@@ -19,6 +19,9 @@
 .editorial-theme :is(.editorial-section h2,.expertise-section h2,.case-section h2,.editorial-contact h2) { font-size:var(--type-title) !important; line-height:1.15 !important; }
 .editorial-theme :is(.work-card h2,.work-card-featured h2) { font-size:var(--type-subtitle) !important; line-height:1.25 !important; }
 .editorial-theme .editorial-hero h1 { font-size:clamp(3rem,6.8vw,7.5rem) !important; line-height:1.08 !important; }
+.editorial-hero-copy { container-type:inline-size; }
+.editorial-theme .editorial-hero .hero-title { font-size:clamp(2rem,12cqi,8.5rem) !important; max-width:none; text-wrap:initial; }
+.hero-title-line { display:block; white-space:nowrap; }
 .editorial-theme :is(.page-heading > p,.hero-description,.work-card-summary) { font-size:clamp(1.1875rem,1.0625rem + .3vw,1.5rem) !important; }
 .editorial-theme :is(.eyebrow,.code-label,.rule-label,.work-index,.featured-label,.skill-number) { font-size:var(--type-label) !important; line-height:1.6 !important; }
 .editorial-theme :is(.btn-v,.btn-ghost,.text-link,.work-card-link,.nav-contact,.editorial-nav-links a,.work-filters button,.case-back,.case-study-navigation a) { font-size:clamp(1.0625rem,1rem + .15vw,1.25rem) !important; line-height:1.5; }
