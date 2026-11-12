@@ -1,4 +1,6 @@
-import { useLocation } from "react-router-dom";
+import PropTypes from "prop-types";
+import SectionHeading from "../SectionHeading";
+import "./Contact.css";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import {
@@ -37,15 +39,15 @@ const labelStyle = {
   display: "block",
   fontFamily: "'DM Sans', sans-serif",
   fontSize: 14,
-  fontWeight: 700,
-  letterSpacing: "0.15em",
-  textTransform: "uppercase",
+  fontWeight: 600,
+  letterSpacing: 0,
+  textTransform: "none",
   color: "var(--muted)",
   marginBottom: 8,
 };
 
-const Contact = () => {
-  const Heading = useLocation().pathname === "/contact" ? "h1" : "h2";
+const Contact = ({ embedded = false }) => {
+  const Heading = embedded ? "h2" : "h1";
   const {
     register,
     handleSubmit,
@@ -123,15 +125,15 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="contact-page page-shell"
+      className={`contact-page ${embedded ? "home-contact" : "page-shell"}`}
       style={{
-        paddingTop: 80,
+        paddingTop: embedded ? undefined : 80,
         paddingBottom: 80,
       }}
     >
       <div className="CC">
         {/* Section header */}
-        <div className="page-heading interior-heading" style={{ marginBottom: 56 }}>
+        {embedded ? <div className="home-contact-heading"><SectionHeading label="03 / Let's talk" title="Let's build" accent="something useful." description="Have a project in mind or a role to discuss? Send a message, or reach out directly by email or WhatsApp." icon={MessageSquare} /></div> : <div className="page-heading interior-heading" style={{ marginBottom: 56 }}>
           <div className="rule-label" style={{ marginBottom: 20 }}>
             Contact
           </div>
@@ -151,7 +153,7 @@ const Contact = () => {
           <p style={{ fontSize: 15, color: "var(--muted)", maxWidth: 440, lineHeight: 1.7 }}>
             Open to Full Stack and Backend roles, as well as relevant project opportunities. Get in touch about web applications, API development, integrations or cloud deployment.
           </p>
-        </div>
+        </div>}
 
         {/* Two column: info + form */}
         <div style={{
@@ -162,10 +164,9 @@ const Contact = () => {
         }} className="contact-grid">
 
           {/* Left: contact info */}
-          <div
-          >
+          <div className="contact-details">
             {/* Contact entries */}
-            <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
+            <div className="contact-methods" style={{ display: "flex", flexDirection: "column", gap: 0 }}>
               {[
                 { icon: Mail, label: "Email", value: "mohosinali075@gmail.com", href: "mailto:mohosinali075@gmail.com" },
                 { icon: FaWhatsapp, label: "Whatsapp", value: "+880 1981-381386", href: "https://wa.me/8801981381386" },
@@ -174,6 +175,7 @@ const Contact = () => {
               ].map((item, i) => (
                 <div
                   key={i}
+                  className="contact-method"
                   style={{
                     padding: "20px 0",
                     borderBottom: "1px solid var(--border)",
@@ -182,7 +184,7 @@ const Contact = () => {
                     gap: 16,
                   }}
                 >
-                  <item.icon size={15} style={{ color: "var(--vermillion)", marginTop: 2, flexShrink: 0 }} />
+                  <span className="contact-method-icon"><item.icon size={22} aria-hidden="true" /></span>
                   <div>
                     <p className="code-label" style={{ marginBottom: 4 }}>{item.label}</p>
                     {item.href ? (
@@ -264,7 +266,7 @@ const Contact = () => {
           </div>
 
           {/* Right: form */}
-          <div
+          <div className="contact-form-panel"
             style={{
               background: "var(--surface)",
               border: "1px solid var(--border)",
@@ -275,8 +277,8 @@ const Contact = () => {
             <h3 style={{ fontSize: 18, fontWeight: 700, color: "var(--chalk)", marginBottom: 6 }}>
               Send a message
             </h3>
-            <p className="code-label" style={{ marginBottom: 32 }}>
-              I&apos;ll get back to you as soon as possible.
+            <p className="contact-form-description" style={{ marginBottom: 32 }}>
+              Tell me about your project or the role you have in mind. I&apos;ll get back to you as soon as possible.
             </p>
 
             <form onSubmit={handleSubmit(onSubmit)} style={{ display: "flex", flexDirection: "column", gap: 20 }}>
@@ -417,5 +419,7 @@ const Contact = () => {
     </section>
   );
 };
+
+Contact.propTypes = { embedded: PropTypes.bool };
 
 export default Contact;
