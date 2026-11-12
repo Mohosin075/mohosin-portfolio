@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import { ArrowRight, Download, Server, Database, Layout, Cpu } from "lucide-react";
 
 import Projects from "../projects/Projects";
+import "./CoreTechnologies.css";
 import { SiNodedotjs, SiTypescript, SiMongodb, SiReact, SiNextdotjs } from "react-icons/si";
 
 const coreTechnologies = [
@@ -56,9 +57,9 @@ const Home = () => (
         </figure>
       </div>
       <div className="core-stack" aria-labelledby="core-stack-heading">
-        <div className="core-stack-intro"><span className="eyebrow" id="core-stack-heading">Core technologies</span><p>The tools behind the work.</p></div>
-        <ul className="core-stack-list">{coreTechnologies.map(({ name, detail, icon: Icon }) => <li key={name}><Icon aria-hidden="true" /><div><span>{name}</span><small>{detail}</small></div></li>)}</ul>
+        <div className="core-stack-intro"><span className="eyebrow">Built with</span><h2 id="core-stack-heading">Core technologies<span>.</span></h2><p>The tools behind the work.</p></div>
         <a className="core-stack-explore" href="#selected-work"><span>Explore the work</span><ArrowRight size={18} aria-hidden="true" /></a>
+        <ul className="core-stack-list">{coreTechnologies.map(({ name, detail, icon: Icon }) => <li key={name}><Icon aria-hidden="true" /><div><span>{name}</span><small>{detail}</small></div></li>)}</ul>
       </div>
     </section>
     <section className="editorial-section CC" id="selected-work">
