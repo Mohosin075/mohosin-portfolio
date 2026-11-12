@@ -1,4 +1,5 @@
-.editorial-theme .editorial-experience { grid-template-columns:minmax(0,.85fr) minmax(0,1.35fr); align-items:start; gap:clamp(40px,5vw,96px); }
+.editorial-theme .editorial-experience { display:block; }
+.editorial-theme .editorial-experience .editorial-section-heading > .text-link { margin-top:0; }
 .experience-list { display:grid; gap:24px; min-width:0; }
 .editorial-theme .editorial-experience .experience-card { padding:32px; border:1px solid var(--border); border-radius:12px; background:#fff8; box-shadow:0 8px 32px #20252204; }
 .experience-meta { display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:28px; }
@@ -10,7 +11,7 @@
 .editorial-theme .experience-card .experience-identity h3 { margin:0 0 6px; font-size:clamp(1.5rem,1.15rem + 1vw,2rem) !important; line-height:1.25 !important; }
 .editorial-theme .experience-card .experience-identity p { margin:0; color:var(--vermillion); font-size:var(--type-body) !important; line-height:1.5; }
 .experience-card h4 { margin:0 0 16px; font:600 var(--type-small)/1.5 'DM Sans',sans-serif; color:var(--chalk); }
-.editorial-theme .experience-card .experience-responsibilities ul { gap:18px; margin:0; padding:0; }
+.editorial-theme .experience-card .experience-responsibilities ul { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px 40px; margin:0; padding:0; }
 .editorial-theme .experience-card .experience-responsibilities li { display:flex; align-items:flex-start; gap:12px; padding:0; }
 .editorial-theme .experience-card li::before { content:none; }
 .experience-responsibilities li > svg { color:var(--vermillion); flex-shrink:0; margin-top:6px; }
@@ -20,7 +21,7 @@
 .editorial-theme .experience-card .experience-tools { display:flex; flex-direction:row; flex-wrap:wrap; gap:8px; margin:0; padding:0; list-style:none; }
 .editorial-theme .experience-card .experience-tools li { padding:6px 10px; border:1px solid var(--border); border-radius:5px; background:var(--paper); font-size:var(--type-small) !important; color:var(--chalk); line-height:1.4; }
 @media (max-width:1000px) {
-  .editorial-theme .editorial-experience { grid-template-columns:minmax(0,1fr); gap:32px; }
+  .editorial-theme .experience-card .experience-responsibilities ul { grid-template-columns:minmax(0,1fr); gap:18px; }
 }
 @media (max-width:480px) {
   .editorial-theme .editorial-experience .experience-card { padding:24px 20px; }

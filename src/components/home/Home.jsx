@@ -74,7 +74,7 @@ const Home = () => (
       <Projects limit={3} />
     </section>
     <section className="editorial-section CC editorial-experience">
-      <div><SectionHeading label="02 / Experience" title="Building in" accent="practice." description="Backend and full-stack development at Sparktech Agency." icon={Briefcase} /><NavLink to="/about" className="text-link">More about my experience <ArrowRight size={18}/></NavLink></div>
+      <div className="editorial-section-heading"><SectionHeading label="02 / Experience" title="Building in" accent="practice." description="Backend and full-stack development at Sparktech Agency." icon={Briefcase} /><NavLink to="/about" className="text-link">More about my experience <ArrowRight size={18}/></NavLink></div>
       <div className="experience-list">{experience.map(job => (
         <article className="experience-card" key={job.company}>
           <div className="experience-meta"><span><CalendarDays size={16} aria-hidden="true" />{job.period}</span>{job.current && <span className="experience-current"><i aria-hidden="true" />Current role</span>}</div>

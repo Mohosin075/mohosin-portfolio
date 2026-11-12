@@ -133,7 +133,7 @@ const Contact = ({ embedded = false }) => {
     >
       <div className="CC">
         {/* Section header */}
-        {embedded ? <div className="home-contact-heading"><SectionHeading label="03 / Let's talk" title="Let's build" accent="something useful." description="Have a project in mind or a role to discuss? Send a message, or reach out directly by email or WhatsApp." icon={MessageSquare} /></div> : <div className="page-heading interior-heading" style={{ marginBottom: 56 }}>
+        {embedded ? <div className="editorial-section-heading home-contact-heading"><SectionHeading label="03 / Contact" title="Let's build" accent="something useful." description="Have a project in mind or a role to discuss? Send a message, or reach out directly by email or WhatsApp." icon={MessageSquare} /></div> : <div className="page-heading interior-heading" style={{ marginBottom: 56 }}>
           <div className="rule-label" style={{ marginBottom: 20 }}>
             Contact
           </div>
