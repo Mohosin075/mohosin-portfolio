@@ -1,40 +1,35 @@
 import { experience, profile } from "../../data/profile";
 import ProfileImage from "../ProfileImage";
 import { NavLink } from "react-router-dom";
-import { ArrowRight, Download, Server, Database, Layout, Cpu, Layers, Briefcase, FolderOpen, MessageSquare } from "lucide-react";
+import { ArrowRight, Download, Server, Database, Layout, Cpu, Briefcase, FolderOpen, MessageSquare } from "lucide-react";
 import SectionHeading from "../SectionHeading";
 
 import Projects from "../projects/Projects";
 import "./CoreTechnologies.css";
-import { SiNodedotjs, SiTypescript, SiMongodb, SiReact, SiNextdotjs } from "react-icons/si";
-
-const coreTechnologies = [
-  { name: "Node.js", detail: "Runtime", icon: SiNodedotjs },
-  { name: "TypeScript", detail: "Language", icon: SiTypescript },
-  { name: "MongoDB", detail: "Database", icon: SiMongodb },
-  { name: "React", detail: "Interface", icon: SiReact },
-  { name: "Next.js", detail: "Framework", icon: SiNextdotjs },
-];
 
 
 const skillCategories = [
   {
     title: "Backend & APIs",
+    description: "The logic, APIs and real-time features behind the product.",
     icon: Server,
     skills: ["Node.js", "Express.js", "Socket.io", "REST API", "JWT", "Zod"]
   },
   {
     title: "Databases & Caching",
+    description: "Store, organize and retrieve application data.",
     icon: Database,
     skills: ["MongoDB", "PostgreSQL", "Redis", "Prisma"]
   },
   {
     title: "Frontend & Client",
+    description: "Responsive interfaces people see and interact with.",
     icon: Layout,
     skills: ["React.js", "Next.js", "Redux Toolkit", "Tailwind CSS", "TypeScript"]
   },
   {
     title: "DevOps & Cloud",
+    description: "Deploy, host and keep applications running in production.",
     icon: Cpu,
     skills: ["AWS S3 / EC2", "Docker", "NGINX", "PM2", "CI/CD", "Vercel"]
   }
@@ -58,20 +53,25 @@ const Home = () => (
         </figure>
       </div>
       <div className="core-stack" aria-labelledby="core-stack-heading">
-        <SectionHeading className="core-stack-intro" label="Built with" title="Core" accent="technologies." description="The tools behind the work." id="core-stack-heading" />
-        <a className="core-stack-explore" href="#selected-work"><span>Explore the work</span><ArrowRight size={18} aria-hidden="true" /></a>
-        <ul className="core-stack-list">{coreTechnologies.map(({ name, detail, icon: Icon }) => <li key={name}><Icon aria-hidden="true" /><div><span>{name}</span><small>{detail}</small></div></li>)}</ul>
+        <SectionHeading className="core-stack-intro" label="My toolkit" title="One stack." accent="Every layer." description="From the interface to the infrastructure — the tools I use and what each layer does." id="core-stack-heading" />
+        <NavLink className="core-stack-explore" to="/about"><span>Full skills & experience</span><ArrowRight size={18} aria-hidden="true" /></NavLink>
+        <div className="stack-category-grid">
+          {skillCategories.map(({ title, description, icon: Icon, skills }) => (
+            <article className="stack-category" key={title}>
+              <span className="stack-category-icon"><Icon size={26} strokeWidth={1.6} aria-hidden="true" /></span>
+              <h3>{title}</h3>
+              <p>{description}</p>
+              <ul className="stack-tool-list" aria-label={`${title} technologies`}>{skills.map(skill => <li key={skill}>{skill}</li>)}</ul>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
     <section className="editorial-section CC" id="selected-work">
       <div className="editorial-section-heading"><SectionHeading label="01 / Selected work" title="Selected" accent="projects." description="Travel mapping, social publishing and full-stack products built for real workflows." icon={FolderOpen} /><NavLink className="text-link" to="/projects">All projects <ArrowRight size={18} /></NavLink></div>
       <Projects limit={3} />
     </section>
-    <section className="expertise-section">
-      <div className="CC"><div className="editorial-section-heading"><SectionHeading label="02 / My toolkit" title="Across the" accent="stack." description="React and Next.js interfaces, TypeScript APIs, databases, integrations and cloud deployment." icon={Layers} /></div>
-      <div className="editorial-skills">{skillCategories.map((group,index)=><div key={group.title}><span className="skill-number">0{index+1}</span><group.icon size={24} strokeWidth={1.5}/><h3>{group.title}</h3><p>{group.skills.join(' / ')}</p></div>)}</div></div>
-    </section>
-    <section className="editorial-section CC editorial-experience"><div><SectionHeading label="03 / Experience" title="Building in" accent="practice." description="Backend and full-stack development at Sparktech Agency." icon={Briefcase} /><NavLink to="/about" className="text-link">More about me <ArrowRight size={18}/></NavLink></div><div>{experience.map(job=><article key={job.company}><p className="eyebrow">{job.period}</p><h3>{job.role}</h3><p className="experience-company">{job.company}</p><ul>{job.bullets.map(item=><li key={item}>{item}</li>)}</ul></article>)}</div></section>
+    <section className="editorial-section CC editorial-experience"><div><SectionHeading label="02 / Experience" title="Building in" accent="practice." description="Backend and full-stack development at Sparktech Agency." icon={Briefcase} /><NavLink to="/about" className="text-link">More about me <ArrowRight size={18}/></NavLink></div><div>{experience.map(job=><article key={job.company}><p className="eyebrow">{job.period}</p><h3>{job.role}</h3><p className="experience-company">{job.company}</p><ul>{job.bullets.map(item=><li key={item}>{item}</li>)}</ul></article>)}</div></section>
     <section className="editorial-contact CC"><div><SectionHeading label="Have something in mind?" title="Let's build" accent="something useful." description="Open to Full Stack and Backend roles, and relevant project opportunities." icon={MessageSquare} /><NavLink to="/contact" aria-label="Start a conversation" className="contact-circle"><ArrowRight size={36}/></NavLink></div><a href="mailto:mohosinali075@gmail.com" className="text-link">mohosinali075@gmail.com</a></section>
   </div>
 );
