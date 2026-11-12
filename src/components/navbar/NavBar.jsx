@@ -3,13 +3,32 @@ import { ListItem } from "../../utils/constant";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import BrandLogo from "../BrandLogo";
+import "./Navbar.css";
 export default function Navbar(){
  const [isOpen,setIsOpen]=useState(false);
  const [scrolled,setScrolled]=useState(false);
+ const [atFooter,setAtFooter]=useState(false);
  const menuRef=useRef(null), toggleRef=useRef(null);
  const location=useLocation();
  useEffect(()=>{setIsOpen(false);},[location.pathname]);
- useEffect(()=>{const handle=()=>setScrolled(window.scrollY>24);handle();window.addEventListener('scroll',handle,{passive:true});return ()=>window.removeEventListener('scroll',handle);},[]);
+ useEffect(()=>{
+  const footer=document.querySelector('.site-footer');
+  let frame=0;
+  const update=()=>{
+   frame=0;
+   setScrolled(window.scrollY>24);
+   setAtFooter(Boolean(footer && footer.getBoundingClientRect().top <= window.innerHeight*.5));
+  };
+  const schedule=()=>{if(!frame)frame=requestAnimationFrame(update);};
+  const resizeObserver=typeof ResizeObserver==='undefined'?null:new ResizeObserver(schedule);
+  if(footer)resizeObserver?.observe(footer);
+  const main=document.querySelector('main');
+  if(main)resizeObserver?.observe(main);
+  update();
+  window.addEventListener('scroll',schedule,{passive:true});
+  window.addEventListener('resize',schedule);
+  return ()=>{window.removeEventListener('scroll',schedule);window.removeEventListener('resize',schedule);resizeObserver?.disconnect();cancelAnimationFrame(frame);};
+ },[location.pathname]);
  useEffect(()=>{
   if(!isOpen)return;
   const menu=menuRef.current,previous=document.activeElement,overflow=document.body.style.overflow;
@@ -23,7 +42,7 @@ export default function Navbar(){
  },[isOpen]);
  return (
     <>
-      <nav className={scrolled ? "editorial-nav is-scrolled" : "editorial-nav"} aria-label="Main navigation">
+      <nav className={`editorial-nav${scrolled ? " is-scrolled" : ""}${atFooter ? " nav-footer-theme" : ""}`} aria-label="Main navigation">
         <div className="CC editorial-nav-inner">
           <BrandLogo />
           <div className="editorial-nav-links">{ListItem.map(item=><NavLink key={item.location} to={"/"+item.location}>{item.Label}</NavLink>)}</div>
@@ -31,7 +50,7 @@ export default function Navbar(){
           <button ref={toggleRef} className="editorial-menu-toggle" aria-label="Open navigation" aria-expanded={isOpen} aria-controls="mobile-navigation" onClick={()=>setIsOpen(true)}><Menu size={24}/></button>
         </div>
       </nav>
-      {isOpen && <div className="editorial-mobile-menu" id="mobile-navigation" ref={menuRef} role="dialog" aria-modal="true" aria-label="Navigation">
+      {isOpen && <div className={`editorial-mobile-menu${atFooter ? " nav-footer-theme" : ""}`} id="mobile-navigation" ref={menuRef} role="dialog" aria-modal="true" aria-label="Navigation">
         <div className="mobile-menu-top"><span>MENU</span><button onClick={()=>setIsOpen(false)} aria-label="Close navigation"><X size={26}/></button></div>
         {ListItem.map((item,index)=><NavLink key={item.location} to={"/"+item.location} onClick={()=>setIsOpen(false)}><small>0{index+1}</small>{item.Label}<span>&#8599;</span></NavLink>)}
         <p>Full Stack Developer &middot; Dhaka, Bangladesh</p>

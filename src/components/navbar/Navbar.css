@@ -1,0 +1,10 @@
+.editorial-theme .nav-footer-theme {
+  --ink:#14243e; --chalk:#f1f5fb; --muted:#bdc9dd; --border:#ffffff26; --vermillion:#afc6ff;
+  color:var(--chalk);
+}
+.nav-footer-theme .brand-mark { color:#365cae; }
+.nav-footer-theme .mobile-menu-top button { color:var(--chalk); }
+@media (prefers-reduced-motion:no-preference) {
+  .editorial-theme .editorial-nav { transition:background-color .25s ease,border-color .25s ease,color .25s ease; }
+  .editorial-nav :is(.brand-logo,.brand-mark,.brand-period,.brand-descriptor,.editorial-nav-links a,.nav-contact,.editorial-menu-toggle) { transition:color .25s ease,border-color .25s ease; }
+}
