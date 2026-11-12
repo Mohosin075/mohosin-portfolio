@@ -1,0 +1,10 @@
+.editorial-theme #projects > .editorial-section-heading { container-type:inline-size; }
+.editorial-theme #projects .section-heading { width:100%; max-width:none; }
+.editorial-theme #projects .section-heading > h2.section-heading-title {
+  max-width:none; white-space:nowrap; text-wrap:initial;
+  font-size:clamp(1.75rem,9.6cqi,3.5rem) !important;
+}
+.projects-view-all { display:flex; justify-content:center; margin-top:var(--space-group); padding-top:var(--space-copy); }
+@media (max-width:480px) {
+  .projects-view-all .btn-v { width:100%; justify-content:center; }
+}

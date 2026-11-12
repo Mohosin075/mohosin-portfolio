@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { loadProjects } from "../../utils/loadProjects";
 import { projectName } from "../../utils/projectName";
+import "./Projects.css";
 
 const categories = [{ id: "all", label: "All work" }, { id: "backend", label: "Backend" }, { id: "fullstack", label: "Full stack" }];
 
@@ -12,6 +13,7 @@ export default function Projects({ limit, embedded = false }) {
   const [category, setCategory] = useState("all");
   const [status, setStatus] = useState("loading");
   const [attempt, setAttempt] = useState(0);
+  const [expanded, setExpanded] = useState(false);
   useEffect(() => {
     const controller = new AbortController();
     setStatus("loading");
@@ -22,7 +24,8 @@ export default function Projects({ limit, embedded = false }) {
     }).catch(() => { if (!controller.signal.aborted) setStatus("error"); });
     return () => controller.abort();
   }, [attempt]);
-  const visible = (category === "all" ? projects : projects.filter((p) => p.category === category)).slice(0, limit || projects.length);
+  const filtered = category === "all" ? projects : projects.filter((p) => p.category === category);
+  const visible = filtered.slice(0, limit || (embedded && !expanded ? 5 : filtered.length));
   return (
     <section className={limit || embedded ? "work-preview" : "work-page page-shell CC"} aria-label="Selected projects">
       {!limit && !embedded && <header className="page-heading">
@@ -32,9 +35,9 @@ export default function Projects({ limit, embedded = false }) {
       </header>}
       {!limit && <div className="work-toolbar">
         <div className="work-filters" aria-label="Filter projects">
-          {categories.map((item) => <button key={item.id} aria-pressed={category === item.id} onClick={() => setCategory(item.id)}>{item.label}</button>)}
+          {categories.map((item) => <button key={item.id} aria-pressed={category === item.id} onClick={() => { setCategory(item.id); setExpanded(false); }}>{item.label}</button>)}
         </div>
-        <p role="status">{status === "ready" ? visible.length + " projects" : status === "error" ? "Work unavailable" : "Loading work"}</p>
+        <p role="status">{status === "ready" ? `${visible.length}${visible.length < filtered.length ? ` of ${filtered.length}` : ""} projects` : status === "error" ? "Work unavailable" : "Loading work"}</p>
       </div>}
       {status === "error" ? <div className="state-panel" role="alert"><h2>Could not load the work.</h2><p>Check your connection and try again.</p><button className="btn-v" onClick={() => setAttempt((n) => n + 1)}>Try again <ArrowRight size={16} /></button></div> :
        status === "loading" ? <div role="status" aria-label="Loading projects" className="work-grid"><span className="sr-only">Loading projects</span>{[0,1,2].map(n => <div className="work-skeleton" aria-hidden="true" key={n}><div /><span /><span /></div>)}</div> :
@@ -52,6 +55,7 @@ export default function Projects({ limit, embedded = false }) {
            </div>
          </article>)}
        </div>}
+      {embedded && status === "ready" && visible.length < filtered.length && <div className="projects-view-all"><button type="button" className="btn-v" onClick={() => setExpanded(true)}>View all projects <ArrowRight size={18} aria-hidden="true" /></button></div>}
     </section>
   );
 }
