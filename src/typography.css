@@ -1,0 +1,69 @@
+/* One fluid type scale across every page, including legacy inline content. */
+.editorial-theme {
+  --type-body:clamp(1.125rem,1rem + .25vw,1.375rem);
+  --type-small:clamp(.9375rem,.875rem + .15vw,1.0625rem);
+  --type-label:clamp(.875rem,.8125rem + .15vw,1rem);
+  --type-title:clamp(2.5rem,1.5rem + 3.5vw,5rem);
+  --type-subtitle:clamp(1.75rem,1.25rem + 1.5vw,2.75rem);
+  font-size:var(--type-body);
+}
+.editorial-theme :is(p,li,dd,blockquote) { font-size:var(--type-body) !important; line-height:1.75; }
+.editorial-theme :is(h1,h2,h3,p,li,dd,a) { overflow-wrap:break-word; }
+.editorial-theme h3 { font-size:var(--type-subtitle) !important; line-height:1.3 !important; }
+.editorial-theme :is(.page-heading h1,.case-study-page h1) { font-size:clamp(2.75rem,1.75rem + 4vw,6rem) !important; line-height:1.12 !important; }
+.editorial-theme :is(.editorial-section h2,.expertise-section h2,.case-section h2,.editorial-contact h2) { font-size:var(--type-title) !important; line-height:1.15 !important; }
+.editorial-theme :is(.work-card h2,.work-card-featured h2) { font-size:var(--type-subtitle) !important; line-height:1.25 !important; }
+.editorial-theme .editorial-hero h1 { font-size:clamp(3rem,6.8vw,7.5rem) !important; line-height:1.08 !important; }
+.editorial-theme :is(.page-heading > p,.hero-description,.work-card-summary) { font-size:clamp(1.1875rem,1.0625rem + .3vw,1.5rem) !important; }
+.editorial-theme :is(.eyebrow,.code-label,.rule-label,.work-index,.featured-label,.skill-number) { font-size:var(--type-label) !important; line-height:1.6 !important; }
+.editorial-theme :is(.btn-v,.btn-ghost,.text-link,.work-card-link,.nav-contact,.editorial-nav-links a,.work-filters button,.case-back,.case-study-navigation a) { font-size:clamp(1.0625rem,1rem + .15vw,1.25rem) !important; line-height:1.5; }
+.editorial-theme :is(.btn-v,.btn-ghost) { min-height:56px; }
+.editorial-theme :is(input,textarea,select,label) { font-size:var(--type-body) !important; line-height:1.6; }
+.editorial-theme .contact-page :is(input,textarea,select,label) { font-size:var(--type-body) !important; }
+.editorial-theme .contact-grid a { font-size:var(--type-body) !important; }
+.editorial-theme .contact-grid > div { min-width:0; }
+.editorial-theme .contact-grid a[href^="mailto:"] { overflow-wrap:anywhere; }
+.editorial-theme .contact-page :is(input,textarea)::placeholder { color:var(--muted); opacity:1; }
+.editorial-theme .contact-page :is(input,textarea,select):focus-visible { outline:2px solid var(--vermillion) !important; outline-offset:3px; }
+.editorial-theme .about-page .about-grid p:not(.code-label),
+.editorial-theme .service-card p,
+.editorial-theme .about-page blockquote,
+.editorial-theme .about-page .experience-timeline li { font-size:var(--type-body) !important; line-height:1.75 !important; }
+.editorial-theme :is(.badge,.skill-tag,.tech-tag,.skill-tag-icon,.work-card-tags span,.case-core-stack li,.case-tech-groups li) { font-size:var(--type-small) !important; line-height:1.5; }
+.editorial-theme :is(.hero-notice,.core-stack-intro p,.core-stack-list small,.core-stack-explore,.work-image-caption,.work-toolbar > p,.case-availability,.case-editorial-note,.project-gallery figcaption,.footer-brand p,.footer-socials a,.footer-bottom,.footer-bottom p,.footer-location,.footer-back-top) { font-size:var(--type-small) !important; }
+.editorial-theme .core-stack-list li { font-size:var(--type-small) !important; }
+.editorial-theme .hero-greeting { font-size:clamp(1.125rem,1rem + .25vw,1.375rem) !important; }
+.editorial-theme .hero-greeting-role { font-size:1em; }
+.editorial-theme .editorial-logo { font-size:34px; }
+.editorial-theme .editorial-logo small { font-size:10px; letter-spacing:1.6px; }
+.editorial-theme .editorial-footer .editorial-logo { font-size:34px; }
+.editorial-theme .editorial-skills h3 { font-size:clamp(1.375rem,1.125rem + .5vw,1.75rem) !important; }
+.editorial-theme .case-section-content > .case-lead { font-size:clamp(1.5rem,1.25rem + .5vw,2rem) !important; }
+.editorial-theme .editorial-mobile-menu > a { font-size:clamp(2.75rem,9vw,4rem); }
+.editorial-theme :is(.editorial-mobile-menu > a small,.mobile-menu-top) { font-size:var(--type-label); }
+.editorial-theme .editorial-section-heading > div:last-child { max-width:440px; }
+.editorial-theme .work-card-kicker { flex-wrap:wrap; row-gap:8px; }
+
+@media (min-width:800px) and (max-width:1100px) {
+  .editorial-theme .editorial-hero h1 { font-size:clamp(3.25rem,5.8vw,4rem) !important; }
+  .editorial-theme .editorial-nav-links { gap:18px; }
+  .editorial-theme .nav-contact { gap:12px; }
+  .editorial-theme .core-stack { grid-template-columns:1fr; }
+  .editorial-theme .core-stack-explore { border-left:0; border-top:1px solid var(--border); padding:16px 0 0; justify-content:space-between; }
+}
+@media (max-width:799px) {
+  .editorial-theme .editorial-hero h1 { font-size:clamp(2.625rem,10.8vw,4.75rem) !important; }
+  .editorial-theme .editorial-section-heading > div:last-child { max-width:100%; }
+  .editorial-theme .editorial-section-heading { gap:24px; }
+  .editorial-theme .hero-notice { font-size:var(--type-small); }
+  .editorial-theme .case-facts > div { grid-template-columns:minmax(0,1fr); gap:8px; }
+  .editorial-theme .case-project-links { flex-wrap:wrap; }
+}
+@media (max-width:480px) {
+  .editorial-theme .editorial-contact > div { flex-wrap:wrap; align-items:flex-start; }
+  .editorial-theme .editorial-contact h2 { flex:1 1 100%; }
+  .editorial-theme .core-stack-list { gap:24px 16px; }
+  .editorial-theme .core-stack-list li { align-items:flex-start; }
+  .editorial-theme .core-stack-list li > svg { flex-shrink:0; margin-top:5px; }
+  .editorial-theme .editorial-mobile-menu > a { gap:12px; }
+}

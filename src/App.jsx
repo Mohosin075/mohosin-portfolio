@@ -12,8 +12,9 @@ const App = () => {
     <MotionConfig reducedMotion="user">
     <div ref={root} className="portfolio-shell editorial-theme min-h-screen" style={{ background: "var(--ink)" }}>
       <PageMetadata />
+      <a className="skip-link" href="#main-content">Skip to content</a>
       <Navbar />
-      <main className="min-h-screen">
+      <main id="main-content" tabIndex={-1} className="min-h-screen">
         <Outlet />
       </main>
       <Footer />

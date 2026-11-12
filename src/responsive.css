@@ -1,4 +1,7 @@
 /* Wide layouts share a container; text retains a comfortable reading measure. */
+.skip-link { position:fixed; top:12px; left:16px; z-index:200; padding:12px 20px; border-radius:6px; background:var(--vermillion); color:white; font-size:18px; transform:translateY(-160%); }
+.skip-link:focus { transform:translateY(0); }
+#main-content { scroll-margin-top:100px; }
 .editorial-theme :is(.editorial-hero-copy,.work-card-body,.editorial-section-heading > *, .editorial-experience > *) { min-width:0; }
 .editorial-theme .hero-description { max-width:48ch; }
 .editorial-theme .work-card-role { max-width:68ch; }
