@@ -17,7 +17,7 @@ export default function Footer() {
           </div>
           <nav className="footer-link-group" aria-label="Footer navigation">
             <h2>Explore</h2>
-            <NavLink to="/" end>Home</NavLink><NavLink to="/about">About</NavLink><NavLink to="/projects">Projects</NavLink><NavLink to="/contact">Contact</NavLink>
+            <NavLink to="/" end>Home</NavLink><NavLink to="/projects">Projects</NavLink><NavLink to="/contact">Contact</NavLink>
           </nav>
           <nav className="footer-link-group" aria-label="Social links">
             <h2>Connect</h2>

@@ -2,7 +2,6 @@ export const siteUrl = 'https://mohosin-portfolio.vercel.app';
 export function pageMetadata(path, projects = []) {
   const pages = {
     '/': ['Md Mohosin Ali | Full Stack Developer', 'Full Stack Developer delivering React and Next.js applications, TypeScript APIs, AI integrations and cloud deployments. Backend Developer at Sparktech Agency since June 2025.'],
-    '/about': ['About Mohosin Ali | Experience & Skills', 'Explore Mohosin Ali’s backend and full-stack skills, education and experience at Sparktech Agency.'],
     '/projects': ['Selected Projects | Mohosin Ali', 'Six selected projects covering backend APIs, subscriptions, background jobs, real-time systems and full-stack development.'],
     '/contact': ['Contact Mohosin Ali | Project & Job Inquiries', 'Get in touch with Mohosin Ali about backend development, full-stack projects, collaboration and job opportunities.'],
   };

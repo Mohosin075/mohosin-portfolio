@@ -56,7 +56,7 @@ const Home = () => (
       </div>
       <div className="core-stack" aria-labelledby="core-stack-heading">
         <SectionHeading className="core-stack-intro" label="My toolkit" title="One stack." accent="Every layer." description="From the interface to the infrastructure — the tools I use and what each layer does." id="core-stack-heading" />
-        <NavLink className="core-stack-explore" to="/about"><span>Full skills & experience</span><ArrowRight size={18} aria-hidden="true" /></NavLink>
+        <a className="core-stack-explore" href="#experience"><span>View experience</span><ArrowRight size={18} aria-hidden="true" /></a>
         <div className="stack-category-grid">
           {skillCategories.map(({ title, description, icon: Icon, skills }) => (
             <article className="stack-category" key={title}>
@@ -73,8 +73,8 @@ const Home = () => (
       <div className="editorial-section-heading"><SectionHeading label="01 / Selected work" title="Selected" accent="projects." description="Travel mapping, social publishing and full-stack products built for real workflows." icon={FolderOpen} /><NavLink className="text-link" to="/projects">All projects <ArrowRight size={18} /></NavLink></div>
       <Projects limit={3} />
     </section>
-    <section className="editorial-section CC editorial-experience">
-      <div className="editorial-section-heading"><SectionHeading label="02 / Experience" title="Building in" accent="practice." description="Backend and full-stack development at Sparktech Agency." icon={Briefcase} /><NavLink to="/about" className="text-link">More about my experience <ArrowRight size={18}/></NavLink></div>
+    <section className="editorial-section CC editorial-experience" id="experience">
+      <div className="editorial-section-heading"><SectionHeading label="02 / Experience" title="Building in" accent="practice." description="Backend and full-stack development at Sparktech Agency." icon={Briefcase} /><a href="/mohosin-ali-resume.pdf" download className="text-link">Download resume <Download size={18}/></a></div>
       <div className="experience-list">{experience.map(job => (
         <article className="experience-card" key={job.company}>
           <div className="experience-meta"><span><CalendarDays size={16} aria-hidden="true" />{job.period}</span>{job.current && <span className="experience-current"><i aria-hidden="true" />Current role</span>}</div>
