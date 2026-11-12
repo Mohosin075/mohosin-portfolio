@@ -103,7 +103,7 @@
 
 @media (min-width:800px) and (max-width:1100px) {
   .editorial-theme .editorial-hero h1 { font-size:clamp(3.25rem,5.8vw,4rem) !important; }
-  .editorial-theme .editorial-nav-links { gap:18px; }
+  .editorial-theme .editorial-nav-links { gap:20px; }
   .editorial-theme .nav-contact { gap:12px; }
   .editorial-theme .core-stack { grid-template-columns:1fr; }
   .editorial-theme .core-stack-explore { border-left:0; border-top:1px solid var(--border); padding:16px 0 0; justify-content:space-between; }

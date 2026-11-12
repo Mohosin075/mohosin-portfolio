@@ -165,7 +165,6 @@
  .editorial-theme .editorial-mobile-menu > a:nth-of-type(2) { animation-delay:50ms; }
  .editorial-theme .editorial-mobile-menu > a:nth-of-type(3) { animation-delay:100ms; }
  .editorial-theme .editorial-mobile-menu > a:nth-of-type(4) { animation-delay:150ms; }
- .editorial-nav-links a::after { transition:transform .2s ease; }
  .editorial-nav-links a:hover { color:var(--vermillion); }
  .work-filters button { transition:background-color .2s ease,color .2s ease,border-color .2s ease; }
  .work-filters button:hover { border-color:var(--vermillion); }
