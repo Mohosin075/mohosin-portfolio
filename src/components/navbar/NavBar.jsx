@@ -1,10 +1,12 @@
 import { Link, useLocation } from "react-router-dom";
 import { ListItem } from "../../utils/constant";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import BrandLogo from "../BrandLogo";
 import "./Navbar.css";
+import useTheme from "../../utils/useTheme";
 export default function Navbar(){
+ const {theme,toggleTheme}=useTheme();
  const [isOpen,setIsOpen]=useState(false);
  const [scrolled,setScrolled]=useState(false);
  const [atFooter,setAtFooter]=useState(false);
@@ -52,8 +54,11 @@ export default function Navbar(){
         <div className="CC editorial-nav-inner">
           <BrandLogo />
           <div className="editorial-nav-links">{ListItem.map(item=><Link key={item.location} to={`/#${item.location}`} className={activeSection===item.location?'active':undefined} aria-current={activeSection===item.location?'location':undefined}>{item.Label}</Link>)}</div>
+          <div className="nav-actions">
           <Link to="/#contact" className="nav-contact">Let&apos;s talk <span>&#8599;</span></Link>
+          <button type="button" className="theme-toggle" onClick={toggleTheme} aria-label="Dark mode" aria-pressed={theme==='dark'} title={theme==='dark'?'Switch to light mode':'Switch to dark mode'}>{theme==='dark'?<Sun size={20} aria-hidden="true" />:<Moon size={20} aria-hidden="true" />}</button>
           <button ref={toggleRef} className="editorial-menu-toggle" aria-label="Open navigation" aria-expanded={isOpen} aria-controls="mobile-navigation" onClick={()=>setIsOpen(true)}><Menu size={24}/></button>
+          </div>
         </div>
       </nav>
       {isOpen && <div className={`editorial-mobile-menu${atFooter ? " nav-footer-theme" : ""}`} id="mobile-navigation" ref={menuRef} role="dialog" aria-modal="true" aria-label="Navigation">

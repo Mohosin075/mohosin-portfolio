@@ -15,6 +15,8 @@ Copy `.env.example` to `.env` first (`Copy-Item .env.example .env` in PowerShell
 
 ## Contact form
 
+The navigation includes a light/dark mode switch. First visits follow the device theme; a manual selection is saved in browser storage and applies across project pages and reloads.
+
 Set `VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_TEMPLATE_ID` and `VITE_EMAILJS_PUBLIC_KEY` locally and in your hosting build environment. Restart Vite or rebuild after changes. These identifiers are browser-visible; never put private keys in `VITE_*` variables.
 
 Configure the EmailJS template with `name`, `email`, `reply_to`, `inquiry_type` and `message`. Set the recipient in EmailJS to `mohosinali075@gmail.com` and configure allowed origins and abuse protections in the EmailJS dashboard. Without configuration the form preserves the message and offers direct email contact. Actual delivery needs a separate test after deployment.

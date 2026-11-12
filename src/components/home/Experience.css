@@ -1,7 +1,7 @@
 .editorial-theme .editorial-experience { display:block; }
 .editorial-theme .editorial-experience .editorial-section-heading > .text-link { margin-top:0; }
 .experience-list { display:grid; gap:24px; min-width:0; }
-.editorial-theme .editorial-experience .experience-card { padding:32px; border:1px solid var(--border); border-radius:12px; background:#fff8; box-shadow:0 8px 32px #20252204; }
+.editorial-theme .editorial-experience .experience-card { padding:32px; border:1px solid var(--border); border-radius:12px; background:var(--card-surface); box-shadow:0 8px 32px #20252204; }
 .experience-meta { display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:28px; }
 .experience-meta > span { display:inline-flex; align-items:center; gap:8px; font-size:var(--type-small); line-height:1.5; color:var(--muted); }
 .experience-meta > .experience-current { color:#285438; font-weight:550; }
