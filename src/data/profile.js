@@ -23,4 +23,4 @@ export const experience = [
 ];
 export const contact = { phone: '+880 1981-381386', whatsapp: 'https://wa.me/8801981381386', linkedin: 'https://www.linkedin.com/in/mohosin075/', email: 'mohosinali075@gmail.com' };
 
-export const profile = { title: "Full Stack Developer", summary: "I turn complex ideas into scalable digital products. With hands-on experience in backend engineering, full-stack development, AI integrations, and cloud infrastructure, I build reliable solutions from concept to production.", availability: "Open to Full Stack & Backend roles" };
+export const profile = { title: "Full Stack Developer", summary: "I build React and Next.js products, reliable APIs and AI integrations — from the first idea to cloud deployment.", availability: "Open to Full Stack & Backend roles" };
