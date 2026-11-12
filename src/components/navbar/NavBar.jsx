@@ -17,7 +17,7 @@ export default function Navbar(){
   const update=()=>{
    frame=0;
    setScrolled(window.scrollY>24);
-   setAtFooter(Boolean(footer && footer.getBoundingClientRect().top <= window.innerHeight*.5));
+   setAtFooter(Boolean(footer && footer.getBoundingClientRect().top <= window.innerHeight*.2));
   };
   const schedule=()=>{if(!frame)frame=requestAnimationFrame(update);};
   const resizeObserver=typeof ResizeObserver==='undefined'?null:new ResizeObserver(schedule);
