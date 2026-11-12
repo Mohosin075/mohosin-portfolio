@@ -4,12 +4,17 @@
   --type-small:clamp(.9375rem,.875rem + .15vw,1.0625rem);
   --type-label:clamp(.875rem,.8125rem + .15vw,1rem);
   --type-title:clamp(2.5rem,1.5rem + 3.5vw,5rem);
-  --type-subtitle:clamp(1.75rem,1.25rem + 1.5vw,2.75rem);
+  --type-subtitle:clamp(1.75rem,1.4rem + .9vw,2.5rem);
+  --type-card-title:clamp(1.375rem,1.125rem + .7vw,2rem);
+  --space-label:12px;
+  --space-copy:clamp(16px,1.4vw,24px);
+  --space-group:clamp(28px,2.5vw,40px);
+  --space-section:clamp(56px,5vw,96px);
   font-size:var(--type-body);
 }
-.editorial-theme :is(p,li,dd,blockquote) { font-size:var(--type-body) !important; line-height:1.75; }
+.editorial-theme :is(p,li,dd,blockquote) { font-size:var(--type-body) !important; line-height:1.65; }
 .editorial-theme :is(h1,h2,h3,p,li,dd,a) { overflow-wrap:break-word; }
-.editorial-theme h3 { font-size:var(--type-subtitle) !important; line-height:1.3 !important; }
+.editorial-theme h3 { font-size:var(--type-card-title) !important; line-height:1.3 !important; }
 .editorial-theme :is(.page-heading h1,.case-study-page h1) { font-size:clamp(2.75rem,1.75rem + 4vw,6rem) !important; line-height:1.12 !important; }
 .editorial-theme :is(.editorial-section h2,.expertise-section h2,.case-section h2,.editorial-contact h2) { font-size:var(--type-title) !important; line-height:1.15 !important; }
 .editorial-theme :is(.work-card h2,.work-card-featured h2) { font-size:var(--type-subtitle) !important; line-height:1.25 !important; }
@@ -28,7 +33,7 @@
 .editorial-theme .about-page .about-grid p:not(.code-label),
 .editorial-theme .service-card p,
 .editorial-theme .about-page blockquote,
-.editorial-theme .about-page .experience-timeline li { font-size:var(--type-body) !important; line-height:1.75 !important; }
+.editorial-theme .about-page .experience-timeline li { font-size:var(--type-body) !important; line-height:1.65 !important; }
 .editorial-theme :is(.badge,.skill-tag,.tech-tag,.skill-tag-icon,.work-card-tags span,.case-core-stack li,.case-tech-groups li) { font-size:var(--type-small) !important; line-height:1.5; }
 .editorial-theme :is(.hero-notice,.core-stack-intro p,.core-stack-list small,.core-stack-explore,.work-image-caption,.work-toolbar > p,.case-availability,.case-editorial-note,.project-gallery figcaption,.footer-brand p,.footer-socials a,.footer-bottom,.footer-bottom p,.footer-location,.footer-back-top) { font-size:var(--type-small) !important; }
 .editorial-theme .core-stack-list li { font-size:var(--type-small) !important; }
@@ -44,6 +49,58 @@
 .editorial-theme .editorial-section-heading > div:last-child { max-width:440px; }
 .editorial-theme .work-card-kicker { flex-wrap:wrap; row-gap:8px; }
 
+/* Keep related text close; reserve larger spaces for a change of subject. */
+.editorial-theme .page-heading,
+.editorial-theme .about-page .CC > .page-heading {
+  display:flex; flex-direction:column; align-items:flex-start; gap:var(--space-copy);
+  padding-bottom:var(--space-group) !important; margin-bottom:var(--space-group) !important;
+}
+.editorial-theme .page-heading > :is(h1,p,.rule-label,.eyebrow) { margin:0 !important; }
+.editorial-theme .page-heading > p { max-width:54ch !important; line-height:1.65 !important; }
+.editorial-theme .page-heading h1 { letter-spacing:-.045em !important; }
+.editorial-theme :is(.eyebrow,.code-label,.rule-label) { line-height:1.45 !important; letter-spacing:.06em; }
+.editorial-theme :is(.editorial-section,.expertise-section) { padding-block:var(--space-section); }
+.editorial-theme .editorial-section-heading { align-items:flex-start; margin-bottom:var(--space-group); }
+.editorial-theme .editorial-section-heading h2 { margin:var(--space-label) 0 0; }
+.editorial-theme .editorial-section-heading p { margin:0; line-height:1.65; }
+.editorial-theme .editorial-section-heading p + .text-link { margin-top:var(--space-copy); }
+.editorial-theme .editorial-section-heading > div:last-child { padding-top:4px; }
+.editorial-theme .hero-greeting { margin-bottom:var(--space-copy); line-height:1.5; }
+.editorial-theme .editorial-hero h1 { margin-bottom:var(--space-copy); }
+.editorial-theme .hero-description { line-height:1.65; }
+.editorial-theme .editorial-actions { margin-top:var(--space-group); gap:20px 28px; }
+.editorial-theme .hero-notice { margin-top:20px; }
+.editorial-theme .work-card-body { gap:var(--space-copy); padding-top:24px; }
+.editorial-theme .work-card-featured .work-card-body { gap:var(--space-copy); }
+.editorial-theme .work-card-featured { padding-bottom:var(--space-group); }
+.editorial-theme .work-card-body > :is(h2,p,div,a) { margin-block:0; }
+.editorial-theme .work-card h2 { margin:0 !important; }
+.editorial-theme .work-card-role > .eyebrow { margin-bottom:8px; }
+.editorial-theme .work-card-role p { margin:0; line-height:1.65; }
+.editorial-theme .work-card-link { padding-block:16px; }
+.editorial-theme .editorial-skills h3 { margin-bottom:12px; line-height:1.3 !important; }
+.editorial-theme .editorial-skills p { line-height:1.65; }
+.editorial-theme .editorial-experience h2 { margin-top:var(--space-label); }
+.editorial-theme .editorial-experience h3 { margin-top:var(--space-label); }
+.editorial-theme .experience-company { margin:8px 0 var(--space-copy); }
+.editorial-theme .editorial-experience ul { gap:16px; }
+.editorial-theme .case-section { padding-block:var(--space-section); gap:var(--space-group); }
+.editorial-theme .case-section h2 { font-size:clamp(2rem,1.5rem + 1.6vw,3.5rem) !important; margin:12px 0 16px; }
+.editorial-theme .case-section-content > p { margin-bottom:var(--space-copy); line-height:1.65; }
+.editorial-theme :is(.case-feature-card,.case-tech-groups > div,.case-deliverables) h3 { margin-bottom:12px; }
+.editorial-theme .decision-title { margin-bottom:var(--space-copy); }
+.editorial-theme .decision-card dl > div { margin-top:var(--space-copy); }
+.editorial-theme .editorial-contact h2 { margin:12px 0 var(--space-copy); }
+.editorial-theme .editorial-contact > div { margin-bottom:var(--space-copy); }
+.editorial-theme .editorial-contact > div h2 { margin-bottom:0; }
+.editorial-theme .editorial-contact > p { margin-bottom:var(--space-copy); max-width:54ch; }
+.editorial-theme .about-page .about-grid { margin-bottom:var(--space-section) !important; }
+.editorial-theme .about-page :is(.editorial-services,.editorial-history,.profile-languages) { margin-bottom:var(--space-section) !important; }
+.editorial-theme .service-card h3 { font-size:var(--type-card-title) !important; margin-bottom:12px !important; }
+.editorial-theme .about-page .experience-job-header { gap:var(--space-copy); margin-bottom:var(--space-copy) !important; flex-wrap:wrap; }
+.editorial-theme .contact-grid > div:last-child > h3 { margin-bottom:12px !important; }
+.editorial-theme .contact-grid > div:last-child > h3 + p { margin-bottom:var(--space-group) !important; }
+
 @media (min-width:800px) and (max-width:1100px) {
   .editorial-theme .editorial-hero h1 { font-size:clamp(3.25rem,5.8vw,4rem) !important; }
   .editorial-theme .editorial-nav-links { gap:18px; }
@@ -58,6 +115,7 @@
   .editorial-theme .hero-notice { font-size:var(--type-small); }
   .editorial-theme .case-facts > div { grid-template-columns:minmax(0,1fr); gap:8px; }
   .editorial-theme .case-project-links { flex-wrap:wrap; }
+  .editorial-theme .work-grid { row-gap:var(--space-group); }
 }
 @media (max-width:480px) {
   .editorial-theme .editorial-contact > div { flex-wrap:wrap; align-items:flex-start; }
@@ -66,4 +124,5 @@
   .editorial-theme .core-stack-list li { align-items:flex-start; }
   .editorial-theme .core-stack-list li > svg { flex-shrink:0; margin-top:5px; }
   .editorial-theme .editorial-mobile-menu > a { gap:12px; }
+  .editorial-theme .editorial-skills h3 { margin-bottom:0; }
 }
