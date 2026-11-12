@@ -48,7 +48,7 @@ export default function Projects({ limit }) {
              <p className="work-card-summary">{project.subtitle}</p>
              <div className="work-card-role"><span className="eyebrow">My contribution</span><p>{project.role}</p></div>
              <div className="work-card-tags">{(project.primaryStack || project.backEnd || []).slice(0,4).map(tech => <span key={tech}>{tech}</span>)}</div>
-             <Link className="work-card-link" to={"/projects/" + project.id}>Explore case study <ArrowUpRight size={19} /></Link>
+             <Link className="work-card-link" to={"/projects/" + project.id}>View project details <ArrowUpRight size={19} /></Link>
            </div>
          </article>)}
        </div>}
