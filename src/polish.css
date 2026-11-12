@@ -42,7 +42,7 @@
 .editorial-theme .tech-card { border:1px solid var(--border); border-radius:var(--radius); background:transparent; padding:28px; }
 .editorial-theme .tech-card-title { font:600 18px/1.4 'Manrope',sans-serif; }
 .editorial-theme .skill-tag-icon { background:var(--surface); border:1px solid var(--border); padding:7px 10px; }
-.editorial-theme .editorial-history .experience-timeline > div,.editorial-theme .editorial-history > div:last-child > div:not(.rule-label) { border-radius:var(--radius) !important; background:transparent !important; border:1px solid var(--border) !important; padding:28px !important; }
+.editorial-theme .editorial-history .experience-timeline > div,.editorial-theme .editorial-history > div:last-child > div:not(.rule-label):not(.section-heading) { border-radius:var(--radius) !important; background:transparent !important; border:1px solid var(--border) !important; padding:28px !important; }
 .editorial-theme .service-card h3 { font-size:19px !important; }
 .editorial-theme .service-card p,.editorial-theme .about-page blockquote { font-size:16px !important; line-height:1.8 !important; }
 .editorial-theme .about-page .about-grid p:not(.code-label) { font-size:16px !important; line-height:1.8 !important; }

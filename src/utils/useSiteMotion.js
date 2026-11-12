@@ -8,7 +8,7 @@ const targets = [
   ".core-stack", ".editorial-section-heading", ".work-card", ".editorial-skills > div",
   ".editorial-experience > div", ".editorial-contact", ".page-heading",
   ".about-grid > div", ".service-card", ".experience-timeline > div",
-  ".editorial-history > div:last-child > div:not(.rule-label)", ".tech-card", ".contact-grid > div",
+  ".editorial-history > div:last-child > div:not(.rule-label):not(.section-heading)", ".tech-card", ".contact-grid > div",
   ".case-facts > div", ".project-gallery", ".case-section-label", ".decision-card",
   ".case-outcomes li", ".case-tech-groups > div", ".case-project-links", ".next-project",
   ".profile-languages", ".footer-top > *", ".footer-bottom"

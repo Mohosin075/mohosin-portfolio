@@ -2,15 +2,7 @@
   display:grid; grid-template-columns:minmax(0,1fr) auto; gap:32px;
   padding-block:40px; align-items:center;
 }
-.editorial-theme .core-stack .core-stack-intro { display:block; grid-column:auto; }
-.editorial-theme .core-stack .core-stack-intro h2 {
-  font-size:clamp(1.875rem,1.4rem + 1.5vw,2.75rem); font-weight:650;
-  letter-spacing:-.04em; line-height:1.2; margin:10px 0 12px;
-}
-.editorial-theme .core-stack .core-stack-intro h2 > span { color:var(--vermillion); }
-.editorial-theme .core-stack .core-stack-intro p {
-  margin:0; font-size:clamp(1rem,.9rem + .25vw,1.25rem) !important; line-height:1.6;
-}
+.editorial-theme .core-stack .core-stack-intro { display:flex; grid-column:auto; }
 .editorial-theme .core-stack .core-stack-explore {
   align-self:center; gap:16px; padding:10px 0; min-height:44px;
   border:0; border-bottom:1px solid var(--border); color:var(--chalk);

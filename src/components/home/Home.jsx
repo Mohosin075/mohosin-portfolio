@@ -1,7 +1,8 @@
 import { experience, profile } from "../../data/profile";
 import ProfileImage from "../ProfileImage";
 import { NavLink } from "react-router-dom";
-import { ArrowRight, Download, Server, Database, Layout, Cpu } from "lucide-react";
+import { ArrowRight, Download, Server, Database, Layout, Cpu, Layers, Briefcase, FolderOpen, MessageSquare } from "lucide-react";
+import SectionHeading from "../SectionHeading";
 
 import Projects from "../projects/Projects";
 import "./CoreTechnologies.css";
@@ -57,21 +58,21 @@ const Home = () => (
         </figure>
       </div>
       <div className="core-stack" aria-labelledby="core-stack-heading">
-        <div className="core-stack-intro"><span className="eyebrow">Built with</span><h2 id="core-stack-heading">Core technologies<span>.</span></h2><p>The tools behind the work.</p></div>
+        <SectionHeading className="core-stack-intro" label="Built with" title="Core" accent="technologies." description="The tools behind the work." id="core-stack-heading" />
         <a className="core-stack-explore" href="#selected-work"><span>Explore the work</span><ArrowRight size={18} aria-hidden="true" /></a>
         <ul className="core-stack-list">{coreTechnologies.map(({ name, detail, icon: Icon }) => <li key={name}><Icon aria-hidden="true" /><div><span>{name}</span><small>{detail}</small></div></li>)}</ul>
       </div>
     </section>
     <section className="editorial-section CC" id="selected-work">
-      <div className="editorial-section-heading"><div><span className="eyebrow">01 / Selected work</span><h2>Selected projects<span className="heading-period">.</span></h2></div><div><p>Travel mapping, social publishing and full-stack products built for real workflows.</p><NavLink className="text-link" to="/projects">All projects <ArrowRight size={18} /></NavLink></div></div>
+      <div className="editorial-section-heading"><SectionHeading label="01 / Selected work" title="Selected" accent="projects." description="Travel mapping, social publishing and full-stack products built for real workflows." icon={FolderOpen} /><NavLink className="text-link" to="/projects">All projects <ArrowRight size={18} /></NavLink></div>
       <Projects limit={3} />
     </section>
     <section className="expertise-section">
-      <div className="CC"><div className="editorial-section-heading"><div><span className="eyebrow">02 / My toolkit</span><h2>Across the stack.</h2></div><p>React and Next.js interfaces, TypeScript APIs, databases, integrations and cloud deployment.</p></div>
+      <div className="CC"><div className="editorial-section-heading"><SectionHeading label="02 / My toolkit" title="Across the" accent="stack." description="React and Next.js interfaces, TypeScript APIs, databases, integrations and cloud deployment." icon={Layers} /></div>
       <div className="editorial-skills">{skillCategories.map((group,index)=><div key={group.title}><span className="skill-number">0{index+1}</span><group.icon size={24} strokeWidth={1.5}/><h3>{group.title}</h3><p>{group.skills.join(' / ')}</p></div>)}</div></div>
     </section>
-    <section className="editorial-section CC editorial-experience"><div><span className="eyebrow">03 / Experience</span><h2>Experience.</h2><NavLink to="/about" className="text-link">More about me <ArrowRight size={18}/></NavLink></div><div>{experience.map(job=><article key={job.company}><p className="eyebrow">{job.period}</p><h3>{job.role}</h3><p className="experience-company">{job.company}</p><ul>{job.bullets.map(item=><li key={item}>{item}</li>)}</ul></article>)}</div></section>
-    <section className="editorial-contact CC"><span className="eyebrow">Have something in mind?</span><div><h2>Let&apos;s build<br />something useful.</h2><NavLink to="/contact" aria-label="Start a conversation" className="contact-circle"><ArrowRight size={36}/></NavLink></div><p>Open to Full Stack and Backend roles, and relevant project opportunities.</p><a href="mailto:mohosinali075@gmail.com" className="text-link">mohosinali075@gmail.com</a></section>
+    <section className="editorial-section CC editorial-experience"><div><SectionHeading label="03 / Experience" title="Building in" accent="practice." description="Backend and full-stack development at Sparktech Agency." icon={Briefcase} /><NavLink to="/about" className="text-link">More about me <ArrowRight size={18}/></NavLink></div><div>{experience.map(job=><article key={job.company}><p className="eyebrow">{job.period}</p><h3>{job.role}</h3><p className="experience-company">{job.company}</p><ul>{job.bullets.map(item=><li key={item}>{item}</li>)}</ul></article>)}</div></section>
+    <section className="editorial-contact CC"><div><SectionHeading label="Have something in mind?" title="Let's build" accent="something useful." description="Open to Full Stack and Backend roles, and relevant project opportunities." icon={MessageSquare} /><NavLink to="/contact" aria-label="Start a conversation" className="contact-circle"><ArrowRight size={36}/></NavLink></div><a href="mailto:mohosinali075@gmail.com" className="text-link">mohosinali075@gmail.com</a></section>
   </div>
 );
 export default Home;

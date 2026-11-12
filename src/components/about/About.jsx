@@ -1,5 +1,6 @@
 import { experience, profile } from "../../data/profile";
 import ProfileImage from "../ProfileImage";
+import SectionHeading from "../SectionHeading";
 import {
   Server, Database, Cpu, Clock, CalendarDays, Layout, Code2,
 } from "lucide-react";
@@ -136,7 +137,7 @@ const About = () => {
 
         {/* What I do */}
         <div style={{ marginBottom: 80 }}>
-          <div className="rule-label" style={{ marginBottom: 40 }}>What I Do</div>
+          <SectionHeading label="What I do" title="From idea to" accent="production." description="Applications, APIs and integrations across the product lifecycle." icon={Layout} />
           <div className="services-grid">
             {services.map((s) => (
               <div
@@ -158,7 +159,7 @@ const About = () => {
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, marginBottom: 80 }} className="exp-grid editorial-history">
           {/* Experience */}
           <div>
-            <div className="rule-label" style={{ marginBottom: 32 }}>Experience</div>
+            <SectionHeading label="Experience" title="Building in" accent="practice." description="My work at Sparktech Agency." icon={Server} />
             <div className="experience-timeline editorial-panels">
             {experience.map((job, i) => (
               <div
@@ -212,7 +213,7 @@ const About = () => {
 
           {/* Education */}
           <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-            <div className="rule-label" style={{ marginBottom: 16 }}>Education</div>
+            <SectionHeading label="Education" title="Learning the" accent="fundamentals." description="My academic background in computer science." icon={CalendarDays} />
 
             {/* Bachelor's */}
             <div
@@ -246,11 +247,11 @@ const About = () => {
           </div>
         </div>
 
-        <section className="profile-languages" aria-labelledby="spoken-languages-heading"><h2 id="spoken-languages-heading" className="rule-label">Languages</h2><dl><div><dt>Bangla</dt><dd>Native</dd></div><div><dt>English</dt><dd>Basic</dd></div></dl></section>
+        <section className="profile-languages" aria-labelledby="spoken-languages-heading"><SectionHeading label="Languages" title="How I" accent="communicate." description="Languages I use to connect and collaborate." id="spoken-languages-heading" /><dl><div><dt>Bangla</dt><dd>Native</dd></div><div><dt>English</dt><dd>Basic</dd></div></dl></section>
 
         {/* Skills grid */}
         <div>
-          <div className="rule-label" style={{ marginBottom: 40 }}>Core Tech Stack</div>
+          <SectionHeading label="Core tech stack" title="Tools for every" accent="layer." description="The languages, frameworks and services behind my work." />
           <div className="tech-stack-grid">
             {skillCategories.map((category) => {
               const Icon = category.icon;
