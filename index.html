@@ -8,7 +8,7 @@
         let saved;
         try { saved = localStorage.getItem('portfolio-theme'); } catch {}
         document.documentElement.dataset.theme = saved === 'dark' || saved === 'light' ? saved : matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        document.querySelector('meta[name="theme-color"]').content = document.documentElement.dataset.theme === 'dark' ? '#101722' : '#f8f7f4';
+        document.querySelector('meta[name="theme-color"]').content = document.documentElement.dataset.theme === 'dark' ? '#14243e' : '#f8f7f4';
       })();
     </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />

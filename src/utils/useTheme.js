@@ -11,7 +11,7 @@ export default function useTheme() {
   const [theme, setTheme] = useState(preferredTheme);
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
-    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", theme === "dark" ? "#101722" : "#f8f7f4");
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", theme === "dark" ? "#14243e" : "#f8f7f4");
   }, [theme]);
   useEffect(() => {
     const media = window.matchMedia("(prefers-color-scheme: dark)");

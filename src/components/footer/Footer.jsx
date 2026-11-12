@@ -1,4 +1,4 @@
-import { ArrowUp, ArrowUpRight, MapPin } from "lucide-react";
+import { ArrowUp, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ListItem } from "../../utils/constant";
 import BrandLogo from "../BrandLogo";
@@ -9,7 +9,6 @@ export default function Footer() {
   return (
     <footer className="editorial-footer site-footer">
       <div className="CC">
-        <div className="footer-intro-line"><span className="footer-availability"><i aria-hidden="true" />Open to Full Stack & Backend roles</span><span className="footer-based"><MapPin size={16} aria-hidden="true" />Dhaka, Bangladesh</span></div>
         <div className="footer-main-grid">
           <div className="footer-intro">
             <BrandLogo />
