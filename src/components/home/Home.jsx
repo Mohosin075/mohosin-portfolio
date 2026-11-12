@@ -49,9 +49,9 @@ const Home = () => (
           <h1>Building products that solve <span className="hero-name-period">real problems.</span></h1>
           <p className="hero-description">{profile.summary}</p>
           <div className="editorial-actions"><NavLink to="/projects" className="btn-v">Explore my work <ArrowRight size={18} /></NavLink><a className="text-link" href="/mohosin-ali-resume.pdf" download>Download resume <Download size={16} /></a></div>
-          <p className="hero-notice"><span />{profile.availability}</p>
         </div>
         <figure className="editorial-portrait hero-portrait">
+          <figcaption className="hero-notice"><span aria-hidden="true" />{profile.availability}</figcaption>
           <div className="editorial-portrait-image"><ProfileImage sizes="(min-width: 1920px) 480px, (min-width: 1440px) 25vw, (min-width: 1100px) 380px, (min-width: 800px) 36vw, (min-width: 380px) 300px, calc(100vw - 40px)" /></div>
         </figure>
       </div>

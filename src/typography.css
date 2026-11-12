@@ -69,7 +69,19 @@
 .editorial-theme .editorial-hero h1 { margin-bottom:var(--space-copy); }
 .editorial-theme .hero-description { line-height:1.65; }
 .editorial-theme .editorial-actions { margin-top:var(--space-group); gap:20px 28px; }
-.editorial-theme .hero-notice { margin-top:20px; }
+.editorial-theme .hero-portrait { position:relative; isolation:isolate; }
+.editorial-theme .hero-portrait .hero-notice {
+  position:absolute; bottom:0; left:50%; transform:translate(-50%,50%); z-index:2;
+  width:max-content; max-width:calc(100% - 20px); margin:0; padding:10px 14px;
+  display:flex; align-items:center; justify-content:center; gap:9px; flex-wrap:nowrap;
+  background:#f8fbf8; color:#285438; border:1px solid #d8e5da; border-radius:999px;
+  box-shadow:0 4px 16px #20252212;
+  font-size:clamp(.75rem,.7rem + .15vw,.875rem) !important; font-weight:600; line-height:1.4;
+  text-align:center;
+}
+.editorial-theme .hero-portrait .hero-notice > span {
+  width:7px; height:7px; background:#39714c; box-shadow:0 0 0 3px #39714c12;
+}
 .editorial-theme .work-card-body { gap:var(--space-copy); padding-top:24px; }
 .editorial-theme .work-card-featured .work-card-body { gap:var(--space-copy); }
 .editorial-theme .work-card-featured { padding-bottom:var(--space-group); }
