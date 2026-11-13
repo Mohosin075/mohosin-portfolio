@@ -36,6 +36,7 @@ export default function ProjectDetails() {
         <h1>{projectName(project.title)}<span className="heading-period">.</span></h1>
         <p>{project.subtitle}</p>
       </header>
+      <ProjectImage key={project.id} src={project.image} title={projectName(project.title)} />
       <div className="case-quick-links" aria-label="Project resources">
         {project.demo && <a href={project.demo} target="_blank" rel="noopener noreferrer" className="btn-v">Live website <ArrowUpRight size={17} /></a>}
         {project.githubServer && <a href={project.githubServer} target="_blank" rel="noopener noreferrer" className="btn-ghost">Backend repository <ArrowUpRight size={17} /></a>}
@@ -47,7 +48,6 @@ export default function ProjectDetails() {
         <div><span className="eyebrow">Core stack</span><ul className="case-core-stack">{project.primaryStack.map(tech => <li key={tech}>{tech}</li>)}</ul></div>
         <div><span className="eyebrow">Focus</span><p>{project.decisions?.[0]?.choice || project.subtitle}</p></div>
       </div>
-      <ProjectImage key={project.id} src={project.image} title={projectName(project.title)} />
       <nav className="case-study-navigation" aria-label="Case study sections"><a href="#case-context">01 Overview</a>{project.focus?.length > 0 && <a href="#case-features">02 Features</a>}<a href="#case-decisions">03 Engineering</a><a href="#case-results">04 Results</a><a href="#case-stack">05 Stack & links</a></nav>
       <section className="case-section" id="case-context">
         <SectionHeading className="case-section-label" label="01 / The brief" title="Problem &" accent="contribution." description="The product context and my role in the work." />
